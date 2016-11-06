@@ -1,0 +1,11 @@
+/* line 4, /Users/oliver/Dropbox/addicted to coffee/Grafik/Apple Product Icons/microsite/source/stylesheets/buttons.scss */
+.btn-outline {
+  background: transparent; }
+  /* line 6, /Users/oliver/Dropbox/addicted to coffee/Grafik/Apple Product Icons/microsite/source/stylesheets/buttons.scss */
+  .btn-outline.btn-default {
+    border: 2px solid #616161; }
+    /* line 8, /Users/oliver/Dropbox/addicted to coffee/Grafik/Apple Product Icons/microsite/source/stylesheets/buttons.scss */
+    .btn-outline.btn-default:hover {
+      background: #3098d2;
+      border-color: #3098d2;
+      color: white; }
