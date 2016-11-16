@@ -1,0 +1,164 @@
+/* line 28, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/variables.scss */
+.facebook {
+  color: #3b5a9a; }
+
+/* line 31, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/variables.scss */
+.twitter {
+  color: #2cade7; }
+
+/* line 34, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/variables.scss */
+.dribbble {
+  color: #ea4c89; }
+
+/* line 37, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/variables.scss */
+.linkedin {
+  color: #0e76a8; }
+
+/* line 4, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+.white-font-color * {
+  color: white; }
+/* line 7, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+.white-font-color span.tag {
+  font-weight: 400;
+  color: white;
+  border-color: white;
+  display: inline-block; }
+
+/* line 15, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+.portfolio--row {
+  padding-bottom: 80px; }
+
+/* line 19, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+.barista-iconset {
+  background: #f55b5c; }
+
+/* line 23, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+.mathilda {
+  background: #c5cde0; }
+
+/* line 27, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+.studitemps {
+  background: #316888; }
+
+/* line 31, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+.jobmensa {
+  background: #0069B4; }
+
+/* line 35, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+.doo {
+  background: #0064aa; }
+
+/* line 39, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+.thassos-poolside {
+  background: #cec4b8; }
+
+/* line 43, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+.portfolio-image {
+  border: 1px solid #e1e3e7;
+  background: white;
+  border-radius: 4px;
+  margin-bottom: 40px;
+  width: 100%; }
+  /* line 49, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+  .portfolio-image .no-padding {
+    padding-left: 0px;
+    padding-right: 0px; }
+  /* line 53, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+  .portfolio-image .description {
+    position: absolute;
+    background: rgba(33, 33, 33, 0.8);
+    top: 0;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    display: none;
+    margin-left: 0px; }
+    /* line 63, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+    .portfolio-image .description p {
+      color: white;
+      line-height: 120%; }
+      /* line 66, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+      .portfolio-image .description p.lead {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+        border-bottom: 1px solid white; }
+    /* line 72, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+    .portfolio-image .description span.magnify {
+      font-size: 2em;
+      position: absolute;
+      bottom: 10px;
+      right: 15px;
+      color: white; }
+
+/* line 83, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+.portfolio-bar h3 {
+  font-size: 32px; }
+
+/* line 88, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+span.tag {
+  font-weight: 400;
+  padding: 5px 10px;
+  font-size: 12px;
+  color: #212121;
+  border: 1px solid #212121;
+  border-radius: 40px;
+  opacity: .6; }
+
+/* line 98, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+.reputami {
+  background: #283e59; }
+
+/* line 102, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+.true-fruits {
+  background: #c1c1c1; }
+
+/* line 106, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+.pokemoji {
+  background: #ffec91; }
+  /* line 108, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+  .pokemoji span.tag {
+    font-weight: 400;
+    color: #212121;
+    border-color: #212121; }
+
+/* line 115, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+.fliplife {
+  background: #85ca43; }
+  /* line 117, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+  .fliplife h3 {
+    color: white; }
+  /* line 120, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+  .fliplife p {
+    color: rgba(255, 255, 255, 0.75); }
+
+/* line 125, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+.solution-space {
+  background: #76B82A;
+  color: white; }
+  /* line 128, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+  .solution-space h3 {
+    color: white; }
+  /* line 131, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+  .solution-space p {
+    color: rgba(255, 255, 255, 0.75); }
+  /* line 134, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+  .solution-space span.tag {
+    font-weight: 400;
+    color: white;
+    border: 1px solid white; }
+
+/* line 142, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+.complero {
+  background: #4F4394; }
+  /* line 144, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+  .complero h3 {
+    color: white; }
+  /* line 147, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+  .complero p {
+    color: rgba(255, 255, 255, 0.75); }
+  /* line 150, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+  .complero span.tag {
+    font-weight: 400;
+    color: white;
+    border: 1px solid white; }
