@@ -13,3 +13,9 @@
 /* line 37, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/variables.scss */
 .linkedin {
   color: #0e76a8; }
+
+/* line 15, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/buttons.scss */
+.btn-mobile {
+  background: transparent;
+  color: inherit;
+  border-color: inherit; }

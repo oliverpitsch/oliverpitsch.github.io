@@ -171,6 +171,12 @@
     position: relative;
     top: 1px; }
 
+/* line 15, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/buttons.scss */
+.btn-mobile {
+  background: transparent;
+  color: inherit;
+  border-color: inherit; }
+
 /* line 4, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
 .white-font-color * {
   color: white; }
