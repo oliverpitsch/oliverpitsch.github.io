@@ -216,17 +216,21 @@
   background: #cec4b8; }
 
 /* line 43, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+.neo-magazin-royale {
+  background: #47bdbd; }
+
+/* line 47, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
 .portfolio-image {
   border: 1px solid #e1e3e7;
   background: white;
   border-radius: 4px;
   margin-bottom: 40px;
   width: 100%; }
-  /* line 49, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+  /* line 53, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
   .portfolio-image .no-padding {
     padding-left: 0px;
     padding-right: 0px; }
-  /* line 53, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+  /* line 57, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
   .portfolio-image .description {
     position: absolute;
     background: rgba(33, 33, 33, 0.8);
@@ -237,16 +241,16 @@
     padding: 20px;
     display: none;
     margin-left: 0px; }
-    /* line 63, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+    /* line 67, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
     .portfolio-image .description p {
       color: white;
       line-height: 120%; }
-      /* line 66, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+      /* line 70, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
       .portfolio-image .description p.lead {
         font-size: 1.2em;
         margin-bottom: 10px;
         border-bottom: 1px solid white; }
-    /* line 72, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+    /* line 76, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
     .portfolio-image .description span.magnify {
       font-size: 2em;
       position: absolute;
@@ -254,11 +258,11 @@
       right: 15px;
       color: white; }
 
-/* line 83, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+/* line 87, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
 .portfolio-bar h3 {
   font-size: 32px; }
 
-/* line 88, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+/* line 92, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
 span.tag {
   font-weight: 400;
   padding: 5px 10px;
@@ -268,59 +272,59 @@ span.tag {
   border-radius: 40px;
   opacity: .6; }
 
-/* line 98, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+/* line 102, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
 .reputami {
   background: #283e59; }
 
-/* line 102, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+/* line 106, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
 .true-fruits {
   background: #c1c1c1; }
 
-/* line 106, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+/* line 110, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
 .pokemoji {
   background: #ffec91; }
-  /* line 108, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+  /* line 112, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
   .pokemoji span.tag {
     font-weight: 400;
     color: #212121;
     border-color: #212121; }
 
-/* line 115, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+/* line 119, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
 .fliplife {
   background: #85ca43; }
-  /* line 117, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+  /* line 121, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
   .fliplife h3 {
     color: white; }
-  /* line 120, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+  /* line 124, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
   .fliplife p {
     color: rgba(255, 255, 255, 0.75); }
 
-/* line 125, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+/* line 129, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
 .solution-space {
   background: #76B82A;
   color: white; }
-  /* line 128, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+  /* line 132, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
   .solution-space h3 {
     color: white; }
-  /* line 131, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+  /* line 135, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
   .solution-space p {
     color: rgba(255, 255, 255, 0.75); }
-  /* line 134, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+  /* line 138, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
   .solution-space span.tag {
     font-weight: 400;
     color: white;
     border: 1px solid white; }
 
-/* line 142, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+/* line 146, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
 .complero {
   background: #4F4394; }
-  /* line 144, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+  /* line 148, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
   .complero h3 {
     color: white; }
-  /* line 147, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+  /* line 151, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
   .complero p {
     color: rgba(255, 255, 255, 0.75); }
-  /* line 150, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
+  /* line 154, /Users/oliver/development/oliverpitsch.github.io/source/stylesheets/portfolio.scss */
   .complero span.tag {
     font-weight: 400;
     color: white;
