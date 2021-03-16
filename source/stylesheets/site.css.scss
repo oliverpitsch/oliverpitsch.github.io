@@ -129,7 +129,7 @@ span.underline {
       background-repeat: no-repeat;
       background-image: none;
       animation: flicker 1.5s infinite alternate;
-      mix-blend-mode: normal;
+      mix-blend-mode: hard-light;
   }
 
   .social-link {
@@ -153,11 +153,11 @@ span.underline {
       text-shadow:
           -0.2rem -0.2rem 1rem #fff,
           0.2rem 0.2rem 1rem #fff,
-          0 0 2rem $opi-yellow-500,
-          0 0 4rem $opi-yellow-500,
-          0 0 6rem $opi-yellow-500,
-          0 0 8rem $opi-yellow-500,
-          0 0 10rem $opi-yellow-500;
+          0 0 2rem yellow,
+          0 0 4rem yellow,
+          0 0 6rem yellow,
+          0 0 8rem yellow,
+          0 0 10rem yellow;
   }
   
   20%, 24%, 55% {        
