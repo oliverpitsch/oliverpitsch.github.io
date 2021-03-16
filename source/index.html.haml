@@ -3,10 +3,14 @@ title: eTrusted
 ---
 
 .topline
-.container.dark
+.container
   .row
     .col-12.mt-64.text-center
-      %img.profile-image(src="images/profil-oliver-pitsch-dark.jpg" alt="Oliver Pitsch Profilephoto" width="192px")/
+      %picture.profile-image
+        %source{:media => "(prefers-color-scheme: light) or (prefers-color-scheme: no-preference)", :srcset => "images/oliver-pitsch.jpg"}
+        %source{:media => "(prefers-color-scheme: dark)", :srcset => "images/oliver-pitsch-dark.jpg"}
+        %img.profile-image{:alt => "Oliver Pitsch", :src => "images/oliver-pitsch.jpg", height: "192px"}/
+
   .row
     .col-12.text-center.mt-32
       %h1 Oliver Pitsch
