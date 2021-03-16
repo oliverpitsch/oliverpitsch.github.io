@@ -20,7 +20,7 @@ page '/*.txt', layout: false
 helpers do
   def company_logo(name)
     root = Middleman::Application.root
-    file_path = "#{root}/source/images/company-logos/#{name}.svg"
+    file_path = "#{root}/source/images/companies/#{name}.svg"
     return File.read(file_path) if File.exists?(file_path)
     ''
   end

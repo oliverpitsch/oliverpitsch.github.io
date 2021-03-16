@@ -1,4 +1,4 @@
-@import "bootstrap";
+// @import "templates/reboot.css";
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Libre+Baskerville:ital@1&display=swap');
 @import "templates/colors.css.scss";
 @import "templates/spacing.css.scss";
@@ -6,9 +6,13 @@
   color-scheme: light dark; /* both supported */
 }
 
-body * {
+
+html {
   font-family: "Inter", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: $opi-primary-700;
+  box-sizing: content-box;
+  font-size: 62.5%;
+  line-height: 1.4;
 }
 
 .topline {

@@ -6,7 +6,6 @@ gem 'middleman-sprockets'
 gem 'jquery-middleman'
 gem 'tzinfo-data', platforms: [:mswin, :mingw, :jruby]
 gem 'wdm', '~> 0.1', platforms: [:mswin, :mingw]
-gem 'bootstrap', '~> 4.5.2'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'

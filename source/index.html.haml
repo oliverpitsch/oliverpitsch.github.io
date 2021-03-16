@@ -2,49 +2,48 @@
 title: eTrusted
 ---
 
-.topline
-.container
-  .row
-    .col-12.mt-64.text-center
-      %picture.profile-image
-        %source{:media => "(prefers-color-scheme: light) or (prefers-color-scheme: no-preference)", :srcset => "images/oliver-pitsch.jpg"}
-        %source{:media => "(prefers-color-scheme: dark)", :srcset => "images/oliver-pitsch-dark.jpg"}
-        %img.profile-image{:alt => "Oliver Pitsch", :src => "images/oliver-pitsch.jpg", height: "192px"}/
+.row.topline
+.row
+  .col-12.mt-64.text-center
+    %picture.profile-image
+      %source{:media => "(prefers-color-scheme: light) or (prefers-color-scheme: no-preference)", :srcset => "images/oliver-pitsch.jpg"}
+      %source{:media => "(prefers-color-scheme: dark)", :srcset => "images/oliver-pitsch-dark.jpg"}
+      %img.profile-image{:alt => "Oliver Pitsch", :src => "images/oliver-pitsch.jpg", height: "192px"}/
 
-  .row
-    .col-12.text-center.mt-32
-      %h1 Oliver Pitsch
-      %h2.mt-24
-        Director UX 
-        %span.amp &amp;
-        Product Marketing
-        %span.regular at 
-        %span.underline Trusted Shops
-  .row.justify-content-center.mt-96
-    .col-8
-      %p Oliver Pitsch is a product design leader from Cologne, Germany with over a decade of experience in setting up great UX skills in cross-functional agile product teams and harmonizing the discovery and delivery of digital products.
-      %p Together with his partner Ali Saffari he is the founder and former managing director of Reputami, a reputation management Saas for the hospitality industry, which was acquired in 2015.
-      %p 
-        Currently, Oliver is directing User Experience & Product Marketing at
-        = succeed "." do
-          %a(href="https://trustedshops.de") Trusted Shops
-  .row.justify-content-center.text-center.mt-164
-    .col-12.mb-24
-      %h3 Get in touch
-    .col-2
-      %a.social-link(href="")
-        = svg "linkedIn"
-    .col-2
-      %a.social-link(href="")
-        = svg "xing"
-    .col-2
-      %a.social-link(href="")
-        = svg "medium"
-    .col-2
-      %a.social-link(href="")
-        = svg "instagram"
-    .col-2
-      %a.social-link(href="")
-        = svg "twitter"
+.row
+  .col-12.text-center.mt-32
+    %h1 Oliver Pitsch
+    %h2.mt-24
+      Director UX 
+      %span.amp &amp;
+      Product Marketing
+      %span.regular at 
+      %span.underline Trusted Shops
+.row.justify-content-center.mt-96
+  .col-8
+    %p Oliver Pitsch is a product design leader from Cologne, Germany with over a decade of experience in setting up great UX skills in cross-functional agile product teams and harmonizing the discovery and delivery of digital products.
+    %p Together with his partner Ali Saffari he is the founder and former managing director of Reputami, a reputation management Saas for the hospitality industry, which was acquired in 2015.
+    %p 
+      Currently, Oliver is directing User Experience & Product Marketing at
+      = succeed "." do
+        %a(href="https://trustedshops.de") Trusted Shops
+.row.justify-content-center.text-center.mt-164
+  .col-12.mb-24
+    %h3 Get in touch
+  .col-2
+    %a.social-link(href="")
+      = svg "linkedIn"
+  .col-2
+    %a.social-link(href="")
+      = svg "xing"
+  .col-2
+    %a.social-link(href="")
+      = svg "medium"
+  .col-2
+    %a.social-link(href="")
+      = svg "instagram"
+  .col-2
+    %a.social-link(href="")
+      = svg "twitter"
 
 
