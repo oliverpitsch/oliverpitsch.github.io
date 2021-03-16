@@ -16,7 +16,7 @@ html {
 }
 
 .topline {
-  height: 24px;
+  height: 1.8rem;
   background: linear-gradient(180deg, $opi-yellow-700 0%, $opi-yellow-700 33%, $opi-yellow-600 33%, $opi-yellow-600 66%, $opi-yellow-500 66%, $opi-yellow-500 66%);
 }
 
@@ -196,7 +196,7 @@ span.underline {
       }
     }
     svg {
-      fill: $opi-primary-200;
+      fill: $opi-primary-400;
       transform: scale(2)
     }
   }
@@ -238,4 +238,24 @@ span.underline {
       text-shadow: none;
       box-shadow: none;
   }    
+}
+
+.footer {
+  background: $opi-yellow-500;
+  padding: .8rem 0;
+  font-size: 1.2rem;
+  margin-bottom: .4rem;
+  position: relative;
+  a {
+    color: $opi-primary-700;
+  }
+  &:after {
+    position: absolute;
+    content:'';
+    height: .4rem;
+    width: 100%;
+    background: linear-gradient(180deg, $opi-yellow-600 0%, $opi-yellow-600 50%, $opi-yellow-700 50%, $opi-yellow-700 100%);;
+    bottom: -.4rem;
+    left: 0;
+  }
 }
