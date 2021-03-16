@@ -92,6 +92,9 @@ span.underline {
       background: linear-gradient(90deg, $opi-yellow-600 0%, $opi-yellow-600 50%, transparent 50%, transparent 100%);
     }
   }
+  svg {
+    fill: $opi-primary-700;
+  }
   h4 {
     font-size: 1.8rem;
     font-weight: 600;
@@ -102,7 +105,7 @@ span.underline {
     color: $opi-primary-600;
   }
 }
-.timeline--indicator {
+.timeline-indicator {
   &:before {
     content: '';
     position: absolute;
@@ -195,6 +198,23 @@ span.underline {
     svg {
       fill: $opi-primary-200;
       transform: scale(2)
+    }
+  }
+
+  .timeline {
+    h4 {
+      color: white;
+    }
+    span.timespan {
+      color: $opi-primary-400;
+    }
+    svg {
+      fill: white;
+    }
+  }
+  .timeline-indicator {
+    &:before {
+      border: .2rem solid $opi-primary-700;
     }
   }
 }
