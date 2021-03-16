@@ -74,6 +74,51 @@ span.underline {
     background-size: calc(100% - 12px) 12px,auto 12px,auto 12px;
 }
 
+.timeline {
+  padding-bottom: 4rem;
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    height: .2rem;
+    width: 100%;
+    background: $opi-yellow-600;
+    bottom: .2rem;
+    left: 0;
+    z-index: 1;
+  }
+  &:last-child {
+    &:after {
+      background: linear-gradient(90deg, $opi-yellow-600 0%, $opi-yellow-600 50%, transparent 50%, transparent 100%);
+    }
+  }
+  h4 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-top: 2.4rem;
+  }
+  span.timespan {
+    font-size: 1.6rem;
+    color: $opi-primary-600;
+  }
+}
+.timeline--indicator {
+  &:before {
+    content: '';
+    position: absolute;
+    height: 1rem;
+    width: 1rem;
+    background: $opi-yellow-600;
+    border: .2rem solid white;
+    border-radius: 100%;
+    bottom: -.2rem;
+    left: 50%;
+    margin-left: -.3rem;
+    z-index: 2;
+  }
+}
+
+
 .social-link {
   &:hover {
     svg {
