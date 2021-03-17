@@ -14,6 +14,11 @@ html {
   box-sizing: content-box;
   font-size: 62.5%;
   line-height: 1.4;
+  background:$opi-yellow-700;
+}
+body {
+  background: white;
+  -webkit-overflow-scrolling: auto;
 }
 
 .topline {
@@ -26,7 +31,8 @@ html {
 }
 
 p {
-  font-size: 16px;
+  font-size: 18px;
+  line-height: 1.6;
   a {
     color: inherit;
     text-decoration: underline;
@@ -265,5 +271,20 @@ abbr[title] {
     background: linear-gradient(180deg, $opi-yellow-600 0%, $opi-yellow-600 50%, $opi-yellow-700 50%, $opi-yellow-700 100%);;
     bottom: -.4rem;
     left: 0;
+  }
+}
+
+.imprint-content {
+  h1 { 
+    font-size: 2.8rem;
+  }
+  h2 {
+    font-size: 2.4rem;
+  }
+  h3 {
+    font-size: 1.8rem;
+  }
+  p {
+    font-size: 1.6rem;
   }
 }
