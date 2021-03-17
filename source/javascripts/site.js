@@ -1,8 +1,3 @@
-//= require jquery
-//= require tether
-//= require bootstrap-sprockets
-
-
 // Select the button
 const btn = document.querySelector(".btn-toggle");
 // Check for dark mode preference at the OS level
