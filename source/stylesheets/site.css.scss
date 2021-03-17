@@ -222,6 +222,11 @@ span.underline {
   }
 }
 
+abbr[title] {
+  text-decoration-style: wavy;
+  text-decoration-color: $opi-yellow-500;
+}
+
 /* Animate neon flicker */
 @keyframes flicker {
     
