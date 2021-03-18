@@ -22,6 +22,12 @@
 .mb-64 {
   margin-bottom: 64px; }
 
+.mb-72 {
+  margin-bottom: 72px; }
+
+.mb-80 {
+  margin-bottom: 80px; }
+
 .mb-128 {
   margin-bottom: 128px; }
 
@@ -49,8 +55,20 @@
 .mt-64 {
   margin-top: 64px; }
 
+.mt-72 {
+  margin-top: 72px; }
+
+.mt-80 {
+  margin-top: 80px; }
+
+.mt-96 {
+  margin-top: 96px; }
+
 .mt-128 {
   margin-top: 128px; }
 
-.mt-288 {
-  margin-top: 288px; }
+.mt-164 {
+  margin-top: 164px; }
+
+.p-0 {
+  padding: 0 0 0 0 !important; }
