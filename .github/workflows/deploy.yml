@@ -37,6 +37,8 @@ jobs:
         run: |
           if [ -f CNAME ]; then cp CNAME out/CNAME; fi
           touch out/.nojekyll
+          mkdir -p out/images
+          if [ -d src/legacy/images ]; then cp -R src/legacy/images/* out/images/; fi
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
