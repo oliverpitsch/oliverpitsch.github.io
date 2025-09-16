@@ -93,7 +93,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#F8FAFC] dark:bg-[#182B52] text-[#182B52] dark:text-white">
       <Topline />
-      <main className="mx-auto max-w-5xl px-4">
+      <main className="mx-auto max-w-full">
         <ProfileImage />
 
         <div className="text-center mt-8">
@@ -104,13 +104,13 @@ export default function Home() {
             <span className="px-1 bg-[#FFDC0F]">Trusted Shops</span>
           </h2>
           <h2 className="mt-6 text-[24px] font-semibold">
-            Founder <span className="font-normal">at</span> <span className="px-1 bg-[#818CF8] text-white">Joinride.cc</span>
+            Founder <span className="font-normal">at</span> <span className="px-1 bg-indigo-700 text-white">Joinride.cc</span>
           </h2>
         </div>
 
         <Timeline />
 
-        <section className="mx-auto mt-16 max-w-3xl text-[18px] leading-7 text-[#182B52] dark:text-[#E6EEFF]">
+        <section className="mx-auto mt-16 max-w-3xl text-[18px] leading-7 text-[#182B52] dark:text-[#E6EEFF] px-10 lg:px-0">
           <p>
             Oliver Pitsch is an experienced product design leader from Cologne, Germany, with a strong track record of building
             cross-functional teams and delivering exceptional user experiences. With over a decade of experience, he specializes in
