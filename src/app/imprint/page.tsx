@@ -47,7 +47,7 @@ export default function Imprint() {
 
           <h3 className="text-[16px] font-normal opacity-90 mt-8">Anwendungsbereiche</h3>
           <p>
-            Dieses Impressum ist ebenso gültig für die Präsenzen von Oliver Pitsch auf Facebook, Instagram, Twitter, LinkedIn, Xing. Außerdem für das Projekt Joinride auf Joinride.de.
+            Dieses Impressum ist ebenso gültig für die Präsenzen von Oliver Pitsch auf Facebook, Instagram, Twitter, LinkedIn, Xing. Außerdem für das Projekt Joinride auf Joinride.cc und alle Joinride Social Media Präsenzen.
           </p>
 
           <h3 className="text-[16px] font-normal opacity-90 mt-8">Haftungsausschluss</h3>
