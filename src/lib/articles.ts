@@ -13,6 +13,9 @@ export interface ArticleMeta {
   date?: string; // ISO date or YYYY-MM-DD
   description?: string;
   displayDate?: string; // nicely formatted date for UI
+  heroImage?: string; // path under /public
+  heroAlt?: string;
+  ogImage?: string; // override for social sharing
 }
 
 export interface Article extends ArticleMeta {
@@ -62,6 +65,9 @@ export async function getArticleBySlug(slug: string): Promise<Article | null> {
     date,
     displayDate,
     description: data.description as string | undefined,
+    heroImage: data.heroImage as string | undefined,
+    heroAlt: data.heroAlt as string | undefined,
+    ogImage: data.ogImage as string | undefined,
     html: processed.toString(),
   };
 }
@@ -96,6 +102,9 @@ export async function getAllArticlesMeta(): Promise<ArticleMeta[]> {
       date,
       displayDate,
       description: data.description as string | undefined,
+      heroImage: data.heroImage as string | undefined,
+      heroAlt: data.heroAlt as string | undefined,
+      ogImage: data.ogImage as string | undefined,
     });
   }
   return articles.sort((a,b) => (b.date || '').localeCompare(a.date || ''));
