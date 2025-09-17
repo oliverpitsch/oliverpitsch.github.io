@@ -1,6 +1,6 @@
 ---
 slug: from-designer-to-full-stack-builder
-Title: From Designer to Full-Stack Builder: How AI Expanded My Role Beyond Design and Frontend
+Title: "From Designer to Full-Stack Builder: How AI Expanded My Role Beyond Design and Frontend"
 author: Oliver Pitsch
 readingTime: 3 min read
 date: 2025-09-14

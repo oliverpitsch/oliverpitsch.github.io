@@ -12,6 +12,7 @@ export interface ArticleMeta {
   readingTime?: string;
   date?: string; // ISO date or YYYY-MM-DD
   description?: string;
+  displayDate?: string; // nicely formatted date for UI
 }
 
 export interface Article extends ArticleMeta {
@@ -32,12 +33,27 @@ export async function getArticleBySlug(slug: string): Promise<Article | null> {
   const raw = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(raw);
   const processed = await remark().use(gfm).use(html).process(content);
+  const rawDate: unknown = data.date;
+  let date: string | undefined;
+  let displayDate: string | undefined;
+  if (rawDate instanceof Date) {
+    date = rawDate.toISOString().slice(0, 10); // YYYY-MM-DD
+    displayDate = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: 'numeric' }).format(rawDate);
+  } else if (typeof rawDate === 'string') {
+    date = rawDate;
+    const d = new Date(rawDate);
+    if (!isNaN(d.getTime())) {
+      displayDate = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: 'numeric' }).format(d);
+    }
+  }
+
   return {
     slug: (data.slug as string) || slug.replace(/\.md$/, ''),
     Title: data.Title as string,
     author: data.author as string | undefined,
     readingTime: data.readingTime as string | undefined,
-    date: data.date as string | undefined,
+    date,
+    displayDate,
     description: data.description as string | undefined,
     html: processed.toString(),
   };
@@ -50,12 +66,26 @@ export async function getAllArticlesMeta(): Promise<ArticleMeta[]> {
     const fullPath = path.join(articlesDir, file);
     const raw = fs.readFileSync(fullPath, 'utf8');
     const { data } = matter(raw);
+    const rawDate: unknown = data.date;
+    let date: string | undefined;
+    let displayDate: string | undefined;
+    if (rawDate instanceof Date) {
+      date = rawDate.toISOString().slice(0, 10);
+      displayDate = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: 'numeric' }).format(rawDate);
+    } else if (typeof rawDate === 'string') {
+      date = rawDate;
+      const d = new Date(rawDate);
+      if (!isNaN(d.getTime())) {
+        displayDate = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: 'numeric' }).format(d);
+      }
+    }
     articles.push({
       slug: (data.slug as string) || file.replace(/\.md$/, ''),
       Title: data.Title as string,
       author: data.author as string | undefined,
       readingTime: data.readingTime as string | undefined,
-      date: data.date as string | undefined,
+      date,
+      displayDate,
       description: data.description as string | undefined,
     });
   }

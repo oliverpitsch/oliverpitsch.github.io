@@ -1,11 +1,1 @@
-{
-  "version": 4,
-  "routes": {},
-  "dynamicRoutes": {},
-  "notFoundRoutes": [],
-  "preview": {
-    "previewModeId": "a2f405659f9cdf3e7c992e85bb536426",
-    "previewModeSigningKey": "8cb6253e08ed4c8d47648766a3be71d131bcfad3b0c8699239a1b2798e5d96f5",
-    "previewModeEncryptionKey": "90ddf9b5bfff7f8ebcc2f7f3a2b06e1620b8b349db883ca65902c2db233778bc"
-  }
-}
+{"version":4,"routes":{"/articles/from-designer-to-full-stack-builder":{}},"dynamicRoutes":{"/articles/[slug]":{"dataRoute":null,"dataRouteRegex":null,"fallback":null,"fallbackRevalidate":false,"fallbackSourceRoute":"/articles/[slug]","routeRegex":"^\\/articles\\/([^/]+?)(?:\\/)?$","allowHeader":[]}},"notFoundRoutes":[],"preview":{"previewModeId":"bf4c157d700d69a68233b555d23f1522","previewModeSigningKey":"76171bc92c7ce4be0da371528506bfedbee5f2c3cc5954cb9cf1ca85987b1809","previewModeEncryptionKey":"53a12830ca69beb779a57a17c555ca3177a84fd077ac07d1f0853ed0ee4e2ee4"}}

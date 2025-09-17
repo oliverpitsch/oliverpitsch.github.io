@@ -27,7 +27,7 @@ export default async function ArticlesIndex() {
               <div className="mt-auto pt-2 text-xs text-neutral-500 dark:text-neutral-500 flex flex-wrap gap-2">
                 {a.author && <span>{a.author}</span>}
                 {a.readingTime && <span>· {a.readingTime}</span>}
-                {a.date && <span>· {a.date}</span>}
+                {a.displayDate && <span>· {a.displayDate}</span>}
               </div>
             </div>
             <span className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-neutral-900/0 group-hover:ring-neutral-900/10 dark:group-hover:ring-white/10 transition" />
