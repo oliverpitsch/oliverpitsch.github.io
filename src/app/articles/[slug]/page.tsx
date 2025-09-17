@@ -11,7 +11,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   const article = await getArticleBySlug(params.slug);
   if (!article) return { title: 'Article not found' };
   const description = article.description || (article.author ? `${article.Title} by ${article.author}` : article.Title);
-  const ogImage = `/og/${article.slug}.png`;
+  // Allow frontmatter 'ogImage' override (relative to /public) else try conventional slug .jpg then fallback to site default
+  const ogImage = (article as any).ogImage || `/og/${article.slug}.jpg`;
   return {
     title: article.Title,
     description,
@@ -37,9 +38,9 @@ export default async function ArticlePage({ params }: ArticlePageProps): Promise
   return (
     <article className="mx-auto max-w-3xl px-4 md:px-0 py-10 prose prose-neutral dark:prose-invert">
       <header className="mb-6">
-        <div className="mb-6 not-prose rounded-xl overflow-hidden border border-neutral-200 dark:border-neutral-800 shadow-sm">
+        <div className="mb-6 not-prose rounded-xl overflow-hidden border border-neutral-200 dark:border-neutral-800 shadow-sm bg-neutral-50 dark:bg-neutral-900">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={`/og/${article.slug}.png`} alt="" className="w-full h-auto" loading="lazy" />
+          <img src={`/og/${article.slug}.jpg`} alt="" className="w-full h-auto" loading="lazy" />
         </div>
         <h1 className="!mb-2 text-3xl md:text-4xl font-bold leading-tight">{article.Title}</h1>
         <p className="!mt-0 text-sm text-neutral-600 dark:text-neutral-400">

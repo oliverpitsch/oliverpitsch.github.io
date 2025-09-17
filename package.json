@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
      "dev": "next dev",
-    "prebuild": "node scripts/generate-og.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
@@ -25,8 +24,7 @@
     "@types/react-dom": "^19",
     "@tailwindcss/postcss": "^4",
     "tailwindcss": "^4",
-    "@tailwindcss/typography": "^0.5.15",
-    "@resvg/resvg-js": "^2.6.2",
+  "@tailwindcss/typography": "^0.5.15",
     "eslint": "^9",
     "eslint-config-next": "15.5.3",
     "@eslint/eslintrc": "^3"
