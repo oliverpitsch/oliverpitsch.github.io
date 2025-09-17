@@ -9,7 +9,7 @@ export interface ArticleMeta {
   slug: string;
   Title: string;
   author?: string;
-  readingTime?: string;
+  readingTime?: string; // e.g. "5 min read" auto computed if not provided
   date?: string; // ISO date or YYYY-MM-DD
   description?: string;
   displayDate?: string; // nicely formatted date for UI
@@ -24,6 +24,12 @@ const articlesDir = path.join(process.cwd(), 'content', 'articles');
 export function getArticleSlugs(): string[] {
   if (!fs.existsSync(articlesDir)) return [];
   return fs.readdirSync(articlesDir).filter(f => f.endsWith('.md'));
+}
+
+function computeReadingTime(text: string): string {
+  const words = text.trim().split(/\s+/).length;
+  const minutes = Math.max(1, Math.round(words / 200)); // 200 wpm baseline
+  return `${minutes} min read`;
 }
 
 export async function getArticleBySlug(slug: string): Promise<Article | null> {
@@ -47,11 +53,12 @@ export async function getArticleBySlug(slug: string): Promise<Article | null> {
     }
   }
 
+  const readingTime = (data.readingTime as string | undefined) || computeReadingTime(content);
   return {
     slug: (data.slug as string) || slug.replace(/\.md$/, ''),
     Title: data.Title as string,
     author: data.author as string | undefined,
-    readingTime: data.readingTime as string | undefined,
+    readingTime,
     date,
     displayDate,
     description: data.description as string | undefined,
@@ -79,15 +86,32 @@ export async function getAllArticlesMeta(): Promise<ArticleMeta[]> {
         displayDate = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: 'numeric' }).format(d);
       }
     }
+    const content = raw.split('---').slice(2).join('---'); // naive extraction after frontmatter
+    const readingTime = (data.readingTime as string | undefined) || computeReadingTime(content);
     articles.push({
       slug: (data.slug as string) || file.replace(/\.md$/, ''),
       Title: data.Title as string,
       author: data.author as string | undefined,
-      readingTime: data.readingTime as string | undefined,
+      readingTime,
       date,
       displayDate,
       description: data.description as string | undefined,
     });
   }
   return articles.sort((a,b) => (b.date || '').localeCompare(a.date || ''));
+}
+
+export interface AdjacentArticles {
+  previous: ArticleMeta | null; // older
+  next: ArticleMeta | null; // newer
+}
+
+export async function getAdjacentArticles(slug: string): Promise<AdjacentArticles> {
+  const all = await getAllArticlesMeta();
+  const index = all.findIndex(a => a.slug === slug);
+  if (index === -1) return { previous: null, next: null };
+  return {
+    next: index > 0 ? all[index - 1] : null,
+    previous: index < all.length - 1 ? all[index + 1] : null,
+  };
 }
