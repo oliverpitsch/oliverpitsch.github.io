@@ -52,9 +52,9 @@ export async function renderArticle(slug: string) {
                 Oliver Pitsch is an experienced product design leader from Cologne, Germany, with a strong track record of building cross-functional teams and delivering exceptional user experiences. He specializes in harmonizing discovery and delivery and currently directs User Experience & Product Marketing at <a href="https://trustedshops.com" className="underline">Trusted Shops</a> while building <a href="https://joinride.cc" className="underline">Joinride.cc</a>.
               </p>
               <div className="mt-4 flex flex-wrap gap-4 text-sm">
-                <a href="/" className="underline">Home</a>
-                <a href="/articles" className="underline">All articles</a>
-                <a href="/imprint" className="underline">Imprint</a>
+                <Link href="/" className="underline">Home</Link>
+                <Link href="/articles" className="underline">All articles</Link>
+                <Link href="/imprint" className="underline">Imprint</Link>
               </div>
             </div>
           </div>
@@ -62,16 +62,16 @@ export async function renderArticle(slug: string) {
         <nav className="mt-16 flex flex-col gap-4 text-sm">
           <div className="flex flex-wrap gap-4">
             {adjacent.previous && (
-              <a href={`/articles/${adjacent.previous.slug}`} className="group inline-flex flex-col rounded-md border border-neutral-200 dark:border-neutral-800 p-3 hover:bg-neutral-50 dark:hover:bg-neutral-900/60 transition">
+              <Link href={`/articles/${adjacent.previous.slug}`} className="group inline-flex flex-col rounded-md border border-neutral-200 dark:border-neutral-800 p-3 hover:bg-neutral-50 dark:hover:bg-neutral-900/60 transition">
                 <span className="text-xs uppercase tracking-wide text-neutral-500">Previous</span>
                 <span className="font-medium group-hover:text-indigo-600 dark:group-hover:text-indigo-400">{adjacent.previous.Title}</span>
-              </a>
+              </Link>
             )}
             {adjacent.next && (
-              <a href={`/articles/${adjacent.next.slug}`} className="group inline-flex flex-col rounded-md border border-neutral-200 dark:border-neutral-800 p-3 hover:bg-neutral-50 dark:hover:bg-neutral-900/60 transition ml-auto">
+              <Link href={`/articles/${adjacent.next.slug}`} className="group inline-flex flex-col rounded-md border border-neutral-200 dark:border-neutral-800 p-3 hover:bg-neutral-50 dark:hover:bg-neutral-900/60 transition ml-auto">
                 <span className="text-xs uppercase tracking-wide text-neutral-500 text-right">Next</span>
                 <span className="font-medium group-hover:text-indigo-600 dark:group-hover:text-indigo-400 text-right">{adjacent.next.Title}</span>
-              </a>
+              </Link>
             )}
           </div>
         </nav>

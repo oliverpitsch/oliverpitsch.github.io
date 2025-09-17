@@ -1,6 +1,11 @@
 import { NextResponse } from 'next/server';
 import { getAllArticlesMeta } from '@/lib/articles';
 
+// Ensure this route is treated as fully static for `output: 'export'`.
+export const dynamic = 'force-static';
+// If you want to regenerate on each build only; no ISR needed.
+export const revalidate = false;
+
 function escape(str: string) {
   return str.replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','\'':'&#39;','"':'&quot;'}[c] as string));
 }
