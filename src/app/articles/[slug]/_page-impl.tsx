@@ -32,8 +32,14 @@ export async function renderArticle(slug: string) {
               <img src="/images/oliver-pitsch.jpg" alt="Oliver Pitsch" className="h-9 w-9 rounded-full object-cover ring-2 ring-[#FFBF00]/70 dark:ring-[#FFDC0F]/70" />
             </picture>
             {article.author && <span className="leading-none">{article.author}</span>}
-            {article.readingTime && <span className="opacity-70 leading-none">{article.readingTime}</span>}
-            {article.displayDate && <span className="opacity-70 leading-none">{article.displayDate}</span>}
+            {article.readingTime && <span className="opacity-70 leading-none flex gap-1 items-center"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+</svg>
+ {article.readingTime}</span>}
+            {article.displayDate && <span className="opacity-70 leading-none flex gap-1 items-center"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+  <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
+</svg>
+ {article.displayDate}</span>}
           </div>
         </header>
         <div className="article-body markdown-content text-[17px] leading-7 [&_p]:mt-6 [&_p:first-child]:mt-0 text-[#182B52] dark:text-[#E6EEFF]" id="article-content">
@@ -76,7 +82,10 @@ export async function renderArticle(slug: string) {
           </div>
         </nav>
       </article>
-      <button id="backToTop" aria-label="Back to top" className="back-to-top-btn">↑</button>
+      <button id="backToTop" aria-label="Back to top" className="back-to-top-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="stroke-amber-800 size-6">
+  <path strokeLinecap="round" strokeLinejoin="round" d="m15 11.25-3-3m0 0-3 3m3-3v7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+</svg>
+</button>
       <Script id="article-enhancements" strategy="afterInteractive">{`
         (function(){
           const content = document.getElementById('article-content');
@@ -91,7 +100,7 @@ export async function renderArticle(slug: string) {
                 a.href = '#' + h.id;
                 a.className = 'heading-anchor';
                 a.setAttribute('aria-label', 'Link to section');
-                a.textContent = '§';
+                a.textContent = '🔗';
                 h.prepend(a);
               }
             });

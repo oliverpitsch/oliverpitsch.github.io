@@ -66,7 +66,7 @@ html { scroll-behavior: smooth; }
 /* Back to top button */
 .back-to-top-btn { position:fixed; right:1.25rem; bottom:1.25rem; display:inline-flex; align-items:center; justify-content:center; width:2.75rem; height:2.75rem; border-radius:9999px; background:#FFBF00; color:#182B52; font-weight:600; box-shadow:0 4px 18px -4px rgba(0,0,0,0.25); opacity:0; pointer-events:none; transition:opacity .25s, transform .25s; }
 .back-to-top-btn:hover { background:#FFAA00; }
-.dark .back-to-top-btn { background:#FFDC0F; color:#182B52; }
+.dark .back-to-top-btn { background:#FFDC0F; color:#523e18; }
 .back-to-top-btn.visible { opacity:1; pointer-events:auto; transform:translateY(0); }
 .back-to-top-btn:not(.visible) { transform:translateY(8px); }
 .markdown-content p { line-height:1.7; }
