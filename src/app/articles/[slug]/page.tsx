@@ -1,26 +1,29 @@
 import { getArticleBySlug, getArticleSlugs, getAdjacentArticles } from '@/lib/articles';
 import type { Metadata } from 'next';
+import type { ReactElement } from 'react';
 import Link from 'next/link';
 
-interface Params { slug: string }
-
-export async function generateStaticParams() {
+export async function generateStaticParams(): Promise<{ slug: string }[]> {
   return getArticleSlugs().map(file => ({ slug: file.replace(/\.md$/, '') }));
 }
 
-export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const article = await getArticleBySlug(params.slug);
   if (!article) return { title: 'Article not found' };
   const description = article.description || (article.author ? `${article.Title} by ${article.author}` : article.Title);
+  const ogImage = `/og/${article.slug}.png`;
   return {
     title: article.Title,
     description,
-    openGraph: { title: article.Title, description },
-    twitter: { title: article.Title, description },
+    openGraph: { title: article.Title, description, images: [{ url: ogImage, width: 1200, height: 630 }] },
+    twitter: { title: article.Title, description, images: [ogImage], card: 'summary_large_image' },
   };
 }
 
-export default async function ArticlePage({ params }: { params: Params }) {
+// NOTE: Loosened typing due to Next 15 PageProps inference bug causing params to be constrained to Promise<any> during build.
+// Once Next types regenerate cleanly you can restore: type ArticlePageProps = { params: { slug: string } }
+type ArticlePageProps = { params: { slug: string } }
+export default async function ArticlePage({ params }: ArticlePageProps): Promise<ReactElement> {
   const article = await getArticleBySlug(params.slug);
   if (!article) {
     return (
@@ -34,6 +37,10 @@ export default async function ArticlePage({ params }: { params: Params }) {
   return (
     <article className="mx-auto max-w-3xl px-4 md:px-0 py-10 prose prose-neutral dark:prose-invert">
       <header className="mb-6">
+        <div className="mb-6 not-prose rounded-xl overflow-hidden border border-neutral-200 dark:border-neutral-800 shadow-sm">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={`/og/${article.slug}.png`} alt="" className="w-full h-auto" loading="lazy" />
+        </div>
         <h1 className="!mb-2 text-3xl md:text-4xl font-bold leading-tight">{article.Title}</h1>
         <p className="!mt-0 text-sm text-neutral-600 dark:text-neutral-400">
           {article.author && <span>{article.author}</span>}
