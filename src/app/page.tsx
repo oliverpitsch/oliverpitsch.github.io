@@ -71,16 +71,14 @@ function Timeline() {
 function Social() {
   const links = [
     { href: "https://www.linkedin.com/in/oliverpitsch/", title: "LinkedIn", icon: "social-icons/social-linkedIn.svg" },
-    { href: "https://www.xing.com/profile/Oliver_Pitsch2/cv", title: "Xing", icon: "social-icons/social-xing.svg" },
-    { href: "https://uxatc.medium.com/", title: "Medium", icon: "social-icons/social-medium.svg" },
-    { href: "https://www.instagram.com/addictedtocoffee/", title: "Instagram", icon: "social-icons/social-instagram.svg" },
-    { href: "https://twitter.com/ot", title: "Twitter", icon: "social-icons/social-twitter.svg" },
+    { href: "https://oliverpitsch.medium.com/", title: "Medium", icon: "social-icons/social-medium.svg" },
+    { href: "https://www.instagram.com/addictedtocoffee/", title: "Instagram", icon: "social-icons/social-instagram.svg" } 
   ];
 
   return (
     <div className="mt-40 text-center">
       <h3 className="mb-8 text-[16px] font-normal text-[#3B5EA5] dark:text-[#E6EEFF]">Get in touch</h3>
-      <div className="mx-auto grid max-w-xl grid-cols-5 place-items-center gap-8">
+      <div className="mx-auto grid max-w-xl grid-cols-3 place-items-center gap-8">
         {links.map((l) => (
           <a key={l.href} href={l.href} title={`Oliver Pitsch on ${l.title}`} className="group">
             <img
