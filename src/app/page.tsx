@@ -1,3 +1,10 @@
+/*
+  We intentionally use native <img> tags instead of next/image because:
+  - Site is statically exported (next.config.js sets images.unoptimized = true)
+  - All images are local, already appropriately sized, avoiding extra wrapper markup
+  - Keeps build simpler for GitHub Pages deployment
+*/
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 
 function Topline() {
