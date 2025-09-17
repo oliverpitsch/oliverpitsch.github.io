@@ -78,7 +78,7 @@ function Social() {
   return (
     <div className="mt-40 text-center">
       <h3 className="mb-8 text-[16px] font-normal text-[#3B5EA5] dark:text-[#E6EEFF]">Get in touch</h3>
-      <div className="mx-auto grid max-w-xl grid-cols-3 place-items-center gap-8">
+      <div className="mx-auto grid max-w-lg grid-cols-3 place-items-center gap-8">
         {links.map((l) => (
           <a key={l.href} href={l.href} title={`Oliver Pitsch on ${l.title}`} className="group">
             <img
