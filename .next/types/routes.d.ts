@@ -6,7 +6,7 @@ type AppRouteHandlerRoutes = "/feed"
 type PageRoutes = never
 type LayoutRoutes = "/"
 type RedirectRoutes = never
-type RewriteRoutes = never
+type RewriteRoutes = "/ingest/[[...path]]" | "/ingest/static/[[...path]]"
 type Routes = AppRoutes | PageRoutes | LayoutRoutes | RedirectRoutes | RewriteRoutes | AppRouteHandlerRoutes
 
 
@@ -16,6 +16,8 @@ interface ParamMap {
   "/articles/[slug]": { "slug": string; }
   "/feed": {}
   "/imprint": {}
+  "/ingest/[[...path]]": { "path"?: string[]; }
+  "/ingest/static/[[...path]]": { "path"?: string[]; }
 }
 
 
