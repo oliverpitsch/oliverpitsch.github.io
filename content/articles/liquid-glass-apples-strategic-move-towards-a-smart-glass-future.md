@@ -2,7 +2,6 @@
 slug: liquid-glass-apples-strategic-move-towards-a-smart-glass-future
 Title: 'Liquid Glass: Apple’s Strategic Move Toward a Smart Glass Future'
 author: Oliver Pitsch
-readingTime: 3 min read
 date: 2025-06-12
 description: What looks like visual flair today may soon be essential UX. Here’s why translucent design is more than just a pretty face.
 ---
