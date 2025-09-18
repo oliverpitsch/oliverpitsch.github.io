@@ -26,9 +26,16 @@ export async function renderArticle(slug: string) {
       />
       <article className="mx-auto max-w-3xl px-6 lg:px-0 py-12">
         <header className="mb-10">
-          <div className="mb-8 rounded-xl overflow-hidden border border-[#E2E8F0] dark:border-[#283B63] shadow-sm bg-white dark:bg-[#152544]">
+          <div
+            className={`${article.imageDescription ? 'mb-2' : 'mb-8'} rounded-xl overflow-hidden border border-[#E2E8F0] dark:border-[#283B63] shadow-sm bg-white dark:bg-[#152544]`}
+          >
             <img src={heroSrc} alt={article.heroAlt || ''} className="w-full h-auto" />
           </div>
+          {article.imageDescription && (
+            <p className="mb-8 text-xs text-slate-500 dark:text-slate-400">
+              {article.imageDescription}
+            </p>
+          )}
           <h1 className="text-3xl md:text-4xl font-semibold leading-tight tracking-tight">
             {article.Title}
           </h1>

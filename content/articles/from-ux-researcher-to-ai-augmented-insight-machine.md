@@ -4,6 +4,7 @@ Title: 'From UX Researcher to AI-Augmented Insight Machine'
 author: Oliver Pitsch
 date: 2025-08-05
 description: UX research has always been slow, tedious, and often a bottleneck. With AI tools like transcription, clustering, sentiment analysis, and summarization, researchers can now move faster, iterate more, and deliver insights earlier. In this article, I share how AI transformed my research process, the trade-offs I discovered, and the lessons I learned about keeping the human in the loop.
+imageDescription: 'Image created with ChatGPT'
 ---
 
 ## From UX Researcher to AI-Augmented Insight Machine

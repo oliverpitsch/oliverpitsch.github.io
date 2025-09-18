@@ -15,6 +15,7 @@ export interface ArticleMeta {
   displayDate?: string; // nicely formatted date for UI
   heroImage?: string; // path under /public
   heroAlt?: string;
+  imageDescription?: string; // optional small caption/credit shown below hero image
   ogImage?: string; // override for social sharing
 }
 
@@ -26,7 +27,7 @@ const articlesDir = path.join(process.cwd(), 'content', 'articles');
 
 export function getArticleSlugs(): string[] {
   if (!fs.existsSync(articlesDir)) return [];
-  return fs.readdirSync(articlesDir).filter(f => f.endsWith('.md'));
+  return fs.readdirSync(articlesDir).filter((f) => f.endsWith('.md'));
 }
 
 function computeReadingTime(text: string): string {
@@ -47,12 +48,20 @@ export async function getArticleBySlug(slug: string): Promise<Article | null> {
   let displayDate: string | undefined;
   if (rawDate instanceof Date) {
     date = rawDate.toISOString().slice(0, 10); // YYYY-MM-DD
-    displayDate = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: 'numeric' }).format(rawDate);
+    displayDate = new Intl.DateTimeFormat('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    }).format(rawDate);
   } else if (typeof rawDate === 'string') {
     date = rawDate;
     const d = new Date(rawDate);
     if (!isNaN(d.getTime())) {
-      displayDate = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: 'numeric' }).format(d);
+      displayDate = new Intl.DateTimeFormat('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+      }).format(d);
     }
   }
 
@@ -67,6 +76,7 @@ export async function getArticleBySlug(slug: string): Promise<Article | null> {
     description: data.description as string | undefined,
     heroImage: data.heroImage as string | undefined,
     heroAlt: data.heroAlt as string | undefined,
+    imageDescription: data.imageDescription as string | undefined,
     ogImage: data.ogImage as string | undefined,
     html: processed.toString(),
   };
@@ -84,12 +94,20 @@ export async function getAllArticlesMeta(): Promise<ArticleMeta[]> {
     let displayDate: string | undefined;
     if (rawDate instanceof Date) {
       date = rawDate.toISOString().slice(0, 10);
-      displayDate = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: 'numeric' }).format(rawDate);
+      displayDate = new Intl.DateTimeFormat('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+      }).format(rawDate);
     } else if (typeof rawDate === 'string') {
       date = rawDate;
       const d = new Date(rawDate);
       if (!isNaN(d.getTime())) {
-        displayDate = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: 'numeric' }).format(d);
+        displayDate = new Intl.DateTimeFormat('en-US', {
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric',
+        }).format(d);
       }
     }
     const content = raw.split('---').slice(2).join('---'); // naive extraction after frontmatter
@@ -104,10 +122,11 @@ export async function getAllArticlesMeta(): Promise<ArticleMeta[]> {
       description: data.description as string | undefined,
       heroImage: data.heroImage as string | undefined,
       heroAlt: data.heroAlt as string | undefined,
+      imageDescription: data.imageDescription as string | undefined,
       ogImage: data.ogImage as string | undefined,
     });
   }
-  return articles.sort((a,b) => (b.date || '').localeCompare(a.date || ''));
+  return articles.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
 }
 
 export interface AdjacentArticles {
@@ -117,7 +136,7 @@ export interface AdjacentArticles {
 
 export async function getAdjacentArticles(slug: string): Promise<AdjacentArticles> {
   const all = await getAllArticlesMeta();
-  const index = all.findIndex(a => a.slug === slug);
+  const index = all.findIndex((a) => a.slug === slug);
   if (index === -1) return { previous: null, next: null };
   return {
     next: index > 0 ? all[index - 1] : null,
