@@ -58,7 +58,14 @@ html { scroll-behavior: smooth; }
 /* Heading anchor link styling */
 .markdown-content h2[id], .markdown-content h3[id], .markdown-content h4[id] { scroll-margin-top: 90px; position:relative; }
 .markdown-content .heading-anchor { opacity:0; text-decoration:none; position:absolute; left:-1.6rem; top:50%; transform:translateY(-50%); font-size:0.85em; color:#94a3b8; transition:opacity .15s; }
-.markdown-content h2:hover .heading-anchor, .markdown-content h3:hover .heading-anchor, .markdown-content h4:hover .heading-anchor, .markdown-content .heading-anchor:focus-visible { opacity:1; }
+.markdown-content .heading-anchor{ position:absolute; }
+.markdown-content .heading-anchor::after{ content:attr(data-tooltip); position:absolute; left:50%; bottom:100%; transform:translate(-50%,-8px); white-space:nowrap; background:#334155; color:#fff; font-size:12px; line-height:1; padding:6px 8px; border-radius:6px; opacity:0; pointer-events:none; transition:opacity .15s, transform .15s; box-shadow:0 6px 20px -6px rgba(0,0,0,0.3); }
+.markdown-content .heading-anchor::before{ content:""; position:absolute; left:50%; bottom:100%; transform:translate(-50%, 4px); border:6px solid transparent; border-top-color:#334155; opacity:0; pointer-events:none; transition:opacity .15s, transform .15s; }
+.dark .markdown-content .heading-anchor::after{ background:#334155; }
+.dark .markdown-content .heading-anchor::before{ border-top-color:#334155; }
+.markdown-content .heading-anchor:hover::after, .markdown-content .heading-anchor:focus-visible::after, .markdown-content .heading-anchor.copied::after{ opacity:1; transform:translate(-50%,-10px); }
+.markdown-content .heading-anchor:hover::before, .markdown-content .heading-anchor:focus-visible::before, .markdown-content .heading-anchor.copied::before{ opacity:1; transform:translate(-50%, 1px); }
+.markdown-content h2:hover .heading-anchor, .markdown-content h3:hover .heading-anchor, .markdown-content h4:hover .heading-anchor, .markdown-content .heading-anchor:focus-visible, .markdown-content .heading-anchor:hover { opacity:1; }
 @media (prefers-color-scheme: dark){
   .markdown-content .heading-anchor { color:#64748b; }
 }

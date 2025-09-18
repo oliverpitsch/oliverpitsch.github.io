@@ -119,13 +119,44 @@ export async function renderArticle(slug: string) {
               if(!h.id){
                 h.id = h.textContent.toLowerCase().trim().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
               }
-              if(!h.querySelector('.heading-anchor')){
-                const a = document.createElement('a');
+              let a = h.querySelector('.heading-anchor');
+              if(!a){
+                a = document.createElement('a');
                 a.href = '#' + h.id;
                 a.className = 'heading-anchor';
                 a.setAttribute('aria-label', 'Link to section');
                 a.textContent = '🔗';
                 h.prepend(a);
+              }
+              // Tooltip + copy-to-clipboard behavior
+              a.setAttribute('data-tooltip', 'Copy link');
+              if(!a.__copyHandlerAttached){
+                a.addEventListener('click', function(e){
+                  e.preventDefault();
+                  const url = window.location.origin + window.location.pathname + '#' + h.id;
+                  const done = () => {
+                    try { history.replaceState(null, '', '#' + h.id); } catch(_){}
+                    a.setAttribute('data-tooltip', 'Link copied');
+                    a.classList.add('copied');
+                    setTimeout(() => { a.setAttribute('data-tooltip', 'Copy link'); a.classList.remove('copied'); }, 1200);
+                  };
+                  if(navigator.clipboard && navigator.clipboard.writeText){
+                    navigator.clipboard.writeText(url).then(done).catch(done);
+                  } else {
+                    // Fallback
+                    const ta = document.createElement('textarea');
+                    ta.value = url; ta.setAttribute('readonly','');
+                    ta.style.position = 'absolute'; ta.style.left = '-9999px';
+                    document.body.appendChild(ta); ta.select();
+                    try { document.execCommand('copy'); } catch(_){}
+                    document.body.removeChild(ta);
+                    done();
+                  }
+                });
+                a.addEventListener('keydown', function(e){
+                  if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); a.click(); }
+                });
+                a.__copyHandlerAttached = true;
               }
             });
           }
