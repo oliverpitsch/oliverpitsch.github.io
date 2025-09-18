@@ -18,7 +18,7 @@ export default async function ArticlesIndex() {
             Writing on product design leadership, discovery & delivery, and building user-centred products.
           </p>
         </header>
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 auto-rows-fr">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 auto-rows-fr">
           {articles.map(a => (
             <ArticleCard key={a.slug} article={a} />
           ))}
