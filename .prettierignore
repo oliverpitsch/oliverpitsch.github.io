@@ -1,0 +1,16 @@
+# Build output
+.next
+out
+
+# Dependencies
+node_modules
+
+# Logs
+*.log
+
+# Coverage
+coverage
+
+# Assets
+public/**/*.svg
+public/images/**

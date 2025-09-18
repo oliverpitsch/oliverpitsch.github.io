@@ -66,8 +66,34 @@ html { scroll-behavior: smooth; }
 .markdown-content .heading-anchor:hover::after, .markdown-content .heading-anchor:focus-visible::after, .markdown-content .heading-anchor.copied::after{ opacity:1; transform:translate(-50%,-10px); }
 .markdown-content .heading-anchor:hover::before, .markdown-content .heading-anchor:focus-visible::before, .markdown-content .heading-anchor.copied::before{ opacity:1; transform:translate(-50%, 1px); }
 .markdown-content h2:hover .heading-anchor, .markdown-content h3:hover .heading-anchor, .markdown-content h4:hover .heading-anchor, .markdown-content .heading-anchor:focus-visible, .markdown-content .heading-anchor:hover { opacity:1; }
+
+@media (hover: none) {
+  /* Inline positioning means tweak tooltip for mobile; often tooltips on touch are not helpful, so hide unless copied */
+  .markdown-content .heading-anchor::after, .markdown-content .heading-anchor::before { display: none; }
+  .markdown-content .heading-anchor.copied::after, .markdown-content .heading-anchor.copied::before { display: block; position: absolute; }
+  .markdown-content .heading-anchor.copied::after { left: 0; bottom: 100%; transform: translate(0,-8px); }
+  .markdown-content .heading-anchor.copied::before { left: 0; bottom: 100%; transform: translate(0, 4px); }
+}
 @media (prefers-color-scheme: dark){
   .markdown-content .heading-anchor { color:#64748b; }
+}
+
+/* Mobile/touch behavior: show icon by default and place inline for easier tapping */
+@media (hover: none) {
+  .markdown-content .heading-anchor {
+    opacity: 1;
+    position: static;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transform: none;
+    left: auto;
+    top: auto;
+    margin-right: 0.5rem; /* 8px */
+    padding: 6px; /* bigger tap target */
+    border-radius: 6px;
+    z-index: 1;
+  }
 }
 
 /* Back to top button */
