@@ -69,4 +69,4 @@ The near future of generative design will likely include more advanced in-canvas
 
 ## Final thoughts
 
-Ge
+Generative design is here to stay, and tools like Figma Make and prompt-on-canvas show that AI can meaningfully speed up product design workflows. The key is not to treat AI as a replacement for human creativity but as a collaborator that unlocks new possibilities. Use it to explore, to iterate, and to experiment. Then apply your judgment, taste, and craft to shape outputs into something truly meaningful.
