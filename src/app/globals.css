@@ -40,9 +40,9 @@ html { scroll-behavior: smooth; }
 /* List styling */
 .markdown-content ul { list-style:none; padding-left:0; margin-top:1.25rem; }
 .markdown-content ul > li { position:relative; padding-left:1.4rem; margin-top:0.55rem; }
-.markdown-content ul > li:before { content:""; position:absolute; left:0; top:0.95em; width:0.55rem; height:0.55rem; border-radius:50%; background:#FFBF00; transform:translateY(-50%); box-shadow:0 0 0 2px #ffffff; }
+.markdown-content ul > li:before { content:""; position:absolute; left:0; top:0.95em; width:0.55rem; height:0.55rem; border-radius:50%; background:#FFBF00; transform:translateY(-50%);  }
 @media (prefers-color-scheme: dark){
-  .markdown-content ul > li:before { box-shadow:0 0 0 2px #182B52; background:#FFDC0F; }
+  .markdown-content ul > li:before { background:#FFDC0F; }
 }
 .markdown-content ul > li > ul { margin-top:0.5rem; }
 .markdown-content ul > li > ol { margin-top:0.5rem; }
