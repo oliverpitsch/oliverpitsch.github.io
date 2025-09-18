@@ -165,13 +165,13 @@ export default async function Home() {
 
         {/* LinkedIn news card */}
         <section className="mx-auto mt-16 max-w-4xl px-4 lg:px-0">
-          <div className="rounded-2xl p-2 bg-slate-200 dark:bg-amber-100/30">
-            <h3 className="text-2xl font-semibold  text-slate-700 dark:text-white py-3 text-center">
+          <div className="rounded-2xl p-2 bg-slate-200 dark:bg-slate-500">
+            <h3 className="text-2xl font-semibold text-slate-700 dark:text-white py-3 text-center">
               ✨ After 8 years, it’s time to explore new horizons ✨
             </h3>
             <div className="overflow-hidden relative border border-slate-100 dark:border-[#283B63] bg-white dark:bg-[#152544]  p-6 rounded-xl shadow">
               <div
-                className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-amber-100/30 blur-2xl"
+                className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-amber-100/30 dark:bg-slate-600/30 blur-2xl"
                 aria-hidden
               />
               <div className="relative z-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
