@@ -132,8 +132,8 @@ function Social() {
 
 export default async function Home() {
   const allArticles = await getAllArticlesMeta();
-  const latestArticles = allArticles.slice(0, 4);
-  const hasMoreArticles = allArticles.length > 4;
+  const latestArticles = allArticles.slice(0, 6);
+  const hasMoreArticles = allArticles.length > 6;
   return (
     <div className="min-h-screen bg-[#F8FAFC] dark:bg-[#182B52] text-[#182B52] dark:text-white">
       <Topline />
