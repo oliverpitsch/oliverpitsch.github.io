@@ -195,7 +195,9 @@ export async function renderArticle(slug: string) {
                 href={`/articles/${adjacent.previous.slug}`}
                 className={`${adjacent.next ? 'col-span-1' : 'col-span-2'} group inline-flex flex-col rounded-md border border-slate-200 dark:border-slate-800 p-3 hover:bg-slate-50 dark:hover:bg-slate-900/60 transition`}
               >
-                <span className="text-xs uppercase tracking-wide text-slate-500">Previous</span>
+                <span className="text-xs uppercase tracking-wide text-slate-500">
+                  Previous Article
+                </span>
                 <span className="font-medium group-hover:text-indigo-600 dark:group-hover:text-indigo-400">
                   {adjacent.previous.Title}
                 </span>
@@ -207,7 +209,7 @@ export async function renderArticle(slug: string) {
                 className={`${adjacent.previous ? 'col-span-1' : 'col-span-2'} group inline-flex flex-col rounded-md border border-slate-200 dark:border-slate-800 p-3 hover:bg-slate-50 dark:hover:bg-slate-900/60 transition`}
               >
                 <span className="text-xs uppercase tracking-wide text-slate-500 text-right">
-                  Next
+                  Next Article
                 </span>
                 <span className="font-medium group-hover:text-indigo-600 dark:group-hover:text-indigo-400 text-right">
                   {adjacent.next.Title}
