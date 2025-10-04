@@ -1,0 +1,7 @@
+# robots.txt
+# Allow all web crawlers and AI agents to access the entire site
+User-agent: *
+Allow: /
+
+# Sitemap for better SEO
+Sitemap: https://pitsch.me/sitemap.xml
