@@ -189,11 +189,11 @@ export async function renderArticle(slug: string) {
           </div>
         </div>
         <nav className="mt-16 flex flex-col gap-4 text-sm">
-          <div className="flex flex-wrap gap-4">
+          <div className="grid grid-cols-2 gap-4">
             {adjacent.previous && (
               <Link
                 href={`/articles/${adjacent.previous.slug}`}
-                className="group inline-flex flex-col rounded-md border border-slate-200 dark:border-slate-800 p-3 hover:bg-slate-50 dark:hover:bg-slate-900/60 transition"
+                className={`${adjacent.next ? 'col-span-1' : 'col-span-2'} group inline-flex flex-col rounded-md border border-slate-200 dark:border-slate-800 p-3 hover:bg-slate-50 dark:hover:bg-slate-900/60 transition`}
               >
                 <span className="text-xs uppercase tracking-wide text-slate-500">Previous</span>
                 <span className="font-medium group-hover:text-indigo-600 dark:group-hover:text-indigo-400">
@@ -204,7 +204,7 @@ export async function renderArticle(slug: string) {
             {adjacent.next && (
               <Link
                 href={`/articles/${adjacent.next.slug}`}
-                className="group inline-flex flex-col rounded-md border border-slate-200 dark:border-slate-800 p-3 hover:bg-slate-50 dark:hover:bg-slate-900/60 transition ml-auto"
+                className={`${adjacent.previous ? 'col-span-1' : 'col-span-2'} group inline-flex flex-col rounded-md border border-slate-200 dark:border-slate-800 p-3 hover:bg-slate-50 dark:hover:bg-slate-900/60 transition`}
               >
                 <span className="text-xs uppercase tracking-wide text-slate-500 text-right">
                   Next
