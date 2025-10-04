@@ -143,7 +143,7 @@ export default async function Home() {
         <div className="text-center mt-8">
           <h1 className="text-[48px] font-medium">Oliver Pitsch</h1>
           <h2 className="mt-6 text-[24px] font-semibold">
-            Director UX <span className="font-normal">&</span> Product Marketing
+            Director UX <span className="font-semibold">&</span> Product Marketing
             <span className="font-normal"> at </span>
             <span className="inline-flex -rotate-[1deg] -skew-x-[4deg] rounded-sm bg-[#FFDC0F] px-4 py-2 ml-2">
               <span className="relative rotate-[1deg] skew-x-[4deg] text-2xl font-bold text-black">
