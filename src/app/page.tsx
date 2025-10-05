@@ -112,7 +112,7 @@ function Social() {
 
   return (
     <div className="mt-40 text-center">
-      <h3 className="mb-8 text-[16px] font-normal text-[#3B5EA5] dark:text-[#E6EEFF]">
+      <h3 className="mb-8 text-[16px] font-normal text-slate-500 dark:text-[#E6EEFF]">
         Get in touch
       </h3>
       <div className="mx-auto grid max-w-lg grid-cols-3 place-items-center gap-8">
@@ -121,7 +121,7 @@ function Social() {
             <img
               src={`/images/${l.icon}`}
               alt={l.title}
-              className="h-6 w-6 scale-125 transition-colors group-hover:brightness-110 dark:invert"
+              className="size-6 scale-125 transition-colors group-hover:brightness-110 dark:invert"
             />
           </a>
         ))}
@@ -265,7 +265,11 @@ export default async function Home() {
 
         <Social />
 
-        <footer className="mt-40 mb-1 text-center relative">
+        <section className="mt-40 flex justify-center">
+          <img src="images/signature.png" alt="With love from Oliver Pitsch" className="w-32" />
+        </section>
+
+        <footer className="mt-20 mb-1 text-center relative">
           <div className="bg-[#FFD500] py-2 text-[12px]">
             <Link href="/imprint" className="underline text-[#182B52]">
               Imprint & Data Privacy

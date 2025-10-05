@@ -219,6 +219,17 @@ export async function renderArticle(slug: string) {
           </div>
         </nav>
       </article>
+      <section className="mt-40 flex justify-center">
+        <img src="/images/signature.png" alt="With love from Oliver Pitsch" className="w-32" />
+      </section>
+      <footer className="mt-20 mb-1 text-center relative">
+        <div className="bg-[#FFD500] py-2 text-[12px]">
+          <Link href="/imprint" className="underline text-[#182B52]">
+            Imprint & Data Privacy
+          </Link>
+        </div>
+        <div className="absolute left-0 right-0 -bottom-1 h-1 bg-gradient-to-b from-[#FFBF00] to-[#FFAA00]" />
+      </footer>
       <button id="backToTop" aria-label="Back to top" className="back-to-top-btn">
         <svg
           xmlns="http://www.w3.org/2000/svg"
