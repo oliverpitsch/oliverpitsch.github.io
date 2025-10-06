@@ -140,7 +140,7 @@ export default async function Home() {
       <main className="mx-auto max-w-full">
         <ProfileImage />
 
-        <div className="text-center mt-8">
+        <div className="text-center mt-8 px-4 lg:px-0">
           <h1 className="text-[48px] font-medium">Oliver Pitsch</h1>
           <h2 className="mt-6 text-[24px] font-semibold">
             Director UX <span className="font-semibold">&</span> Product Marketing
@@ -153,11 +153,14 @@ export default async function Home() {
           </h2>
           <h2 className="mt-6 text-[24px] font-semibold">
             Founder <span className="font-normal">at</span>
-            <span className="inline-flex -rotate-[1deg] -skew-x-[4deg] rounded-sm bg-indigo-700 dark:bg-indigo-200 px-4 py-2 ml-2">
+            <a
+              href="https://joinride.cc"
+              className="inline-flex -rotate-[1deg] -skew-x-[4deg] rounded-sm bg-indigo-700 hover:bg-indigo-600 dark:bg-indigo-200 dark:hover:bg-indigo-300 px-4 py-2 ml-2"
+            >
               <span className="relative rotate-[1deg] skew-x-[4deg] text-2xl font-bold text-white dark:text-indigo-700">
                 Joinride.cc
               </span>
-            </span>
+            </a>
           </h2>
         </div>
 
