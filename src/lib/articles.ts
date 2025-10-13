@@ -2,8 +2,10 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { remark } from 'remark';
-import html from 'remark-html';
 import gfm from 'remark-gfm';
+import remarkRehype from 'remark-rehype';
+import rehypeStringify from 'rehype-stringify';
+import remarkCallouts from './remark-callouts';
 
 export interface ArticleMeta {
   slug: string;
@@ -42,7 +44,12 @@ export async function getArticleBySlug(slug: string): Promise<Article | null> {
   if (!fs.existsSync(fullPath)) return null;
   const raw = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(raw);
-  const processed = await remark().use(gfm).use(html).process(content);
+  const processed = await remark()
+    .use(gfm)
+    .use(remarkCallouts)
+    .use(remarkRehype)
+    .use(rehypeStringify)
+    .process(content);
   const rawDate: unknown = data.date;
   let date: string | undefined;
   let displayDate: string | undefined;

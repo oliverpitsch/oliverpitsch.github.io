@@ -9,7 +9,7 @@ date: 2025-10-13
 A few days ago I [shared how GitHub Copilot shipped a complete feature while I was shopping groceries](/articles/copilot-built-feature-while-shopping).
 That story got a lot of attention and one question kept coming up:
 
-**“How exactly did Copilot know what to build?”**
+> [!QUOTE] How exactly did Copilot know what to build?
 
 The truth is, it all starts with how you _write your tickets._
 
