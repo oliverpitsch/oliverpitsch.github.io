@@ -1,18 +1,25 @@
 // Lightweight Remark plugin to transform GitHub-style callouts inside blockquotes
 // Usage (in remark pipeline): .use(remarkCallouts)
 
-type Node = any;
+// Minimal AST node typing to avoid any
+type AstNode = {
+  type: string;
+  value?: string;
+  children?: AstNode[];
+  data?: { hProperties?: Record<string, unknown> };
+  [key: string]: unknown;
+};
 
-function isParagraph(node: Node) {
-  return node && node.type === 'paragraph' && Array.isArray(node.children);
+function isParagraph(node: AstNode): node is AstNode & { type: 'paragraph'; children: AstNode[] } {
+  return !!node && node.type === 'paragraph' && Array.isArray(node.children);
 }
 
-function getParagraphText(p: Node): string {
+function getParagraphText(p: AstNode): string {
   if (!isParagraph(p)) return '';
-  return p.children.map((c: Node) => (typeof c.value === 'string' ? c.value : '')).join('');
+  return p.children.map((c) => (typeof c.value === 'string' ? c.value : '')).join('');
 }
 
-function stripMarkerFromParagraph(p: Node, marker: string) {
+function stripMarkerFromParagraph(p: AstNode, marker: string) {
   if (!isParagraph(p)) return;
   if (!p.children.length) return;
   const first = p.children[0];
@@ -23,12 +30,12 @@ function stripMarkerFromParagraph(p: Node, marker: string) {
 }
 
 export default function remarkCallouts() {
-  return function transformer(tree: Node) {
-    function visit(node: Node) {
+  return function transformer(tree: AstNode) {
+    function visit(node: AstNode) {
       if (!node || typeof node !== 'object') return;
       if (Array.isArray(node.children)) {
         for (let i = 0; i < node.children.length; i++) {
-          const child = node.children[i];
+          const child = node.children[i] as AstNode;
           // Process blockquotes
           if (
             child &&
@@ -37,9 +44,9 @@ export default function remarkCallouts() {
             child.children.length
           ) {
             // First, split a single blockquote into multiple when multiple callout markers appear
-            const groups: Node[][] = [];
-            let current: Node[] | null = null;
-            for (const grandChild of child.children) {
+            const groups: AstNode[][] = [];
+            let current: AstNode[] | null = null;
+            for (const grandChild of child.children as AstNode[]) {
               const isMarkerPara =
                 isParagraph(grandChild) &&
                 /^\s*\[!(NOTE|INFO|QUOTE)\]/i.test(getParagraphText(grandChild));
@@ -55,9 +62,9 @@ export default function remarkCallouts() {
 
             if (groups.length > 1) {
               // Replace original blockquote with multiple blockquotes, each styled according to its first paragraph marker
-              const newBlocks: Node[] = groups.map((children: Node[]) => {
-                const bq: Node = { type: 'blockquote', children };
-                const firstPara: Node | undefined = children.find(isParagraph);
+              const newBlocks: AstNode[] = groups.map((children: AstNode[]) => {
+                const bq: AstNode = { type: 'blockquote', children };
+                const firstPara: AstNode | undefined = children.find(isParagraph);
                 if (firstPara) {
                   const text = getParagraphText(firstPara).trim();
                   const m = text.match(/^\[!(NOTE|INFO|QUOTE)\]/i);
@@ -124,10 +131,10 @@ export default function remarkCallouts() {
             }
           }
           // Recurse
-          visit(child);
+          visit(child as AstNode);
         }
       }
     }
-    visit(tree);
+    visit(tree as AstNode);
   };
 }

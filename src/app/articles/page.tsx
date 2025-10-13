@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { getAllArticlesMeta } from '@/lib/articles';
 import Link from 'next/link';
 import ArticleCard from '@/components/ArticleCard';
