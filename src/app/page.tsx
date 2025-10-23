@@ -44,8 +44,8 @@ function Timeline() {
     { label: 'Reputami', span: '2011 – 2015', svg: 'companies/logo-reputami.svg' },
     { label: 'Studitemps', span: '2015 – 2017', svg: 'companies/logo-studitemps.svg' },
     { label: 'Trusted Shops', span: '2017 – 2025', svg: 'companies/logo-trusted-shops.svg' },
-    { label: 'Ordio', span: '2025 – now', svg: 'companies/logo-ordio.svg' },
-    { label: 'Joinride.cc', span: '2022 – now', svg: 'companies/logo-joinride.svg' },
+    { label: 'Joinride.cc', span: 'since 2022', svg: 'companies/logo-joinride.svg' },
+    { label: 'Ordio', span: 'since 2025', svg: 'companies/logo-ordio.svg' },
   ] as const;
 
   return (
