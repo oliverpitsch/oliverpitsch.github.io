@@ -23,11 +23,11 @@ function ProfileImage() {
     <picture className="block mx-auto mt-16">
       <source
         media="(prefers-color-scheme: light) or (prefers-color-scheme: no-preference)"
-        srcSet="/images/oliver-pitsch.jpg"
+        srcSet="/images/oliver-pitsch-2025.png"
       />
-      <source media="(prefers-color-scheme: dark)" srcSet="/images/oliver-pitsch-dark.jpg" />
+      <source media="(prefers-color-scheme: dark)" srcSet="/images/oliver-pitsch-2025-dark.png" />
       <img
-        src="/images/oliver-pitsch.jpg"
+        src="/images/oliver-pitsch-2025-dark.png"
         alt="Oliver Pitsch"
         height={192}
         className="h-48 w-48 rounded-full mx-auto mix-blend-multiply dark:mix-blend-normal"
@@ -43,19 +43,20 @@ function Timeline() {
     { label: 'United Prototype', span: '2010 – 2011', svg: 'companies/logo-united-prototype.svg' },
     { label: 'Reputami', span: '2011 – 2015', svg: 'companies/logo-reputami.svg' },
     { label: 'Studitemps', span: '2015 – 2017', svg: 'companies/logo-studitemps.svg' },
-    { label: 'Trusted Shops', span: '2017 – Dec 2025', svg: 'companies/logo-trusted-shops.svg' },
+    { label: 'Trusted Shops', span: '2017 – 2025', svg: 'companies/logo-trusted-shops.svg' },
+    { label: 'Ordio', span: '2025 – now', svg: 'companies/logo-ordio.svg' },
     { label: 'Joinride.cc', span: '2022 – now', svg: 'companies/logo-joinride.svg' },
   ] as const;
 
   return (
-    <div className="mt-32 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-0 gap-y-16">
+    <div className="mt-32 grid grid-cols-2 sm:grid-cols-12 lg:grid-cols-20 gap-0 gap-y-16">
       {/* Spacer cell with only the yellow timeline line (lg and up) */}
-      <div className="hidden lg:block relative pb-8" aria-hidden="true">
+      <div className="hidden col-span-1 lg:block relative pb-8" aria-hidden="true">
         <div className="absolute left-0 right-0 bottom-1 h-0.5 bg-[#FFBF00]" />
       </div>
       {/* TimelineItems */}
       {items.map((it, i) => (
-        <div key={i} className="relative pb-8 text-center">
+        <div key={i} className="relative pb-8 text-center col-span-1 sm:col-span-3">
           <div
             className={`absolute left-0 right-0 bottom-1 h-0.5 bg-[#FFBF00] ${i === items.length - 1 ? 'rounded-r-full' : ''}`}
           />
@@ -143,13 +144,16 @@ export default async function Home() {
         <div className="text-center mt-8 px-4 lg:px-0">
           <h1 className="text-[48px] font-medium">Oliver Pitsch</h1>
           <h2 className="mt-6 text-[24px] font-semibold">
-            Director UX <span className="font-semibold">&</span> Product Marketing
+            Head of Product
             <span className="font-normal"> at </span>
-            <span className="inline-flex -rotate-[1deg] -skew-x-[4deg] rounded-sm bg-[#FFDC0F] px-4 py-2 ml-2">
-              <span className="relative rotate-[1deg] skew-x-[4deg] text-2xl font-bold text-black">
-                Trusted Shops
+            <a
+              href="https://ordio.com"
+              className="inline-flex -rotate-[1deg] -skew-x-[4deg] rounded-sm bg-[#4d8ef3] hover:bg-gradient-to-r from-blue-400 to-[#4d8ef3] px-4 py-2 ml-2"
+            >
+              <span className="relative rotate-[1deg] skew-x-[4deg] text-2xl font-bold text-white">
+                Ordio.com
               </span>
-            </span>
+            </a>
           </h2>
           <h2 className="mt-6 text-[24px] font-semibold">
             Founder <span className="font-normal">at</span>
@@ -166,61 +170,9 @@ export default async function Home() {
 
         <Timeline />
 
-        {/* LinkedIn news card */}
-        <section className="mx-auto mt-16 max-w-4xl px-4 lg:px-0">
-          <div className="rounded-2xl p-2 bg-slate-200 dark:bg-slate-500">
-            <h3 className="text-2xl font-semibold text-slate-700 dark:text-white py-3 text-center">
-              ✨ After 8 years, it’s time to explore new horizons ✨
-            </h3>
-            <div className="overflow-hidden relative border border-slate-100 dark:border-[#283B63] bg-white dark:bg-[#152544]  p-6 rounded-xl shadow">
-              <div
-                className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-amber-100/30 dark:bg-slate-600/30 blur-2xl"
-                aria-hidden
-              />
-              <div className="relative z-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                <div className="space-y-2">
-                  <p className="text-base leading-6 text-slate-700 dark:text-slate-300">
-                    At the end of November, I will be leaving Trusted Shops. It’s been a journey of
-                    building and scaling international design, content, and product marketing teams,
-                    launching the Helios design system, and working with inspiring colleagues across
-                    Europe.
-                  </p>
-                  <p className="text-base leading-6 text-slate-700 dark:text-slate-300">
-                    I’m excited to explore what’s next at the intersection of classic product design
-                    and AI-powered tools and agents.
-                  </p>
-                  <p className="text-base leading-6 text-slate-700 dark:text-slate-300">
-                    <strong>If you have ideas or opportunities, let’s connect.</strong>
-                  </p>
-                </div>
-              </div>
-              <div className="sm:mt-0 shrink-0 text-center pt-6">
-                <a
-                  href="https://www.linkedin.com/in/oliverpitsch/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full bg-[#0A66C2] px-5 py-2.5 text-white font-medium shadow hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0A66C2] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#152544] whitespace-nowrap"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="text-white"
-                  >
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.025-3.037-1.852-3.037-1.853 0-2.136 1.447-2.136 2.944v5.662H9.352V9h3.414v1.561h.049c.476-.9 1.637-1.85 3.37-1.85 3.602 0 4.267 2.371 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.119 20.452H3.553V9h3.566v11.452z" />
-                  </svg>
-                  <span>Connect on LinkedIn</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-
         <section className="mx-auto mt-16 max-w-4xl text-[18px] leading-7 text-[#182B52] dark:text-[#E6EEFF] px-10 lg:px-0">
           <p>
-            Oliver Pitsch is an experienced product design leader from Cologne, Germany, with a
+            Oliver Pitsch is an experienced product and design leader from Cologne, Germany, with a
             strong track record of building cross-functional teams and delivering exceptional user
             experiences. With over a decade of experience, he specializes in seamlessly integrating
             the discovery and delivery phases of digital products.
@@ -231,15 +183,16 @@ export default async function Home() {
             acquired in 2015.
           </p>
           <p className="mt-4">
-            Currently, Oliver is directing User Experience & Product Marketing at
-            <a href="https://trustedshops.com" className="underline ml-1">
-              Trusted Shops
+            Currently, Oliver is leading the product department at
+            <a href="https://ordio.com" className="underline ml-1">
+              Ordio.com
             </a>{' '}
             and builds
             <a href="https://joinride.cc" className="underline ml-1">
               Joinride.cc
             </a>
-            , the leading german platform for planning and finding cycling group rides.
+            , the leading german platform for planning and finding cycling group rides and run
+            clubs.
           </p>
         </section>
 

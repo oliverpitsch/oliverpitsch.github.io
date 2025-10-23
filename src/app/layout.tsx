@@ -14,15 +14,15 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   metadataBase: new URL('https://pitsch.me'),
-  title: 'Oliver Pitsch – Product design leader',
+  title: 'Oliver Pitsch – Product and design leader',
   description:
-    'Oliver Pitsch is a product design leader from Cologne, Germany with over a decade of experience in building UX in cross-functional teams and harmonizing discovery and delivery.',
+    'Oliver Pitsch is a product and design leader from Cologne, Germany with over a decade of experience in building UX in cross-functional teams and harmonizing discovery and delivery.',
   openGraph: {
     type: 'website',
     url: '/',
-    title: 'Oliver Pitsch – Product design leader',
+    title: 'Oliver Pitsch – Product and design leader',
     description:
-      'Product design leader from Cologne, Germany. Building UX capabilities, aligning discovery and delivery.',
+      'Product and design leader from Cologne, Germany. Building UX capabilities, aligning discovery and delivery.',
     images: [
       {
         url: '/images/og-images/og-facebook.jpg',
@@ -36,7 +36,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Oliver Pitsch – Product design leader',
     description:
-      'Product design leader from Cologne, Germany. Building UX capabilities, aligning discovery and delivery.',
+      'Product and design leader from Cologne, Germany. Building UX capabilities, aligning discovery and delivery.',
     images: [
       {
         url: '/images/og-images/og-twitter-card.jpg',
