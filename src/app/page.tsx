@@ -83,7 +83,7 @@ function Timeline() {
 
   return (
     <>
-      <div className="mt-32 grid grid-cols-2 sm:grid-cols-13 lg:grid-cols-22 gap-0 gap-y-16">
+      <div className="mt-32 grid grid-cols-2 sm:grid-cols-12 lg:grid-cols-22 gap-0 gap-y-16">
         {/* Spacer cell with only the yellow timeline line (lg and up) */}
         <div className="hidden col-span-2 lg:block relative pb-8" aria-hidden="true">
           <div className="absolute left-0 right-0 bottom-1 h-0.5 bg-[#FFBF00]" />
@@ -124,7 +124,7 @@ function Timeline() {
             <span className="absolute -bottom-[3px] left-1/2 -translate-x-1/2 size-4 rounded-full border-2 border-slate-50 dark:border-[#182B52] bg-[#FFBF00]" />
           </div>
         ))}
-        <div className="hidden col-span-1 lg:block relative pb-8" aria-hidden="true">
+        <div className="col-span-1 hidden sm:block relative pb-8" aria-hidden="true">
           <div className="absolute left-0 right-0 bottom-1 h-0.5 bg-gradient-to-r from-[#FFBF00] to-transparent" />
         </div>
       </div>
