@@ -36,16 +36,49 @@ function ProfileImage() {
   );
 }
 
-type TimelineItem = { label: string; span: string } & ({ svg: string } | { inline: true });
+type TimelineItem = { label: string; span: string; jobTitle: string } & (
+  | { svg: string }
+  | { inline: true }
+);
 
 function Timeline() {
   const items: TimelineItem[] = [
-    { label: 'United Prototype', span: '2010 – 2011', svg: 'companies/logo-united-prototype.svg' },
-    { label: 'Reputami', span: '2011 – 2015', svg: 'companies/logo-reputami.svg' },
-    { label: 'Studitemps', span: '2015 – 2017', svg: 'companies/logo-studitemps.svg' },
-    { label: 'Trusted Shops', span: '2017 – 2025', svg: 'companies/logo-trusted-shops.svg' },
-    { label: 'Joinride.cc', span: 'since 2022', svg: 'companies/logo-joinride.svg' },
-    { label: 'Ordio', span: 'since 2025', svg: 'companies/logo-ordio.svg' },
+    {
+      label: 'United Prototype',
+      span: '2010 – 2011',
+      jobTitle: 'Interface Designer',
+      svg: 'companies/logo-united-prototype.svg',
+    },
+    {
+      label: 'Reputami',
+      span: '2011 – 2015',
+      jobTitle: 'Founder & CEO',
+      svg: 'companies/logo-reputami.svg',
+    },
+    {
+      label: 'Studitemps',
+      span: '2015 – 2017',
+      jobTitle: 'Senio UX Designer',
+      svg: 'companies/logo-studitemps.svg',
+    },
+    {
+      label: 'Trusted Shops',
+      span: '2017 – 2025',
+      jobTitle: 'Director UX',
+      svg: 'companies/logo-trusted-shops.svg',
+    },
+    {
+      label: 'Joinride.cc',
+      span: 'since 2022',
+      jobTitle: 'Founder',
+      svg: 'companies/logo-joinride.svg',
+    },
+    {
+      label: 'Ordio',
+      span: 'since 2025',
+      jobTitle: 'Head of Product',
+      svg: 'companies/logo-ordio.svg',
+    },
   ] as const;
 
   return (
@@ -84,6 +117,7 @@ function Timeline() {
             )}
           </div>
           <h4 className="mt-6 text-xl font-semibold">{it.label}</h4>
+          <div className="text-lg text-[#182B52] dark:text-[#E6EEFF]">{it.jobTitle}</div>
           <span className="text-lg text-[#3B5EA5] dark:text-[#8DAEF0]">{it.span}</span>
           <span className="absolute -bottom-[3px] left-1/2 -translate-x-1/2 size-4 rounded-full border-2 border-slate-50 dark:border-[#182B52] bg-[#FFBF00]" />
         </div>
