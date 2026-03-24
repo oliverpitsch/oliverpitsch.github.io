@@ -63,6 +63,9 @@ logs
 # Optional stylelint cache
 .stylelintcache
 
+# TypeScript incremental build cache
+tsconfig.tsbuildinfo
+
 # Microbundle cache
 .rpt2_cache/
 .rts2_cache_cjs/
