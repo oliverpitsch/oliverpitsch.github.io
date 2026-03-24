@@ -222,7 +222,7 @@ export default async function Home() {
           <p>
             Oliver Pitsch builds products. With 20 years of experience across design, UX, and
             product leadership, he combines product thinking, UX craft, business context, and
-            AI-native execution to turn ideas into working software — fast.
+            AI-native execution to turn ideas into working software, fast.
           </p>
           <p className="mt-4">
             Currently Head of Product at{' '}
@@ -244,16 +244,13 @@ export default async function Home() {
             hospitality, acquired in 2015.
           </p>
           <p className="mt-4">
-            He has led teams and built product and design structures across multiple organizations —
+            He has led teams and built product and design structures across multiple organizations,
             but his focus is on making and shipping, using product sense, UX depth, and modern
             AI-native workflows to go from idea to shipped product.
           </p>
         </section>
 
-        <section
-          className="mx-auto mt-16 max-w-4xl px-10 lg:px-0"
-          aria-label="Areas of expertise"
-        >
+        <section className="mx-auto mt-16 max-w-4xl px-10 lg:px-0" aria-label="Areas of expertise">
           <h2 className="text-xl font-semibold mb-6 text-[#182B52] dark:text-white">
             What I work on
           </h2>
