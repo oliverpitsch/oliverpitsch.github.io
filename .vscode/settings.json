@@ -7,5 +7,8 @@
   "prettier.singleQuote": true,
   "prettier.semi": true,
   "prettier.trailingComma": "all",
-  "prettier.printWidth": 100
+  "prettier.printWidth": 100,
+  "chat.tools.terminal.autoApprove": {
+    "git add": true
+  }
 }

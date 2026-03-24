@@ -2,24 +2,61 @@
 /* eslint-disable @next/next/no-img-element */
 import { getArticleBySlug, getAdjacentArticles } from '@/lib/articles';
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
 import Script from 'next/script';
+
+const siteUrl = 'https://pitsch.me';
+
+function toAbsoluteUrl(url: string): string {
+  return url.startsWith('http') ? url : `${siteUrl}${url.startsWith('/') ? url : `/${url}`}`;
+}
 
 export async function renderArticle(slug: string) {
   const article = await getArticleBySlug(slug);
   if (!article) {
-    return (
-      <div className="mx-auto max-w-3xl p-6">
-        <p className="text-red-600">Article not found.</p>
-        <Link href="/" className="underline">
-          Back home
-        </Link>
-      </div>
-    );
+    notFound();
   }
   const adjacent = await getAdjacentArticles(article.slug);
   const heroSrc = article.heroImage || article.ogImage || `/og/${article.slug}.jpg`;
+  const authorName = article.author || 'Oliver Pitsch';
+  const articleUrl = `${siteUrl}/articles/${article.slug}`;
+  const description = article.description || `${article.Title} by ${authorName}`;
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: article.Title,
+    description,
+    url: articleUrl,
+    mainEntityOfPage: articleUrl,
+    image: [toAbsoluteUrl(heroSrc)],
+    author: {
+      '@type': 'Person',
+      name: authorName,
+      url: siteUrl,
+    },
+    publisher: {
+      '@type': 'Person',
+      name: 'Oliver Pitsch',
+      url: siteUrl,
+      image: toAbsoluteUrl('/images/oliver-pitsch-2025.png'),
+    },
+    datePublished: article.date ? new Date(article.date).toISOString() : undefined,
+    dateModified: article.updated
+      ? new Date(article.updated).toISOString()
+      : article.date
+        ? new Date(article.date).toISOString()
+        : undefined,
+    inLanguage: 'en-US',
+    articleSection: 'Articles',
+    keywords: article.keywords?.join(', '),
+    wordCount: article.wordCount,
+  };
   return (
     <div className="min-h-screen bg-[#F8FAFC] dark:bg-[#182B52] text-[#182B52] dark:text-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
       <div
         className="h-5 w-full bg-gradient-to-b from-[#FFAA00] via-[#FFBF00] to-[#FFD500]"
         aria-hidden
@@ -29,7 +66,7 @@ export async function renderArticle(slug: string) {
           <div
             className={`${article.imageDescription ? 'mb-2' : 'mb-8'} rounded-xl overflow-hidden border border-[#E2E8F0] dark:border-[#283B63] shadow-sm bg-white dark:bg-[#152544]`}
           >
-            <img src={heroSrc} alt={article.heroAlt || ''} className="w-full h-auto" />
+            <img src={heroSrc} alt={article.heroAlt || `Cover image for ${article.Title}`} className="w-full h-auto" />
           </div>
           {article.imageDescription && (
             <p className="mb-8 text-xs text-slate-500 dark:text-slate-400">
@@ -43,19 +80,19 @@ export async function renderArticle(slug: string) {
             <picture className="shrink-0">
               <source
                 media="(prefers-color-scheme: light) or (prefers-color-scheme: no-preference)"
-                srcSet="/images/oliver-pitsch.jpg"
+                srcSet="/images/oliver-pitsch-2025.png"
               />
               <source
                 media="(prefers-color-scheme: dark)"
-                srcSet="/images/oliver-pitsch-dark.jpg"
+                srcSet="/images/oliver-pitsch-2025-dark.png"
               />
               <img
-                src="/images/oliver-pitsch.jpg"
+                src="/images/oliver-pitsch-2025-dark.png"
                 alt="Oliver Pitsch"
-                className="h-9 w-9 rounded-full object-cover ring-2 ring-[#FFBF00]/70 dark:ring-[#FFDC0F]/70"
+                className="h-9 w-9 rounded-full mix-blend-multiply dark:mix-blend-normal ring-2 ring-[#FFBF00]/70 dark:ring-[#FFDC0F]/70"
               />
             </picture>
-            {article.author && <span className="leading-none">{article.author}</span>}
+            <span className="leading-none">{authorName}</span>
             {article.readingTime && (
               <span className="opacity-70 leading-none flex gap-1 items-center font-medium">
                 <svg
@@ -146,33 +183,33 @@ export async function renderArticle(slug: string) {
             <picture className="shrink-0">
               <source
                 media="(prefers-color-scheme: light) or (prefers-color-scheme: no-preference)"
-                srcSet="/images/oliver-pitsch.jpg"
+                srcSet="/images/oliver-pitsch-2025.png"
               />
               <source
                 media="(prefers-color-scheme: dark)"
-                srcSet="/images/oliver-pitsch-dark.jpg"
+                srcSet="/images/oliver-pitsch-2025-dark.png"
               />
               <img
-                src="/images/oliver-pitsch.jpg"
+                src="/images/oliver-pitsch-2025-dark.png"
                 alt="Oliver Pitsch"
-                className="h-28 w-28 rounded-full object-cover ring-4 ring-[#FFDC0F] ring-offset-4 ring-offset-[#F8FAFC] dark:ring-offset-[#182B52]"
+                className="h-28 w-28 rounded-full mix-blend-multiply dark:mix-blend-normal ring-4 ring-[#FFDC0F] ring-offset-4 ring-offset-[#F8FAFC] dark:ring-offset-[#182B52]"
               />
             </picture>
             <div className="flex-1">
               <h3 className="text-xl font-semibold">About the author</h3>
               <p className="mt-4 text-[16px] leading-7 text-[#182B52] dark:text-[#E6EEFF]">
-                Oliver Pitsch is an experienced product design leader from Cologne, Germany, with a
-                strong track record of building cross-functional teams and delivering exceptional
-                user experiences. He specializes in harmonizing discovery and delivery and currently
-                directs User Experience & Product Marketing at{' '}
-                <a href="https://trustedshops.com" className="underline">
-                  Trusted Shops
+                Oliver Pitsch is a product maker and builder with 20 years of experience across
+                design, UX, and product leadership. Based in Cologne, Germany, he is currently Head
+                of Product at{' '}
+                <a href="https://ordio.com" className="underline">
+                  Ordio
                 </a>{' '}
-                while building{' '}
+                and founder of{' '}
                 <a href="https://joinride.cc" className="underline">
                   Joinride.cc
                 </a>
-                .
+                . Formerly Director of UX &amp; Product Marketing at Trusted Shops. He writes about
+                product, AI building, and how building is changing.
               </p>
               <div className="mt-4 flex flex-wrap gap-4 text-sm">
                 <Link href="/" className="underline">
@@ -188,7 +225,7 @@ export async function renderArticle(slug: string) {
             </div>
           </div>
         </div>
-        <nav className="mt-16 flex flex-col gap-4 text-sm">
+        <nav className="mt-16 flex flex-col gap-4 text-sm" aria-label="Article pagination">
           <div className="grid grid-cols-2 gap-4">
             {adjacent.previous && (
               <Link
