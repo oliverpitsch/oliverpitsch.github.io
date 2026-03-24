@@ -1,6 +1,12 @@
 import { getArticleBySlug, getArticleSlugs } from '@/lib/articles';
 import { renderArticle } from './_page-impl';
 
+const siteUrl = 'https://pitsch.me';
+
+function toAbsoluteUrl(url: string): string {
+  return url.startsWith('http') ? url : `${siteUrl}${url.startsWith('/') ? url : `/${url}`}`;
+}
+
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   return getArticleSlugs().map(file => ({ slug: file.replace(/\.md$/, '') }));
 }
@@ -14,14 +20,42 @@ interface WrappedPageProps { params: MaybePromise<RouteParams> }
 export async function generateMetadata({ params }: WrappedPageProps) {
   const resolved = await params;
   const article = await getArticleBySlug(resolved.slug);
-  if (!article) return { title: 'Article not found' };
+  if (!article) {
+    return {
+      title: 'Article not found',
+      robots: {
+        index: false,
+        follow: false,
+      },
+    };
+  }
   const description = article.description || (article.author ? `${article.Title} by ${article.author}` : article.Title);
-  // Allow frontmatter 'ogImage' override (relative to /public) else try conventional slug .jpg then fallback to site default
-  const ogImage = article.ogImage || article.heroImage || `/og/${article.slug}.jpg`;
+  const articleUrl = `/articles/${article.slug}`;
+  const ogImage = toAbsoluteUrl(article.ogImage || article.heroImage || `/og/${article.slug}.jpg`);
+  const authorName = article.author || 'Oliver Pitsch';
+  const publishedTime = article.date ? new Date(article.date).toISOString() : undefined;
+  const modifiedTime = article.updated
+    ? new Date(article.updated).toISOString()
+    : publishedTime;
   return {
-    title: article.Title,
+    title: `${article.Title} – Oliver Pitsch`,
     description,
-    openGraph: { title: article.Title, description, images: [{ url: ogImage, width: 1200, height: 630 }] },
+    alternates: {
+      canonical: articleUrl,
+    },
+    authors: [{ name: authorName, url: siteUrl }],
+    keywords: article.keywords,
+    openGraph: {
+      type: 'article',
+      url: articleUrl,
+      title: article.Title,
+      description,
+      siteName: 'Oliver Pitsch',
+      publishedTime,
+      modifiedTime,
+      authors: [authorName],
+      images: [{ url: ogImage, width: 1200, height: 630, alt: article.heroAlt || article.Title }],
+    },
     twitter: { title: article.Title, description, images: [ogImage], card: 'summary_large_image' },
   };
 }

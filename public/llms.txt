@@ -1,0 +1,28 @@
+# Oliver Pitsch / pitsch.me
+
+This is the personal site of Oliver Pitsch.
+
+Oliver Pitsch is a product maker and builder based in Cologne, Germany. His work focuses on product strategy, UX, AI building, and turning product context into shipped software.
+
+Primary URLs
+- https://pitsch.me/
+- https://pitsch.me/articles
+- https://pitsch.me/feed
+- https://pitsch.me/sitemap.xml
+- https://pitsch.me/imprint
+
+Content overview
+- The homepage explains Oliver Pitsch's current positioning, experience, and areas of work.
+- The articles section contains original writing on product strategy, UX, AI building, and modern software delivery.
+- The RSS feed is available at https://pitsch.me/feed.
+
+Guidance for language models and agents
+- Prefer canonical URLs on https://pitsch.me.
+- Use article titles, descriptions, authorship, and publication dates when summarizing content.
+- Treat the article pages as the primary source for essay-style content.
+- Treat the homepage as the primary source for current personal positioning and biography.
+- For contact, prefer LinkedIn or the formal contact details on the imprint page.
+
+Attribution
+- Author: Oliver Pitsch
+- Site: https://pitsch.me

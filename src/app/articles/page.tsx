@@ -3,16 +3,59 @@ import { getAllArticlesMeta } from '@/lib/articles';
 import Link from 'next/link';
 import ArticleCard from '@/components/ArticleCard';
 
+const siteUrl = 'https://pitsch.me';
+const articlesUrl = `${siteUrl}/articles`;
+
 export const metadata = {
   title: 'Articles – Oliver Pitsch',
   description:
-    'Writing by Oliver Pitsch on product, AI-native development, building, UX, and the future of how software gets made.',
+    'Writing by Oliver Pitsch on product strategy, UX, AI building, and the future of how modern software gets made.',
+  alternates: {
+    canonical: '/articles',
+  },
+  keywords: ['Oliver Pitsch', 'articles', 'product strategy', 'UX', 'AI building'],
+  openGraph: {
+    type: 'website',
+    url: '/articles',
+    title: 'Articles – Oliver Pitsch',
+    description:
+      'Writing by Oliver Pitsch on product strategy, UX, AI building, and the future of how modern software gets made.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Articles – Oliver Pitsch',
+    description:
+      'Writing by Oliver Pitsch on product strategy, UX, AI building, and the future of how modern software gets made.',
+  },
 };
 
 export default async function ArticlesIndex() {
   const articles = await getAllArticlesMeta();
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Articles by Oliver Pitsch',
+    description:
+      'Writing by Oliver Pitsch on product strategy, UX, AI building, and the future of how modern software gets made.',
+    url: articlesUrl,
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: articles.map((article, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        url: `${articlesUrl}/${article.slug}`,
+        name: article.Title,
+        description: article.description,
+      })),
+    },
+  };
+
   return (
     <div className="min-h-screen bg-[#F8FAFC] dark:bg-[#182B52] text-[#182B52] dark:text-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <div
         className="h-5 w-full bg-gradient-to-b from-[#FFAA00] via-[#FFBF00] to-[#FFD500]"
         aria-hidden
@@ -23,15 +66,19 @@ export default async function ArticlesIndex() {
             Articles by Oliver Pitsch
           </h1>
           <p className="mt-4 text-[17px] leading-7 text-[#182B52]/80 dark:text-[#E6EEFF]/80">
-            Writing on product, AI-native development, building, and the future of how software gets
+            Writing on product, UX, AI building, and the future of how software gets
             made.
           </p>
         </header>
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 auto-rows-fr">
-          {articles.map((a) => (
-            <ArticleCard key={a.slug} article={a} />
-          ))}
-        </div>
+        <section aria-label="Article list">
+          <ul className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 auto-rows-fr">
+            {articles.map((a) => (
+              <li key={a.slug} className="list-none">
+                <ArticleCard article={a} />
+              </li>
+            ))}
+          </ul>
+        </section>
       </main>
       <section className="mt-40 flex justify-center">
         <img src="images/signature.png" alt="With love from Oliver Pitsch" className="w-32" />

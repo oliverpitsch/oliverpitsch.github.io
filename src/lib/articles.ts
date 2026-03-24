@@ -13,12 +13,15 @@ export interface ArticleMeta {
   author?: string;
   readingTime?: string; // e.g. "5 min read" auto computed if not provided
   date?: string; // ISO date or YYYY-MM-DD
+  updated?: string; // optional updated date in ISO or YYYY-MM-DD
   description?: string;
   displayDate?: string; // nicely formatted date for UI
   heroImage?: string; // path under /public
   heroAlt?: string;
   imageDescription?: string; // optional small caption/credit shown below hero image
   ogImage?: string; // override for social sharing
+  keywords?: string[];
+  wordCount?: number;
 }
 
 export interface Article extends ArticleMeta {
@@ -38,53 +41,98 @@ function computeReadingTime(text: string): string {
   return `${minutes} min read`;
 }
 
+function countWords(text: string): number {
+  const trimmed = text.trim();
+  return trimmed ? trimmed.split(/\s+/).length : 0;
+}
+
+function parseDateValue(rawDate: unknown): { date?: string; displayDate?: string } {
+  if (rawDate instanceof Date) {
+    return {
+      date: rawDate.toISOString().slice(0, 10),
+      displayDate: new Intl.DateTimeFormat('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+      }).format(rawDate),
+    };
+  }
+
+  if (typeof rawDate === 'string') {
+    const d = new Date(rawDate);
+    return {
+      date: rawDate,
+      displayDate: !isNaN(d.getTime())
+        ? new Intl.DateTimeFormat('en-US', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+          }).format(d)
+        : undefined,
+    };
+  }
+
+  return {};
+}
+
+function normalizeKeywords(value: unknown): string[] | undefined {
+  if (Array.isArray(value)) {
+    const keywords = value
+      .filter((entry): entry is string => typeof entry === 'string')
+      .map((entry) => entry.trim())
+      .filter(Boolean);
+    return keywords.length > 0 ? keywords : undefined;
+  }
+
+  if (typeof value === 'string') {
+    const keywords = value
+      .split(',')
+      .map((entry) => entry.trim())
+      .filter(Boolean);
+    return keywords.length > 0 ? keywords : undefined;
+  }
+
+  return undefined;
+}
+
+function stripLeadingMarkdownH1(content: string): string {
+  return content.replace(/^\s*#\s+.+(?:\r?\n)+/, '');
+}
+
 export async function getArticleBySlug(slug: string): Promise<Article | null> {
   const filename = slug.endsWith('.md') ? slug : `${slug}.md`;
   const fullPath = path.join(articlesDir, filename);
   if (!fs.existsSync(fullPath)) return null;
   const raw = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(raw);
+  const cleanedContent = stripLeadingMarkdownH1(content);
   const processed = await remark()
     .use(gfm)
     .use(remarkCallouts)
     .use(remarkRehype)
     .use(rehypeStringify)
-    .process(content);
-  const rawDate: unknown = data.date;
-  let date: string | undefined;
-  let displayDate: string | undefined;
-  if (rawDate instanceof Date) {
-    date = rawDate.toISOString().slice(0, 10); // YYYY-MM-DD
-    displayDate = new Intl.DateTimeFormat('en-US', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-    }).format(rawDate);
-  } else if (typeof rawDate === 'string') {
-    date = rawDate;
-    const d = new Date(rawDate);
-    if (!isNaN(d.getTime())) {
-      displayDate = new Intl.DateTimeFormat('en-US', {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric',
-      }).format(d);
-    }
-  }
-
-  const readingTime = (data.readingTime as string | undefined) || computeReadingTime(content);
+    .process(cleanedContent);
+  const { date, displayDate } = parseDateValue(data.date);
+  const { date: updated } = parseDateValue(data.updated);
+  const readingTime =
+    (data.readingTime as string | undefined) || computeReadingTime(cleanedContent);
+  const keywords = normalizeKeywords(data.keywords);
+  const wordCount = countWords(cleanedContent);
   return {
     slug: (data.slug as string) || slug.replace(/\.md$/, ''),
     Title: data.Title as string,
     author: data.author as string | undefined,
     readingTime,
     date,
+    updated,
     displayDate,
     description: data.description as string | undefined,
     heroImage: data.heroImage as string | undefined,
     heroAlt: data.heroAlt as string | undefined,
     imageDescription: data.imageDescription as string | undefined,
     ogImage: data.ogImage as string | undefined,
+    keywords,
+    wordCount,
     html: processed.toString(),
   };
 }
@@ -95,42 +143,28 @@ export async function getAllArticlesMeta(): Promise<ArticleMeta[]> {
   for (const file of slugs) {
     const fullPath = path.join(articlesDir, file);
     const raw = fs.readFileSync(fullPath, 'utf8');
-    const { data } = matter(raw);
-    const rawDate: unknown = data.date;
-    let date: string | undefined;
-    let displayDate: string | undefined;
-    if (rawDate instanceof Date) {
-      date = rawDate.toISOString().slice(0, 10);
-      displayDate = new Intl.DateTimeFormat('en-US', {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric',
-      }).format(rawDate);
-    } else if (typeof rawDate === 'string') {
-      date = rawDate;
-      const d = new Date(rawDate);
-      if (!isNaN(d.getTime())) {
-        displayDate = new Intl.DateTimeFormat('en-US', {
-          year: 'numeric',
-          month: 'short',
-          day: 'numeric',
-        }).format(d);
-      }
-    }
-    const content = raw.split('---').slice(2).join('---'); // naive extraction after frontmatter
-    const readingTime = (data.readingTime as string | undefined) || computeReadingTime(content);
+    const { data, content } = matter(raw);
+    const cleanedContent = stripLeadingMarkdownH1(content);
+    const { date, displayDate } = parseDateValue(data.date);
+    const { date: updated } = parseDateValue(data.updated);
+    const readingTime =
+      (data.readingTime as string | undefined) || computeReadingTime(cleanedContent);
+    const keywords = normalizeKeywords(data.keywords);
     articles.push({
       slug: (data.slug as string) || file.replace(/\.md$/, ''),
       Title: data.Title as string,
       author: data.author as string | undefined,
       readingTime,
       date,
+      updated,
       displayDate,
       description: data.description as string | undefined,
       heroImage: data.heroImage as string | undefined,
       heroAlt: data.heroAlt as string | undefined,
       imageDescription: data.imageDescription as string | undefined,
       ogImage: data.ogImage as string | undefined,
+      keywords,
+      wordCount: countWords(cleanedContent),
     });
   }
   return articles.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
