@@ -58,13 +58,13 @@ function Timeline() {
     {
       label: 'Studitemps',
       span: '2015 – 2017',
-      jobTitle: 'Senio UX Designer',
+      jobTitle: 'Senior UX Designer',
       svg: 'companies/logo-studitemps.svg',
     },
     {
       label: 'Trusted Shops',
       span: '2017 – 2025',
-      jobTitle: 'Director UX',
+      jobTitle: 'Director UX & Product Marketing',
       svg: 'companies/logo-trusted-shops.svg',
     },
     {
@@ -174,7 +174,6 @@ function Social() {
 export default async function Home() {
   const allArticles = await getAllArticlesMeta();
   const latestArticles = allArticles.slice(0, 6);
-  const hasMoreArticles = allArticles.length > 6;
   return (
     <div className="min-h-screen bg-[#F8FAFC] dark:bg-[#182B52] text-[#182B52] dark:text-white">
       <Topline />
@@ -183,6 +182,12 @@ export default async function Home() {
 
         <div className="text-center mt-8 px-4 lg:px-0">
           <h1 className="text-[48px] font-medium">Oliver Pitsch</h1>
+          <p className="mt-3 text-[17px] font-medium text-[#3B5EA5] dark:text-[#8DAEF0] tracking-wide">
+            Product Maker &amp; Builder
+          </p>
+          <p className="mt-1 text-[15px] text-slate-500 dark:text-slate-400">
+            20 years across design, UX, and product leadership
+          </p>
           <h2 className="mt-6 text-[24px] font-semibold">
             Head of Product
             <span className="font-normal"> at </span>
@@ -210,46 +215,107 @@ export default async function Home() {
 
         <Timeline />
 
-        <section className="mx-auto mt-16 max-w-4xl text-[18px] leading-7 text-[#182B52] dark:text-[#E6EEFF] px-10 lg:px-0">
+        <section
+          className="mx-auto mt-16 max-w-4xl text-[18px] leading-7 text-[#182B52] dark:text-[#E6EEFF] px-10 lg:px-0"
+          aria-label="About Oliver Pitsch"
+        >
           <p>
-            Oliver Pitsch is an experienced product and design leader from Cologne, Germany, with a
-            strong track record of building cross-functional teams and delivering exceptional user
-            experiences. With over a decade of experience, he specializes in seamlessly integrating
-            the discovery and delivery phases of digital products.
+            Oliver Pitsch builds products. With 20 years of experience across design, UX, and
+            product leadership, he combines product thinking, UX craft, business context, and
+            AI-native execution to turn ideas into working software — fast.
           </p>
           <p className="mt-4">
-            In 2012 he co-founded Reputami, a reputation management{' '}
-            <abbr title="Software as a Service">SaaS</abbr> for the hospitality industry, which was
-            acquired in 2015.
-          </p>
-          <p className="mt-4">
-            Currently, Oliver is leading the product department at
-            <a href="https://ordio.com" className="underline ml-1">
-              Ordio.com
-            </a>{' '}
-            and builds
-            <a href="https://joinride.cc" className="underline ml-1">
+            Currently Head of Product at{' '}
+            <a href="https://ordio.com" className="underline">
+              Ordio
+            </a>
+            , an operations and workforce management platform for shift-based teams, and founder of{' '}
+            <a href="https://joinride.cc" className="underline">
               Joinride.cc
             </a>
-            , the leading german platform for planning and finding cycling group rides and run
-            clubs.
+            , the go-to platform for cycling group rides and run clubs in Germany.
+          </p>
+          <p className="mt-4">
+            Previously Director of UX &amp; Product Marketing at{' '}
+            <a href="https://trustedshops.com" className="underline">
+              Trusted Shops
+            </a>
+            . Before that, founder and CEO of Reputami, an AI-driven reputation SaaS for
+            hospitality, acquired in 2015.
+          </p>
+          <p className="mt-4">
+            He has led teams and built product and design structures across multiple organizations —
+            but his focus is on making and shipping, using product sense, UX depth, and modern
+            AI-native workflows to go from idea to shipped product.
           </p>
         </section>
 
+        <section
+          className="mx-auto mt-16 max-w-4xl px-10 lg:px-0"
+          aria-label="Areas of expertise"
+        >
+          <h2 className="text-xl font-semibold mb-6 text-[#182B52] dark:text-white">
+            What I work on
+          </h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+            {(
+              [
+                {
+                  label: 'Product Strategy',
+                  desc: 'From market context to roadmap to shipped features that create real value.',
+                },
+                {
+                  label: 'UX & Design Systems',
+                  desc: 'User-centred design that scales across teams, products, and platforms.',
+                },
+                {
+                  label: 'AI-Native Building',
+                  desc: 'Agentic workflows and AI tools to build faster with smaller teams.',
+                },
+                {
+                  label: 'B2B SaaS',
+                  desc: 'Deep domain experience in HR tech, shift-based work, and operations software.',
+                },
+                {
+                  label: 'Product Growth',
+                  desc: 'Connecting UX, product marketing, and conversion to drive sustainable growth.',
+                },
+                {
+                  label: 'Leadership',
+                  desc: 'Built and scaled product and design teams across startups, scale-ups, and established SaaS businesses.',
+                },
+              ] as { label: string; desc: string }[]
+            ).map((item) => (
+              <div
+                key={item.label}
+                className="rounded-2xl border border-[#E2E8F0] dark:border-slate-800 p-5 bg-white dark:bg-[#152544]"
+              >
+                <h3 className="font-semibold text-[16px] text-[#182B52] dark:text-white">
+                  {item.label}
+                </h3>
+                <p className="mt-2 text-[14px] text-slate-600 dark:text-slate-300">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {latestArticles.length > 0 && (
-          <section className="mx-auto mt-16 max-w-4xl px-4 lg:px-0">
+          <section className="mx-auto mt-16 max-w-4xl px-4 lg:px-0" aria-label="Latest writing">
             <div className="mb-6 flex items-end justify-between gap-4">
-              <h3 className="text-lg md:text-xl font-semibold tracking-tight">
-                Latest articles by Oliver Pitsch
-              </h3>
-              {hasMoreArticles && (
-                <Link
-                  href="/articles"
-                  className="text-[14px] font-medium text-indigo-700 dark:text-indigo-300 underline"
-                >
-                  View all
-                </Link>
-              )}
+              <div>
+                <h2 className="text-lg md:text-xl font-semibold tracking-tight">
+                  Writing on product, AI, and building
+                </h2>
+                <p className="mt-1 text-[14px] text-slate-500 dark:text-slate-400">
+                  Perspectives on how products get made and where it&apos;s all heading.
+                </p>
+              </div>
+              <Link
+                href="/articles"
+                className="text-[14px] font-medium text-indigo-700 dark:text-indigo-300 underline shrink-0"
+              >
+                All articles →
+              </Link>
             </div>
             <div className="grid gap-4 grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 auto-rows-fr">
               {latestArticles.map((a) => (

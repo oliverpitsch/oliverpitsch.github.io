@@ -14,33 +14,33 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   metadataBase: new URL('https://pitsch.me'),
-  title: 'Oliver Pitsch – Product and design leader',
+  title: 'Oliver Pitsch – Product Maker & Builder',
   description:
-    'Oliver Pitsch is a product and design leader from Cologne, Germany with over a decade of experience in building UX in cross-functional teams and harmonizing discovery and delivery.',
+    'Oliver Pitsch is a product maker and builder from Cologne, Germany with 20 years of experience across design, UX, and product leadership. Currently Head of Product at Ordio, founder of Joinride, and writer on product, AI, and building.',
   openGraph: {
     type: 'website',
     url: '/',
-    title: 'Oliver Pitsch – Product and design leader',
+    title: 'Oliver Pitsch – Product Maker & Builder',
     description:
-      'Product and design leader from Cologne, Germany. Building UX capabilities, aligning discovery and delivery.',
+      'Product maker and builder from Cologne, Germany. 20 years across design, UX, and product leadership. Building AI-native, shipping fast.',
     images: [
       {
         url: '/images/og-images/og-facebook.jpg',
         width: 1200,
         height: 630,
-        alt: 'Oliver Pitsch – Product design leader',
+        alt: 'Oliver Pitsch – Product Maker & Builder',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Oliver Pitsch – Product design leader',
+    title: 'Oliver Pitsch – Product Maker & Builder',
     description:
-      'Product and design leader from Cologne, Germany. Building UX capabilities, aligning discovery and delivery.',
+      'Product maker and builder from Cologne, Germany. 20 years across design, UX, and product leadership. Building AI-native, shipping fast.',
     images: [
       {
         url: '/images/og-images/og-twitter-card.jpg',
-        alt: 'Oliver Pitsch – Product design leader',
+        alt: 'Oliver Pitsch – Product Maker & Builder',
       },
     ],
   },

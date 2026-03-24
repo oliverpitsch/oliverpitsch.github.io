@@ -5,6 +5,8 @@ import ArticleCard from '@/components/ArticleCard';
 
 export const metadata = {
   title: 'Articles – Oliver Pitsch',
+  description:
+    'Writing by Oliver Pitsch on product, AI-native development, building, UX, and the future of how software gets made.',
 };
 
 export default async function ArticlesIndex() {
@@ -18,11 +20,11 @@ export default async function ArticlesIndex() {
       <main className="mx-auto max-w-7xl px-6 xl:px-10 py-14">
         <header className="max-w-3xl mb-14">
           <h1 className="text-3xl md:text-4xl font-semibold leading-tight tracking-tight">
-            Articles
+            Articles by Oliver Pitsch
           </h1>
           <p className="mt-4 text-[17px] leading-7 text-[#182B52]/80 dark:text-[#E6EEFF]/80">
-            Writing on product design leadership, discovery & delivery, and building user-centred
-            products.
+            Writing on product, AI-native development, building, and the future of how software gets
+            made.
           </p>
         </header>
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 auto-rows-fr">

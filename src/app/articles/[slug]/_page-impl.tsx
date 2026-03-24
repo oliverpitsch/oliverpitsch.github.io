@@ -161,18 +161,18 @@ export async function renderArticle(slug: string) {
             <div className="flex-1">
               <h3 className="text-xl font-semibold">About the author</h3>
               <p className="mt-4 text-[16px] leading-7 text-[#182B52] dark:text-[#E6EEFF]">
-                Oliver Pitsch is an experienced product design leader from Cologne, Germany, with a
-                strong track record of building cross-functional teams and delivering exceptional
-                user experiences. He specializes in harmonizing discovery and delivery and currently
-                directs User Experience & Product Marketing at{' '}
-                <a href="https://trustedshops.com" className="underline">
-                  Trusted Shops
+                Oliver Pitsch is a product maker and builder with 20 years of experience across
+                design, UX, and product leadership. Based in Cologne, Germany, he is currently Head
+                of Product at{' '}
+                <a href="https://ordio.com" className="underline">
+                  Ordio
                 </a>{' '}
-                while building{' '}
+                and founder of{' '}
                 <a href="https://joinride.cc" className="underline">
                   Joinride.cc
                 </a>
-                .
+                . Formerly Director of UX &amp; Product Marketing at Trusted Shops. He writes about
+                product, AI-native development, and how building is changing.
               </p>
               <div className="mt-4 flex flex-wrap gap-4 text-sm">
                 <Link href="/" className="underline">
