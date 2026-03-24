@@ -180,37 +180,16 @@ export default async function Home() {
       <main className="mx-auto max-w-full">
         <ProfileImage />
 
-        <div className="text-center mt-8 px-4 lg:px-0">
-          <h1 className="text-[48px] font-medium">Oliver Pitsch</h1>
-          <p className="mt-3 text-[17px] font-medium text-[#3B5EA5] dark:text-[#8DAEF0] tracking-wide">
-            Product Maker &amp; Builder
+        <div className="mx-auto mt-10 max-w-4xl px-4 text-center lg:mt-12 lg:px-0">
+          <h1 className="text-balance text-[56px] font-medium leading-[0.92] tracking-[-0.03em] sm:text-[68px] lg:text-[76px]">
+            Oliver Pitsch
+          </h1>
+          <p className="mx-auto mt-6 max-w-2xl text-balance text-[21px] font-semibold tracking-[0.01em] text-[#3B5EA5] dark:text-[#8DAEF0] sm:text-[24px]">
+            Product, UX, and AI-native execution
           </p>
-          <p className="mt-1 text-[15px] text-slate-500 dark:text-slate-400">
-            20 years across design, UX, and product leadership
+          <p className="mx-auto mt-4 max-w-xl text-balance text-[17px] leading-7 text-slate-500 dark:text-slate-400 sm:text-[19px]">
+            Turning product context into shipped software
           </p>
-          <h2 className="mt-6 text-[24px] font-semibold">
-            Head of Product
-            <span className="font-normal"> at </span>
-            <a
-              href="https://ordio.com"
-              className="inline-flex -rotate-[1deg] -skew-x-[4deg] rounded-sm bg-[#4d8ef3] hover:bg-gradient-to-r from-blue-400 to-[#4d8ef3] px-4 py-2 ml-2"
-            >
-              <span className="relative rotate-[1deg] skew-x-[4deg] text-2xl font-bold text-white">
-                Ordio.com
-              </span>
-            </a>
-          </h2>
-          <h2 className="mt-6 text-[24px] font-semibold">
-            Founder <span className="font-normal">at</span>
-            <a
-              href="https://joinride.cc"
-              className="inline-flex -rotate-[1deg] -skew-x-[4deg] rounded-sm bg-indigo-700 hover:bg-indigo-600 dark:bg-indigo-200 dark:hover:bg-indigo-300 px-4 py-2 ml-2"
-            >
-              <span className="relative rotate-[1deg] skew-x-[4deg] text-2xl font-bold text-white dark:text-indigo-700">
-                Joinride.cc
-              </span>
-            </a>
-          </h2>
         </div>
 
         <Timeline />
@@ -220,9 +199,10 @@ export default async function Home() {
           aria-label="About Oliver Pitsch"
         >
           <p>
-            Oliver Pitsch builds products. With 20 years of experience across design, UX, and
-            product leadership, he combines product thinking, UX craft, business context, and
-            AI-native execution to turn ideas into working software, fast.
+            Oliver Pitsch builds product systems for the age of humans and agents. With 20 years
+            across design, UX, and product leadership, he combines product thinking, UX craft,
+            business context, and AI-native execution to turn product context into shipped
+            software.
           </p>
           <p className="mt-4">
             Currently Head of Product at{' '}
@@ -244,42 +224,41 @@ export default async function Home() {
             hospitality, acquired in 2015.
           </p>
           <p className="mt-4">
-            He has led teams and built product and design structures across multiple organizations,
-            but his focus is on making and shipping, using product sense, UX depth, and modern
-            AI-native workflows to go from idea to shipped product.
+            His focus is reducing handoffs, removing process overhead, and helping teams move from
+            feedback and intent to working software with more clarity, speed, and leverage.
           </p>
         </section>
 
         <section className="mx-auto mt-16 max-w-4xl px-10 lg:px-0" aria-label="Areas of expertise">
           <h2 className="text-xl font-semibold mb-6 text-[#182B52] dark:text-white">
-            What I work on
+            How I create leverage
           </h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
             {(
               [
                 {
-                  label: 'Product Strategy',
-                  desc: 'From market context to roadmap to shipped features that create real value.',
+                  label: 'Context to Execution',
+                  desc: 'Turn customer feedback, product intent, and strategy into scoped work and shipped outcomes.',
                 },
                 {
-                  label: 'UX & Design Systems',
-                  desc: 'User-centred design that scales across teams, products, and platforms.',
+                  label: 'UX and Product Systems',
+                  desc: 'Design flows, structures, and systems that help products scale without losing clarity.',
                 },
                 {
-                  label: 'AI-Native Building',
-                  desc: 'Agentic workflows and AI tools to build faster with smaller teams.',
+                  label: 'AI-Native Execution',
+                  desc: 'Use agents and AI tools to compress planning, building, and iteration into faster delivery loops.',
                 },
                 {
-                  label: 'B2B SaaS',
-                  desc: 'Deep domain experience in HR tech, shift-based work, and operations software.',
+                  label: 'B2B SaaS and Operations',
+                  desc: 'Deep experience in HR tech, shift-based work, trust, and operational software.',
                 },
                 {
-                  label: 'Product Growth',
-                  desc: 'Connecting UX, product marketing, and conversion to drive sustainable growth.',
+                  label: 'Product Growth and Signals',
+                  desc: 'Connect research, customer requests, product marketing, and behavior to find what matters and act on it.',
                 },
                 {
-                  label: 'Leadership',
-                  desc: 'Built and scaled product and design teams across startups, scale-ups, and established SaaS businesses.',
+                  label: 'Human + Agent Workflows',
+                  desc: 'Shape ways of working where people focus on intent, judgment, and taste while AI handles more of the mechanics.',
                 },
               ] as { label: string; desc: string }[]
             ).map((item) => (
@@ -301,10 +280,10 @@ export default async function Home() {
             <div className="mb-6 flex items-end justify-between gap-4">
               <div>
                 <h2 className="text-lg md:text-xl font-semibold tracking-tight">
-                  Writing on product, AI, and building
+                  Writing on product systems, AI, and building
                 </h2>
                 <p className="mt-1 text-[14px] text-slate-500 dark:text-slate-400">
-                  Perspectives on how products get made and where it&apos;s all heading.
+                  Perspectives on AI-native execution, modern product work, and where software teams are headed.
                 </p>
               </div>
               <Link
