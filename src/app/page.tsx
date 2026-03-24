@@ -172,23 +172,12 @@ function Social() {
 }
 
 function ContactCTA() {
-  const topics = [
-    'Product strategy',
-    'UX systems',
-    'AI-native workflows',
-    'Leadership sparring',
-  ];
+  const topics = ['Product strategy', 'UX systems', 'AI building', 'Leadership sparring'];
 
   return (
-    <section
-      className="mx-auto mt-20 max-w-5xl px-4 lg:px-0"
-      aria-labelledby="contact-heading"
-    >
+    <section className="mx-auto mt-20 max-w-5xl px-4 lg:px-0" aria-labelledby="contact-heading">
       <div className="relative overflow-hidden rounded-[32px] border border-slate-200/80 bg-white px-6 py-8 shadow-[0_20px_60px_rgba(15,23,42,0.08)] dark:border-slate-800 dark:bg-[#152544] sm:px-8 sm:py-10 lg:px-12 lg:py-12">
-        <div
-          className="absolute inset-0 opacity-80 dark:opacity-100"
-          aria-hidden="true"
-        >
+        <div className="absolute inset-0 opacity-80 dark:opacity-100" aria-hidden="true">
           <div className="absolute -right-16 top-0 h-56 w-56 rounded-full bg-[radial-gradient(circle,_rgba(77,142,243,0.1),_transparent_68%)]" />
           <div className="absolute left-[8%] top-[12%] h-28 w-28 rounded-full bg-[radial-gradient(circle,_rgba(255,213,0,0.08),_transparent_72%)]" />
           <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(255,213,0,0.55),transparent)]" />
@@ -201,15 +190,15 @@ function ContactCTA() {
             </p>
             <h2
               id="contact-heading"
-              className="mt-5 max-w-3xl text-balance text-[32px] font-semibold tracking-[-0.03em] text-[#182B52] dark:text-white sm:text-[40px]"
+              className="mt-5 max-w-3xl text-balance text-[32px] font-semibold leading-[1.02] tracking-[-0.03em] text-[#182B52] dark:text-white sm:text-[40px]"
             >
-              Contact Oliver Pitsch for product strategy, UX, and AI-native execution
+              Contact Oliver Pitsch for product strategy, UX, and AI building
             </h2>
             <p className="mt-4 max-w-3xl text-pretty text-[17px] leading-8 text-slate-600 dark:text-slate-300 sm:text-[18px]">
               If you are building a product, evolving a product team, or looking for a sharper way
-              to move from customer insight to shipped software, let&apos;s talk. I work with leaders,
-              founders, and teams that want clearer direction, stronger UX, and faster execution
-              with less process overhead.
+              to move from customer insight to shipped software, let&apos;s talk. I work with
+              leaders, founders, and teams that want clearer direction, stronger UX, and faster
+              execution with less process overhead.
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
@@ -229,7 +218,7 @@ function ContactCTA() {
               Start a conversation
             </h3>
             <p className="mt-2 text-[15px] leading-7 text-slate-600 dark:text-slate-300">
-              Best fit for advisory, product leadership, UX direction, and AI-native product work.
+              Best fit for advisory, product leadership, UX direction, and AI building.
             </p>
 
             <div className="mt-6 flex flex-col gap-3">
@@ -277,7 +266,7 @@ export default async function Home() {
             Oliver Pitsch
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-balance text-[21px] font-semibold tracking-[0.01em] text-[#3B5EA5] dark:text-[#8DAEF0] sm:text-[24px]">
-            Product, UX, and AI-native execution
+            Product, UX, and AI building
           </p>
           <p className="mx-auto mt-4 max-w-xl text-balance text-[17px] leading-7 text-slate-500 dark:text-slate-400 sm:text-[19px]">
             Turning product context into shipped software
@@ -293,7 +282,7 @@ export default async function Home() {
           <p>
             Oliver Pitsch builds product systems for the age of humans and agents. With 20 years
             across design, UX, and product leadership, he combines product thinking, UX craft,
-            business context, and AI-native execution to turn product context into shipped software.
+            business context, and AI building to turn product context into shipped software.
           </p>
           <p className="mt-4">
             Currently Head of Product at{' '}
@@ -336,8 +325,8 @@ export default async function Home() {
                   desc: 'Design flows, structures, and systems that help products scale without losing clarity.',
                 },
                 {
-                  label: 'AI-Native Execution',
-                  desc: 'Use agents and AI tools to compress planning, building, and iteration into faster delivery loops.',
+                  label: 'AI Building',
+                  desc: 'Use AI tools and agents to compress planning, building, and iteration into faster delivery loops.',
                 },
                 {
                   label: 'B2B SaaS and Operations',
@@ -376,8 +365,8 @@ export default async function Home() {
                   Writing on product systems, AI, and building
                 </h2>
                 <p className="mt-1 text-[14px] text-slate-500 dark:text-slate-400">
-                  Perspectives on AI-native execution, modern product work, and where software teams
-                  are headed.
+                  Perspectives on AI building, modern product work, and where software teams are
+                  headed.
                 </p>
               </div>
               <Link
