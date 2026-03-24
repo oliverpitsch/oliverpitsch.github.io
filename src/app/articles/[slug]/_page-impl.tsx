@@ -146,16 +146,16 @@ export async function renderArticle(slug: string) {
             <picture className="shrink-0">
               <source
                 media="(prefers-color-scheme: light) or (prefers-color-scheme: no-preference)"
-                srcSet="/images/oliver-pitsch.jpg"
+                srcSet="/images/oliver-pitsch-2025.png"
               />
               <source
                 media="(prefers-color-scheme: dark)"
-                srcSet="/images/oliver-pitsch-dark.jpg"
+                srcSet="/images/oliver-pitsch-2025-dark.png"
               />
               <img
-                src="/images/oliver-pitsch.jpg"
+                src="/images/oliver-pitsch-2025-dark.png"
                 alt="Oliver Pitsch"
-                className="h-28 w-28 rounded-full object-cover ring-4 ring-[#FFDC0F] ring-offset-4 ring-offset-[#F8FAFC] dark:ring-offset-[#182B52]"
+                className="h-28 w-28 rounded-full mix-blend-multiply dark:mix-blend-normal ring-4 ring-[#FFDC0F] ring-offset-4 ring-offset-[#F8FAFC] dark:ring-offset-[#182B52]"
               />
             </picture>
             <div className="flex-1">
