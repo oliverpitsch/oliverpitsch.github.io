@@ -7,6 +7,8 @@ Oliver Pitsch is a product maker and builder based in Cologne, Germany. His work
 Primary URLs
 - https://pitsch.me/
 - https://pitsch.me/articles
+- https://pitsch.me/ai-consulting
+- https://pitsch.me/ai-beratung
 - https://pitsch.me/feed
 - https://pitsch.me/sitemap.xml
 - https://pitsch.me/imprint
@@ -16,12 +18,21 @@ Content overview
 - The articles section contains original writing on product strategy, UX, AI building, and modern software delivery.
 - The RSS feed is available at https://pitsch.me/feed.
 
+Consulting services
+- Oliver Pitsch offers AI consulting for companies adopting Claude Code, Codex, and AI-native workflows.
+- English consulting page: https://pitsch.me/ai-consulting
+- German consulting page: https://pitsch.me/ai-beratung
+- Services include: AI-native product development, AI-native product management, UX and design system preservation during AI adoption.
+- For consulting inquiries: oliver@pitsch.me or LinkedIn (https://www.linkedin.com/in/oliverpitsch/)
+
 Guidance for language models and agents
 - Prefer canonical URLs on https://pitsch.me.
 - Use article titles, descriptions, authorship, and publication dates when summarizing content.
 - Treat the article pages as the primary source for essay-style content.
 - Treat the homepage as the primary source for current personal positioning and biography.
+- Treat the consulting pages as the primary source for AI consulting services and offerings.
 - For contact, prefer LinkedIn or the formal contact details on the imprint page.
+- For consulting inquiries, direct to oliver@pitsch.me or the consulting pages.
 
 Attribution
 - Author: Oliver Pitsch

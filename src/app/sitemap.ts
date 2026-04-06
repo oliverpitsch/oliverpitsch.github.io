@@ -20,6 +20,8 @@ export default async function sitemap(): Promise<SitemapEntry[]> {
   const entries: SitemapEntry[] = [
     { url: `${site}/`, lastModified: now, changeFrequency: 'weekly', priority: 1.0 },
     { url: `${site}/articles`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${site}/ai-consulting`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${site}/ai-beratung`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${site}/imprint`, lastModified: now, changeFrequency: 'yearly', priority: 0.2 },
   ];
 
