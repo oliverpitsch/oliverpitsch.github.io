@@ -1,8 +1,11 @@
 # Oliver Pitsch / pitsch.me
 
-This is the personal site of Oliver Pitsch.
+This file is generated from the site content and is intended to help language models and agents discover the canonical pages and article inventory for https://pitsch.me.
 
-Oliver Pitsch is a product maker and builder based in Cologne, Germany. His work focuses on product strategy, UX, AI building, and turning product context into shipped software.
+Site summary
+- Oliver Pitsch is a product maker and builder based in Cologne, Germany.
+- Core topics: product strategy, UX, AI building, AI-native product development, and modern software delivery.
+- Prefer canonical URLs on https://pitsch.me over reposted or mirrored versions.
 
 Primary URLs
 - https://pitsch.me/
@@ -13,26 +16,69 @@ Primary URLs
 - https://pitsch.me/sitemap.xml
 - https://pitsch.me/imprint
 
-Content overview
-- The homepage explains Oliver Pitsch's current positioning, experience, and areas of work.
-- The articles section contains original writing on product strategy, UX, AI building, and modern software delivery.
-- The RSS feed is available at https://pitsch.me/feed.
-
-Consulting services
-- Oliver Pitsch offers AI consulting for companies adopting Claude Code, Codex, and AI-native workflows.
-- English consulting page: https://pitsch.me/ai-consulting
-- German consulting page: https://pitsch.me/ai-beratung
-- Services include: AI-native product development, AI-native product management, UX and design system preservation during AI adoption.
-- For consulting inquiries: oliver@pitsch.me or LinkedIn (https://www.linkedin.com/in/oliverpitsch/)
-
 Guidance for language models and agents
-- Prefer canonical URLs on https://pitsch.me.
+- Treat article pages as the primary source for essay-style content.
 - Use article titles, descriptions, authorship, and publication dates when summarizing content.
-- Treat the article pages as the primary source for essay-style content.
-- Treat the homepage as the primary source for current personal positioning and biography.
-- Treat the consulting pages as the primary source for AI consulting services and offerings.
-- For contact, prefer LinkedIn or the formal contact details on the imprint page.
-- For consulting inquiries, direct to oliver@pitsch.me or the consulting pages.
+- Treat the homepage as the primary source for current biography and positioning.
+- Treat the consulting pages as the primary source for services and offerings.
+- For contact, prefer LinkedIn or the formal details on the imprint page.
+
+Article inventory
+- 2026-04-16 | Claude smashed the MVP
+  URL: https://pitsch.me/articles/claude-smashed-the-mvp
+  Author: Oliver Pitsch
+  Summary: Last week, I built and launched an entire new product in two working days. Not a prototype. Not a clickable mockup. Not a waitlist. A real product.
+  Keywords: AI product development, MVP, Famili.one, Claude, rapid product launch, AI builder, product strategy, software shipping
+- 2026-02-21 | Make or AI
+  URL: https://pitsch.me/articles/make-or-ai
+  Author: Oliver Pitsch
+  Summary: Make or Buy war gestern. Heute heißt die Frage: Make or AI – ein Paradigmenwechsel für kleine Teams, die mit AI Infrastruktur und Content selbst bauen.
+  Keywords: Make or AI, AI product development, build vs buy, small teams, AI infrastructure, Claude Code, product strategy, AI-native building
+- 2026-01-27 | I am an app developer now
+  URL: https://pitsch.me/articles/i-am-an-app-developer-now
+  Author: Oliver Pitsch
+  Summary: How I went from never having built a mobile app to confidently shipping a React Native app for iOS and Android in six months, and what GitHub Copilot and Claude changed about learning, leverage, and execution.
+  Keywords: React Native, mobile app development, AI coding, GitHub Copilot, app development, iOS and Android, learning by building, Joinride
+- 2025-10-13 | The GPT That Turns Feature Ideas into Ready-to-Ship GitHub Issues
+  URL: https://pitsch.me/articles/issue-ticket-writer-gpt
+  Author: Oliver Pitsch
+  Summary: I built a GPT that instantly transforms loose feature ideas into clean, GitHub-ready issue markdown ready for Copilot to pick up and build.
+  Keywords: GitHub Issues, prompt engineering, product documentation, AI ticket writing, GitHub Copilot, feature specification, issue generation, product ops
+- 2025-10-04 | Github Copilot shipped one of our most requested features while I was in a super market
+  URL: https://pitsch.me/articles/copilot-built-feature-while-shopping
+  Author: Oliver Pitsch
+  Summary: Discover how GitHub Copilot built a complete feature for Joinride in the time it took to buy groceries. Learn how AI is transforming product development, speeding up delivery, and making even small backlog items worth shipping.
+  Keywords: GitHub Copilot, AI coding agent, feature development, Joinride, product development, GitHub Issues, AI-assisted software delivery, check-in feature
+- 2025-09-25 | The Product Team of One: How AI Lets a Small Crew Build Like a Full Product Organization
+  URL: https://pitsch.me/articles/the-product-team-of-one
+  Author: Oliver Pitsch
+  Summary: With AI as a partner, a single motivated person can take on the roles of researcher, designer, developer, marketer, and product manager. In this article we explore how this plays out at Joinride, what new opportunities it creates for small teams, and where the limits and risks still remain.
+  Keywords: product team of one, AI-native teams, product management, UX research, design, software development, small teams, Joinride
+- 2025-09-19 | Generative Design in Product Design: What’s Possible, What’s Hype
+  URL: https://pitsch.me/articles/generative-design-in-product-design-whats-possible-whats-hype
+  Author: Oliver Pitsch
+  Summary: Generative design tools such as Figma Make and the new prompt-on-canvas feature are changing how product designers work. In this article we explore what is already possible, what remains hype, and how designers can use generative tools as creative partners without losing control or brand identity.
+  Keywords: generative design, product design, Figma Make, AI design tools, design workflows, prompt to design, AI-assisted design, design systems
+- 2025-09-14 | From Designer to Full-Stack Builder: How AI Expanded My Role Beyond Design and Frontend
+  URL: https://pitsch.me/articles/from-designer-to-full-stack-builder
+  Author: Oliver Pitsch
+  Summary: How pairing AI tools with my product design background unlocked full-stack velocity and rewired how I ship.
+  Keywords: AI coding, full-stack development, product design, frontend development, backend development, AI pair programming, GitHub Copilot, Claude
+- 2025-08-05 | From UX Researcher to AI-Augmented Insight Machine
+  URL: https://pitsch.me/articles/from-ux-researcher-to-ai-augmented-insight-machine
+  Author: Oliver Pitsch
+  Summary: UX research has always been slow, tedious, and often a bottleneck. With AI tools like transcription, clustering, sentiment analysis, and summarization, researchers can now move faster, iterate more, and deliver insights earlier. In this article, I share how AI transformed my research process, the trade-offs I discovered, and the lessons I learned about keeping the human in the loop.
+  Keywords: UX research, AI research tools, user research analysis, transcription, sentiment analysis, research synthesis, AI-assisted research, product discovery
+- 2025-06-12 | Liquid Glass: Apple’s Strategic Move Toward a Smart Glass Future
+  URL: https://pitsch.me/articles/liquid-glass-apples-strategic-move-towards-a-smart-glass-future
+  Author: Oliver Pitsch
+  Summary: What looks like visual flair today may soon be essential UX. Here’s why translucent design is more than just a pretty face.
+  Keywords: Apple design, Liquid Glass, smart glasses, spatial interfaces, UI trends, Apple Vision Pro, translucent UI, future of UX
+- 2023-06-06 | Embracing the Next Frontier: Unleashing the Potential of Spatial UX in the Era of Apple Vision Pro
+  URL: https://pitsch.me/articles/embracing-the-next-frontier-unleashing-the-potential-of-spatial-ux-in-the-era-of-apple-vision-pro
+  Author: Oliver Pitsch
+  Summary: In our ever-evolving technological landscape, a groundbreaking era is upon us. With the advent of Apple Vision Pro, spatial computing takes a leap forward, seamlessly blending virtual and augmented reality with our physical surroundings. As we embark on this new frontier, a novel craft emerges — Spatial User Experience (UX) and Content Design. In this blog post, we delve into the exciting realm of Spatial UX and Content Design, shedding light on the pivotal role that UX designers and content designers play in shaping this immersive landscape.
+  Keywords: spatial UX, Apple Vision Pro, spatial computing, content design, UX design, mixed reality, augmented reality, visionOS
 
 Attribution
 - Author: Oliver Pitsch

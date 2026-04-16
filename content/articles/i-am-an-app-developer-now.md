@@ -4,6 +4,15 @@ Title: 'I am an app developer now'
 author: Oliver Pitsch
 date: 2026-01-27
 description: How I went from never having built a mobile app to confidently shipping a React Native app for iOS and Android in six months, and what GitHub Copilot and Claude changed about learning, leverage, and execution.
+keywords:
+  - React Native
+  - mobile app development
+  - AI coding
+  - GitHub Copilot
+  - app development
+  - iOS and Android
+  - learning by building
+  - Joinride
 ---
 
 Six months ago, I would not have called myself an app developer.

@@ -4,6 +4,15 @@ Title: 'Embracing the Next Frontier: Unleashing the Potential of Spatial UX in t
 author: Oliver Pitsch
 date: 2023-06-06
 description: In our ever-evolving technological landscape, a groundbreaking era is upon us. With the advent of Apple Vision Pro, spatial computing takes a leap forward, seamlessly blending virtual and augmented reality with our physical surroundings. As we embark on this new frontier, a novel craft emerges — Spatial User Experience (UX) and Content Design. In this blog post, we delve into the exciting realm of Spatial UX and Content Design, shedding light on the pivotal role that UX designers and content designers play in shaping this immersive landscape.
+keywords:
+  - spatial UX
+  - Apple Vision Pro
+  - spatial computing
+  - content design
+  - UX design
+  - mixed reality
+  - augmented reality
+  - visionOS
 ---
 
 In our ever-evolving technological landscape, a groundbreaking era is upon us. With the advent of Apple Vision Pro, spatial computing takes a leap forward, seamlessly blending virtual and augmented reality with our physical surroundings. As we embark on this new frontier, a novel craft emerges — Spatial User Experience (UX) and Content Design. In this blog post, we delve into the exciting realm of Spatial UX and Content Design, shedding light on the pivotal role that UX designers and content designers play in shaping this immersive landscape.

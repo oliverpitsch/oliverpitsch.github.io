@@ -4,6 +4,15 @@ Title: 'The Product Team of One: How AI Lets a Small Crew Build Like a Full Prod
 author: Oliver Pitsch
 date: 2025-09-25
 description: With AI as a partner, a single motivated person can take on the roles of researcher, designer, developer, marketer, and product manager. In this article we explore how this plays out at Joinride, what new opportunities it creates for small teams, and where the limits and risks still remain.
+keywords:
+  - product team of one
+  - AI-native teams
+  - product management
+  - UX research
+  - design
+  - software development
+  - small teams
+  - Joinride
 imageDescription: 'Image created with ChatGPT'
 ---
 

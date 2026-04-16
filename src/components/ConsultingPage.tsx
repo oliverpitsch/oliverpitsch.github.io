@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
 import type { ConsultingContent } from '@/lib/consulting-content';
 
@@ -148,10 +147,7 @@ export default function ConsultingPage({ content: c }: { content: ConsultingCont
         </section>
 
         {/* Pain Points */}
-        <section
-          className="mx-auto mt-24 max-w-4xl px-6 lg:px-0"
-          aria-labelledby="pain-heading"
-        >
+        <section className="mx-auto mt-24 max-w-4xl px-6 lg:px-0" aria-labelledby="pain-heading">
           <h2 id="pain-heading" className="text-xl font-semibold mb-6">
             {c.painPoints.heading}
           </h2>
@@ -246,10 +242,7 @@ export default function ConsultingPage({ content: c }: { content: ConsultingCont
         </section>
 
         {/* About / Credibility */}
-        <section
-          className="mx-auto mt-24 max-w-4xl px-6 lg:px-0"
-          aria-labelledby="about-heading"
-        >
+        <section className="mx-auto mt-24 max-w-4xl px-6 lg:px-0" aria-labelledby="about-heading">
           <h2 id="about-heading" className="text-xl font-semibold mb-6">
             {c.about.heading}
           </h2>

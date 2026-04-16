@@ -4,6 +4,15 @@ Title: The GPT That Turns Feature Ideas into Ready-to-Ship GitHub Issues
 author: Oliver Pitsch
 description: I built a GPT that instantly transforms loose feature ideas into clean, GitHub-ready issue markdown ready for Copilot to pick up and build.
 date: 2025-10-13
+keywords:
+  - GitHub Issues
+  - prompt engineering
+  - product documentation
+  - AI ticket writing
+  - GitHub Copilot
+  - feature specification
+  - issue generation
+  - product ops
 ---
 
 A few days ago I [shared how GitHub Copilot shipped a complete feature while I was shopping groceries](/articles/copilot-built-feature-while-shopping).

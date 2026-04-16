@@ -4,6 +4,15 @@ Title: 'Make or AI'
 author: Oliver Pitsch
 date: 2026-02-21
 description: 'Make or Buy war gestern. Heute heißt die Frage: Make or AI – ein Paradigmenwechsel für kleine Teams, die mit AI Infrastruktur und Content selbst bauen.'
+keywords:
+  - Make or AI
+  - AI product development
+  - build vs buy
+  - small teams
+  - AI infrastructure
+  - Claude Code
+  - product strategy
+  - AI-native building
 ---
 
 # Make or AI
