@@ -1,4 +1,5 @@
 import { Geist, Geist_Mono } from 'next/font/google';
+import type { Viewport } from 'next';
 import './globals.css';
 import GoSquaredScript from '@/components/GoSquaredScript';
 
@@ -51,10 +52,13 @@ export const metadata = {
       { url: '/images/favicons/favicon-96.png', sizes: '96x96', type: 'image/png' },
     ],
   },
-  themeColor: '#FFAA00',
   other: {
     'color-scheme': 'light dark',
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: '#FFAA00',
 };
 
 export default function RootLayout({
