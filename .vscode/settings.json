@@ -9,6 +9,10 @@
   "prettier.trailingComma": "all",
   "prettier.printWidth": 100,
   "chat.tools.terminal.autoApprove": {
-    "git add": true
+    "git add": true,
+    "/^cd /Users/oliver/Dev/oliverpitsch\\.github\\.io && node - <<'EOF'\nconst fs = require\\('fs'\\);\nconst path = require\\('path'\\);\nconst matter = require\\('gray-matter'\\);\nconst dir = path\\.join\\(process\\.cwd\\(\\), 'content/articles'\\);\nfor \\(const file of fs\\.readdirSync\\(dir\\)\\.filter\\(f => f\\.endsWith\\('\\.md'\\)\\)\\.sort\\(\\)\\) \\{\n  const raw = fs\\.readFileSync\\(path\\.join\\(dir, file\\), 'utf8'\\);\n  const \\{ data, content \\} = matter\\(raw\\);\n  const missing = \\[\\];\n  for \\(const key of \\['slug','Title','author','date','description'\\]\\) \\{\n    if \\(!data\\[key\\]\\) missing\\.push\\(key\\);\n  \\}\n  if \\(!data\\.keywords\\) missing\\.push\\('keywords'\\);\n  if \\(!data\\.heroAlt && !data\\.heroImage && !data\\.ogImage\\) missing\\.push\\('heroAlt/heroImage'\\);\n  const body = content\\.trim\\(\\);\n  const hasH1 = /\\^#\\\\s\\+/m\\.test\\(body\\);\n  const wordCount = body \\? body\\.split\\(/\\\\s\\+/\\)\\.length : 0;\n  console\\.log\\(JSON\\.stringify\\(\\{file, missing, hasH1, wordCount\\}\\)\\);\n\\}\nEOF$/": {
+      "approve": true,
+      "matchCommandLine": true
+    }
   }
 }
