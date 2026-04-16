@@ -4,6 +4,15 @@ Title: 'Github Copilot shipped one of our most requested features while I was in
 author: Oliver Pitsch
 date: 2025-10-04
 description: Discover how GitHub Copilot built a complete feature for Joinride in the time it took to buy groceries. Learn how AI is transforming product development, speeding up delivery, and making even small backlog items worth shipping.
+keywords:
+  - GitHub Copilot
+  - AI coding agent
+  - feature development
+  - Joinride
+  - product development
+  - GitHub Issues
+  - AI-assisted software delivery
+  - check-in feature
 ---
 
 A few days ago I experienced one of those “**this changes everything**” moments with GitHub Copilot.

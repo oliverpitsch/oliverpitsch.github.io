@@ -4,6 +4,15 @@ Title: 'From Designer to Full-Stack Builder: How AI Expanded My Role Beyond Desi
 author: Oliver Pitsch
 date: 2025-09-14
 description: How pairing AI tools with my product design background unlocked full-stack velocity and rewired how I ship.
+keywords:
+  - AI coding
+  - full-stack development
+  - product design
+  - frontend development
+  - backend development
+  - AI pair programming
+  - GitHub Copilot
+  - Claude
 imageDescription: 'Image created with ChatGPT, based on my actual desk'
 ---
 

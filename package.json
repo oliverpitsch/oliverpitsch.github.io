@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run generate:llms && npm run validate:articles && next build",
     "start": "next start",
     "lint": "eslint",
+    "generate:llms": "node scripts/generate-llms.mjs",
+    "validate:articles": "node scripts/validate-articles.mjs",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },

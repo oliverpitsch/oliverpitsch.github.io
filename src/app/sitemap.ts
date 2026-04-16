@@ -28,7 +28,7 @@ export default async function sitemap(): Promise<SitemapEntry[]> {
   for (const a of articles) {
     entries.push({
       url: `${site}/articles/${a.slug}`,
-      lastModified: a.date ? new Date(a.date) : undefined,
+      lastModified: a.updated || a.date ? new Date(a.updated || a.date!) : undefined,
       changeFrequency: 'monthly',
       priority: 0.8,
     });

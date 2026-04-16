@@ -4,6 +4,15 @@ Title: 'Liquid Glass: Apple’s Strategic Move Toward a Smart Glass Future'
 author: Oliver Pitsch
 date: 2025-06-12
 description: What looks like visual flair today may soon be essential UX. Here’s why translucent design is more than just a pretty face.
+keywords:
+  - Apple design
+  - Liquid Glass
+  - smart glasses
+  - spatial interfaces
+  - UI trends
+  - Apple Vision Pro
+  - translucent UI
+  - future of UX
 ---
 
 What looks like visual flair today may soon be essential UX. Here’s why translucent design is more than just a pretty face.

@@ -4,6 +4,15 @@ Title: 'Generative Design in Product Design: What’s Possible, What’s Hype'
 author: Oliver Pitsch
 date: 2025-09-19
 description: Generative design tools such as Figma Make and the new prompt-on-canvas feature are changing how product designers work. In this article we explore what is already possible, what remains hype, and how designers can use generative tools as creative partners without losing control or brand identity.
+keywords:
+  - generative design
+  - product design
+  - Figma Make
+  - AI design tools
+  - design workflows
+  - prompt to design
+  - AI-assisted design
+  - design systems
 imageDescription: 'Image created with ChatGPT'
 ---
 
