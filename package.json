@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
-    "next": "16.1.5",
+    "next": "16.2.3",
     "posthog-js": "^1.266.0",
     "posthog-node": "^5.8.4",
     "react": "19.1.0",
