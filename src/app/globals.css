@@ -21,6 +21,41 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Global scrollbar */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  transition: scrollbar-color 0.2s;
+}
+html:hover {
+  scrollbar-color: rgba(71, 85, 105, 0.5) transparent;
+}
+::-webkit-scrollbar {
+  width: 6px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 9999px;
+  transition: background-color 0.2s;
+}
+html:hover ::-webkit-scrollbar-thumb {
+  background-color: rgba(71, 85, 105, 0.5);
+}
+
+/* Timeline horizontal scroll — inherits global styles, mobile hides it */
+@media (max-width: 639px) {
+  .timeline-scroll {
+    scrollbar-width: none;
+  }
+  .timeline-scroll::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 /* Minimal markdown typography (replaces removed typography plugin) */
 .markdown-content > * {
   margin-left: auto;
