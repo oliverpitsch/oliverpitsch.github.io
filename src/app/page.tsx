@@ -75,9 +75,15 @@ function Timeline() {
     },
     {
       label: 'Ordio',
-      span: 'since 2025',
+      span: '2025 – 2026',
       jobTitle: 'Head of Product',
       svg: 'companies/logo-ordio.svg',
+    },
+    {
+      label: 'AI Labs',
+      span: 'since 2026',
+      jobTitle: 'Head of Product & Engineering',
+      svg: 'companies/logo-ai-labs.svg',
     },
   ] as const;
 
