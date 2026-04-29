@@ -2,7 +2,13 @@
 
 import { useRef, useEffect, useState, useCallback } from 'react';
 
-const items = [
+const items: {
+  label: string;
+  span: string;
+  jobTitle: string;
+  svg: string;
+  size?: string;
+}[] = [
   {
     label: 'Reputami',
     span: '2011 – 2015',
@@ -32,6 +38,7 @@ const items = [
     span: 'since 2022',
     jobTitle: 'Founder',
     svg: 'companies/logo-joinride.svg',
+    size: 'h-12 w-auto',
   },
   {
     label: 'AI Labs',
@@ -39,7 +46,7 @@ const items = [
     jobTitle: 'Head of Product & Engineering',
     svg: 'companies/logo-ai-labs.svg',
   },
-] as const;
+];
 
 const FADE_CAP = 'w-16 sm:w-24';
 
@@ -90,25 +97,27 @@ export default function Timeline() {
           {items.map((it, i) => (
             <div
               key={it.label}
-              className="relative flex-none w-[50vw] sm:w-44 pb-8 text-center snap-start"
+              className="relative flex-none w-[50vw] sm:w-44 pb-8 text-center snap-start flex flex-col"
             >
               <div className="absolute left-0 right-0 bottom-1 h-0.5 bg-[#FFBF00]" />
 
-              <div className="mx-auto flex h-12 w-12 sm:h-16 sm:w-16 items-center justify-center">
+              <div className="mx-auto flex h-16 w-auto items-center justify-center">
                 <img
                   src={`/images/${it.svg}`}
                   alt=""
-                  className="size-12 sm:size-16 dark:invert-60"
+                  className={`${it.size ?? 'h-16 w-auto'} dark:invert-60`}
                 />
               </div>
 
-              <h4 className="mt-4 sm:mt-6 text-base  font-semibold leading-tight px-1">
+              <h4 className="mt-4 sm:mt-6 text-base font-semibold leading-tight px-1">
                 {it.label}
               </h4>
               <div className="text-sm text-[#182B52] dark:text-[#E6EEFF] leading-tight px-1 mt-0.5">
                 {it.jobTitle}
               </div>
-              <span className="text-sm text-[#3B5EA5] dark:text-[#8DAEF0]">{it.span}</span>
+              <span className="text-sm text-[#3B5EA5] dark:text-[#8DAEF0] mt-auto pt-2">
+                {it.span}
+              </span>
 
               <span className="absolute -bottom-[3px] left-1/2 -translate-x-1/2 size-4 rounded-full border-2 border-slate-50 dark:border-[#182B52] bg-[#FFBF00]" />
             </div>
