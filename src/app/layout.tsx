@@ -15,33 +15,33 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   metadataBase: new URL('https://pitsch.me'),
-  title: 'Oliver Pitsch – Product Maker & Builder',
+  title: 'Oliver Pitsch – Product & Engineering Leader',
   description:
-    'Oliver Pitsch is a product maker and builder from Cologne, Germany with 20 years of experience across design, UX, and product leadership. Currently Head of Product at Ordio, founder of Joinride, and writer on product, AI, and building.',
+    'Oliver Pitsch is a product and engineering leader from Cologne, Germany with 20 years across design, UX, and product leadership. Currently Head of Product & Engineering at AI Labs, helping large enterprises deploy frontier AI under European privacy law.',
   openGraph: {
     type: 'website',
     url: '/',
-    title: 'Oliver Pitsch – Product Maker & Builder',
+    title: 'Oliver Pitsch – Product & Engineering Leader',
     description:
-      'Product maker and builder from Cologne, Germany. 20 years across design, UX, and product leadership. Building AI-native, shipping fast.',
+      'Product and engineering leader from Cologne, Germany. 20 years across design, UX, and product. Currently building enterprise AI at AI Labs.',
     images: [
       {
         url: '/images/og-images/og-facebook.jpg',
         width: 1200,
         height: 630,
-        alt: 'Oliver Pitsch – Product Maker & Builder',
+        alt: 'Oliver Pitsch – Product & Engineering Leader',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Oliver Pitsch – Product Maker & Builder',
+    title: 'Oliver Pitsch – Product & Engineering Leader',
     description:
-      'Product maker and builder from Cologne, Germany. 20 years across design, UX, and product leadership. Building AI-native, shipping fast.',
+      'Product and engineering leader from Cologne, Germany. 20 years across design, UX, and product. Currently building enterprise AI at AI Labs.',
     images: [
       {
         url: '/images/og-images/og-twitter-card.jpg',
-        alt: 'Oliver Pitsch – Product Maker & Builder',
+        alt: 'Oliver Pitsch – Product & Engineering Leader',
       },
     ],
   },

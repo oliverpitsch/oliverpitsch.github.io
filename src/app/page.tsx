@@ -68,16 +68,16 @@ function Timeline() {
       svg: 'companies/logo-trusted-shops.svg',
     },
     {
-      label: 'Joinride.cc',
-      span: 'since 2022',
-      jobTitle: 'Founder',
-      svg: 'companies/logo-joinride.svg',
-    },
-    {
       label: 'Ordio',
       span: '2025 – 2026',
       jobTitle: 'Head of Product',
       svg: 'companies/logo-ordio.svg',
+    },
+    {
+      label: 'Joinride.cc',
+      span: 'since 2022',
+      jobTitle: 'Founder',
+      svg: 'companies/logo-joinride.svg',
     },
     {
       label: 'AI Labs',
@@ -291,23 +291,28 @@ export default async function Home() {
             business context, and AI building to turn product context into shipped software.
           </p>
           <p className="mt-4">
-            Currently Head of Product at{' '}
+            Currently Head of Product &amp; Engineering at AI Labs, where he helps large enterprises
+            unlock the full potential of frontier AI within the boundaries of German and European
+            privacy law. AI Labs connects the data already inside large organizations, from email
+            and communications to ERP systems and data warehouses, into a unified intelligence layer
+            that companies can actually deploy, trust, and build on.
+          </p>
+          <p className="mt-4">
+            Previously Head of Product at{' '}
             <a href="https://ordio.com" className="underline">
               Ordio
             </a>
-            , an operations and workforce management platform for shift-based teams, and founder of{' '}
-            <a href="https://joinride.cc" className="underline">
-              Joinride.cc
-            </a>
-            , the go-to platform for cycling group rides and run clubs in Germany.
-          </p>
-          <p className="mt-4">
-            Previously Director of UX &amp; Product Marketing at{' '}
+            , an operations and workforce management platform for shift-based teams, and Director of
+            UX &amp; Product Marketing at{' '}
             <a href="https://trustedshops.com" className="underline">
               Trusted Shops
             </a>
             . Before that, founder and CEO of Reputami, an AI-driven reputation SaaS for
-            hospitality, acquired in 2015.
+            hospitality, acquired in 2015. Also founder of{' '}
+            <a href="https://joinride.cc" className="underline">
+              Joinride.cc
+            </a>
+            , the platform for cycling group rides and run clubs in Germany.
           </p>
           <p className="mt-4">
             His focus is reducing handoffs, removing process overhead, and helping teams move from
