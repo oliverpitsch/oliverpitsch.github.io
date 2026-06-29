@@ -14,16 +14,17 @@
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
+    "lucide-react": "^1.22.0",
     "next": "16.1.5",
     "posthog-js": "^1.266.0",
     "posthog-node": "^5.8.4",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "remark": "^15.0.1",
-    "remark-rehype": "^11.1.0",
     "rehype-stringify": "^10.0.0",
+    "remark": "^15.0.1",
     "remark-gfm": "^4.0.0",
-    "remark-html": "^16.0.1"
+    "remark-html": "^16.0.1",
+    "remark-rehype": "^11.1.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

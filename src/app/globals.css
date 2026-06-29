@@ -1,5 +1,18 @@
 @import 'tailwindcss';
 
+/* Elevation tokens ported from joinride (apps/web/tailwind.config.ts) so the
+   shadow-surface / shadow-card / shadow-popover utilities are available here too. */
+@theme {
+  --shadow-surface:
+    0px 1px 1px -0.5px rgba(51 65 85 / 0.25), 0px 2px 4px -2px rgba(51 65 85 / 0.25);
+  --shadow-card:
+    0px 1.7px 1.3px -1.7px rgba(51 65 85 / 0.22), 0px 6.6px 4.9px -3.3px rgba(51 65 85 / 0.11),
+    -0.1px 20px 15px -5px rgba(51 65 85 / 0.05);
+  --shadow-popover:
+    0px 2px 2px -1px rgba(51 65 85 / 0.2), 0px 10px 10px -6px rgba(51 65 85 / 0.12),
+    0px 24px 20px -12px rgba(51 65 85 / 0.08);
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -53,6 +66,23 @@ html:hover ::-webkit-scrollbar-thumb {
   }
   .timeline-scroll::-webkit-scrollbar {
     display: none;
+  }
+}
+
+/* Vibe-coded-design landing: staggered hero entrance.
+   Only hides + animates when motion is allowed, so reduced-motion
+   and no-CSS users always see the content. */
+@media (prefers-reduced-motion: no-preference) {
+  .vibe-rise {
+    opacity: 0;
+    transform: translateY(12px);
+    animation: vibe-rise 0.7s cubic-bezier(0.2, 0, 0, 1) both;
+  }
+  @keyframes vibe-rise {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
 
