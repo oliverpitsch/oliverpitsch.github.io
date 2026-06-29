@@ -133,16 +133,16 @@ export const en: VibeDesignContent = {
     badge: 'UX & UI for vibe-coded products',
     headline: 'Your product works. Now make it feel world-class.',
     subheadline:
-      'You vibe-coded your app or internal tool and the functionality is there. I bring highest-class UX and UI design on top of what you already built, then set up Claude Code and Codex to understand and use your design system and tokens, so the quality holds on every screen.',
+      'You built your app or tool with Claude Code. It works, but you can tell from every button that an AI designed it. I take that foundation, turn it into best-in-class UX and UI, and teach Claude Code and Codex to understand and use your design system and tokens.',
     cta1Label: 'Book a design audit',
-    cta2Label: 'See how it works',
+    cta2Label: 'See how I work',
   },
   beforeAfter: {
     badge: 'The difference',
-    heading: 'Same functionality. A completely different product.',
-    sub: 'The logic does not change. Hierarchy, spacing, color, states, and a real design system do all the work your users actually feel.',
+    heading: 'Same function. A completely different product.',
+    sub: 'The logic does not change. Information architecture, spacing, color, states, motion, and a real design system make the difference your users actually feel.',
     beforeLabel: 'What the agent shipped',
-    afterLabel: 'After highest-class UX',
+    afterLabel: 'After the redesign',
     before: {
       plan: '✨ Pro Plan ✨',
       price: '$29/month — billed monthly',
@@ -154,7 +154,7 @@ export const en: VibeDesignContent = {
         '✅ Priority support — 24/7',
       ],
       cta: '🚀 Upgrade Now',
-      later: 'maybe later',
+      later: '👎 maybe later',
     },
     after: {
       popular: 'Popular',
@@ -176,7 +176,7 @@ export const en: VibeDesignContent = {
       {
         title: 'It works, but it looks AI-generated',
         description:
-          'Generic components, default styling, and no point of view. The logic is solid, yet users can tell no one designed it.',
+          'Generic components, countless emojis and gradients… The functionality is solid, but you can tell: Claude was here.',
       },
       {
         title: 'No design system to anchor on',
@@ -184,28 +184,28 @@ export const en: VibeDesignContent = {
           'Every screen reinvents spacing, color, and hierarchy. Consistency drifts a little further with every prompt.',
       },
       {
-        title: 'Quality degrades each time the agent touches it',
+        title: 'Quality drops the moment the agent gets involved',
         description:
           'Without tokens and guardrails, Claude Code and Codex keep producing slightly different UI for the same patterns.',
       },
       {
-        title: 'Function shipped faster than craft',
+        title: 'Function first. The craft never came.',
         description:
-          'The features are there, but typography, spacing, states, and flows never got the senior attention they deserve.',
+          'The features are there, but typography, spacing, states, and flows never got the attention they deserve.',
       },
     ],
   },
   tokens: {
     badge: 'The foundation',
-    heading: 'A token system your product, and your agents, can build on.',
+    heading: 'A token system your product and your agents build on.',
     description:
-      'I extract or create the design tokens that hold everything together: color, type, spacing, radius, and elevation. But defining them is only half the work. The other half is making sure Claude Code and Codex understand how to use them, so every new screen stays on-system by default.',
+      'I extract or build the design tokens that hold everything together: color, type, spacing, corner radius, shadows, and so on. Defining them as tokens is only half the work. The real craft is teaching Claude Code and Codex how to work with them. So every new screen stays on style automatically.',
     labels: {
       color: 'Color',
-      typeScale: 'Type scale',
+      typeScale: 'Typography',
       spacing: 'Spacing',
       radius: 'Radius',
-      elevation: 'Elevation',
+      elevation: 'Shadows',
     },
     type: { heading: 'Heading', body: 'Body text', caption: 'Caption' },
   },
@@ -213,49 +213,52 @@ export const en: VibeDesignContent = {
     heading: 'What you get',
     items: [
       {
-        title: 'Highest-class UX and UI design',
+        title: 'Best-in-class UX and UI design',
         description:
-          'Applied to the product you already built. Hierarchy, typography, spacing, color, and states brought to a senior-team standard.',
+          'For the product you already built. Hierarchy, typography, spacing, color, and states at the level of a senior design team.',
         bullets: [
           'Screen-by-screen redesign of your key surfaces',
-          'Real hover, focus, loading, empty, and error states',
+          'Real hover, focus, loading, empty, and error states, designed with care',
           'Accessible, consistent, and on-brand at every step',
+          'Animation and motion that support the function, not just flash',
         ],
       },
       {
         title: 'A real design system and tokens',
-        description:
-          'Not a one-off paint job. A token system and components your product can stand on as it grows.',
+        description: 'Not a one-off paint job. A token system and components that grow with you.',
         bullets: [
-          'Tokens for color, type, spacing, radius, and elevation',
+          'Tokens for color, type, spacing, radius, shadows, and motion',
           'Reusable components with sensible defaults',
-          'Documented so humans and agents both follow it',
+          'Accessibility as a baseline requirement',
+          'Content that matches your voice and tone. No em dashes.',
+          'Documented so both humans and agents can follow it',
         ],
       },
       {
         title: 'Claude Code and Codex that respect it',
         description:
-          'I set up your AI coding tools to understand and use your design system, so future work stays on-system by default.',
+          'I set up your AI coding tools to understand and use your design system. On one machine or across your whole development landscape. So all future work stays on-system too.',
         bullets: [
           'CLAUDE.md and project rules wired to your tokens',
           'Guardrails against hardcoded colors, spacing, and radii',
-          'Agents that produce on-brand UI without hand-holding',
+          'Design SKILLS that genuinely produce better interfaces',
+          'Agents that produce on-brand UI without you lifting a finger',
         ],
       },
     ],
   },
   stays: {
     badge: 'The part that lasts',
-    heading: 'And it stays on-system after I leave.',
-    body: 'A redesign that erodes with the next prompt is wasted money. So I teach your tools the system. I wire your tokens into Claude Code and Codex and add guardrails, so the next feature your team ships is on-brand by default, not by luck.',
+    heading: 'And it stays on-system after we are done.',
+    body: 'A redesign that falls apart with the next prompt is wasted money. So I teach your tools and your engineers the system: I store your tokens in Claude Code and Codex and add SKILLS and guardrails. So the next feature your team ships is on-brand because it is built that way, not by luck.',
     bullets: [
       'Tokens and rules your agents read on every task',
       'Lint and review gates that block hardcoded values',
-      'New screens that match the system without rework',
+      'SKILLS and docs that drop straight into any new product',
     ],
   },
   process: {
-    heading: 'How it works',
+    heading: 'How I work',
     steps: [
       {
         number: '01',
@@ -273,7 +276,7 @@ export const en: VibeDesignContent = {
         number: '03',
         title: 'Redesign the surfaces',
         description:
-          'I bring your key screens and flows to a highest-class standard, with real states, not just polished happy-path mockups.',
+          'I bring your key screens and flows to a highest-class standard, with real states, not just polished happy-path mockups. And if you like, your entire product.',
       },
       {
         number: '04',
@@ -291,13 +294,14 @@ export const en: VibeDesignContent = {
   },
   why: {
     heading: 'Why me',
-    bio: 'I have 20 years across design, UX, and product leadership. I have built and run design systems, led UX at Trusted Shops, and today I ship real products end to end with Claude Code and AI agents. I know both sides: the craft of highest-class UX, and exactly how to make AI coding tools produce it consistently.',
+    bio: 'I bring 20 years of design, UX, and product experience. I have built and owned large design systems, led design teams at Trusted Shops, and today I ship real products end to end with Claude Code and AI agents. I know both sides: the craft behind the best UX and exactly how to make AI coding tools deliver it reliably.',
     credentials: [
       '20 years design & UX',
       'Design systems at scale',
       'Director UX at Trusted Shops',
       'Ships daily with Claude Code',
       'Founder, AI SaaS (Reputami)',
+      'Solo builder (Joinride.cc, Famili.one)',
     ],
     linkLabel: 'More about me →',
   },
@@ -387,16 +391,16 @@ export const de: VibeDesignContent = {
     badge: 'UX & UI für Vibe-Coded-Produkte',
     headline: 'Dein Produkt funktioniert. Jetzt wird es Weltklasse.',
     subheadline:
-      'Du hast deine App oder dein Tool mit Claude Code erstellt. Es funktioniert, aber man sieht an jedem Button, dass es von der AI designed wurde. Ich setze Highest-Class UX und UI obendrauf und bringe Claude Code und Codex bei, dein Design System und deine Tokens zu verstehen und zu nutzen. So bleibt jeder Screen auf Niveau.',
+      'Du hast deine App oder dein Tool mit Claude Code erstellt. Es funktioniert, aber man sieht an jedem Button, dass es von der AI designed wurde. Ich nutze die Basis, erarbeite daraus eine best-in-class UX & UI und bringe Claude Code und Codex bei, dein Design System und deine Tokens zu verstehen und zu nutzen.',
     cta1Label: 'Design-Audit buchen',
     cta2Label: 'So gehe ich vor',
   },
   beforeAfter: {
     badge: 'Der Unterschied',
     heading: 'Gleiche Funktion. Ein völlig anderes Produkt.',
-    sub: 'An der Logik ändert sich nichts. Hierarchie, Spacing, Farbe, States und ein echtes Design System machen den Unterschied, den deine Nutzer wirklich spüren.',
+    sub: 'An der Logik ändert sich nichts. Informations-Architektur, Spacing, Farbe, States, Motion und ein echtes Design System machen den Unterschied, den deine Nutzer:innen wirklich spüren.',
     beforeLabel: 'Was der Agent ausgeliefert hat',
-    afterLabel: 'Nach Highest-Class UX',
+    afterLabel: 'Nach der Überarbeitung',
     before: {
       plan: '✨ Pro Plan ✨',
       price: '29 €/Monat — monatlich abgerechnet',
@@ -408,7 +412,7 @@ export const de: VibeDesignContent = {
         '✅ Priority-Support — 24/7',
       ],
       cta: '🚀 Jetzt upgraden',
-      later: 'vielleicht später',
+      later: '👎 vielleicht später',
     },
     after: {
       popular: 'Beliebt',
@@ -430,7 +434,7 @@ export const de: VibeDesignContent = {
       {
         title: 'Es funktioniert, sieht aber KI-generiert aus',
         description:
-          'Generische Komponenten, Default-Styling, keine Haltung. Die Logik sitzt, aber man sieht ihm an: Hier hat niemand gestaltet.',
+          'Generische Komponenten, unzählige Emojis und Verläufe… Die Funktionalität sitzt, aber man sieht ihm an: Hier war Claude am Werk.',
       },
       {
         title: 'Kein Design System als Anker',
@@ -438,7 +442,7 @@ export const de: VibeDesignContent = {
           'Jeder Screen erfindet Spacing, Farbe und Hierarchie neu. Mit jedem Prompt driftet die Konsistenz ein Stück weiter.',
       },
       {
-        title: 'Die Qualität leidet, sobald der Agent ranmuss',
+        title: 'Die Qualität leidet, sobald der Agent dran ist',
         description:
           'Ohne Tokens und Guardrails produzieren Claude Code und Codex für dieselben Muster immer wieder leicht unterschiedliches UI.',
       },
@@ -451,60 +455,64 @@ export const de: VibeDesignContent = {
   },
   tokens: {
     badge: 'Das Fundament',
-    heading: 'Ein Token-System, auf dem dein Produkt und deine Agenten aufbauen.',
+    heading: 'Ein Token-System, auf das dein Produkt und deine Agenten aufbauen.',
     description:
-      'Ich extrahiere oder baue die Design Tokens, die alles zusammenhalten: Farbe, Typo, Spacing, Radius und Elevation. Sie zu definieren ist aber nur die halbe Arbeit. Die andere Hälfte ist, Claude Code und Codex beizubringen, wie man sie richtig einsetzt. So bleibt jeder neue Screen automatisch on-system.',
+      'Ich extrahiere oder baue die Design Tokens, die alles zusammenhalten: Farbe, Typo, Spacing, Rundungen, Schatten, etc. Sie als Tokens zu definieren ist aber nur die halbe Arbeit. Die Kür ist, Claude Code und Codex beizubringen, wie man sie damit umgehen sollen. So bleibt jeder neue Screen automatisch im Style.',
     labels: {
       color: 'Farbe',
-      typeScale: 'Typo-Skala',
-      spacing: 'Spacing',
-      radius: 'Radius',
-      elevation: 'Elevation',
+      typeScale: 'Typografie',
+      spacing: 'Abstände',
+      radius: 'Rundungen',
+      elevation: 'Schatten',
     },
-    type: { heading: 'Überschrift', body: 'Fließtext', caption: 'Caption' },
+    type: { heading: 'Überschrift', body: 'Fließtext', caption: 'Legende' },
   },
   offerings: {
     heading: 'Was du bekommst',
     items: [
       {
-        title: 'Highest-Class UX- und UI-Design',
+        title: 'Best-in-class UX- und UI-Design',
         description:
-          'Für das Produkt, das du schon gebaut hast. Hierarchie, Typografie, Spacing, Farbe und States auf dem Niveau eines Senior-Teams.',
+          'Für das Produkt, das du schon gebaut hast. Hierarchie, Typografie, Spacing, Farbe und States auf dem Niveau eines Senior-Design-Teams.',
         bullets: [
           'Screen-für-Screen-Redesign deiner wichtigsten Surfaces',
-          'Echte Hover-, Focus-, Loading-, Empty- und Error-States',
+          'Echte Hover-, Focus-, Loading-, Empty- und Error-States mit Liebe zum Design',
           'Barrierefrei, konsistent und on-brand bei jedem Schritt',
+          'Animation und Motion, die die Funktionalität unterstützen und nicht nur blinken lassen',
         ],
       },
       {
         title: 'Ein echtes Design System und Tokens',
         description: 'Kein einmaliger Anstrich. Ein Token-System und Komponenten, die mitwachsen.',
         bullets: [
-          'Tokens für Farbe, Typo, Spacing, Radius und Elevation',
+          'Tokens für Farbe, Typo, Spacing, Rundungen, Schatten und Motion',
           'Wiederverwendbare Komponenten mit sinnvollen Defaults',
-          'So dokumentiert, dass Mensch und Agent ihm folgen',
+          'Barrierefreiheit als Grundvoraussetzung',
+          'Content, der sich an deine Voice & Tone hält. Ohne – Gedankenstriche',
+          'So dokumentiert, dass Mensch und Agent ihm folgen können',
         ],
       },
       {
         title: 'Claude Code und Codex, die sich daran halten',
         description:
-          'Ich richte deine KI-Coding-Tools so ein, dass sie dein Design System verstehen und nutzen. So bleibt auch jede weitere Arbeit on-system.',
+          'Ich richte deine KI-Coding-Tools so ein, dass sie dein Design System verstehen und nutzen. Auf einem Rechner oder für deine ganze Development-Landschaft. So bleibt auch jede weitere Arbeit on-system.',
         bullets: [
           'CLAUDE.md und Projektregeln, an deine Tokens gekoppelt',
           'Guardrails gegen hartkodierte Farben, Spacing und Radien',
-          'Agenten, die on-brand UI produzieren, ohne Händchenhalten',
+          'Design SKILLS, die wirklich bessere Interfaces erzeugen',
+          'Agenten, die on-brand UI produzieren, ohne Hand anlegen',
         ],
       },
     ],
   },
   stays: {
     badge: 'Der Teil, der bleibt',
-    heading: 'Und es bleibt on-system, auch wenn ich weg bin.',
-    body: 'Ein Redesign, das mit dem nächsten Prompt zerfällt, ist verbranntes Geld. Also bringe ich deinen Tools das System bei: Ich hinterlege deine Tokens in Claude Code und Codex und ergänze Guardrails. So ist das nächste Feature deines Teams on-brand, weil es so gebaut ist, nicht durch Zufall.',
+    heading: 'Und es bleibt on-system, auch wenn wir fertig sind.',
+    body: 'Ein Redesign, das mit dem nächsten Prompt zerfällt, ist verbranntes Geld. Also bringe ich deinen Tools & Engineers das System bei: Ich hinterlege deine Tokens in Claude Code und Codex und ergänze SKILLS & Guardrails. So ist das nächste Feature deines Teams on-brand, weil es so gebaut ist, nicht durch Zufall.',
     bullets: [
       'Tokens und Regeln, die deine Agenten bei jeder Aufgabe lesen',
       'Lint- und Review-Gates, die hartkodierte Werte blockieren',
-      'Neue Screens, die ohne Nacharbeit zum System passen',
+      'SKILLS und Docs, die ganz einfach in jedes neue Produkt übernommen werden können',
     ],
   },
   process: {
@@ -526,7 +534,7 @@ export const de: VibeDesignContent = {
         number: '03',
         title: 'Screens neu gestalten',
         description:
-          'Ich bringe deine wichtigsten Screens und Flows auf Highest-Class-Niveau, mit echten States, nicht nur polierten Happy-Path-Mockups.',
+          'Ich bringe deine wichtigsten Screens und Flows auf Highest-Class-Niveau, mit echten States, nicht nur polierten Happy-Path-Mockups. Auf Wunsch natürlich sogar dein gesamtes Produkt.',
       },
       {
         number: '04',
@@ -544,13 +552,14 @@ export const de: VibeDesignContent = {
   },
   why: {
     heading: 'Warum ich',
-    bio: 'Ich bringe 20 Jahre Design, UX und Product Leadership mit. Ich habe Design-Systeme gebaut und verantwortet, UX bei Trusted Shops geleitet und liefere heute echte Produkte end-to-end mit Claude Code und KI-Agenten. Ich kenne beide Seiten: das Handwerk hinter Highest-Class UX und genau, wie man KI-Coding-Tools dazu bringt, es verlässlich zu liefern.',
+    bio: 'Ich bringe 20 Jahre Design, UX und Product Erfahrung mit. Ich habe große Design-Systeme gebaut und verantwortet, Design-Teams bei Trusted Shops geleitet und liefere heute echte Produkte end-to-end mit Claude Code und KI-Agenten. Ich kenne beide Seiten: das Handwerk hinter der besten UX und genau, wie man KI-Coding-Tools dazu bringt, es verlässlich zu liefern.',
     credentials: [
       '20 Jahre Design & UX',
       'Design Systeme at scale',
       'Director UX bei Trusted Shops',
       'Liefert täglich mit Claude Code',
       'Gründer, AI-SaaS (Reputami)',
+      'Solo-Builder (Joinride.cc, Famili.one)',
     ],
     linkLabel: 'Mehr über mich →',
   },
