@@ -387,7 +387,7 @@ export const de: VibeDesignContent = {
     badge: 'UX & UI für Vibe-Coded-Produkte',
     headline: 'Dein Produkt funktioniert. Jetzt wird es Weltklasse.',
     subheadline:
-      'Du hast deine App oder dein internes Tool vibe-coded. Es funktioniert, nur gestaltet ist es nicht. Ich setze Highest-Class UX und UI obendrauf und bringe Claude Code und Codex bei, dein Design System und deine Tokens zu verstehen und zu nutzen. So bleibt jeder Screen auf Niveau.',
+      'Du hast deine App oder dein Tool mit Claude Code erstellt. Es funktioniert, aber man sieht an jedem Button, dass es von der AI designed wurde. Ich setze Highest-Class UX und UI obendrauf und bringe Claude Code und Codex bei, dein Design System und deine Tokens zu verstehen und zu nutzen. So bleibt jeder Screen auf Niveau.',
     cta1Label: 'Design-Audit buchen',
     cta2Label: 'So gehe ich vor',
   },
