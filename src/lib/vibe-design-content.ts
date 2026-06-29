@@ -230,7 +230,8 @@ export const en: VibeDesignContent = {
           'Tokens for color, type, spacing, radius, shadows, and motion',
           'Reusable components with sensible defaults',
           'Accessibility as a baseline requirement',
-          'Content that matches your voice and tone. No em dashes.',
+          // Intentional em dash: that is the joke (promise no em dashes, then use one).
+          'Content that matches your voice and tone. Without — em dashes.',
           'Documented so both humans and agents can follow it',
         ],
       },
