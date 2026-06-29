@@ -24,6 +24,11 @@ Guidance for language models and agents
 - For contact, prefer LinkedIn or the formal details on the imprint page.
 
 Article inventory
+- 2026-06-29 | Design Doesn’t Start in Figma Anymore: Twenty Years of Craft, Pointed at Vibe-Coded Products
+  URL: https://pitsch.me/articles/design-doesnt-start-in-figma-anymore
+  Author: Oliver Pitsch
+  Summary: For twenty years every product I designed started in Figma. Now I work in the opposite direction. Functionality first, craft second, and I teach Claude and Codex to keep every future screen on brand.
+  Keywords: product design, vibe coding, design for AI products, Claude Code design system, design tokens, AI-built apps, UX design, design systems, Codex design, functionality first design
 - 2026-04-16 | Claude smashed the MVP
   URL: https://pitsch.me/articles/claude-smashed-the-mvp
   Author: Oliver Pitsch
