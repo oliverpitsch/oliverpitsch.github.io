@@ -22,6 +22,18 @@ export default async function sitemap(): Promise<SitemapEntry[]> {
     { url: `${site}/articles`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
     { url: `${site}/ai-consulting`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${site}/ai-beratung`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
+    {
+      url: `${site}/vibe-coded-design`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${site}/design-fuer-vibe-coding`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
     { url: `${site}/imprint`, lastModified: now, changeFrequency: 'yearly', priority: 0.2 },
   ];
 
