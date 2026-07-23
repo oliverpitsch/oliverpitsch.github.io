@@ -76,6 +76,122 @@ function Social() {
   );
 }
 
+const productProjects = [
+  {
+    name: 'Joinride.cc',
+    href: 'https://joinride.cc',
+    logo: '/images/companies/logo-joinride.svg',
+    logoClassName: 'h-12 w-auto dark:brightness-0 dark:invert',
+    theme: {
+      frame: 'bg-[#4338CA]/50 dark:bg-[#A5B4FC]/50',
+      text: 'text-[#4338CA] dark:text-[#A5B4FC]',
+      button:
+        'bg-[#4338CA] text-white hover:bg-[#3730A3] dark:bg-[#A5B4FC] dark:text-[#171D45] dark:hover:bg-[#C7D2FE]',
+    },
+    lead: 'A leading plaforms for bike group rides and run clubs.',
+    story:
+      'I build Joinride with Lars, my friend and partner, to scratch our own itch. Today Joinride is one of the leading platforms for Group Rides and Run Clubs. Used by thousands of riders, runners and clubs.',
+  },
+  {
+    name: 'Famili.one',
+    href: 'https://famili.one',
+    logo: '/images/projects/famili-logo.png',
+    logoClassName: 'h-11 w-auto',
+    theme: {
+      frame: 'bg-[#7E22CE]/50 dark:bg-[#D8B4FE]/50',
+      text: 'text-[#7E22CE] dark:text-[#D8B4FE]',
+      button:
+        'bg-[#7E22CE] text-white hover:bg-[#6B21A8] dark:bg-[#D8B4FE] dark:text-[#29103F] dark:hover:bg-[#E9D5FF]',
+    },
+    lead: 'A family organizer that makes care work visible.',
+    story:
+      'Famili is my solo-built answer to the quiet mental load that sits in one head at home. It brings tasks, dates, notes, documents, contacts, and daily context together so family work can actually be shared.',
+  },
+  {
+    name: 'neuerName.com',
+    href: 'https://www.neuername.com',
+    logo: '/images/projects/neuername-logo.svg',
+    logoClassName: 'h-12 w-12 rounded-2xl',
+    theme: {
+      frame: 'bg-[#19A066]/50 dark:bg-[#88EDC1]/50',
+      text: 'text-[#177E52] dark:text-[#88EDC1]',
+      button:
+        'bg-[#19A066] text-white hover:bg-[#177E52] dark:bg-[#88EDC1] dark:text-[#062D1E] dark:hover:bg-[#BCF6DC]',
+    },
+    lead: 'A tool to assist in the admin work with changing your name at marriage.',
+    story:
+      'neuerName.com is a product for one of those life admin moments that feels small until it eats weeks. Turning name changes into a personal checklist with contact data, mailing templates, and less guesswork.',
+  },
+] as const;
+
+function ProductProjects() {
+  return (
+    <section
+      className="mx-auto mt-20 max-w-6xl px-4 sm:px-6 lg:px-8"
+      aria-labelledby="projects-heading"
+    >
+      <div className="mx-auto max-w-4xl text-center">
+        <h2
+          id="projects-heading"
+          className="text-balance text-[34px] font-semibold leading-tight tracking-[-0.03em] text-[#182B52] dark:text-white sm:text-[42px]"
+        >
+          Products I build when the problem feels personal enough
+        </h2>
+        <p className="mx-auto mt-4 max-w-2xl text-pretty text-[17px] leading-8 text-slate-600 dark:text-slate-300">
+          Alongside consulting and product leadership, I keep shipping my own products. They are
+          small by team size, serious by ambition, and built close to the people they are meant to
+          help.
+        </p>
+      </div>
+
+      <div className="mt-10 grid gap-5 lg:grid-cols-3">
+        {productProjects.map((project) => (
+          <article
+            key={project.name}
+            className={`group flex min-h-[28rem] flex-col overflow-hidden rounded-[28px] ${project.theme.frame} p-1.5`}
+          >
+            <div className="flex flex-1 flex-col rounded-[22px] bg-white p-6 shadow-popover dark:bg-[#0B1730] sm:p-7">
+              <div className="flex min-h-16 items-start">
+                <div>
+                  <img
+                    src={project.logo}
+                    alt={`${project.name} logo`}
+                    className={project.logoClassName}
+                  />
+                  <h3 className="mt-5 text-[26px] font-semibold leading-none tracking-[-0.02em] text-[#182B52] dark:text-white">
+                    {project.name}
+                  </h3>
+                </div>
+              </div>
+
+              <p className={`mt-8 text-[19px] font-semibold leading-7 ${project.theme.text}`}>
+                {project.lead}
+              </p>
+              <p className="mt-4 flex-1 text-[15px] leading-7 text-slate-600 dark:text-slate-300">
+                {project.story}
+              </p>
+
+              <div className="mt-8">
+                <a
+                  href={project.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`mt-5 inline-flex min-h-11 items-center justify-center rounded-2xl px-5 py-3 text-[15px] font-semibold ${project.theme.button} w-full`}
+                >
+                  Visit {project.name}
+                  <span className="ml-2 transition-transform duration-150 group-hover:translate-x-0.5">
+                    →
+                  </span>
+                </a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function ContactCTA() {
   const topics = ['Product strategy', 'UX systems', 'AI building', 'Leadership sparring'];
 
@@ -218,6 +334,8 @@ export default async function Home() {
             feedback and intent to working software with more clarity, speed, and leverage.
           </p>
         </section>
+
+        <ProductProjects />
 
         <section className="mx-auto mt-16 max-w-4xl px-10 lg:px-0" aria-label="Areas of expertise">
           <h2 className="text-xl font-semibold mb-6 text-[#182B52] dark:text-white">
