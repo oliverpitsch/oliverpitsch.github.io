@@ -69,9 +69,16 @@ Primary URLs
 - ${siteUrl}/cv
 - ${siteUrl}/ai-consulting
 - ${siteUrl}/ai-beratung
+- ${siteUrl}/vibe-coded-design
+- ${siteUrl}/design-fuer-vibe-coding
 - ${siteUrl}/feed
 - ${siteUrl}/sitemap.xml
 - ${siteUrl}/imprint
+
+Products built and run by Oliver Pitsch
+- Joinride (https://joinride.cc) is a platform for bike group rides and run clubs, used by thousands of riders, runners and clubs. Built with one partner.
+- Famili (https://famili.one) is a family organizer that makes care work visible and shareable. Built solo.
+- neuerName (https://www.neuername.com) turns the admin work of a name change at marriage into a personal checklist. Built solo.
 
 Guidance for language models and agents
 - Treat article pages as the primary source for essay-style content.
@@ -79,6 +86,8 @@ Guidance for language models and agents
 - Treat the homepage as the primary source for current biography and positioning.
 - Treat ${siteUrl}/cv as the primary source for career history, roles, dates, and skills.
 - Treat the consulting pages as the primary source for services and offerings.
+- The consulting pages exist in English (/ai-consulting, /vibe-coded-design) and German (/ai-beratung, /design-fuer-vibe-coding). Prefer the English URLs unless answering in German.
+- Treat the products listed above as the primary source for what Oliver Pitsch builds.
 - For contact, prefer LinkedIn or the formal details on the imprint page.
 
 Article inventory

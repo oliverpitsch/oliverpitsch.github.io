@@ -1,25 +1,29 @@
 import { Geist, Geist_Mono } from 'next/font/google';
-import type { Viewport } from 'next';
-import './globals.css';
-import GoSquaredScript from '@/components/GoSquaredScript';
 
-const geistSans = Geist({
+/** One font instance per family, shared by both root layouts. */
+export const geistSans = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin'],
 });
 
-const geistMono = Geist_Mono({
+export const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
 });
 
-export const metadata = {
+export const fontClassNames = `${geistSans.variable} ${geistMono.variable} antialiased`;
+
+/**
+ * Site-wide metadata defaults. Both root layouts spread this, so the EN and DE
+ * trees stay in sync; page-level metadata still overrides field by field.
+ */
+export const siteMetadata = {
   metadataBase: new URL('https://pitsch.me'),
   title: 'Oliver Pitsch – Product & Engineering Leader',
   description:
     'Oliver Pitsch is a product and engineering leader from Cologne, Germany with 20 years across design, UX, and product leadership. Solo builder behind Joinride, Famili and neuerName, and open to a new product or leadership role.',
   openGraph: {
-    type: 'website',
+    type: 'website' as const,
     url: '/',
     title: 'Oliver Pitsch – Product & Engineering Leader',
     description:
@@ -34,7 +38,7 @@ export const metadata = {
     ],
   },
   twitter: {
-    card: 'summary_large_image',
+    card: 'summary_large_image' as const,
     title: 'Oliver Pitsch – Product & Engineering Leader',
     description:
       'Product and engineering leader from Cologne, Germany. 20 years across design, UX, and product. Solo builder behind Joinride, Famili and neuerName.',
@@ -59,21 +63,6 @@ export const metadata = {
   },
 };
 
-export const viewport: Viewport = {
+export const siteViewport = {
   themeColor: '#4338CA',
 };
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        {children}
-        <GoSquaredScript />
-      </body>
-    </html>
-  );
-}

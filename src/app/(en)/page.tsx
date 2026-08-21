@@ -18,6 +18,10 @@ import { getAllArticlesMeta } from '@/lib/articles';
 import { cv } from '@/lib/cv';
 import { products } from '@/lib/products';
 
+export const metadata = {
+  alternates: { canonical: '/' },
+};
+
 const siteUrl = 'https://pitsch.me';
 
 const practice = [
