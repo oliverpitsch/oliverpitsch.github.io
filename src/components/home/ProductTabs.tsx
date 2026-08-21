@@ -6,9 +6,10 @@ import type { Product } from '@/lib/products';
 
 /** How long each product holds before the next one takes over. */
 const DURATION_MS = 7000;
-/** Must match the rounded-[18px] on each tab. */
-const TAB_RADIUS = 18;
-const STROKE = 3;
+/** Fraction of the tab's height the indicator covers. Deliberately short so it
+    stays on the straight part of the left edge and never reaches the corners. */
+const BAR_RATIO = 0.5;
+const BAR_MIN = 28;
 
 export default function ProductTabs({ products }: { products: Product[] }) {
   const [active, setActive] = useState(0);
@@ -18,7 +19,7 @@ export default function ProductTabs({ products }: { products: Product[] }) {
   const rootRef = useRef<HTMLDivElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
-  const ringRef = useRef<SVGRectElement>(null);
+  const barRef = useRef<HTMLSpanElement>(null);
   const animRef = useRef<Animation | null>(null);
   const timerRef = useRef<number | null>(null);
   const remainingRef = useRef(DURATION_MS);
@@ -49,17 +50,11 @@ export default function ProductTabs({ products }: { products: Product[] }) {
     return () => ro.disconnect();
   }, [active]);
 
-  // Geometry of the ring that traces the tab's rounded rectangle. The stroke is
-  // inset by half its width so it sits inside the tab rather than straddling
-  // the edge, and the radius shrinks by the same amount to stay concentric.
-  const ring = useMemo(() => {
-    const inset = STROKE / 2;
-    const width = box.width - STROKE;
-    const height = box.height - STROKE;
-    const r = TAB_RADIUS - inset;
-    const perimeter = 2 * (width - 2 * r) + 2 * (height - 2 * r) + 2 * Math.PI * r;
-    return { x: inset, y: inset, width, height, rx: r, ry: r, perimeter };
-  }, [box.width, box.height]);
+  // A short bar, centred on the tab, sitting in the gutter to its left.
+  const bar = useMemo(() => {
+    const height = Math.max(BAR_MIN, Math.round(box.height * BAR_RATIO));
+    return { top: box.top + Math.round((box.height - height) / 2), height };
+  }, [box.top, box.height]);
 
   const clearTimer = useCallback(() => {
     if (timerRef.current !== null) {
@@ -78,17 +73,17 @@ export default function ProductTabs({ products }: { products: Product[] }) {
     [clearTimer, products.length],
   );
 
-  // The ring drawing itself is the visible half of the rotation timer. The
+  // The bar filling is the visible half of the rotation timer. The
   // advance runs off an explicit timeout rather than the animation's finish
   // event, and the two are always armed, paused and resumed with the same
   // remaining duration, so the bar cannot drift out of sync with the content.
   useEffect(() => {
     if (!rotating || box.width === 0) return;
-    const el = ringRef.current;
+    const el = barRef.current;
     if (!el || typeof el.animate !== 'function') return;
     if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return;
 
-    const anim = el.animate([{ strokeDashoffset: ring.perimeter }, { strokeDashoffset: 0 }], {
+    const anim = el.animate([{ height: '0px' }, { height: `${bar.height}px` }], {
       duration: DURATION_MS,
       easing: 'linear',
       fill: 'forwards',
@@ -102,7 +97,7 @@ export default function ProductTabs({ products }: { products: Product[] }) {
       anim.cancel();
       if (animRef.current === anim) animRef.current = null;
     };
-  }, [active, rotating, box.width, ring.perimeter, arm, clearTimer]);
+  }, [active, rotating, box.width, bar.height, arm, clearTimer]);
 
   // Hover and focus suspend the rotation. Native listeners, because React's
   // synthetic mouseenter did not fire reliably for real pointer movement.
@@ -155,14 +150,6 @@ export default function ProductTabs({ products }: { products: Product[] }) {
   };
 
   const product = products[active];
-  const rectProps = {
-    x: ring.x,
-    y: ring.y,
-    width: ring.width,
-    height: ring.height,
-    rx: ring.rx,
-    ry: ring.ry,
-  };
 
   return (
     <div ref={rootRef} className="mt-12 rounded-[32px] bg-surface-muted p-1.5">
@@ -176,36 +163,23 @@ export default function ProductTabs({ products }: { products: Product[] }) {
           onKeyDown={onKeyDown}
           className="relative flex flex-col gap-1 p-2"
         >
-          {/* The indicator traces the tab's own rounded rectangle, so it follows
-              the corner radius instead of cutting across it and leaving sharp
-              tips where the tab curves away. */}
-          {box.width > 0 && (
-            <svg
-              key={`${active}-${rotating}`}
-              aria-hidden
-              className="ring-fade pointer-events-none absolute"
-              style={{ top: box.top, left: box.left, width: box.width, height: box.height }}
-              viewBox={`0 0 ${box.width} ${box.height}`}
-              fill="none"
-            >
-              {/* Track sits on the muted layer, where --line all but disappears, so it
-                  is mixed from ink instead and stays visible in both themes. */}
-              <rect
-                {...rectProps}
-                stroke="color-mix(in srgb, var(--ink) 18%, transparent)"
-                strokeWidth={STROKE}
+          {/* A short bar, not a full outline: it stays clear of the tab's
+              rounded corners instead of having to wrap around them. The track
+              shows the time left, the fill grows to run the rotation. */}
+          {box.height > 0 && (
+            <>
+              <span
+                aria-hidden
+                className="absolute left-0 w-[3px] rounded-full bg-[color-mix(in_srgb,var(--ink)_18%,transparent)] transition-[top,height] duration-500 ease-[cubic-bezier(0.2,0,0,1)]"
+                style={{ top: bar.top, height: bar.height }}
               />
-              <rect
-                ref={ringRef}
-                {...rectProps}
-                className={product.theme.stroke}
-                stroke="currentColor"
-                strokeWidth={STROKE}
-                strokeLinecap="round"
-                strokeDasharray={ring.perimeter}
-                strokeDashoffset={rotating ? ring.perimeter : 0}
+              <span
+                ref={barRef}
+                aria-hidden
+                className={`absolute left-0 w-[3px] rounded-full transition-[top] duration-500 ease-[cubic-bezier(0.2,0,0,1)] ${product.theme.bar}`}
+                style={{ top: bar.top, height: rotating ? 0 : bar.height }}
               />
-            </svg>
+            </>
           )}
 
           {products.map((item, index) => {
@@ -224,14 +198,24 @@ export default function ProductTabs({ products }: { products: Product[] }) {
                 tabIndex={selected ? 0 : -1}
                 onClick={() => choose(index, true)}
                 className={[
-                  'relative block w-full rounded-[18px] px-5 py-5 text-left transition-colors duration-300',
-                  'outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent',
-                  selected ? 'bg-surface/60' : 'hover:bg-surface/35',
+                  'group/tab relative block w-full px-5 py-5 text-left',
+                  'rounded-l-[18px] outline-none',
+                  'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent',
                 ].join(' ')}
               >
+                {/* The fill runs past the column and slides under the panel,
+                    so the tab reads as tucked behind the card rather than
+                    floating beside it. */}
+                <span
+                  aria-hidden
+                  className={[
+                    'absolute inset-y-0 left-0 -right-6 rounded-l-[18px] transition-colors duration-300',
+                    selected ? 'bg-surface' : 'bg-transparent group-hover/tab:bg-surface/45',
+                  ].join(' ')}
+                />
                 <span
                   className={[
-                    'block text-[20px] font-semibold tracking-[-0.02em] transition-colors duration-300',
+                    'relative block text-[20px] font-semibold tracking-[-0.02em] transition-colors duration-300',
                     selected ? item.theme.text : 'text-ink',
                   ].join(' ')}
                 >
@@ -239,7 +223,7 @@ export default function ProductTabs({ products }: { products: Product[] }) {
                 </span>
                 <span
                   className={[
-                    'mt-1 block text-[15px] leading-6 transition-colors duration-300',
+                    'relative mt-1 block text-[15px] leading-6 transition-colors duration-300',
                     selected ? 'text-ink-muted' : 'text-ink-muted/70',
                   ].join(' ')}
                 >
@@ -259,7 +243,7 @@ export default function ProductTabs({ products }: { products: Product[] }) {
           id={`product-panel-${active}`}
           aria-labelledby={`product-tab-${active}`}
           aria-live={rotating ? 'off' : 'polite'}
-          className="rounded-[26px] border border-line bg-surface p-7 shadow-card sm:p-10"
+          className="relative z-10 rounded-[26px] border border-line bg-surface p-7 shadow-card sm:p-10"
         >
           <div key={active} className="flex h-full flex-col">
             <img
