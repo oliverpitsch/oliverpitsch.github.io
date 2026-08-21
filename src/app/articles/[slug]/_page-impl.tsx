@@ -1,3 +1,4 @@
+import PageShell from '@/components/layout/PageShell';
 /* Article page implementation extracted to avoid PageProps generic inference bug in Next 15 */
 /* eslint-disable @next/next/no-img-element */
 import { getArticleBySlug, getAdjacentArticles } from '@/lib/articles';
@@ -52,21 +53,21 @@ export async function renderArticle(slug: string) {
     wordCount: article.wordCount,
   };
   return (
-    <div className="min-h-screen bg-[#F8FAFC] dark:bg-[#182B52] text-[#182B52] dark:text-white">
+    <PageShell>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
-      <div
-        className="h-5 w-full bg-gradient-to-b from-[#FFAA00] via-[#FFBF00] to-[#FFD500]"
-        aria-hidden
-      />
-      <article className="mx-auto max-w-3xl px-6 lg:px-0 py-12">
+      <article className="mx-auto max-w-3xl px-6 py-12 lg:px-0">
         <header className="mb-10">
           <div
             className={`${article.imageDescription ? 'mb-2' : 'mb-8'} rounded-xl overflow-hidden border border-[#E2E8F0] dark:border-[#283B63] shadow-sm bg-white dark:bg-[#152544]`}
           >
-            <img src={heroSrc} alt={article.heroAlt || `Cover image for ${article.Title}`} className="w-full h-auto" />
+            <img
+              src={heroSrc}
+              alt={article.heroAlt || `Cover image for ${article.Title}`}
+              className="w-full h-auto"
+            />
           </div>
           {article.imageDescription && (
             <p className="mb-8 text-xs text-slate-500 dark:text-slate-400">
@@ -256,17 +257,9 @@ export async function renderArticle(slug: string) {
           </div>
         </nav>
       </article>
-      <section className="mt-40 flex justify-center">
+      <section className="mt-24 flex justify-center">
         <img src="/images/signature.png" alt="With love from Oliver Pitsch" className="w-32" />
       </section>
-      <footer className="mt-20 mb-1 text-center relative">
-        <div className="bg-[#FFD500] py-2 text-[12px]">
-          <Link href="/imprint" className="underline text-[#182B52]">
-            Imprint & Data Privacy
-          </Link>
-        </div>
-        <div className="absolute left-0 right-0 -bottom-1 h-1 bg-gradient-to-b from-[#FFBF00] to-[#FFAA00]" />
-      </footer>
       <button id="backToTop" aria-label="Back to top" className="back-to-top-btn">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -368,6 +361,6 @@ export async function renderArticle(slug: string) {
           onScroll();
         })();
       `}</Script>
-    </div>
+    </PageShell>
   );
 }

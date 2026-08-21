@@ -13,22 +13,54 @@
     0px 24px 20px -12px rgba(51 65 85 / 0.08);
 }
 
+/* Semantic colour tokens. Every surface, text and accent colour in the app
+   resolves through one of these, so light/dark flips at the variable level and
+   components never need a dark: twin. */
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-soft: var(--accent-soft);
+  --color-on-accent: var(--on-accent);
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --canvas: #f8fafc;
+  --surface: #ffffff;
+  --surface-muted: #eef2f8;
+  --ink: #1e293b;
+  --ink-muted: #64748b;
+  --line: #e2e8f0;
+  --accent: #4f46e5;
+  --accent-strong: #4338ca;
+  --accent-soft: #eef0ff;
+  --on-accent: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --canvas: #0b1220;
+    --surface: #131c31;
+    --surface-muted: #16203a;
+    --ink: #e8edf7;
+    --ink-muted: #94a3b8;
+    --line: #24304d;
+    --accent: #a5b4fc;
+    --accent-strong: #c7d2fe;
+    --accent-soft: #1e244a;
+    --on-accent: #171d45;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
 }
 html {
   scroll-behavior: smooth;
@@ -142,14 +174,9 @@ html:hover ::-webkit-scrollbar-thumb {
 .markdown-content hr:before {
   content: '· · ·';
   letter-spacing: 0.75em;
-  color: #ffbf00;
+  color: var(--accent);
   font-weight: 600;
   font-size: 1.25rem;
-}
-@media (prefers-color-scheme: dark) {
-  .markdown-content hr:before {
-    color: #ffdc0f;
-  }
 }
 
 /* List styling */
@@ -171,13 +198,8 @@ html:hover ::-webkit-scrollbar-thumb {
   width: 0.55rem;
   height: 0.55rem;
   border-radius: 50%;
-  background: #ffbf00;
+  background: var(--accent);
   transform: translateY(-50%);
-}
-@media (prefers-color-scheme: dark) {
-  .markdown-content ul > li:before {
-    background: #ffdc0f;
-  }
 }
 .markdown-content ul > li > ul {
   margin-top: 0.5rem;
@@ -204,15 +226,10 @@ html:hover ::-webkit-scrollbar-thumb {
   left: 0;
   top: 0;
   font-weight: 600;
-  color: #3b5ea5;
+  color: var(--accent);
   min-width: 1.4rem;
   text-align: right;
   padding-right: 0.4rem;
-}
-@media (prefers-color-scheme: dark) {
-  .markdown-content ol > li:before {
-    color: #8daef0;
-  }
 }
 .markdown-content ol > li > ul,
 .markdown-content ol > li > ol {
@@ -234,7 +251,7 @@ html:hover ::-webkit-scrollbar-thumb {
   top: 50%;
   transform: translateY(-50%);
   font-size: 0.85em;
-  color: #94a3b8;
+  color: var(--ink-muted);
   transition: opacity 0.15s;
 }
 .markdown-content .heading-anchor {
@@ -273,12 +290,6 @@ html:hover ::-webkit-scrollbar-thumb {
   transition:
     opacity 0.15s,
     transform 0.15s;
-}
-.dark .markdown-content .heading-anchor::after {
-  background: #334155;
-}
-.dark .markdown-content .heading-anchor::before {
-  border-top-color: #334155;
 }
 .markdown-content .heading-anchor:hover::after,
 .markdown-content .heading-anchor:focus-visible::after,
@@ -322,12 +333,6 @@ html:hover ::-webkit-scrollbar-thumb {
     transform: translate(0, 4px);
   }
 }
-@media (prefers-color-scheme: dark) {
-  .markdown-content .heading-anchor {
-    color: #64748b;
-  }
-}
-
 /* Mobile/touch behavior: show icon by default and place inline for easier tapping */
 @media (hover: none) {
   .markdown-content .heading-anchor {
@@ -357,8 +362,8 @@ html:hover ::-webkit-scrollbar-thumb {
   width: 2.75rem;
   height: 2.75rem;
   border-radius: 9999px;
-  background: #ffbf00;
-  color: #182b52;
+  background: var(--accent);
+  color: var(--on-accent);
   font-weight: 600;
   box-shadow: 0 4px 18px -4px rgba(0, 0, 0, 0.25);
   opacity: 0;
@@ -368,11 +373,7 @@ html:hover ::-webkit-scrollbar-thumb {
     transform 0.25s;
 }
 .back-to-top-btn:hover {
-  background: #ffaa00;
-}
-.dark .back-to-top-btn {
-  background: #ffdc0f;
-  color: #523e18;
+  background: var(--accent-strong);
 }
 .back-to-top-btn.visible {
   opacity: 1;
@@ -391,13 +392,8 @@ html:hover ::-webkit-scrollbar-thumb {
   line-height: 1.6;
 }
 .markdown-content a {
-  color: #4f46e5;
+  color: var(--accent);
   text-decoration: underline;
-}
-@media (prefers-color-scheme: dark) {
-  .markdown-content a {
-    color: #818cf8;
-  }
 }
 .markdown-content code {
   background: rgba(0, 0, 0, 0.05);
@@ -430,8 +426,12 @@ html:hover ::-webkit-scrollbar-thumb {
   margin: 1.75rem 0;
   padding: 1rem 1.25rem 1rem 1.25rem;
   border-radius: 12px;
-  border: 1px solid rgba(255, 191, 0, 0.32); /* slate-200 */
-  background: linear-gradient(180deg, rgba(255, 191, 0, 0.08), rgba(255, 213, 0, 0.05));
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--accent) 9%, transparent),
+    color-mix(in srgb, var(--accent) 5%, transparent)
+  );
   color: inherit; /* inherit article text color */
   font-style: normal; /* keep clean body style */
   font-weight: 600;
@@ -448,18 +448,18 @@ html:hover ::-webkit-scrollbar-thumb {
   width: 56px;
   display: grid;
   place-items: center;
-  color: rgba(255, 191, 0, 0.32);
+  color: color-mix(in srgb, var(--accent) 40%, transparent);
   font-family: Georgia, 'Times New Roman', serif;
   pointer-events: none;
   padding: 8px;
   border-radius: 50%;
   border: 1px solid transparent; /* enables border-box clipping for arc */
   background-image:
-    radial-gradient(circle at center, #f7f9fb 100%, #f7f9fb 100%),
+    radial-gradient(circle at center, var(--canvas) 100%, var(--canvas) 100%),
     conic-gradient(
       from -270deg,
       transparent 0turn 0.25turn,
-      rgba(255, 191, 0, 0.32) 0.25turn 0.5turn,
+      color-mix(in srgb, var(--accent) 40%, transparent) 0.25turn 0.5turn,
       transparent 0.5turn 1turn
     );
   background-origin: padding-box, border-box;
@@ -480,25 +480,9 @@ html:hover ::-webkit-scrollbar-thumb {
   display: block;
   margin-top: 0.75rem;
   font-size: 1rem;
-  color: #334155; /* slate-700 */
+  color: var(--ink-muted);
   font-style: normal;
   opacity: 1;
-}
-@media (prefers-color-scheme: dark) {
-  .markdown-content blockquote {
-    border-color: #283b63; /* matches other dark borders */
-    background: linear-gradient(180deg, rgba(255, 220, 15, 0.1), rgba(255, 220, 15, 0.06));
-  }
-  .markdown-content blockquote::before {
-    background: linear-gradient(to bottom, #ffbf00, #ffdc0f);
-  }
-  .markdown-content blockquote::after {
-    color: rgba(255, 220, 15, 0.32);
-  }
-  .markdown-content blockquote footer,
-  .markdown-content blockquote cite {
-    color: #94a3b8;
-  }
 }
 
 /* Callout variants: [!NOTE], [!INFO], [!QUOTE] */
@@ -533,7 +517,7 @@ html:hover ::-webkit-scrollbar-thumb {
   font-size: 36px;
   line-height: 48px;
   background-image:
-    radial-gradient(circle at center, #f7f9fb 100%, #f7f9fb 100%),
+    radial-gradient(circle at center, var(--canvas) 100%, var(--canvas) 100%),
     conic-gradient(
       from -270deg,
       transparent 0turn 0.25turn,
@@ -553,7 +537,7 @@ html:hover ::-webkit-scrollbar-thumb {
   font-size: 36px;
   line-height: 48px;
   background-image:
-    radial-gradient(circle at center, #f7f9fb 100%, #f7f9fb 100%),
+    radial-gradient(circle at center, var(--canvas) 100%, var(--canvas) 100%),
     conic-gradient(
       from -270deg,
       transparent 0turn 0.25turn,
@@ -562,19 +546,23 @@ html:hover ::-webkit-scrollbar-thumb {
     );
 }
 .markdown-content blockquote.callout.quote {
-  background: linear-gradient(180deg, rgba(255, 191, 0, 0.1), rgba(255, 213, 0, 0.07)); /* brand */
-  border-color: rgba(255, 191, 0, 0.45);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--accent) 11%, transparent),
+    color-mix(in srgb, var(--accent) 7%, transparent)
+  );
+  border-color: color-mix(in srgb, var(--accent) 42%, transparent);
 }
 .markdown-content blockquote.callout.quote::after {
   content: '\201C';
   font-family: Georgia, 'Times New Roman', serif;
-  color: rgba(255, 191, 0, 0.32);
+  color: color-mix(in srgb, var(--accent) 40%, transparent);
   background-image:
-    radial-gradient(circle at center, #f7f9fb 100%, #f7f9fb 100%),
+    radial-gradient(circle at center, var(--canvas) 100%, var(--canvas) 100%),
     conic-gradient(
       from -270deg,
       transparent 0turn 0.25turn,
-      rgba(255, 191, 0, 0.32) 0.25turn 0.5turn,
+      color-mix(in srgb, var(--accent) 40%, transparent) 0.25turn 0.5turn,
       transparent 0.5turn 1turn
     );
 }
@@ -598,10 +586,11 @@ html:hover ::-webkit-scrollbar-thumb {
     color: rgba(59, 130, 246, 0.6);
   }
   .markdown-content blockquote.callout.quote {
-    background: linear-gradient(180deg, rgba(255, 220, 15, 0.14), rgba(255, 220, 15, 0.1));
-    border-color: rgba(255, 220, 15, 0.55);
-  }
-  .markdown-content blockquote.callout.quote::after {
-    color: rgba(255, 220, 15, 0.36);
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--accent) 15%, transparent),
+      color-mix(in srgb, var(--accent) 10%, transparent)
+    );
+    border-color: color-mix(in srgb, var(--accent) 52%, transparent);
   }
 }

@@ -1,3 +1,4 @@
+import PageShell from '@/components/layout/PageShell';
 /*
   Native <img> over next/image: the site is statically exported
   (next.config.ts sets images.unoptimized) and all assets are local.
@@ -530,10 +531,7 @@ export default function VibeDesignPage({ content: c }: { content: VibeDesignCont
   const mailto = `mailto:${EMAIL}?subject=${c.cta.emailSubject}`;
 
   return (
-    <div
-      lang={c.lang}
-      className="min-h-screen bg-[#F8FAFC] dark:bg-[#182B52] text-[#182B52] dark:text-white"
-    >
+    <PageShell lang={c.lang} langSwitch={{ href: c.altPath, label: c.footer.langSwitchLabel }}>
       {schemas.map((schema, i) => (
         <script
           key={i}
@@ -542,308 +540,279 @@ export default function VibeDesignPage({ content: c }: { content: VibeDesignCont
         />
       ))}
 
-      {/* Topline */}
-      <div
-        className="h-7 w-full bg-gradient-to-b from-[#FFAA00] via-[#FFBF00] to-[#FFD500]"
-        aria-hidden
-      />
+      {/* Hero */}
+      <section className="relative overflow-hidden" aria-labelledby="hero-heading">
+        <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+          <div className="absolute left-1/2 top-[-10%] h-[420px] w-[760px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(255,213,0,0.16),transparent_70%)]" />
+          <div className="absolute right-[6%] top-[18%] h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(77,142,243,0.12),transparent_68%)]" />
+        </div>
 
-      <main className="mx-auto max-w-full">
-        {/* Hero */}
-        <section className="relative overflow-hidden" aria-labelledby="hero-heading">
-          <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-            <div className="absolute left-1/2 top-[-10%] h-[420px] w-[760px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(255,213,0,0.16),transparent_70%)]" />
-            <div className="absolute right-[6%] top-[18%] h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(77,142,243,0.12),transparent_68%)]" />
+        <div className="relative mx-auto mt-16 max-w-4xl px-6 text-center lg:px-0">
+          <p className="vibe-rise inline-flex items-center rounded-full border border-[#D7E5FF] bg-[#F5F9FF] px-4 py-1.5 text-[13px] font-semibold text-[#3B5EA5] dark:border-[#35528C] dark:bg-[#193056] dark:text-[#B6CCF8]">
+            {c.hero.badge}
+          </p>
+
+          <h1
+            id="hero-heading"
+            className="vibe-rise mt-6 text-balance text-[34px] font-semibold leading-[1.04] tracking-[-0.03em] sm:text-[56px] sm:leading-[1.0] lg:text-[64px]"
+            style={{ animationDelay: '60ms' }}
+          >
+            {c.hero.headline}
+          </h1>
+
+          <p
+            className="vibe-rise mx-auto mt-6 max-w-3xl text-pretty text-[18px] leading-8 text-slate-600 dark:text-slate-300 sm:text-[20px]"
+            style={{ animationDelay: '120ms' }}
+          >
+            {c.hero.subheadline}
+          </p>
+
+          <div
+            className="vibe-rise mt-9 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
+            style={{ animationDelay: '180ms' }}
+          >
+            <a
+              href={mailto}
+              className="inline-flex min-h-11 items-center justify-center rounded-2xl bg-[#182B52] px-6 py-3 text-[15px] font-semibold text-white transition-transform duration-150 ease-out hover:-translate-y-0.5 hover:bg-[#21386A] active:scale-[0.96] dark:bg-white dark:text-[#182B52] dark:hover:bg-[#E6EEFF]"
+            >
+              {c.hero.cta1Label}
+            </a>
+            <a
+              href="#process"
+              className="inline-flex min-h-11 items-center justify-center rounded-2xl border border-slate-300 bg-white px-6 py-3 text-[15px] font-semibold text-[#182B52] transition-transform duration-150 ease-out hover:-translate-y-0.5 hover:border-[#8DAEF0] hover:bg-[#F8FBFF] active:scale-[0.96] dark:border-slate-600 dark:bg-transparent dark:text-white dark:hover:border-[#8DAEF0] dark:hover:bg-[#193056]"
+            >
+              {c.hero.cta2Label}
+            </a>
           </div>
+        </div>
+      </section>
 
-          <div className="relative mx-auto mt-16 max-w-4xl px-6 text-center lg:px-0">
-            <p className="vibe-rise inline-flex items-center rounded-full border border-[#D7E5FF] bg-[#F5F9FF] px-4 py-1.5 text-[13px] font-semibold text-[#3B5EA5] dark:border-[#35528C] dark:bg-[#193056] dark:text-[#B6CCF8]">
-              {c.hero.badge}
-            </p>
+      <BeforeAfter c={c.beforeAfter} />
 
-            <h1
-              id="hero-heading"
-              className="vibe-rise mt-6 text-balance text-[34px] font-semibold leading-[1.04] tracking-[-0.03em] sm:text-[56px] sm:leading-[1.0] lg:text-[64px]"
-              style={{ animationDelay: '60ms' }}
-            >
-              {c.hero.headline}
-            </h1>
-
-            <p
-              className="vibe-rise mx-auto mt-6 max-w-3xl text-pretty text-[18px] leading-8 text-slate-600 dark:text-slate-300 sm:text-[20px]"
-              style={{ animationDelay: '120ms' }}
-            >
-              {c.hero.subheadline}
-            </p>
-
+      {/* Problems */}
+      <section className="mx-auto mt-28 max-w-5xl px-6 lg:px-8" aria-labelledby="problems-heading">
+        <h2 id="problems-heading" className="text-xl font-semibold">
+          {c.problems.heading}
+        </h2>
+        <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {c.problems.items.map((item) => (
             <div
-              className="vibe-rise mt-9 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
-              style={{ animationDelay: '180ms' }}
+              key={item.title}
+              className="rounded-2xl border border-[#E2E8F0] bg-white p-6 transition-transform duration-200 ease-out hover:-translate-y-0.5 dark:border-slate-800 dark:bg-[#152544]"
             >
-              <a
-                href={mailto}
-                className="inline-flex min-h-11 items-center justify-center rounded-2xl bg-[#182B52] px-6 py-3 text-[15px] font-semibold text-white transition-transform duration-150 ease-out hover:-translate-y-0.5 hover:bg-[#21386A] active:scale-[0.96] dark:bg-white dark:text-[#182B52] dark:hover:bg-[#E6EEFF]"
-              >
-                {c.hero.cta1Label}
-              </a>
-              <a
-                href="#process"
-                className="inline-flex min-h-11 items-center justify-center rounded-2xl border border-slate-300 bg-white px-6 py-3 text-[15px] font-semibold text-[#182B52] transition-transform duration-150 ease-out hover:-translate-y-0.5 hover:border-[#8DAEF0] hover:bg-[#F8FBFF] active:scale-[0.96] dark:border-slate-600 dark:bg-transparent dark:text-white dark:hover:border-[#8DAEF0] dark:hover:bg-[#193056]"
-              >
-                {c.hero.cta2Label}
-              </a>
+              <h3 className="text-[16px] font-semibold">{item.title}</h3>
+              <p className="mt-2 text-[14px] leading-6 text-slate-600 dark:text-slate-300">
+                {item.description}
+              </p>
             </div>
-          </div>
-        </section>
+          ))}
+        </div>
+      </section>
 
-        <BeforeAfter c={c.beforeAfter} />
+      <TokenSystem c={c.tokens} />
 
-        {/* Problems */}
-        <section
-          className="mx-auto mt-28 max-w-5xl px-6 lg:px-8"
-          aria-labelledby="problems-heading"
-        >
-          <h2 id="problems-heading" className="text-xl font-semibold">
-            {c.problems.heading}
-          </h2>
-          <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
-            {c.problems.items.map((item) => (
-              <div
-                key={item.title}
-                className="rounded-2xl border border-[#E2E8F0] bg-white p-6 transition-transform duration-200 ease-out hover:-translate-y-0.5 dark:border-slate-800 dark:bg-[#152544]"
-              >
-                <h3 className="text-[16px] font-semibold">{item.title}</h3>
-                <p className="mt-2 text-[14px] leading-6 text-slate-600 dark:text-slate-300">
-                  {item.description}
+      {/* Offerings */}
+      <section
+        id="offer"
+        className="mx-auto mt-28 max-w-5xl px-6 lg:px-8"
+        aria-labelledby="offer-heading"
+      >
+        <h2 id="offer-heading" className="text-xl font-semibold">
+          {c.offerings.heading}
+        </h2>
+        <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-3">
+          {c.offerings.items.map((item) => (
+            <div
+              key={item.title}
+              className="flex flex-col rounded-2xl border border-[#E2E8F0] bg-white p-6 transition-transform duration-200 ease-out hover:-translate-y-0.5 dark:border-slate-800 dark:bg-[#152544]"
+            >
+              <h3 className="text-[18px] font-semibold">{item.title}</h3>
+              <p className="mt-2 text-[14px] leading-6 text-slate-600 dark:text-slate-300">
+                {item.description}
+              </p>
+              <ul className="mt-4 space-y-2">
+                {item.bullets.map((bullet) => (
+                  <li
+                    key={bullet}
+                    className="flex items-start gap-2 text-[14px] leading-6 text-slate-600 dark:text-slate-300"
+                  >
+                    <span className="mt-2 block h-1.5 w-1.5 shrink-0 rounded-full bg-[#FFBF00]" />
+                    {bullet}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <StaysOnSystem c={c.stays} />
+
+      {/* Process */}
+      <section
+        id="process"
+        className="mx-auto mt-28 max-w-3xl px-6 lg:px-0"
+        aria-labelledby="process-heading"
+      >
+        <h2 id="process-heading" className="text-xl font-semibold">
+          {c.process.heading}
+        </h2>
+        <ol className="mt-8 space-y-0">
+          {c.process.steps.map((step, idx) => (
+            <li key={step.number} className="relative flex gap-5 pb-8 last:pb-0">
+              {idx < c.process.steps.length - 1 && (
+                <span
+                  className="absolute left-[19px] top-11 bottom-0 w-px bg-gradient-to-b from-[#FFBF00] to-[#FFBF00]/20"
+                  aria-hidden="true"
+                />
+              )}
+              <span className="relative z-10 grid h-10 w-10 shrink-0 place-items-center rounded-full border-2 border-[#FFBF00] bg-white text-[13px] font-bold text-[#B07A00] dark:bg-[#182B52] dark:text-[#FFDC0F]">
+                {step.number}
+              </span>
+              <div className="pt-1">
+                <h3 className="text-[18px] font-semibold">{step.title}</h3>
+                <p className="mt-1.5 text-[15px] leading-7 text-slate-600 dark:text-slate-300">
+                  {step.description}
                 </p>
               </div>
-            ))}
-          </div>
-        </section>
+            </li>
+          ))}
+        </ol>
+      </section>
 
-        <TokenSystem c={c.tokens} />
-
-        {/* Offerings */}
-        <section
-          id="offer"
-          className="mx-auto mt-28 max-w-5xl px-6 lg:px-8"
-          aria-labelledby="offer-heading"
-        >
-          <h2 id="offer-heading" className="text-xl font-semibold">
-            {c.offerings.heading}
-          </h2>
-          <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-3">
-            {c.offerings.items.map((item) => (
-              <div
-                key={item.title}
-                className="flex flex-col rounded-2xl border border-[#E2E8F0] bg-white p-6 transition-transform duration-200 ease-out hover:-translate-y-0.5 dark:border-slate-800 dark:bg-[#152544]"
-              >
-                <h3 className="text-[18px] font-semibold">{item.title}</h3>
-                <p className="mt-2 text-[14px] leading-6 text-slate-600 dark:text-slate-300">
-                  {item.description}
-                </p>
-                <ul className="mt-4 space-y-2">
-                  {item.bullets.map((bullet) => (
-                    <li
-                      key={bullet}
-                      className="flex items-start gap-2 text-[14px] leading-6 text-slate-600 dark:text-slate-300"
-                    >
-                      <span className="mt-2 block h-1.5 w-1.5 shrink-0 rounded-full bg-[#FFBF00]" />
-                      {bullet}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <StaysOnSystem c={c.stays} />
-
-        {/* Process */}
-        <section
-          id="process"
-          className="mx-auto mt-28 max-w-3xl px-6 lg:px-0"
-          aria-labelledby="process-heading"
-        >
-          <h2 id="process-heading" className="text-xl font-semibold">
-            {c.process.heading}
-          </h2>
-          <ol className="mt-8 space-y-0">
-            {c.process.steps.map((step, idx) => (
-              <li key={step.number} className="relative flex gap-5 pb-8 last:pb-0">
-                {idx < c.process.steps.length - 1 && (
+      {/* Why me */}
+      <section className="mx-auto mt-28 max-w-3xl px-6 lg:px-0" aria-labelledby="why-heading">
+        <h2 id="why-heading" className="text-xl font-semibold">
+          {c.why.heading}
+        </h2>
+        <div className="mt-6 rounded-2xl border border-[#E2E8F0] bg-white p-6 dark:border-slate-800 dark:bg-[#152544] sm:p-8">
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
+            <picture className="shrink-0">
+              <source
+                media="(prefers-color-scheme: light) or (prefers-color-scheme: no-preference)"
+                srcSet="/images/oliver-pitsch-2025.png"
+              />
+              <source
+                media="(prefers-color-scheme: dark)"
+                srcSet="/images/oliver-pitsch-2025-dark.png"
+              />
+              <img
+                src="/images/oliver-pitsch-2025-dark.png"
+                alt="Oliver Pitsch"
+                width={96}
+                height={96}
+                className="h-24 w-24 rounded-full mix-blend-multiply dark:mix-blend-normal"
+              />
+            </picture>
+            <div>
+              <p className="text-[16px] leading-7 text-slate-600 dark:text-slate-300">
+                {c.why.bio}
+              </p>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {c.why.credentials.map((cred) => (
                   <span
-                    className="absolute left-[19px] top-11 bottom-0 w-px bg-gradient-to-b from-[#FFBF00] to-[#FFBF00]/20"
-                    aria-hidden="true"
-                  />
-                )}
-                <span className="relative z-10 grid h-10 w-10 shrink-0 place-items-center rounded-full border-2 border-[#FFBF00] bg-white text-[13px] font-bold text-[#B07A00] dark:bg-[#182B52] dark:text-[#FFDC0F]">
-                  {step.number}
-                </span>
-                <div className="pt-1">
-                  <h3 className="text-[18px] font-semibold">{step.title}</h3>
-                  <p className="mt-1.5 text-[15px] leading-7 text-slate-600 dark:text-slate-300">
-                    {step.description}
-                  </p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </section>
-
-        {/* Why me */}
-        <section className="mx-auto mt-28 max-w-3xl px-6 lg:px-0" aria-labelledby="why-heading">
-          <h2 id="why-heading" className="text-xl font-semibold">
-            {c.why.heading}
-          </h2>
-          <div className="mt-6 rounded-2xl border border-[#E2E8F0] bg-white p-6 dark:border-slate-800 dark:bg-[#152544] sm:p-8">
-            <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
-              <picture className="shrink-0">
-                <source
-                  media="(prefers-color-scheme: light) or (prefers-color-scheme: no-preference)"
-                  srcSet="/images/oliver-pitsch-2025.png"
-                />
-                <source
-                  media="(prefers-color-scheme: dark)"
-                  srcSet="/images/oliver-pitsch-2025-dark.png"
-                />
-                <img
-                  src="/images/oliver-pitsch-2025-dark.png"
-                  alt="Oliver Pitsch"
-                  width={96}
-                  height={96}
-                  className="h-24 w-24 rounded-full mix-blend-multiply dark:mix-blend-normal"
-                />
-              </picture>
-              <div>
-                <p className="text-[16px] leading-7 text-slate-600 dark:text-slate-300">
-                  {c.why.bio}
-                </p>
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {c.why.credentials.map((cred) => (
-                    <span
-                      key={cred}
-                      className="rounded-full border border-[#D7E5FF] bg-[#F5F9FF] px-3 py-1.5 text-[13px] font-semibold text-[#3B5EA5] dark:border-[#35528C] dark:bg-[#193056] dark:text-[#B6CCF8]"
-                    >
-                      {cred}
-                    </span>
-                  ))}
-                </div>
-                <div className="mt-5">
-                  <Link
-                    href="/"
-                    className="text-[14px] font-semibold text-[#3B5EA5] underline underline-offset-4 dark:text-[#8DAEF0]"
+                    key={cred}
+                    className="rounded-full border border-[#D7E5FF] bg-[#F5F9FF] px-3 py-1.5 text-[13px] font-semibold text-[#3B5EA5] dark:border-[#35528C] dark:bg-[#193056] dark:text-[#B6CCF8]"
                   >
-                    {c.why.linkLabel}
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* FAQ */}
-        <section className="mx-auto mt-28 max-w-3xl px-6 lg:px-0" aria-labelledby="faq-heading">
-          <h2 id="faq-heading" className="text-xl font-semibold">
-            {c.faq.heading}
-          </h2>
-          <div className="mt-6 space-y-3">
-            {c.faq.items.map((item) => (
-              <details
-                key={item.question}
-                className="group rounded-2xl border border-[#E2E8F0] bg-white dark:border-slate-800 dark:bg-[#152544]"
-              >
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-4 text-[16px] font-semibold">
-                  {item.question}
-                  <span className="shrink-0 text-slate-400 transition-transform duration-200 group-open:rotate-45">
-                    +
+                    {cred}
                   </span>
-                </summary>
-                <div className="px-6 pb-5 text-[15px] leading-7 text-slate-600 dark:text-slate-300">
-                  {item.answer}
-                </div>
-              </details>
-            ))}
-          </div>
-        </section>
-
-        {/* Contact CTA */}
-        <section
-          id="contact"
-          className="mx-auto mt-28 max-w-5xl scroll-mt-10 px-4 lg:px-0"
-          aria-labelledby="cta-heading"
-        >
-          <div className="relative overflow-hidden rounded-[32px] border border-slate-200/80 bg-white px-6 py-8 shadow-[0_20px_60px_rgba(15,23,42,0.08)] dark:border-slate-800 dark:bg-[#152544] sm:px-8 sm:py-10 lg:px-12 lg:py-12">
-            <div className="absolute inset-0 opacity-80 dark:opacity-100" aria-hidden="true">
-              <div className="absolute -right-16 top-0 h-56 w-56 rounded-full bg-[radial-gradient(circle,_rgba(77,142,243,0.1),_transparent_68%)]" />
-              <div className="absolute left-[8%] top-[12%] h-28 w-28 rounded-full bg-[radial-gradient(circle,_rgba(255,213,0,0.08),_transparent_72%)]" />
-              <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(255,213,0,0.55),transparent)]" />
-            </div>
-
-            <div className="relative grid gap-8 lg:grid-cols-[minmax(0,1.45fr)_minmax(280px,0.95fr)] lg:items-end">
-              <div>
-                <p className="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-[12px] font-semibold uppercase tracking-[0.16em] text-slate-500 dark:border-slate-700 dark:bg-slate-900/40 dark:text-slate-300">
-                  {c.cta.badge}
-                </p>
-                <h2
-                  id="cta-heading"
-                  className="mt-5 max-w-3xl text-balance text-[32px] font-semibold leading-[1.02] tracking-[-0.03em] text-[#182B52] dark:text-white sm:text-[40px]"
+                ))}
+              </div>
+              <div className="mt-5">
+                <Link
+                  href="/"
+                  className="text-[14px] font-semibold text-[#3B5EA5] underline underline-offset-4 dark:text-[#8DAEF0]"
                 >
-                  {c.cta.heading}
-                </h2>
-                <p className="mt-4 max-w-3xl text-pretty text-[17px] leading-8 text-slate-600 dark:text-slate-300 sm:text-[18px]">
-                  {c.cta.body}
-                </p>
-              </div>
-
-              <div className="relative rounded-[28px] border border-slate-200/80 bg-slate-50/80 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.7)] backdrop-blur-sm dark:border-slate-700 dark:bg-slate-900/30 sm:p-6">
-                <div className="flex flex-col gap-3">
-                  <a
-                    href={mailto}
-                    className="inline-flex min-h-11 items-center justify-center rounded-2xl bg-[#182B52] px-5 py-3 text-[15px] font-semibold text-white transition-transform duration-150 ease-out hover:-translate-y-0.5 hover:bg-[#21386A] active:scale-[0.96] dark:bg-white dark:text-[#182B52] dark:hover:bg-[#E6EEFF]"
-                  >
-                    {c.cta.emailLabel}
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/oliverpitsch/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex min-h-11 items-center justify-center rounded-2xl border border-slate-300 bg-white px-5 py-3 text-[15px] font-semibold text-[#182B52] transition-transform duration-150 ease-out hover:-translate-y-0.5 hover:border-[#8DAEF0] hover:bg-[#F8FBFF] active:scale-[0.96] dark:border-slate-600 dark:bg-transparent dark:text-white dark:hover:border-[#8DAEF0] dark:hover:bg-[#193056]"
-                  >
-                    {c.cta.linkedinLabel}
-                  </a>
-                </div>
-                <p className="mt-5 text-center text-[13px] leading-6 text-slate-500 dark:text-slate-400">
-                  {c.cta.legalNote}{' '}
-                  <Link href="/imprint" className="underline underline-offset-4">
-                    {c.cta.legalLinkLabel}
-                  </Link>
-                  .
-                </p>
+                  {c.why.linkLabel}
+                </Link>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Footer */}
-        <footer className="relative mt-24 mb-1 text-center">
-          <div className="flex items-center justify-center gap-4 bg-[#FFD500] py-2 text-[12px]">
-            <Link href="/imprint" className="text-[#182B52] underline">
-              {c.footer.imprintLabel}
-            </Link>
-            <span className="text-[#182B52]/40">|</span>
-            <Link href="/" className="text-[#182B52] underline">
-              {c.footer.homeLabel}
-            </Link>
-            <span className="text-[#182B52]/40">|</span>
-            <Link href={c.altPath} className="text-[#182B52] underline">
-              {c.footer.langSwitchLabel}
-            </Link>
+      {/* FAQ */}
+      <section className="mx-auto mt-28 max-w-3xl px-6 lg:px-0" aria-labelledby="faq-heading">
+        <h2 id="faq-heading" className="text-xl font-semibold">
+          {c.faq.heading}
+        </h2>
+        <div className="mt-6 space-y-3">
+          {c.faq.items.map((item) => (
+            <details
+              key={item.question}
+              className="group rounded-2xl border border-[#E2E8F0] bg-white dark:border-slate-800 dark:bg-[#152544]"
+            >
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-4 text-[16px] font-semibold">
+                {item.question}
+                <span className="shrink-0 text-slate-400 transition-transform duration-200 group-open:rotate-45">
+                  +
+                </span>
+              </summary>
+              <div className="px-6 pb-5 text-[15px] leading-7 text-slate-600 dark:text-slate-300">
+                {item.answer}
+              </div>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      {/* Contact CTA */}
+      <section
+        id="contact"
+        className="mx-auto mt-28 max-w-5xl scroll-mt-10 px-4 lg:px-0"
+        aria-labelledby="cta-heading"
+      >
+        <div className="relative overflow-hidden rounded-[32px] border border-slate-200/80 bg-white px-6 py-8 shadow-[0_20px_60px_rgba(15,23,42,0.08)] dark:border-slate-800 dark:bg-[#152544] sm:px-8 sm:py-10 lg:px-12 lg:py-12">
+          <div className="absolute inset-0 opacity-80 dark:opacity-100" aria-hidden="true">
+            <div className="absolute -right-16 top-0 h-56 w-56 rounded-full bg-[radial-gradient(circle,_rgba(77,142,243,0.1),_transparent_68%)]" />
+            <div className="absolute left-[8%] top-[12%] h-28 w-28 rounded-full bg-[radial-gradient(circle,_rgba(255,213,0,0.08),_transparent_72%)]" />
+            <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(255,213,0,0.55),transparent)]" />
           </div>
-          <div className="absolute left-0 right-0 -bottom-1 h-1 bg-gradient-to-b from-[#FFBF00] to-[#FFAA00]" />
-        </footer>
-      </main>
-    </div>
+
+          <div className="relative grid gap-8 lg:grid-cols-[minmax(0,1.45fr)_minmax(280px,0.95fr)] lg:items-end">
+            <div>
+              <p className="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-[12px] font-semibold uppercase tracking-[0.16em] text-slate-500 dark:border-slate-700 dark:bg-slate-900/40 dark:text-slate-300">
+                {c.cta.badge}
+              </p>
+              <h2
+                id="cta-heading"
+                className="mt-5 max-w-3xl text-balance text-[32px] font-semibold leading-[1.02] tracking-[-0.03em] text-[#182B52] dark:text-white sm:text-[40px]"
+              >
+                {c.cta.heading}
+              </h2>
+              <p className="mt-4 max-w-3xl text-pretty text-[17px] leading-8 text-slate-600 dark:text-slate-300 sm:text-[18px]">
+                {c.cta.body}
+              </p>
+            </div>
+
+            <div className="relative rounded-[28px] border border-slate-200/80 bg-slate-50/80 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.7)] backdrop-blur-sm dark:border-slate-700 dark:bg-slate-900/30 sm:p-6">
+              <div className="flex flex-col gap-3">
+                <a
+                  href={mailto}
+                  className="inline-flex min-h-11 items-center justify-center rounded-2xl bg-[#182B52] px-5 py-3 text-[15px] font-semibold text-white transition-transform duration-150 ease-out hover:-translate-y-0.5 hover:bg-[#21386A] active:scale-[0.96] dark:bg-white dark:text-[#182B52] dark:hover:bg-[#E6EEFF]"
+                >
+                  {c.cta.emailLabel}
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/oliverpitsch/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-11 items-center justify-center rounded-2xl border border-slate-300 bg-white px-5 py-3 text-[15px] font-semibold text-[#182B52] transition-transform duration-150 ease-out hover:-translate-y-0.5 hover:border-[#8DAEF0] hover:bg-[#F8FBFF] active:scale-[0.96] dark:border-slate-600 dark:bg-transparent dark:text-white dark:hover:border-[#8DAEF0] dark:hover:bg-[#193056]"
+                >
+                  {c.cta.linkedinLabel}
+                </a>
+              </div>
+              <p className="mt-5 text-center text-[13px] leading-6 text-slate-500 dark:text-slate-400">
+                {c.cta.legalNote}{' '}
+                <Link href="/imprint" className="underline underline-offset-4">
+                  {c.cta.legalLinkLabel}
+                </Link>
+                .
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </PageShell>
   );
 }

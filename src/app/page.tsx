@@ -1,3 +1,4 @@
+import PageShell from '@/components/layout/PageShell';
 /*
   We intentionally use native <img> tags instead of next/image because:
   - Site is statically exported (next.config.js sets images.unoptimized = true)
@@ -9,15 +10,6 @@ import Link from 'next/link';
 import ArticleCard from '@/components/ArticleCard';
 import Timeline from '@/components/Timeline';
 import { getAllArticlesMeta } from '@/lib/articles';
-
-function Topline() {
-  return (
-    <div
-      className="h-7 w-full bg-gradient-to-b from-[#FFAA00] via-[#FFBF00] to-[#FFD500]"
-      aria-hidden
-    />
-  );
-}
 
 function ProfileImage() {
   return (
@@ -277,156 +269,144 @@ export default async function Home() {
   const allArticles = await getAllArticlesMeta();
   const latestArticles = allArticles.slice(0, 6);
   return (
-    <div className="min-h-screen bg-[#F8FAFC] dark:bg-[#182B52] text-[#182B52] dark:text-white">
-      <Topline />
-      <main className="mx-auto max-w-full">
-        <ProfileImage />
+    <PageShell>
+      <ProfileImage />
 
-        <div className="mx-auto mt-10 max-w-4xl px-4 text-center lg:mt-12 lg:px-0">
-          <h1 className="text-balance text-[56px] font-semibold leading-[0.92] tracking-[-0.03em] sm:text-[68px] lg:text-[76px]">
-            Oliver Pitsch
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-balance text-[21px] font-semibold tracking-[0.01em] text-[#3B5EA5] dark:text-[#8DAEF0] sm:text-[24px]">
-            Product, UX, and AI building
-          </p>
-          <p className="mx-auto mt-4 max-w-xl text-balance text-[17px] leading-7 text-slate-500 dark:text-slate-400 sm:text-[19px]">
-            Turning product context into shipped software
-          </p>
+      <div className="mx-auto mt-10 max-w-4xl px-4 text-center lg:mt-12 lg:px-0">
+        <h1 className="text-balance text-[56px] font-semibold leading-[0.92] tracking-[-0.03em] sm:text-[68px] lg:text-[76px]">
+          Oliver Pitsch
+        </h1>
+        <p className="mx-auto mt-6 max-w-2xl text-balance text-[21px] font-semibold tracking-[0.01em] text-[#3B5EA5] dark:text-[#8DAEF0] sm:text-[24px]">
+          Product, UX, and AI building
+        </p>
+        <p className="mx-auto mt-4 max-w-xl text-balance text-[17px] leading-7 text-slate-500 dark:text-slate-400 sm:text-[19px]">
+          Turning product context into shipped software
+        </p>
+      </div>
+
+      <Timeline />
+
+      <section
+        className="mx-auto mt-16 max-w-4xl text-[18px] leading-7 text-[#182B52] dark:text-[#E6EEFF] px-10 lg:px-0"
+        aria-label="About Oliver Pitsch"
+      >
+        <p>
+          Oliver Pitsch builds product systems for the age of humans and agents. With 20 years
+          across design, UX, and product leadership, he combines product thinking, UX craft,
+          business context, and AI building to turn product context into shipped software.
+        </p>
+        <p className="mt-4">
+          Currently Head of Product &amp; Engineering at AI Labs, where he helps large enterprises
+          unlock the full potential of frontier AI within the boundaries of German and European
+          privacy law. AI Labs connects the data already inside large organizations, from email and
+          communications to ERP systems and data warehouses, into a unified intelligence layer that
+          companies can actually deploy, trust, and build on.
+        </p>
+        <p className="mt-4">
+          Previously Head of Product at{' '}
+          <a href="https://ordio.com" className="underline">
+            Ordio
+          </a>
+          , an operations and workforce management platform for shift-based teams, and Director of
+          UX &amp; Product Marketing at{' '}
+          <a href="https://trustedshops.com" className="underline">
+            Trusted Shops
+          </a>
+          . Before that, founder and CEO of Reputami, an AI-driven reputation SaaS for hospitality,
+          acquired in 2015. Also founder of{' '}
+          <a href="https://joinride.cc" className="underline">
+            Joinride.cc
+          </a>
+          , the platform for cycling group rides and run clubs in Germany.
+        </p>
+        <p className="mt-4">
+          His focus is reducing handoffs, removing process overhead, and helping teams move from
+          feedback and intent to working software with more clarity, speed, and leverage.
+        </p>
+      </section>
+
+      <ProductProjects />
+
+      <section className="mx-auto mt-16 max-w-4xl px-10 lg:px-0" aria-label="Areas of expertise">
+        <h2 className="text-xl font-semibold mb-6 text-[#182B52] dark:text-white">
+          How I create leverage
+        </h2>
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+          {(
+            [
+              {
+                label: 'Context to Execution',
+                desc: 'Turn customer feedback, product intent, and strategy into scoped work and shipped outcomes.',
+              },
+              {
+                label: 'UX and Product Systems',
+                desc: 'Design flows, structures, and systems that help products scale without losing clarity.',
+              },
+              {
+                label: 'AI Building',
+                desc: 'Use AI tools and agents to compress planning, building, and iteration into faster delivery loops.',
+              },
+              {
+                label: 'B2B SaaS and Operations',
+                desc: 'Deep experience in HR tech, shift-based work, trust, and operational software.',
+              },
+              {
+                label: 'Product Growth and Signals',
+                desc: 'Connect research, customer requests, product marketing, and behavior to find what matters and act on it.',
+              },
+              {
+                label: 'Human + Agent Workflows',
+                desc: 'Shape ways of working where people focus on intent, judgment, and taste while AI handles more of the mechanics.',
+              },
+            ] as { label: string; desc: string }[]
+          ).map((item) => (
+            <div
+              key={item.label}
+              className="rounded-2xl border border-[#E2E8F0] dark:border-slate-800 p-5 bg-white dark:bg-[#152544]"
+            >
+              <h3 className="font-semibold text-[16px] text-[#182B52] dark:text-white">
+                {item.label}
+              </h3>
+              <p className="mt-2 text-[14px] text-slate-600 dark:text-slate-300">{item.desc}</p>
+            </div>
+          ))}
         </div>
+      </section>
 
-        <Timeline />
+      <ContactCTA />
 
-        <section
-          className="mx-auto mt-16 max-w-4xl text-[18px] leading-7 text-[#182B52] dark:text-[#E6EEFF] px-10 lg:px-0"
-          aria-label="About Oliver Pitsch"
-        >
-          <p>
-            Oliver Pitsch builds product systems for the age of humans and agents. With 20 years
-            across design, UX, and product leadership, he combines product thinking, UX craft,
-            business context, and AI building to turn product context into shipped software.
-          </p>
-          <p className="mt-4">
-            Currently Head of Product &amp; Engineering at AI Labs, where he helps large enterprises
-            unlock the full potential of frontier AI within the boundaries of German and European
-            privacy law. AI Labs connects the data already inside large organizations, from email
-            and communications to ERP systems and data warehouses, into a unified intelligence layer
-            that companies can actually deploy, trust, and build on.
-          </p>
-          <p className="mt-4">
-            Previously Head of Product at{' '}
-            <a href="https://ordio.com" className="underline">
-              Ordio
-            </a>
-            , an operations and workforce management platform for shift-based teams, and Director of
-            UX &amp; Product Marketing at{' '}
-            <a href="https://trustedshops.com" className="underline">
-              Trusted Shops
-            </a>
-            . Before that, founder and CEO of Reputami, an AI-driven reputation SaaS for
-            hospitality, acquired in 2015. Also founder of{' '}
-            <a href="https://joinride.cc" className="underline">
-              Joinride.cc
-            </a>
-            , the platform for cycling group rides and run clubs in Germany.
-          </p>
-          <p className="mt-4">
-            His focus is reducing handoffs, removing process overhead, and helping teams move from
-            feedback and intent to working software with more clarity, speed, and leverage.
-          </p>
-        </section>
-
-        <ProductProjects />
-
-        <section className="mx-auto mt-16 max-w-4xl px-10 lg:px-0" aria-label="Areas of expertise">
-          <h2 className="text-xl font-semibold mb-6 text-[#182B52] dark:text-white">
-            How I create leverage
-          </h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-            {(
-              [
-                {
-                  label: 'Context to Execution',
-                  desc: 'Turn customer feedback, product intent, and strategy into scoped work and shipped outcomes.',
-                },
-                {
-                  label: 'UX and Product Systems',
-                  desc: 'Design flows, structures, and systems that help products scale without losing clarity.',
-                },
-                {
-                  label: 'AI Building',
-                  desc: 'Use AI tools and agents to compress planning, building, and iteration into faster delivery loops.',
-                },
-                {
-                  label: 'B2B SaaS and Operations',
-                  desc: 'Deep experience in HR tech, shift-based work, trust, and operational software.',
-                },
-                {
-                  label: 'Product Growth and Signals',
-                  desc: 'Connect research, customer requests, product marketing, and behavior to find what matters and act on it.',
-                },
-                {
-                  label: 'Human + Agent Workflows',
-                  desc: 'Shape ways of working where people focus on intent, judgment, and taste while AI handles more of the mechanics.',
-                },
-              ] as { label: string; desc: string }[]
-            ).map((item) => (
-              <div
-                key={item.label}
-                className="rounded-2xl border border-[#E2E8F0] dark:border-slate-800 p-5 bg-white dark:bg-[#152544]"
-              >
-                <h3 className="font-semibold text-[16px] text-[#182B52] dark:text-white">
-                  {item.label}
-                </h3>
-                <p className="mt-2 text-[14px] text-slate-600 dark:text-slate-300">{item.desc}</p>
-              </div>
+      {latestArticles.length > 0 && (
+        <section className="mx-auto mt-16 max-w-4xl px-4 lg:px-0" aria-label="Latest writing">
+          <div className="mb-6 flex items-end justify-between gap-4">
+            <div>
+              <h2 className="text-lg md:text-xl font-semibold tracking-tight">
+                Writing on product systems, AI, and building
+              </h2>
+              <p className="mt-1 text-[14px] text-slate-500 dark:text-slate-400">
+                Perspectives on AI building, modern product work, and where software teams are
+                headed.
+              </p>
+            </div>
+            <Link
+              href="/articles"
+              className="text-[14px] font-semibold text-indigo-700 dark:text-indigo-300 underline shrink-0"
+            >
+              All articles →
+            </Link>
+          </div>
+          <div className="grid gap-4 grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 auto-rows-fr">
+            {latestArticles.map((a) => (
+              <ArticleCard key={a.slug} article={a} />
             ))}
           </div>
         </section>
+      )}
 
-        <ContactCTA />
+      <Social />
 
-        {latestArticles.length > 0 && (
-          <section className="mx-auto mt-16 max-w-4xl px-4 lg:px-0" aria-label="Latest writing">
-            <div className="mb-6 flex items-end justify-between gap-4">
-              <div>
-                <h2 className="text-lg md:text-xl font-semibold tracking-tight">
-                  Writing on product systems, AI, and building
-                </h2>
-                <p className="mt-1 text-[14px] text-slate-500 dark:text-slate-400">
-                  Perspectives on AI building, modern product work, and where software teams are
-                  headed.
-                </p>
-              </div>
-              <Link
-                href="/articles"
-                className="text-[14px] font-semibold text-indigo-700 dark:text-indigo-300 underline shrink-0"
-              >
-                All articles →
-              </Link>
-            </div>
-            <div className="grid gap-4 grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 auto-rows-fr">
-              {latestArticles.map((a) => (
-                <ArticleCard key={a.slug} article={a} />
-              ))}
-            </div>
-          </section>
-        )}
-
-        <Social />
-
-        <section className="mt-40 flex justify-center">
-          <img src="images/signature.png" alt="With love from Oliver Pitsch" className="w-32" />
-        </section>
-
-        <footer className="mt-20 mb-1 text-center relative">
-          <div className="bg-[#FFD500] py-2 text-[12px]">
-            <Link href="/imprint" className="underline text-[#182B52]">
-              Imprint & Data Privacy
-            </Link>
-          </div>
-          <div className="absolute left-0 right-0 -bottom-1 h-1 bg-gradient-to-b from-[#FFBF00] to-[#FFAA00]" />
-        </footer>
-      </main>
-    </div>
+      <section className="mt-24 flex justify-center">
+        <img src="images/signature.png" alt="With love from Oliver Pitsch" className="w-32" />
+      </section>
+    </PageShell>
   );
 }
