@@ -318,7 +318,7 @@ function TokenSystem({ c }: { c: VibeDesignContent['tokens'] }) {
 
       <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {/* Color */}
-        <div className="rounded-2xl border border-line bg-white p-5 bg-surface">
+        <div className="rounded-2xl border border-line bg-surface p-5">
           <p className="text-[12px] font-semibold text-ink-muted">{c.labels.color}</p>
           <div className="mt-4 grid grid-cols-2 gap-3">
             {colorRamps.map((ramp) => (
@@ -353,7 +353,7 @@ function TokenSystem({ c }: { c: VibeDesignContent['tokens'] }) {
         </div>
 
         {/* Type scale */}
-        <div className="rounded-2xl border border-line bg-white p-5 bg-surface">
+        <div className="rounded-2xl border border-line bg-surface p-5">
           <p className="text-[12px] font-semibold text-ink-muted">{c.labels.typeScale}</p>
           <div className="mt-3 space-y-1.5">
             <p className="text-[26px] font-semibold leading-tight tracking-[-0.02em] text-ink">
@@ -366,7 +366,7 @@ function TokenSystem({ c }: { c: VibeDesignContent['tokens'] }) {
         </div>
 
         {/* Spacing */}
-        <div className="rounded-2xl border border-line bg-white p-5 bg-surface">
+        <div className="rounded-2xl border border-line bg-surface p-5">
           <p className="text-[12px] font-semibold text-ink-muted">{c.labels.spacing}</p>
           <div className="mt-4 space-y-2">
             {space.map((s) => (
@@ -382,7 +382,7 @@ function TokenSystem({ c }: { c: VibeDesignContent['tokens'] }) {
         </div>
 
         {/* Radius + elevation */}
-        <div className="rounded-2xl border border-line bg-white p-5 bg-surface">
+        <div className="rounded-2xl border border-line bg-surface p-5">
           <p className="text-[12px] font-semibold text-ink-muted">{c.labels.radius}</p>
           <div className="mt-4 flex items-end gap-2.5">
             {radii.map((r) => (
@@ -572,7 +572,7 @@ export default function VibeDesignPage({ content: c }: { content: VibeDesignCont
           {c.problems.items.map((item) => (
             <div
               key={item.title}
-              className="rounded-2xl border border-line bg-white p-6 transition-transform duration-200 ease-out hover:-translate-y-0.5 bg-surface"
+              className="rounded-2xl border border-line bg-surface p-6 transition-transform duration-200 ease-out hover:-translate-y-0.5 bg-surface"
             >
               <h3 className="text-[16px] font-semibold">{item.title}</h3>
               <p className="mt-2 text-[14px] leading-6 text-ink-muted">{item.description}</p>
@@ -596,7 +596,7 @@ export default function VibeDesignPage({ content: c }: { content: VibeDesignCont
           {c.offerings.items.map((item) => (
             <div
               key={item.title}
-              className="flex flex-col rounded-2xl border border-line bg-white p-6 transition-transform duration-200 ease-out hover:-translate-y-0.5 bg-surface"
+              className="flex flex-col rounded-2xl border border-line bg-surface p-6 transition-transform duration-200 ease-out hover:-translate-y-0.5 bg-surface"
             >
               <h3 className="text-[18px] font-semibold">{item.title}</h3>
               <p className="mt-2 text-[14px] leading-6 text-ink-muted">{item.description}</p>
@@ -636,7 +636,7 @@ export default function VibeDesignPage({ content: c }: { content: VibeDesignCont
                   aria-hidden="true"
                 />
               )}
-              <span className="relative z-10 grid h-10 w-10 shrink-0 place-items-center rounded-full border-2 border-accent bg-white text-[13px] font-bold text-accent ">
+              <span className="relative z-10 grid h-10 w-10 shrink-0 place-items-center rounded-full border-2 border-accent bg-surface text-[13px] font-bold text-accent ">
                 {step.number}
               </span>
               <div className="pt-1">
@@ -653,7 +653,7 @@ export default function VibeDesignPage({ content: c }: { content: VibeDesignCont
         <h2 id="why-heading" className="text-xl font-semibold">
           {c.why.heading}
         </h2>
-        <div className="mt-6 rounded-2xl border border-line bg-white p-6 bg-surface sm:p-8">
+        <div className="mt-6 rounded-2xl border border-line bg-surface p-6 sm:p-8">
           <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
             <picture className="shrink-0">
               <source
@@ -706,7 +706,7 @@ export default function VibeDesignPage({ content: c }: { content: VibeDesignCont
           {c.faq.items.map((item) => (
             <details
               key={item.question}
-              className="group rounded-2xl border border-line bg-white bg-surface"
+              className="group rounded-2xl border border-line bg-surface"
             >
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-4 text-[16px] font-semibold">
                 {item.question}

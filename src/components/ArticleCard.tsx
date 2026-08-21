@@ -37,9 +37,9 @@ export default function ArticleCard({ article: a, className = '' }: ArticleCardP
     <Link
       href={`/articles/${a.slug}`}
       className={[
-        'group flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-surface',
-        'shadow-sm transition-[transform,box-shadow,border-color] duration-200 ease-out',
-        'hover:-translate-y-1 hover:border-accent/40 hover:shadow-card',
+        'flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-surface',
+        'shadow-sm transition-[box-shadow,border-color] duration-200 ease-out',
+        'hover:border-accent/40 hover:shadow-card',
         'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent',
         className,
       ].join(' ')}
@@ -51,7 +51,7 @@ export default function ArticleCard({ article: a, className = '' }: ArticleCardP
             src={heroSrc}
             alt={a.heroAlt || ''}
             loading="lazy"
-            className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-300 ease-out group-hover:scale-[1.03]"
+            className="absolute inset-0 h-full w-full object-cover object-center"
           />
         </div>
       )}

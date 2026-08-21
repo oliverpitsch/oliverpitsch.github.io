@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import BrandMark from './BrandMark';
 import Container from './Container';
 
 const links = [
@@ -21,12 +22,7 @@ export default function SiteHeader() {
           href="/"
           className="group flex items-center gap-2.5 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
         >
-          <span
-            className="grid size-7 shrink-0 place-items-center rounded-[9px] bg-accent text-[12px] font-bold tracking-tight text-on-accent"
-            aria-hidden
-          >
-            OP
-          </span>
+          <BrandMark className="h-8 w-auto shrink-0 text-ink transition-colors group-hover:text-accent" />
           <span className="hidden text-[15px] font-semibold tracking-[-0.01em] text-ink sm:inline">
             Oliver Pitsch
           </span>
