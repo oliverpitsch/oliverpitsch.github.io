@@ -21,7 +21,7 @@ const contactLinks = [
 
 export default function SiteFooter({ langSwitch }: SiteFooterProps) {
   return (
-    <footer className="mt-24 border-t border-line">
+    <footer className="mt-24 border-t border-line print:hidden">
       <Container size="wide" className="py-12">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr]">
           <div>

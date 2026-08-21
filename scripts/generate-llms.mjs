@@ -66,6 +66,7 @@ Site summary
 Primary URLs
 - ${siteUrl}/
 - ${siteUrl}/articles
+- ${siteUrl}/cv
 - ${siteUrl}/ai-consulting
 - ${siteUrl}/ai-beratung
 - ${siteUrl}/feed
@@ -76,6 +77,7 @@ Guidance for language models and agents
 - Treat article pages as the primary source for essay-style content.
 - Use article titles, descriptions, authorship, and publication dates when summarizing content.
 - Treat the homepage as the primary source for current biography and positioning.
+- Treat ${siteUrl}/cv as the primary source for career history, roles, dates, and skills.
 - Treat the consulting pages as the primary source for services and offerings.
 - For contact, prefer LinkedIn or the formal details on the imprint page.
 

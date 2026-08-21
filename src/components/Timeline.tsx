@@ -1,52 +1,10 @@
 'use client';
 
 import { useRef, useEffect, useState, useCallback } from 'react';
+import { roleSpan, timelineRoles } from '@/lib/cv';
 
-const items: {
-  label: string;
-  span: string;
-  jobTitle: string;
-  svg: string;
-  size?: string;
-}[] = [
-  {
-    label: 'Reputami',
-    span: '2011 – 2015',
-    jobTitle: 'Founder & CEO',
-    svg: 'companies/logo-reputami.svg',
-  },
-  {
-    label: 'Studitemps',
-    span: '2015 – 2017',
-    jobTitle: 'Senior UX Designer',
-    svg: 'companies/logo-studitemps.svg',
-  },
-  {
-    label: 'Trusted Shops',
-    span: '2017 – 2025',
-    jobTitle: 'Director UX & Product Marketing',
-    svg: 'companies/logo-trusted-shops.svg',
-  },
-  {
-    label: 'Ordio',
-    span: '2025 – 2026',
-    jobTitle: 'Head of Product',
-    svg: 'companies/logo-ordio.svg',
-  },
-  {
-    label: 'Joinride.cc',
-    span: 'since 2022',
-    jobTitle: 'Founder',
-    svg: 'companies/logo-joinride.svg',
-    size: 'h-12 w-auto',
-  },
-  {
-    label: 'AI Labs',
-    span: 'since 2026',
-    jobTitle: 'Head of Product & Engineering',
-    svg: 'companies/logo-ai-labs.svg',
-  },
-];
+/** Career facts come from the CV, so /cv and the homepage never drift apart. */
+const items = timelineRoles;
 
 const FADE_CAP = 'w-16 sm:w-24';
 
@@ -94,26 +52,24 @@ export default function Timeline() {
             <div className="absolute left-0 right-0 bottom-1 h-0.5 bg-gradient-to-r from-transparent to-accent" />
           </div>
 
-          {items.map((it, i) => (
+          {items.map((it) => (
             <div
-              key={it.label}
+              key={it.org}
               className="relative flex-none w-[50vw] sm:w-44 pb-8 text-center snap-start flex flex-col"
             >
               <div className="absolute left-0 right-0 bottom-1 h-0.5 bg-accent" />
 
               <div className="mx-auto flex h-16 w-auto items-center justify-center">
                 <img
-                  src={`/images/${it.svg}`}
+                  src={it.logo}
                   alt=""
-                  className={`${it.size ?? 'h-16 w-auto'} dark:invert-60`}
+                  className={`${it.logoClass ?? 'h-16 w-auto'} dark:invert-60`}
                 />
               </div>
 
-              <h4 className="mt-4 sm:mt-6 text-base font-semibold leading-tight px-1">
-                {it.label}
-              </h4>
-              <div className="text-sm text-ink leading-tight px-1 mt-0.5">{it.jobTitle}</div>
-              <span className="text-sm text-accent mt-auto pt-2">{it.span}</span>
+              <h4 className="mt-4 sm:mt-6 text-base font-semibold leading-tight px-1">{it.org}</h4>
+              <div className="text-sm text-ink leading-tight px-1 mt-0.5">{it.title}</div>
+              <span className="text-sm text-accent mt-auto pt-2">{roleSpan(it)}</span>
 
               <span className="absolute -bottom-[3px] left-1/2 -translate-x-1/2 size-4 rounded-full border-2 border-canvas bg-accent" />
             </div>

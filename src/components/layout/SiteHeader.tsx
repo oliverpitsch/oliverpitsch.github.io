@@ -15,7 +15,7 @@ export default function SiteHeader() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-canvas/80 backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-line bg-canvas/80 backdrop-blur-md print:hidden">
       <Container size="wide" className="flex h-14 items-center justify-between gap-4">
         <Link
           href="/"
