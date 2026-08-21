@@ -34,7 +34,9 @@
   --surface: #ffffff;
   --surface-muted: #eef2f8;
   --ink: #1e293b;
-  --ink-muted: #64748b;
+  /* #64748b (slate-500) fell to 4.24:1 on --surface-muted; this clears AA
+     on all three light surfaces while staying visibly secondary. */
+  --ink-muted: #5d6d84;
   --line: #e2e8f0;
   --accent: #4f46e5;
   --accent-strong: #4338ca;
