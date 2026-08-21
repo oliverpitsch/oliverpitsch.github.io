@@ -12,11 +12,11 @@ export default function CareerStrip() {
   const roles = cv.roles.filter((role) => role.logo);
 
   return (
-    <div className="flex flex-wrap items-center gap-x-7 gap-y-4">
+    <div className="flex flex-wrap items-center gap-x-7 gap-y-4 lg:flex-nowrap lg:justify-between lg:gap-x-4">
       {roles.map((role) => {
         const key = companyKeyByOrg[role.org];
         const label = (
-          <span className="flex items-center gap-2.5">
+          <span className="flex items-center gap-2.5 whitespace-nowrap">
             <img
               src={role.logo}
               alt=""
@@ -35,7 +35,7 @@ export default function CareerStrip() {
       })}
       <Link
         href="/cv"
-        className="text-[14px] font-semibold text-accent underline-offset-4 hover:underline"
+        className="whitespace-nowrap text-[14px] font-semibold text-accent underline-offset-4 hover:underline"
       >
         Full CV →
       </Link>
