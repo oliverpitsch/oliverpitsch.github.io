@@ -88,18 +88,18 @@ function Hero() {
 
 function Products() {
   return (
-    <section id="products" className="scroll-mt-20" aria-labelledby="products-heading">
+    <section id="products" className="mt-12 scroll-mt-20" aria-labelledby="products-heading">
       <Container size="wide">
-        <div className="max-w-3xl">
+        <div className="max-w-3xl lg:max-w-4xl">
           <h2
             id="products-heading"
             className="text-balance text-[34px] font-semibold leading-[1.05] tracking-[-0.03em] text-ink sm:text-[44px]"
           >
             Products I build when the problem feels personal enough
           </h2>
-          <p className="mt-5 max-w-2xl text-pretty text-[18px] leading-8 text-ink-muted">
-            Small by team size, serious by ambition, and built close to the people they are meant to
-            help.
+          <p className="mt-5 max-w-2xl text-pretty text-[18px] leading-8 text-ink-muted lg:max-w-3xl">
+            I started each one to scratch an itch I know personally. I build them solo or with one
+            partner. And nothing makes me prouder than seeing how many other people they help.
           </p>
         </div>
 
