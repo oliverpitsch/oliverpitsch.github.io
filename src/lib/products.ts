@@ -5,7 +5,7 @@ export type Product = {
   logo: string;
   logoClass: string;
   /** Per-product accent, kept distinct from the site accent on purpose. */
-  theme: { frame: string; text: string; button: string };
+  theme: { frame: string; text: string; button: string; bar: string };
   lead: string;
   story: string;
 };
@@ -21,6 +21,7 @@ export const products: Product[] = [
       text: 'text-[#4338CA] dark:text-[#A5B4FC]',
       button:
         'bg-[#4338CA] text-white hover:bg-[#3730A3] dark:bg-[#A5B4FC] dark:text-[#171D45] dark:hover:bg-[#C7D2FE]',
+      bar: 'bg-[#4338CA] dark:bg-[#A5B4FC]',
     },
     lead: 'A leading platform for bike group rides and run clubs.',
     story:
@@ -29,13 +30,14 @@ export const products: Product[] = [
   {
     name: 'Famili.one',
     href: 'https://famili.one',
-    logo: '/images/projects/famili-logo.png',
-    logoClass: 'h-11 w-auto',
+    logo: '/images/projects/famili-logo.svg',
+    logoClass: 'h-12 w-auto dark:brightness-[1.45]',
     theme: {
       frame: 'bg-[#7E22CE]/50 dark:bg-[#D8B4FE]/50',
       text: 'text-[#7E22CE] dark:text-[#D8B4FE]',
       button:
         'bg-[#7E22CE] text-white hover:bg-[#6B21A8] dark:bg-[#D8B4FE] dark:text-[#29103F] dark:hover:bg-[#E9D5FF]',
+      bar: 'bg-[#7E22CE] dark:bg-[#D8B4FE]',
     },
     lead: 'A family organizer that makes care work visible.',
     story:
@@ -51,6 +53,7 @@ export const products: Product[] = [
       text: 'text-[#177E52] dark:text-[#88EDC1]',
       button:
         'bg-[#19A066] text-white hover:bg-[#177E52] dark:bg-[#88EDC1] dark:text-[#062D1E] dark:hover:bg-[#BCF6DC]',
+      bar: 'bg-[#19A066] dark:bg-[#88EDC1]',
     },
     lead: 'A tool for the admin work of changing your name at marriage.',
     story:

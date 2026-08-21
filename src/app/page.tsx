@@ -8,7 +8,7 @@
 import Link from 'next/link';
 import ArticleCard from '@/components/ArticleCard';
 import CareerStrip from '@/components/home/CareerStrip';
-import ProductCard from '@/components/home/ProductCard';
+import ProductTabs from '@/components/home/ProductTabs';
 import Container from '@/components/layout/Container';
 import PageShell from '@/components/layout/PageShell';
 import Button from '@/components/ui/Button';
@@ -94,11 +94,7 @@ function Products() {
           </p>
         </div>
 
-        <div className="mt-12 grid auto-rows-fr gap-5 lg:grid-cols-3">
-          {products.map((product) => (
-            <ProductCard key={product.name} product={product} />
-          ))}
-        </div>
+        <ProductTabs products={products} />
       </Container>
     </section>
   );

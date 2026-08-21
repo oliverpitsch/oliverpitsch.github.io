@@ -114,6 +114,53 @@ html:hover ::-webkit-scrollbar-thumb {
   }
 }
 
+/* Product tabs on the homepage.
+   The progress fill doubles as the rotation timer: its animationend event is
+   what advances the tab, so pausing the animation pauses the rotation and the
+   two can never fall out of sync. Both live behind prefers-reduced-motion, so
+   a visitor who asks for less motion gets a static, click-only tablist. */
+@media (prefers-reduced-motion: no-preference) {
+  .tab-progress {
+    animation-name: tab-progress;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+  }
+  @keyframes tab-progress {
+    from {
+      transform: scaleY(0);
+    }
+    to {
+      transform: scaleY(1);
+    }
+  }
+
+  .panel-rise {
+    animation: panel-rise 0.5s cubic-bezier(0.2, 0, 0, 1) both;
+  }
+  .panel-rise-1 {
+    animation-delay: 0.06s;
+  }
+  .panel-rise-2 {
+    animation-delay: 0.12s;
+  }
+  .panel-rise-3 {
+    animation-delay: 0.18s;
+  }
+  .panel-rise-4 {
+    animation-delay: 0.24s;
+  }
+  @keyframes panel-rise {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
 /* Minimal markdown typography (replaces removed typography plugin) */
 .markdown-content > * {
   margin-left: auto;
