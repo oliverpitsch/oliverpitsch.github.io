@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <clipPath id="squircle"><rect width="48" height="48" rx="10.75"/></clipPath>
+  <g clip-path="url(#squircle)">
+    <rect width="48" height="16" y="0" fill="#4338ca"/>
+    <rect width="48" height="16" y="16" fill="#6366f1"/>
+    <rect width="48" height="16" y="32" fill="#a5b4fc"/>
+  </g>
+</svg>

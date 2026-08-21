@@ -628,7 +628,7 @@ export function buildMetadata(c: VibeDesignContent): Metadata {
     keywords: c.meta.keywords,
     alternates: {
       canonical: c.pagePath,
-      languages: { en: EN_PATH, de: DE_PATH },
+      languages: { en: EN_PATH, de: DE_PATH, 'x-default': EN_PATH },
     },
     openGraph: {
       type: 'website',

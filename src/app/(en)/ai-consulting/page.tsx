@@ -1,5 +1,5 @@
 import ConsultingPage from '@/components/ConsultingPage';
-import { de as content } from '@/lib/consulting-content';
+import { en as content } from '@/lib/consulting-content';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -7,15 +7,16 @@ export const metadata: Metadata = {
   description: content.meta.description,
   keywords: content.meta.keywords,
   alternates: {
-    canonical: '/ai-beratung',
+    canonical: '/ai-consulting',
     languages: {
       en: '/ai-consulting',
       de: '/ai-beratung',
+      'x-default': '/ai-consulting',
     },
   },
   openGraph: {
     type: 'website',
-    url: '/ai-beratung',
+    url: '/ai-consulting',
     title: content.meta.ogTitle,
     description: content.meta.ogDescription,
     images: [
@@ -35,6 +36,6 @@ export const metadata: Metadata = {
   },
 };
 
-export default function AIBeratungPage() {
+export default function AIConsultingPage() {
   return <ConsultingPage content={content} />;
 }
