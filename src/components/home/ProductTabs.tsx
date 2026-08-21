@@ -65,7 +65,7 @@ export default function ProductTabs({ products }: { products: Product[] }) {
           aria-orientation="vertical"
           aria-label="Products"
           onKeyDown={onKeyDown}
-          className="relative py-3 pl-1.5 lg:py-5"
+          className="relative flex flex-col gap-1 py-2 pl-2"
         >
           {/* Track for the active tab, and the fill that runs the rotation. */}
           <span
@@ -110,10 +110,8 @@ export default function ProductTabs({ products }: { products: Product[] }) {
                 tabIndex={selected ? 0 : -1}
                 onClick={() => choose(index, true)}
                 className={[
-                  'block w-full rounded-r-2xl py-5 pl-6 pr-4 text-left transition-colors duration-300',
-                  // Inset so the ring follows the tab instead of bleeding past
-                  // the marker on the left edge.
-                  'outline-none focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-accent',
+                  'block w-full rounded-[18px] px-5 py-5 text-left transition-colors duration-300',
+                  'outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent',
                   selected ? '' : 'hover:bg-surface/50',
                 ].join(' ')}
               >
