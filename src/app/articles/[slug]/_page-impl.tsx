@@ -5,6 +5,7 @@ import { getArticleBySlug, getAdjacentArticles } from '@/lib/articles';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Script from 'next/script';
+import { RiArrowUpCircleFill, RiCalendarFill, RiLinkedinFill, RiTimeFill } from 'react-icons/ri';
 
 const siteUrl = 'https://pitsch.me';
 
@@ -94,39 +95,13 @@ export async function renderArticle(slug: string) {
             <span className="leading-none">{authorName}</span>
             {article.readingTime && (
               <span className="opacity-70 leading-none flex gap-1 items-center font-medium">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="size-4"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-                  />
-                </svg>
+                <RiTimeFill className="size-4" aria-hidden />
                 {article.readingTime}
               </span>
             )}
             {article.displayDate && (
               <span className="opacity-70 leading-none flex gap-1 items-center font-medium">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="size-4"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"
-                  />
-                </svg>
+                <RiCalendarFill className="size-4" aria-hidden />
                 {article.displayDate}
               </span>
             )}
@@ -157,16 +132,7 @@ export async function renderArticle(slug: string) {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-full bg-[#0A66C2] px-5 py-2.5 text-white font-medium shadow hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0A66C2] focus-visible:ring-offset-2 focus-visible:ring-offset-canvas whitespace-nowrap"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="text-white"
-                  >
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.025-3.037-1.852-3.037-1.853 0-2.136 1.447-2.136 2.944v5.662H9.352V9h3.414v1.561h.049c.476-.9 1.637-1.85 3.37-1.85 3.602 0 4.267 2.371 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.119 20.452H3.553V9h3.566v11.452z" />
-                  </svg>
+                  <RiLinkedinFill className="size-4 text-white" aria-hidden />
                   <span>Discuss on LinkedIn</span>
                 </a>
               </div>
@@ -260,20 +226,7 @@ export async function renderArticle(slug: string) {
         <img src="/images/signature.png" alt="With love from Oliver Pitsch" className="w-32" />
       </section>
       <button id="backToTop" aria-label="Back to top" className="back-to-top-btn">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="size-6 stroke-current"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="m15 11.25-3-3m0 0-3 3m3-3v7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-          />
-        </svg>
+        <RiArrowUpCircleFill className="size-6" aria-hidden />
       </button>
       <Script id="article-enhancements" strategy="afterInteractive">{`
         (function(){

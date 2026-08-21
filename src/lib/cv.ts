@@ -18,6 +18,12 @@ export type CvRole = {
   bullets: string[];
 };
 
+/** A capability worth hiring for: a short label, then the proof in one line. */
+export type CvStrength = {
+  label: string;
+  detail: string;
+};
+
 export type Cv = {
   name: string;
   headline: string;
@@ -28,7 +34,9 @@ export type Cv = {
   summary: string;
   about: string[];
   roles: CvRole[];
-  strengths: string[];
+  /** Ranked, most distinctive first. Four is the ceiling: this is a claim, not an inventory. */
+  strengths: CvStrength[];
+  languages: string[];
 };
 
 export const cv: Cv = {
@@ -136,13 +144,25 @@ export const cv: Cv = {
     },
   ],
   strengths: [
-    'UX leadership and team development',
-    'Design strategy and product influence',
-    'User research and customer insight',
-    'Design systems and quality at scale',
-    'DesignOps and scalable UX processes',
-    'Cross-functional product leadership',
-    'B2B SaaS and hospitality software',
-    'Executive stakeholder management',
+    {
+      label: 'AI-native product building',
+      detail:
+        'Designing and shipping production software with agentic tooling, covering strategy, UX, and implementation in very small teams.',
+    },
+    {
+      label: 'Product and design leadership',
+      detail:
+        'Building and leading design organizations across multiple product teams, markets, and disciplines.',
+    },
+    {
+      label: 'Design systems at scale',
+      detail: 'Establishing shared systems that keep design and code aligned as a portfolio grows.',
+    },
+    {
+      label: 'Zero to one',
+      detail:
+        'Taking products from first idea to market-ready launch, and a company from founding through operation to acquisition.',
+    },
   ],
+  languages: ['German (native)', 'English (C2)'],
 };

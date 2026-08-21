@@ -5,7 +5,7 @@ import PageShell from '@/components/layout/PageShell';
   (next.config.ts sets images.unoptimized) and all assets are local.
 */
 import Link from 'next/link';
-import { ArrowRight, Check, X } from 'lucide-react';
+import { RiArrowRightFill, RiCheckFill, RiCloseFill } from 'react-icons/ri';
 import type { VibeDesignContent } from '@/lib/vibe-design-content';
 
 const EMAIL = 'oliver@pitsch.me';
@@ -158,9 +158,8 @@ function AfterMock({ c }: { c: VibeDesignContent['beforeAfter']['after'] }) {
           <ul className="space-y-3">
             {c.features.map((f) => (
               <li key={f.title} className="flex items-start gap-2.5">
-                <Check
+                <RiCheckFill
                   className="mt-0.5 h-3.5 w-3.5 shrink-0 text-accent"
-                  strokeWidth={3}
                   aria-hidden="true"
                 />
                 <div>
@@ -179,9 +178,8 @@ function AfterMock({ c }: { c: VibeDesignContent['beforeAfter']['after'] }) {
         >
           <span className="inline-flex items-center gap-2 text-[14px] font-semibold tracking-[-0.01em] text-ink">
             {c.cta}
-            <ArrowRight
+            <RiArrowRightFill
               className="h-4 w-4 transition-transform duration-150 ease-out group-hover:translate-x-0.5"
-              strokeWidth={2.5}
               aria-hidden="true"
             />
           </span>
@@ -213,7 +211,7 @@ function BeforeAfter({ c }: { c: VibeDesignContent['beforeAfter'] }) {
         <figure className="relative">
           <figcaption className="mb-3 flex items-center gap-2 text-[13px] font-semibold text-ink-muted">
             <span className="grid h-5 w-5 place-items-center rounded-full bg-line text-ink-muted dark:bg-slate-700 dark:text-slate-300">
-              <X className="h-3 w-3" strokeWidth={3} aria-hidden="true" />
+              <RiCloseFill className="h-3 w-3" aria-hidden="true" />
             </span>
             {c.beforeLabel}
           </figcaption>
@@ -222,14 +220,14 @@ function BeforeAfter({ c }: { c: VibeDesignContent['beforeAfter'] }) {
 
         <div className="hidden items-center justify-center sm:flex" aria-hidden="true">
           <span className="grid h-9 w-9 place-items-center rounded-full bg-accent-soft text-accent shadow-[0_6px_16px_-6px_rgba(79,70,229,0.35)]">
-            <ArrowRight className="h-4 w-4" strokeWidth={2.5} aria-hidden="true" />
+            <RiArrowRightFill className="h-4 w-4" aria-hidden="true" />
           </span>
         </div>
 
         <figure className="relative">
           <figcaption className="mb-3 flex items-center gap-2 text-[13px] font-semibold text-accent">
             <span className="grid h-5 w-5 place-items-center rounded-full bg-accent text-ink">
-              <Check className="h-3 w-3" strokeWidth={3.5} aria-hidden="true" />
+              <RiCheckFill className="h-3 w-3" aria-hidden="true" />
             </span>
             {c.afterLabel}
           </figcaption>

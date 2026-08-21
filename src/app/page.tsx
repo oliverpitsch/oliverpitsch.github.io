@@ -6,6 +6,7 @@
 */
 /* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
+import { RiArrowRightFill } from 'react-icons/ri';
 import ArticleCard from '@/components/ArticleCard';
 import CareerStrip from '@/components/home/CareerStrip';
 import CompanyCard from '@/components/home/CompanyCard';
@@ -176,9 +177,10 @@ function Writing({ articles }: { articles: Awaited<ReturnType<typeof getAllArtic
           </h2>
           <Link
             href="/articles"
-            className="text-[15px] font-semibold text-accent underline-offset-4 hover:underline"
+            className="inline-flex items-center gap-1.5 text-[15px] font-semibold text-accent underline-offset-4 hover:underline"
           >
-            All articles →
+            All articles
+            <RiArrowRightFill className="size-4" aria-hidden />
           </Link>
         </div>
         <div className="mt-8 grid auto-rows-fr gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -257,7 +259,7 @@ export default async function Home() {
     image: `${siteUrl}/images/oliver-pitsch-2025.png`,
     address: { '@type': 'PostalAddress', addressLocality: 'Cologne', addressCountry: 'DE' },
     sameAs: [cv.linkedin, 'https://oliverpitsch.medium.com/', ...products.map((p) => p.href)],
-    knowsAbout: cv.strengths,
+    knowsAbout: cv.strengths.map((strength) => strength.label),
     mainEntityOfPage: `${siteUrl}/cv`,
   };
 

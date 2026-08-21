@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
+import { RiArrowRightFill } from 'react-icons/ri';
 import CompanyCard from './CompanyCard';
 import { cv } from '@/lib/cv';
 import { companyKeyByOrg } from '@/lib/companies';
@@ -35,9 +36,10 @@ export default function CareerStrip() {
       })}
       <Link
         href="/cv"
-        className="whitespace-nowrap text-[14px] font-semibold text-accent underline-offset-4 hover:underline"
+        className="inline-flex items-center gap-1.5 whitespace-nowrap text-[14px] font-semibold text-accent underline-offset-4 hover:underline"
       >
-        Full CV →
+        Full CV
+        <RiArrowRightFill className="size-4" aria-hidden />
       </Link>
     </div>
   );

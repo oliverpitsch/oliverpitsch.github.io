@@ -698,9 +698,16 @@ html:hover ::-webkit-scrollbar-thumb {
     --on-accent: #ffffff;
   }
 
+  /* Card fills, pills and the timeline rail carry the layout, so they have to
+     survive the browser's default "don't waste ink" pass. */
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
   @page {
     size: A4;
-    margin: 14mm;
+    margin: 8mm;
   }
 
   html,
@@ -714,124 +721,208 @@ html:hover ::-webkit-scrollbar-thumb {
     display: none !important;
   }
 
-  /* Screen layout is a two-column grid; on paper it becomes one flow whose
-     order is set below. display: contents lets the cards inside the main
-     column and the rail order themselves as siblings. */
+  /* Tailwind's space-y utilities are tuned for the screen; paper sets its own
+     rhythm, so clear them here and re-declare each one at print size below. */
+  .cv-main > * + *,
+  .cv-rail > * + *,
+  .cv-experience > ol > li + li,
+  .cv-experience ul > li + li,
+  .cv-about div > p + p,
+  .cv-strengths li + li {
+    margin-block-start: 0;
+  }
+
+  /* One page is the whole brief: the sheet keeps its two columns and every
+     size below is tuned so the CV lands on a single A4. */
   .cv-sheet {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1.68fr) minmax(0, 1fr);
+    gap: 4mm;
+    align-items: start;
   }
   .cv-main,
   .cv-rail {
-    display: contents;
+    display: flex;
+    flex-direction: column;
+    gap: 3mm;
   }
-  .cv-letterhead {
-    order: 1;
-    border-bottom: 1px solid var(--line);
-    padding-bottom: 1rem;
-  }
-  .cv-about {
-    order: 2;
-  }
-  .cv-experience {
-    order: 3;
-  }
-  .cv-strengths {
-    order: 4;
-  }
-  .cv-contact {
-    order: 5;
-  }
-
+  .cv-card,
   .cv-rail > section {
     border: 1px solid var(--line);
+    border-radius: 3mm;
+    box-shadow: none;
+    break-inside: avoid;
+  }
+  .cv-card {
+    background: var(--surface);
+    padding: 3mm;
+  }
+  .cv-rail > section {
     background: var(--surface-muted);
+    padding: 3.2mm;
   }
 
-  /* Keep a role and its bullets together, and never orphan a heading. */
-  .cv-experience li {
+  /* ---- Letterhead ---- */
+  .cv-letterhead > div {
+    gap: 3.5mm;
+  }
+  .cv-letterhead img {
+    width: 15mm;
+    height: 15mm;
+  }
+  .cv-letterhead h1 {
+    font-size: 15pt;
+  }
+  .cv-letterhead h1 + p {
+    font-size: 8.2pt;
+    margin-top: 0.8mm;
+  }
+  .cv-letterhead > div > div > div {
+    margin-top: 1.2mm;
+    gap: 0 3.5mm;
+  }
+  .cv-letterhead > div > div > p:last-child {
+    margin-top: 1.2mm;
+    font-size: 6pt;
+  }
+
+  /* ---- Contact lines, in the letterhead and in the rail ---- */
+  .cv-letterhead a,
+  .cv-contact a {
+    font-size: 6.8pt;
+    gap: 1.2mm;
+  }
+  .cv-letterhead a > span,
+  .cv-contact a > span {
+    width: 2.9mm;
+    height: 2.9mm;
+  }
+  .cv-letterhead a svg,
+  .cv-contact a svg {
+    width: 1.7mm;
+    height: 1.7mm;
+  }
+
+  /* ---- Work experience ---- */
+  /* On paper the letterhead and the timeline are one block; the screen's
+     divider rule would only add noise. */
+  .cv-experience {
+    margin-top: 2mm;
+    padding-top: 2mm;
+    border-top: 0;
+  }
+  .cv-experience > div {
+    gap: 2mm;
+  }
+  .cv-experience > div > span {
+    width: 5mm;
+    height: 5mm;
+    border-radius: 1.4mm;
+  }
+  .cv-experience > div > span svg {
+    width: 2.8mm;
+    height: 2.8mm;
+  }
+  .cv-experience h2 {
+    font-size: 11pt;
+  }
+  .cv-experience > ol {
+    margin-top: 2.5mm;
+    padding-bottom: 1mm;
+  }
+  .cv-experience > ol > li {
+    grid-template-columns: 11mm 1fr;
+    gap: 0 3mm;
     break-inside: avoid;
+  }
+  .cv-experience > ol > li + li {
+    margin-block-start: 1.1mm;
+  }
+  .cv-experience > ol > li > div {
+    padding-left: 3mm;
+    padding-bottom: 0;
+  }
+  /* The rail bridges the gap between roles, then fades out under the last. */
+  .cv-experience > ol > li > div > span:first-child {
+    bottom: -1.1mm;
+  }
+  .cv-experience > ol > li:last-child > div > span:first-child {
+    bottom: 0;
+  }
+  .cv-experience > ol > li:last-child > div > span:nth-child(2) {
+    display: block;
+    height: 2.5mm;
+  }
+  .cv-experience ol > li > p {
+    font-size: 6.2pt;
+    padding-top: 0.5mm;
+    line-height: 1.35;
+  }
+  .cv-experience h3 {
+    font-size: 8.4pt;
+  }
+  .cv-experience h3 + p {
+    font-size: 6.6pt;
+    margin-top: 0.3mm;
   }
   .cv-experience h2,
   .cv-experience h3 {
     break-after: avoid;
   }
-
-  .cv-strengths ul {
-    columns: 2;
-    column-gap: 0.75rem;
-  }
-  .cv-strengths li {
-    break-inside: avoid;
-    margin-top: 0.35rem;
-    padding: 0.3rem 0.6rem;
-    font-size: 8.5pt;
-  }
-
-  /* Screen sizing is generous by design; paper is not. Scale the whole
-     document down to a CV that reads as two to three pages. */
-  .cv-sheet {
-    gap: 0.85rem;
-  }
-  .cv-letterhead h1 {
-    font-size: 25pt;
-  }
-  .cv-letterhead p {
-    font-size: 10.5pt;
-  }
-  .cv-letterhead img {
-    width: 66px;
-    height: 66px;
-  }
-  .cv-experience h2 {
-    font-size: 14pt;
-  }
-  .cv-experience > div {
-    margin-bottom: 0.5rem;
-  }
-  .cv-experience > ol {
-    margin-top: 0.75rem;
-  }
-  .cv-experience > ol > li + li {
-    margin-top: 0.85rem;
-  }
-  .cv-experience h3 {
-    font-size: 11.5pt;
-  }
-  .cv-experience h3 + p {
-    font-size: 9pt;
-    margin-top: 0.1rem;
-  }
   .cv-experience ul {
-    margin-top: 0.4rem;
+    margin-top: 0.9mm;
   }
   .cv-experience ul li {
-    font-size: 9pt;
-    line-height: 1.45;
-    padding-left: 0.85rem;
+    font-size: 6.8pt;
+    line-height: 1.25;
+    padding-left: 2.4mm;
   }
-  .cv-experience ul li + li {
-    margin-top: 0.25rem;
+  .cv-experience ul > li + li {
+    margin-block-start: 0.4mm;
   }
-  .cv-experience ol > li > p {
-    font-size: 8.5pt;
+  .cv-experience ul li > span {
+    top: 1.3mm;
+    width: 0.8mm;
+    height: 0.8mm;
   }
-  .cv-rail > section {
-    padding: 0.85rem 1rem;
-  }
+
+  /* ---- Rail ---- */
   .cv-rail h2 {
-    font-size: 11pt;
+    font-size: 8.6pt;
+  }
+  .cv-rail > section > div,
+  .cv-rail > section > ul {
+    margin-top: 2mm;
   }
   .cv-about p {
-    font-size: 8.8pt;
-    line-height: 1.45;
+    font-size: 6.3pt;
+    line-height: 1.35;
   }
-  .cv-about p + p {
-    margin-top: 0.4rem;
+  .cv-about div > p + p {
+    margin-block-start: 1.4mm;
   }
-  .cv-contact a {
+  .cv-strengths li {
+    font-size: 6.3pt;
+    line-height: 1.35;
+  }
+  .cv-strengths li + li {
+    margin-block-start: 1.4mm;
+  }
+  /* Language chips: the flex gap sets the rhythm, so there is no margin to reset. */
+  .cv-languages ul {
+    gap: 0.9mm;
+  }
+  .cv-languages li {
+    padding: 0.4mm 1.6mm;
+    font-size: 6.3pt;
+    line-height: 1.5;
+    border-radius: 3mm;
+  }
+  .cv-contact h2 {
     font-size: 9.5pt;
+  }
+  .cv-contact > div {
+    gap: 1.6mm;
   }
 
   a {

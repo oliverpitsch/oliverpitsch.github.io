@@ -1,34 +1,11 @@
 import Link from 'next/link';
+import { RiCalendarFill, RiTimeFill } from 'react-icons/ri';
 import type { ArticleMeta } from '@/lib/articles';
 
 export type ArticleCardProps = {
   article: ArticleMeta;
   className?: string;
 };
-
-function ClockIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className="size-4" aria-hidden>
-      <path
-        d="M12 7v5l3 2"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2" />
-    </svg>
-  );
-}
-
-function CalendarIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className="size-4" aria-hidden>
-      <rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" strokeWidth="2" />
-      <path d="M16 3v4M8 3v4M3 11h18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-    </svg>
-  );
-}
 
 export default function ArticleCard({ article: a, className = '' }: ArticleCardProps) {
   const heroSrc = a.heroImage || a.ogImage || `/og/${a.slug}.jpg`;
@@ -67,13 +44,13 @@ export default function ArticleCard({ article: a, className = '' }: ArticleCardP
         <div className="mt-auto flex flex-wrap items-center gap-x-5 gap-y-1 pt-3 text-[13px] font-medium text-ink-muted">
           {a.readingTime && (
             <span className="inline-flex items-center gap-2">
-              <ClockIcon />
+              <RiTimeFill className="size-4" aria-hidden />
               {a.readingTime}
             </span>
           )}
           {a.displayDate && (
             <span className="inline-flex items-center gap-2">
-              <CalendarIcon />
+              <RiCalendarFill className="size-4" aria-hidden />
               {a.displayDate}
             </span>
           )}
