@@ -133,7 +133,7 @@ export async function renderArticle(slug: string) {
           </div>
         </header>
         <div
-          className="article-body markdown-content text-lg leading-7 [&_p]:mt-6 [&_p:first-child]:mt-0 text-ink"
+          className="article-body markdown-content text-ink text-lg leading-[1.75] [&_p]:mt-6 [&_p:first-child]:mt-0"
           id="article-content"
         >
           <div dangerouslySetInnerHTML={{ __html: article.html }} />
@@ -141,10 +141,6 @@ export async function renderArticle(slug: string) {
         {/* Conversation CTA */}
         <section className="mt-14">
           <div className="relative overflow-hidden rounded-2xl border border-line bg-surface p-6 sm:p-8 shadow-sm">
-            <div
-              className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-accent/60 blur-2xl"
-              aria-hidden
-            />
             <div className="relative z-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <h3 className="text-xl font-semibold tracking-tight text-ink">
@@ -159,7 +155,7 @@ export async function renderArticle(slug: string) {
                   href="https://www.linkedin.com/in/oliverpitsch/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full bg-[#0A66C2] px-5 py-2.5 text-white font-medium shadow hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0A66C2] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-canvas whitespace-nowrap"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#0A66C2] px-5 py-2.5 text-white font-medium shadow hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0A66C2] focus-visible:ring-offset-2 focus-visible:ring-offset-canvas whitespace-nowrap"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -199,16 +195,20 @@ export async function renderArticle(slug: string) {
               <p className="mt-4 text-[16px] leading-7 text-ink">
                 Oliver Pitsch is a product maker and builder with 20 years of experience across
                 design, UX, and product leadership. Based in Cologne, Germany, he is currently Head
-                of Product at{' '}
-                <a href="https://ordio.com" className="underline">
-                  Ordio
-                </a>{' '}
-                and founder of{' '}
+                of Product &amp; Engineering at AI Labs and the solo builder behind{' '}
                 <a href="https://joinride.cc" className="underline">
                   Joinride.cc
                 </a>
-                . Formerly Director of UX &amp; Product Marketing at Trusted Shops. He writes about
-                product, AI building, and how building is changing.
+                ,{' '}
+                <a href="https://famili.one" className="underline">
+                  Famili.one
+                </a>{' '}
+                and{' '}
+                <a href="https://www.neuername.com" className="underline">
+                  neuerName.com
+                </a>
+                . Formerly Head of Product at Ordio and Director of UX &amp; Product Marketing at
+                Trusted Shops. He writes about product, AI building, and how building is changing.
               </p>
               <div className="mt-4 flex flex-wrap gap-4 text-sm">
                 <Link href="/" className="underline">

@@ -68,7 +68,7 @@ export default async function ArticlesIndex() {
         <section aria-label="Article list">
           <ul className="grid auto-rows-fr gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {articles.map((a) => (
-              <li key={a.slug} className="list-none">
+              <li key={a.slug} className="list-none h-full">
                 <ArticleCard article={a} />
               </li>
             ))}
