@@ -95,16 +95,6 @@ html:hover ::-webkit-scrollbar-thumb {
   background-color: rgba(71, 85, 105, 0.5);
 }
 
-/* Timeline horizontal scroll — inherits global styles, mobile hides it */
-@media (max-width: 639px) {
-  .timeline-scroll {
-    scrollbar-width: none;
-  }
-  .timeline-scroll::-webkit-scrollbar {
-    display: none;
-  }
-}
-
 /* Vibe-coded-design landing: staggered hero entrance.
    Only hides + animates when motion is allowed, so reduced-motion
    and no-CSS users always see the content. */

@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 import Container from '@/components/layout/Container';
 import PageShell from '@/components/layout/PageShell';
 import PrintButton from '@/components/cv/PrintButton';
-import { cv, roleSpan } from '@/lib/cv';
+import { cv } from '@/lib/cv';
 
 const siteUrl = 'https://pitsch.me';
 

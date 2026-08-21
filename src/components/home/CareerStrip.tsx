@@ -1,0 +1,32 @@
+/* eslint-disable @next/next/no-img-element */
+import Link from 'next/link';
+import { cv } from '@/lib/cv';
+
+/**
+ * Quiet credibility under the hero. The company marks are icon-only, so each
+ * one carries its name; the full history lives on /cv.
+ */
+export default function CareerStrip() {
+  const roles = cv.roles.filter((role) => role.logo);
+
+  return (
+    <div className="flex flex-wrap items-center gap-x-7 gap-y-4">
+      {roles.map((role) => (
+        <span key={role.org} className="flex items-center gap-2.5">
+          <img
+            src={role.logo}
+            alt=""
+            className="h-6 w-6 object-contain opacity-70 dark:invert-60"
+          />
+          <span className="text-[14px] font-medium text-ink-muted">{role.org}</span>
+        </span>
+      ))}
+      <Link
+        href="/cv"
+        className="text-[14px] font-semibold text-accent underline-offset-4 hover:underline"
+      >
+        Full CV →
+      </Link>
+    </div>
+  );
+}

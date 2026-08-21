@@ -1,5 +1,3 @@
-import Button from '@/components/ui/Button';
-import PageShell from '@/components/layout/PageShell';
 /*
   We intentionally use native <img> tags instead of next/image because:
   - Site is statically exported (next.config.js sets images.unoptimized = true)
@@ -9,385 +7,274 @@ import PageShell from '@/components/layout/PageShell';
 /* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
 import ArticleCard from '@/components/ArticleCard';
-import Timeline from '@/components/Timeline';
+import CareerStrip from '@/components/home/CareerStrip';
+import ProductCard from '@/components/home/ProductCard';
+import Container from '@/components/layout/Container';
+import PageShell from '@/components/layout/PageShell';
+import Button from '@/components/ui/Button';
 import { getAllArticlesMeta } from '@/lib/articles';
+import { cv } from '@/lib/cv';
+import { products } from '@/lib/products';
 
-function ProfileImage() {
+const siteUrl = 'https://pitsch.me';
+
+const practice = [
+  {
+    title: 'Product direction',
+    body: 'Turning customer feedback, strategy and constraints into scoped work that actually ships, and cutting the handoffs in between.',
+  },
+  {
+    title: 'UX and design systems',
+    body: 'Flows, structures and a shared system that hold quality steady while a product and its team grow. Helios at Trusted Shops was built this way.',
+  },
+  {
+    title: 'AI-native delivery',
+    body: 'Working with agents so planning, designing and building collapse into one loop. At AI Labs that meant a market-ready product from a team of two in eight weeks.',
+  },
+];
+
+function Hero() {
   return (
-    <picture className="block mx-auto mt-16">
-      <source
-        media="(prefers-color-scheme: light) or (prefers-color-scheme: no-preference)"
-        srcSet="/images/oliver-pitsch-2025.png"
-      />
-      <source media="(prefers-color-scheme: dark)" srcSet="/images/oliver-pitsch-2025-dark.png" />
-      <img
-        src="/images/oliver-pitsch-2025-dark.png"
-        alt="Oliver Pitsch"
-        height={192}
-        className="h-48 w-48 rounded-full mx-auto mix-blend-multiply dark:mix-blend-normal"
-      />
-    </picture>
+    <Container size="wide" className="pt-14 pb-16 sm:pt-20 lg:pt-24">
+      <div className="flex flex-col-reverse items-start gap-10 lg:flex-row lg:items-center lg:justify-between lg:gap-14">
+        <div className="max-w-2xl">
+          <h1 className="text-[52px] font-semibold leading-[0.9] tracking-[-0.035em] text-ink sm:text-[68px] lg:text-[76px]">
+            Oliver Pitsch
+          </h1>
+          <p className="mt-6 text-[21px] leading-8 text-ink-muted sm:text-[23px]">
+            I lead product and I build it. Head of Product &amp; Engineering at{' '}
+            <span className="text-ink">AI Labs</span>, and the solo builder behind{' '}
+            <span className="text-ink">Joinride</span>, <span className="text-ink">Famili</span> and{' '}
+            <span className="text-ink">neuerName</span>.
+          </p>
+
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Button href="#products">See what I build</Button>
+            <Button href={`mailto:${cv.email}`} variant="secondary">
+              {cv.email}
+            </Button>
+          </div>
+        </div>
+
+        <picture className="shrink-0">
+          <source
+            media="(prefers-color-scheme: dark)"
+            srcSet="/images/oliver-pitsch-2025-dark.png"
+          />
+          <img
+            src="/images/oliver-pitsch-2025.png"
+            alt="Oliver Pitsch"
+            width={208}
+            height={208}
+            className="size-40 rounded-full bg-accent-soft object-cover mix-blend-multiply dark:mix-blend-normal lg:size-52"
+          />
+        </picture>
+      </div>
+
+      <div className="mt-14 border-t border-line pt-8">
+        <CareerStrip />
+      </div>
+    </Container>
   );
 }
 
-function Social() {
-  const links = [
-    {
-      href: 'https://www.linkedin.com/in/oliverpitsch/',
-      title: 'LinkedIn',
-      icon: 'social-icons/social-linkedIn.svg',
-    },
-    {
-      href: 'https://oliverpitsch.medium.com/',
-      title: 'Medium',
-      icon: 'social-icons/social-medium.svg',
-    },
-    {
-      href: 'https://www.instagram.com/addictedtocoffee/',
-      title: 'Instagram',
-      icon: 'social-icons/social-instagram.svg',
-    },
-  ];
-
+function Products() {
   return (
-    <div className="mt-40 text-center">
-      <h3 className="mb-8 text-[16px] font-semibold text-ink-muted">Get in touch</h3>
-      <div className="mx-auto grid max-w-lg grid-cols-3 place-items-center gap-8">
-        {links.map((l) => (
-          <a key={l.href} href={l.href} title={`Oliver Pitsch on ${l.title}`} className="group">
-            <img
-              src={`/images/${l.icon}`}
-              alt={l.title}
-              className="size-6 scale-125 transition-colors group-hover:brightness-110 dark:invert"
-            />
-          </a>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-const productProjects = [
-  {
-    name: 'Joinride.cc',
-    href: 'https://joinride.cc',
-    logo: '/images/companies/logo-joinride.svg',
-    logoClassName: 'h-12 w-auto dark:brightness-0 dark:invert',
-    theme: {
-      frame: 'bg-[#4338CA]/50 dark:bg-[#A5B4FC]/50',
-      text: 'text-[#4338CA] dark:text-[#A5B4FC]',
-      button:
-        'bg-[#4338CA] text-white hover:bg-[#3730A3] dark:bg-[#A5B4FC] dark:text-[#171D45] dark:hover:bg-[#C7D2FE]',
-    },
-    lead: 'A leading plaforms for bike group rides and run clubs.',
-    story:
-      'I build Joinride with Lars, my friend and partner, to scratch our own itch. Today Joinride is one of the leading platforms for Group Rides and Run Clubs. Used by thousands of riders, runners and clubs.',
-  },
-  {
-    name: 'Famili.one',
-    href: 'https://famili.one',
-    logo: '/images/projects/famili-logo.png',
-    logoClassName: 'h-11 w-auto',
-    theme: {
-      frame: 'bg-[#7E22CE]/50 dark:bg-[#D8B4FE]/50',
-      text: 'text-[#7E22CE] dark:text-[#D8B4FE]',
-      button:
-        'bg-[#7E22CE] text-white hover:bg-[#6B21A8] dark:bg-[#D8B4FE] dark:text-[#29103F] dark:hover:bg-[#E9D5FF]',
-    },
-    lead: 'A family organizer that makes care work visible.',
-    story:
-      'Famili is my solo-built answer to the quiet mental load that sits in one head at home. It brings tasks, dates, notes, documents, contacts, and daily context together so family work can actually be shared.',
-  },
-  {
-    name: 'neuerName.com',
-    href: 'https://www.neuername.com',
-    logo: '/images/projects/neuername-logo.svg',
-    logoClassName: 'h-12 w-12 rounded-2xl',
-    theme: {
-      frame: 'bg-[#19A066]/50 dark:bg-[#88EDC1]/50',
-      text: 'text-[#177E52] dark:text-[#88EDC1]',
-      button:
-        'bg-[#19A066] text-white hover:bg-[#177E52] dark:bg-[#88EDC1] dark:text-[#062D1E] dark:hover:bg-[#BCF6DC]',
-    },
-    lead: 'A tool to assist in the admin work with changing your name at marriage.',
-    story:
-      'neuerName.com is a product for one of those life admin moments that feels small until it eats weeks. Turning name changes into a personal checklist with contact data, mailing templates, and less guesswork.',
-  },
-] as const;
-
-function ProductProjects() {
-  return (
-    <section
-      className="mx-auto mt-20 max-w-6xl px-4 sm:px-6 lg:px-8"
-      aria-labelledby="projects-heading"
-    >
-      <div className="mx-auto max-w-4xl text-center">
-        <h2
-          id="projects-heading"
-          className="text-balance text-[34px] font-semibold leading-tight tracking-[-0.03em] text-ink sm:text-[42px]"
-        >
-          Products I build when the problem feels personal enough
-        </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-pretty text-[17px] leading-8 text-ink-muted">
-          Alongside consulting and product leadership, I keep shipping my own products. They are
-          small by team size, serious by ambition, and built close to the people they are meant to
-          help.
-        </p>
-      </div>
-
-      <div className="mt-10 grid gap-5 lg:grid-cols-3">
-        {productProjects.map((project) => (
-          <article
-            key={project.name}
-            className={`group flex min-h-[28rem] flex-col overflow-hidden rounded-[28px] ${project.theme.frame} p-1.5`}
+    <section id="products" className="scroll-mt-20" aria-labelledby="products-heading">
+      <Container size="wide">
+        <div className="max-w-3xl">
+          <h2
+            id="products-heading"
+            className="text-balance text-[34px] font-semibold leading-[1.05] tracking-[-0.03em] text-ink sm:text-[44px]"
           >
-            <div className="flex flex-1 flex-col rounded-[22px] bg-surface p-6 shadow-popover sm:p-7">
-              <div className="flex min-h-16 items-start">
-                <div>
-                  <img
-                    src={project.logo}
-                    alt={`${project.name} logo`}
-                    className={project.logoClassName}
-                  />
-                  <h3 className="mt-5 text-[26px] font-semibold leading-none tracking-[-0.02em] text-ink">
-                    {project.name}
-                  </h3>
-                </div>
-              </div>
+            Products I build when the problem feels personal enough
+          </h2>
+          <p className="mt-5 max-w-2xl text-pretty text-[18px] leading-8 text-ink-muted">
+            Small by team size, serious by ambition, and built close to the people they are meant to
+            help.
+          </p>
+        </div>
 
-              <p className={`mt-8 text-[19px] font-semibold leading-7 ${project.theme.text}`}>
-                {project.lead}
-              </p>
-              <p className="mt-4 flex-1 text-[15px] leading-7 text-ink-muted">{project.story}</p>
-
-              <div className="mt-8">
-                <a
-                  href={project.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`mt-5 inline-flex min-h-11 items-center justify-center rounded-2xl px-5 py-3 text-[15px] font-semibold ${project.theme.button} w-full`}
-                >
-                  Visit {project.name}
-                  <span className="ml-2 transition-transform duration-150 group-hover:translate-x-0.5">
-                    →
-                  </span>
-                </a>
-              </div>
-            </div>
-          </article>
-        ))}
-      </div>
+        <div className="mt-12 grid auto-rows-fr gap-5 lg:grid-cols-3">
+          {products.map((product) => (
+            <ProductCard key={product.name} product={product} />
+          ))}
+        </div>
+      </Container>
     </section>
   );
 }
 
-function ContactCTA() {
+function Practice() {
+  return (
+    <section className="mt-28" aria-labelledby="practice-heading">
+      <Container size="wide">
+        <div className="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-20">
+          <div>
+            <h2
+              id="practice-heading"
+              className="text-[32px] font-semibold leading-[1.05] tracking-[-0.03em] text-ink sm:text-[38px]"
+            >
+              How I work
+            </h2>
+            <div className="mt-6 space-y-4 text-[17px] leading-8 text-ink-muted">
+              <p>
+                Oliver Pitsch builds product systems for the age of humans and agents. Twenty years
+                across design, UX and product leadership, spent connecting product thinking, UX
+                craft, business context and hands-on building.
+              </p>
+              <p>
+                Currently Head of Product &amp; Engineering at AI Labs, helping large enterprises
+                use frontier AI inside the boundaries of German and European privacy law. Previously
+                Head of Product at{' '}
+                <a href="https://ordio.com" className="text-accent underline underline-offset-4">
+                  Ordio
+                </a>{' '}
+                and Director of UX &amp; Product Marketing at{' '}
+                <a
+                  href="https://trustedshops.com"
+                  className="text-accent underline underline-offset-4"
+                >
+                  Trusted Shops
+                </a>
+                , and before that founder of Reputami, acquired by eKomi in 2015.
+              </p>
+            </div>
+          </div>
+
+          <dl className="divide-y divide-line border-t border-line">
+            {practice.map((item) => (
+              <div key={item.title} className="grid gap-2 py-6 sm:grid-cols-[1fr_1.6fr] sm:gap-8">
+                <dt className="text-[17px] font-semibold tracking-[-0.01em] text-ink">
+                  {item.title}
+                </dt>
+                <dd className="text-[16px] leading-7 text-ink-muted">{item.body}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+function Writing({ articles }: { articles: Awaited<ReturnType<typeof getAllArticlesMeta>> }) {
+  if (articles.length === 0) return null;
+
+  return (
+    <section className="mt-28" aria-labelledby="writing-heading">
+      <Container size="wide">
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <h2
+            id="writing-heading"
+            className="text-[32px] font-semibold leading-[1.05] tracking-[-0.03em] text-ink sm:text-[38px]"
+          >
+            Writing
+          </h2>
+          <Link
+            href="/articles"
+            className="text-[15px] font-semibold text-accent underline-offset-4 hover:underline"
+          >
+            All articles →
+          </Link>
+        </div>
+        <div className="mt-8 grid auto-rows-fr gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {articles.map((a) => (
+            <ArticleCard key={a.slug} article={a} />
+          ))}
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+function Contact() {
   const topics = ['Product strategy', 'UX systems', 'AI building', 'Leadership sparring'];
 
   return (
-    <section className="mx-auto mt-20 max-w-5xl px-4 lg:px-0" aria-labelledby="contact-heading">
-      <div className="relative overflow-hidden rounded-[32px] border border-line bg-surface px-6 py-8 shadow-[0_20px_60px_rgba(15,23,42,0.08)] bg-surface sm:px-8 sm:py-10 lg:px-12 lg:py-12">
-        <div className="absolute inset-0 opacity-80 dark:opacity-100" aria-hidden="true">
-          <div className="absolute -right-16 top-0 h-56 w-56 rounded-full bg-[radial-gradient(circle,_rgba(77,142,243,0.1),_transparent_68%)]" />
-          <div className="absolute left-[8%] top-[12%] h-28 w-28 rounded-full bg-[radial-gradient(circle,_rgba(255,213,0,0.08),_transparent_72%)]" />
-          <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(255,213,0,0.55),transparent)]" />
-        </div>
-
-        <div className="relative grid gap-8 lg:grid-cols-[minmax(0,1.45fr)_minmax(280px,0.95fr)] lg:items-end">
-          <div>
-            <p className="inline-flex items-center rounded-full border border-line bg-surface-muted px-3 py-1 text-[12px] font-semibold uppercase tracking-[0.16em] text-slate-500 ">
-              Get in touch
-            </p>
-            <h2
-              id="contact-heading"
-              className="mt-5 max-w-3xl text-balance text-[32px] font-semibold leading-[1.02] tracking-[-0.03em] text-ink sm:text-[40px]"
-            >
-              Contact Oliver Pitsch for product strategy, UX, and AI building
-            </h2>
-            <p className="mt-4 max-w-3xl text-pretty text-[17px] leading-8 text-ink-muted sm:text-[18px]">
-              If you are building a product, evolving a product team, or looking for a sharper way
-              to move from customer insight to shipped software, let&apos;s talk. I work with
-              leaders, founders, and teams that want clearer direction, stronger UX, and faster
-              execution with less process overhead.
-            </p>
-
-            <div className="mt-6 flex flex-wrap gap-3">
-              {topics.map((topic) => (
-                <span
-                  key={topic}
-                  className="rounded-full border border-accent/25 bg-accent-soft px-3 py-1.5 text-[13px] font-semibold text-accent bg-surface-muted"
-                >
-                  {topic}
-                </span>
-              ))}
+    <section id="contact" className="mt-28 scroll-mt-20" aria-labelledby="contact-heading">
+      <Container size="wide">
+        <div className="rounded-[32px] border border-line bg-surface p-8 shadow-card sm:p-12">
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,1.35fr)_minmax(260px,0.85fr)] lg:items-center">
+            <div>
+              <h2
+                id="contact-heading"
+                className="max-w-2xl text-balance text-[32px] font-semibold leading-[1.05] tracking-[-0.03em] text-ink sm:text-[38px]"
+              >
+                Building something, or rebuilding how your team builds?
+              </h2>
+              <p className="mt-5 max-w-2xl text-pretty text-[17px] leading-8 text-ink-muted">
+                I work with founders, leaders and teams that want clearer direction, stronger UX and
+                faster execution with less process overhead.
+              </p>
+              <ul className="mt-6 flex flex-wrap gap-2.5">
+                {topics.map((topic) => (
+                  <li
+                    key={topic}
+                    className="rounded-full border border-accent/25 bg-accent-soft px-3.5 py-1.5 text-[13px] font-semibold text-accent"
+                  >
+                    {topic}
+                  </li>
+                ))}
+              </ul>
             </div>
-          </div>
 
-          <div className="relative rounded-[28px] border border-line bg-surface-muted p-5 sm:p-6">
-            <h3 className="text-[18px] font-semibold tracking-tight text-ink">
-              Start a conversation
-            </h3>
-            <p className="mt-2 text-[15px] leading-7 text-ink-muted">
-              Best fit for advisory, product leadership, UX direction, and AI building.
-            </p>
-
-            <div className="mt-6 flex flex-col gap-3">
-              <Button href="mailto:office@pitsch.me?subject=Let%27s%20talk">
-                Email me directly
-              </Button>
-              <Button href="https://www.linkedin.com/in/oliverpitsch/" variant="secondary">
+            <div className="flex flex-col gap-3">
+              <Button href={`mailto:${cv.email}?subject=Let%27s%20talk`}>Email me directly</Button>
+              <Button href={cv.linkedin} variant="secondary">
                 Message on LinkedIn
               </Button>
+              <p className="mt-1 text-center text-[13px] leading-6 text-ink-muted">
+                Formal details are on the{' '}
+                <Link href="/imprint" className="underline underline-offset-4">
+                  imprint page
+                </Link>
+                .
+              </p>
             </div>
-
-            <p className="mt-5 text-center text-[13px] leading-6 text-ink-muted">
-              Prefer formal contact details? See the{' '}
-              <Link href="/imprint" className="underline underline-offset-4">
-                imprint and contact information
-              </Link>
-              .
-            </p>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }
 
 export default async function Home() {
-  const allArticles = await getAllArticlesMeta();
-  const latestArticles = allArticles.slice(0, 6);
+  const latestArticles = (await getAllArticlesMeta()).slice(0, 3);
+
+  const personJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: cv.name,
+    jobTitle: cv.headline,
+    description: cv.summary,
+    url: siteUrl,
+    email: `mailto:${cv.email}`,
+    image: `${siteUrl}/images/oliver-pitsch-2025.png`,
+    address: { '@type': 'PostalAddress', addressLocality: 'Cologne', addressCountry: 'DE' },
+    sameAs: [cv.linkedin, 'https://oliverpitsch.medium.com/', ...products.map((p) => p.href)],
+    knowsAbout: cv.strengths,
+    mainEntityOfPage: `${siteUrl}/cv`,
+  };
+
   return (
     <PageShell>
-      <ProfileImage />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
+      <Hero />
+      <Products />
+      <Practice />
+      <Writing articles={latestArticles} />
+      <Contact />
 
-      <div className="mx-auto mt-10 max-w-4xl px-4 text-center lg:mt-12 lg:px-0">
-        <h1 className="text-balance text-[56px] font-semibold leading-[0.92] tracking-[-0.03em] sm:text-[68px] lg:text-[76px]">
-          Oliver Pitsch
-        </h1>
-        <p className="mx-auto mt-6 max-w-2xl text-balance text-[21px] font-semibold tracking-[0.01em] text-accent sm:text-[24px]">
-          Product, UX, and AI building
-        </p>
-        <p className="mx-auto mt-4 max-w-xl text-balance text-[17px] leading-7 text-ink-muted sm:text-[19px]">
-          Turning product context into shipped software
-        </p>
-      </div>
-
-      <Timeline />
-
-      <section
-        className="mx-auto mt-16 max-w-4xl text-[18px] leading-7 text-ink px-10 lg:px-0"
-        aria-label="About Oliver Pitsch"
-      >
-        <p>
-          Oliver Pitsch builds product systems for the age of humans and agents. With 20 years
-          across design, UX, and product leadership, he combines product thinking, UX craft,
-          business context, and AI building to turn product context into shipped software.
-        </p>
-        <p className="mt-4">
-          Currently Head of Product &amp; Engineering at AI Labs, where he helps large enterprises
-          unlock the full potential of frontier AI within the boundaries of German and European
-          privacy law. AI Labs connects the data already inside large organizations, from email and
-          communications to ERP systems and data warehouses, into a unified intelligence layer that
-          companies can actually deploy, trust, and build on.
-        </p>
-        <p className="mt-4">
-          Previously Head of Product at{' '}
-          <a href="https://ordio.com" className="underline">
-            Ordio
-          </a>
-          , an operations and workforce management platform for shift-based teams, and Director of
-          UX &amp; Product Marketing at{' '}
-          <a href="https://trustedshops.com" className="underline">
-            Trusted Shops
-          </a>
-          . Before that, founder and CEO of Reputami, an AI-driven reputation SaaS for hospitality,
-          acquired in 2015. Also founder of{' '}
-          <a href="https://joinride.cc" className="underline">
-            Joinride.cc
-          </a>
-          , the platform for cycling group rides and run clubs in Germany.
-        </p>
-        <p className="mt-4">
-          His focus is reducing handoffs, removing process overhead, and helping teams move from
-          feedback and intent to working software with more clarity, speed, and leverage.
-        </p>
-      </section>
-
-      <ProductProjects />
-
-      <section className="mx-auto mt-16 max-w-4xl px-10 lg:px-0" aria-label="Areas of expertise">
-        <h2 className="text-xl font-semibold mb-6 text-ink">How I create leverage</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-          {(
-            [
-              {
-                label: 'Context to Execution',
-                desc: 'Turn customer feedback, product intent, and strategy into scoped work and shipped outcomes.',
-              },
-              {
-                label: 'UX and Product Systems',
-                desc: 'Design flows, structures, and systems that help products scale without losing clarity.',
-              },
-              {
-                label: 'AI Building',
-                desc: 'Use AI tools and agents to compress planning, building, and iteration into faster delivery loops.',
-              },
-              {
-                label: 'B2B SaaS and Operations',
-                desc: 'Deep experience in HR tech, shift-based work, trust, and operational software.',
-              },
-              {
-                label: 'Product Growth and Signals',
-                desc: 'Connect research, customer requests, product marketing, and behavior to find what matters and act on it.',
-              },
-              {
-                label: 'Human + Agent Workflows',
-                desc: 'Shape ways of working where people focus on intent, judgment, and taste while AI handles more of the mechanics.',
-              },
-            ] as { label: string; desc: string }[]
-          ).map((item) => (
-            <div key={item.label} className="rounded-2xl border border-line p-5 bg-surface">
-              <h3 className="font-semibold text-[16px] text-ink">{item.label}</h3>
-              <p className="mt-2 text-[14px] text-ink-muted">{item.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <ContactCTA />
-
-      {latestArticles.length > 0 && (
-        <section className="mx-auto mt-16 max-w-4xl px-4 lg:px-0" aria-label="Latest writing">
-          <div className="mb-6 flex items-end justify-between gap-4">
-            <div>
-              <h2 className="text-lg md:text-xl font-semibold tracking-tight">
-                Writing on product systems, AI, and building
-              </h2>
-              <p className="mt-1 text-[14px] text-ink-muted">
-                Perspectives on AI building, modern product work, and where software teams are
-                headed.
-              </p>
-            </div>
-            <Link
-              href="/articles"
-              className="text-[14px] font-semibold text-accent underline shrink-0"
-            >
-              All articles →
-            </Link>
-          </div>
-          <div className="grid gap-4 grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 auto-rows-fr">
-            {latestArticles.map((a) => (
-              <ArticleCard key={a.slug} article={a} />
-            ))}
-          </div>
-        </section>
-      )}
-
-      <Social />
-
-      <section className="mt-24 flex justify-center">
-        <img src="images/signature.png" alt="With love from Oliver Pitsch" className="w-32" />
+      <section className="mt-28 flex justify-center">
+        <img
+          src="/images/signature.png"
+          alt="With love from Oliver Pitsch"
+          className="w-32 dark:invert-60"
+        />
       </section>
     </PageShell>
   );

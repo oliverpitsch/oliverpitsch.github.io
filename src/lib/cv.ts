@@ -16,8 +16,6 @@ export type CvRole = {
   logoClass?: string;
   href?: string;
   bullets: string[];
-  /** Shown in the compact homepage timeline. */
-  timeline?: boolean;
 };
 
 export type Cv = {
@@ -56,7 +54,6 @@ export const cv: Cv = {
       from: '2026',
       to: 'present',
       logo: '/images/companies/logo-ai-labs.svg',
-      timeline: true,
       bullets: [
         'Led product strategy, UX, and frontend development for an AI-native SaaS product in close collaboration with the CEO and backend engineering.',
         'Translated complex AI capabilities into clear user journeys, product requirements, and production-ready interfaces.',
@@ -71,7 +68,6 @@ export const cv: Cv = {
       to: '2026',
       logo: '/images/companies/logo-ordio.svg',
       href: 'https://ordio.com',
-      timeline: true,
       bullets: [
         'Reorganized product management and product development for AI-native product building in close collaboration with the CEO and CTO.',
         'Helped redefine product workflows for a world in which AI takes over more of the implementation surface, reducing handoffs and increasing execution speed.',
@@ -96,7 +92,6 @@ export const cv: Cv = {
       logo: '/images/companies/logo-joinride.svg',
       logoClass: 'h-12 w-auto',
       href: 'https://joinride.cc',
-      timeline: true,
       bullets: [
         'Started Joinride in December 2022 as a hobby project to simplify cycling group ride organization and grew it into one of the leading platforms in the German-speaking cycling market.',
         'Built the platform across web, then expanded it into iOS.',
@@ -109,7 +104,6 @@ export const cv: Cv = {
       to: '2025',
       logo: '/images/companies/logo-trusted-shops.svg',
       href: 'https://trustedshops.com',
-      timeline: true,
       bullets: [
         'Led UX and Product Marketing across more than 10 product teams in 6 countries for a portfolio serving 35,000+ businesses and 45 million+ consumers.',
         'Built and scaled the Helios design system to unify products through shared design and code implementation.',
@@ -123,7 +117,6 @@ export const cv: Cv = {
       from: '2015',
       to: '2017',
       logo: '/images/companies/logo-studitemps.svg',
-      timeline: true,
       bullets: [
         'Joined as the first UX designer and established UX processes across 8 product teams.',
         'Hired and helped shape the UX team.',
@@ -135,7 +128,6 @@ export const cv: Cv = {
       from: '2011',
       to: '2015',
       logo: '/images/companies/logo-reputami.svg',
-      timeline: true,
       bullets: [
         'Co-founded a reputation management SaaS company for the hospitality industry.',
         'Led product design and development.',
@@ -154,14 +146,3 @@ export const cv: Cv = {
     'Executive stakeholder management',
   ],
 };
-
-/** "2017 – 2025" / "since 2022", the form used in the homepage timeline. */
-export function roleSpan(role: CvRole): string {
-  return role.to === 'present' ? `since ${role.from}` : `${role.from} – ${role.to}`;
-}
-
-/** Roles marked for the compact homepage timeline, oldest first. */
-export const timelineRoles = cv.roles
-  .filter((r) => r.timeline)
-  .slice()
-  .sort((a, b) => Number(a.from) - Number(b.from));
