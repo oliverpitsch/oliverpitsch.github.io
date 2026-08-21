@@ -10,13 +10,12 @@ const siteLinks = [
   { href: '/#products', label: 'Products' },
   { href: '/articles', label: 'Writing' },
   { href: '/cv', label: 'CV' },
-  { href: '/imprint', label: 'Imprint & Data Privacy' },
 ];
 
 const contactLinks = [
   { href: 'mailto:office@pitsch.me', label: 'office@pitsch.me', external: false },
   { href: 'https://www.linkedin.com/in/oliverpitsch/', label: 'LinkedIn', external: true },
-  { href: '/feed', label: 'RSS', external: false },
+  { href: '/imprint', label: 'Imprint & Data Privacy', external: false },
 ];
 
 export default function SiteFooter({ langSwitch }: SiteFooterProps) {
