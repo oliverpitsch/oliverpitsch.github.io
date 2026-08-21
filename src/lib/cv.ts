@@ -52,7 +52,7 @@ export const cv: Cv = {
       org: 'AI Labs',
       title: 'Head of Product & Engineering',
       from: '2026',
-      to: 'present',
+      to: '2026',
       logo: '/images/companies/logo-ai-labs.svg',
       bullets: [
         'Led product strategy, UX, and frontend development for an AI-native SaaS product in close collaboration with the CEO and backend engineering.',

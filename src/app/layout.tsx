@@ -17,13 +17,13 @@ export const metadata = {
   metadataBase: new URL('https://pitsch.me'),
   title: 'Oliver Pitsch – Product & Engineering Leader',
   description:
-    'Oliver Pitsch is a product and engineering leader from Cologne, Germany with 20 years across design, UX, and product leadership. Currently Head of Product & Engineering at AI Labs, helping large enterprises deploy frontier AI under European privacy law.',
+    'Oliver Pitsch is a product and engineering leader from Cologne, Germany with 20 years across design, UX, and product leadership. Solo builder behind Joinride, Famili and neuerName, and open to a new product or leadership role.',
   openGraph: {
     type: 'website',
     url: '/',
     title: 'Oliver Pitsch – Product & Engineering Leader',
     description:
-      'Product and engineering leader from Cologne, Germany. 20 years across design, UX, and product. Currently building enterprise AI at AI Labs.',
+      'Product and engineering leader from Cologne, Germany. 20 years across design, UX, and product. Solo builder behind Joinride, Famili and neuerName.',
     images: [
       {
         url: '/images/og-images/og-facebook.jpg',
@@ -37,7 +37,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Oliver Pitsch – Product & Engineering Leader',
     description:
-      'Product and engineering leader from Cologne, Germany. 20 years across design, UX, and product. Currently building enterprise AI at AI Labs.',
+      'Product and engineering leader from Cologne, Germany. 20 years across design, UX, and product. Solo builder behind Joinride, Famili and neuerName.',
     images: [
       {
         url: '/images/og-images/og-twitter-card.jpg',

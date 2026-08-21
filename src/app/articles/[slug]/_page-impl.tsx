@@ -194,8 +194,8 @@ export async function renderArticle(slug: string) {
               <h3 className="text-xl font-semibold">About the author</h3>
               <p className="mt-4 text-[16px] leading-7 text-ink">
                 Oliver Pitsch is a product maker and builder with 20 years of experience across
-                design, UX, and product leadership. Based in Cologne, Germany, he is currently Head
-                of Product &amp; Engineering at AI Labs and the solo builder behind{' '}
+                design, UX, and product leadership. Based in Cologne, Germany, he is the solo
+                builder behind{' '}
                 <a href="https://joinride.cc" className="underline">
                   Joinride.cc
                 </a>
@@ -207,8 +207,9 @@ export async function renderArticle(slug: string) {
                 <a href="https://www.neuername.com" className="underline">
                   neuerName.com
                 </a>
-                . Formerly Head of Product at Ordio and Director of UX &amp; Product Marketing at
-                Trusted Shops. He writes about product, AI building, and how building is changing.
+                . Most recently Head of Product &amp; Engineering at AI Labs, before that Head of
+                Product at Ordio and Director of UX &amp; Product Marketing at Trusted Shops. He
+                writes about product, AI building, and how building is changing.
               </p>
               <div className="mt-4 flex flex-wrap gap-4 text-sm">
                 <Link href="/" className="underline">

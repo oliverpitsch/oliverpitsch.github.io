@@ -42,18 +42,17 @@ function Hero() {
             Oliver Pitsch
           </h1>
           <p className="mt-6 text-[21px] leading-8 text-ink-muted sm:text-[23px]">
-            I lead product and I build it. Head of Product &amp; Engineering at{' '}
-            <span className="text-ink">AI Labs</span>, and the solo builder behind{' '}
-            <span className="text-ink">Joinride</span>, <span className="text-ink">Famili</span> and{' '}
-            <span className="text-ink">neuerName</span>.
+            I lead product and I build it. Twenty years across design, UX and product leadership,
+            now building <span className="text-ink">Joinride</span>,{' '}
+            <span className="text-ink">Famili</span> and <span className="text-ink">neuerName</span>{' '}
+            on my own.
           </p>
-
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Button href="#products">See what I build</Button>
-            <Button href={`mailto:${cv.email}`} variant="secondary">
+          <p className="mt-5 text-[17px] leading-7 text-ink">
+            Open to a new product or leadership role.{' '}
+            <a href={`mailto:${cv.email}`} className="text-accent underline underline-offset-4">
               {cv.email}
-            </Button>
-          </div>
+            </a>
+          </p>
         </div>
 
         <picture className="shrink-0">
@@ -124,9 +123,9 @@ function Practice() {
                 craft, business context and hands-on building.
               </p>
               <p>
-                Currently Head of Product &amp; Engineering at AI Labs, helping large enterprises
-                use frontier AI inside the boundaries of German and European privacy law. Previously
-                Head of Product at{' '}
+                Most recently Head of Product &amp; Engineering at AI Labs, building an AI-native
+                product for large enterprises inside the boundaries of German and European privacy
+                law. Before that, Head of Product at{' '}
                 <a href="https://ordio.com" className="text-accent underline underline-offset-4">
                   Ordio
                 </a>{' '}
@@ -204,8 +203,9 @@ function Contact() {
                 Building something, or rebuilding how your team builds?
               </h2>
               <p className="mt-5 max-w-2xl text-pretty text-[17px] leading-8 text-ink-muted">
-                I work with founders, leaders and teams that want clearer direction, stronger UX and
-                faster execution with less process overhead.
+                I am open to a new product or leadership role, and I work with founders and teams
+                that want clearer direction, stronger UX and faster execution with less process
+                overhead.
               </p>
               <ul className="mt-6 flex flex-wrap gap-2.5">
                 {topics.map((topic) => (
