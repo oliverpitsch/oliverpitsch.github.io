@@ -1,27 +1,43 @@
 'use client';
 
 /* eslint-disable @next/next/no-img-element */
-import { useCallback, useLayoutEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import type { Product } from '@/lib/products';
 
 /** How long each product holds before the next one takes over. */
 const DURATION_MS = 7000;
+/** Must match the rounded-[18px] on each tab. */
+const TAB_RADIUS = 18;
+const STROKE = 3;
 
 export default function ProductTabs({ products }: { products: Product[] }) {
   const [active, setActive] = useState(0);
   /** Auto-rotation ends for good once the visitor picks a product themselves. */
   const [rotating, setRotating] = useState(true);
 
+  const rootRef = useRef<HTMLDivElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
-  const [marker, setMarker] = useState({ top: 0, height: 0 });
+  const ringRef = useRef<SVGRectElement>(null);
+  const animRef = useRef<Animation | null>(null);
+  const timerRef = useRef<number | null>(null);
+  const remainingRef = useRef(DURATION_MS);
+  const deadlineRef = useRef(0);
 
-  // Keep the marker over the active tab, including when the list reflows
+  const [box, setBox] = useState({ top: 0, left: 0, width: 0, height: 0 });
+
+  // Follow the active tab's whole box, and re-measure when the list reflows
   // (font loading, resize, text rewrapping).
   useLayoutEffect(() => {
     const measure = () => {
       const tab = tabRefs.current[active];
-      if (tab) setMarker({ top: tab.offsetTop, height: tab.offsetHeight });
+      if (!tab) return;
+      setBox({
+        top: tab.offsetTop,
+        left: tab.offsetLeft,
+        width: tab.offsetWidth,
+        height: tab.offsetHeight,
+      });
     };
     measure();
 
@@ -32,6 +48,91 @@ export default function ProductTabs({ products }: { products: Product[] }) {
     tabRefs.current.forEach((tab) => tab && ro.observe(tab));
     return () => ro.disconnect();
   }, [active]);
+
+  // Geometry of the ring that traces the tab's rounded rectangle. The stroke is
+  // inset by half its width so it sits inside the tab rather than straddling
+  // the edge, and the radius shrinks by the same amount to stay concentric.
+  const ring = useMemo(() => {
+    const inset = STROKE / 2;
+    const width = box.width - STROKE;
+    const height = box.height - STROKE;
+    const r = TAB_RADIUS - inset;
+    const perimeter = 2 * (width - 2 * r) + 2 * (height - 2 * r) + 2 * Math.PI * r;
+    return { x: inset, y: inset, width, height, rx: r, ry: r, perimeter };
+  }, [box.width, box.height]);
+
+  const clearTimer = useCallback(() => {
+    if (timerRef.current !== null) {
+      window.clearTimeout(timerRef.current);
+      timerRef.current = null;
+    }
+  }, []);
+
+  /** Arm the advance and remember when it is due, so a pause can bank the rest. */
+  const arm = useCallback(
+    (ms: number) => {
+      clearTimer();
+      deadlineRef.current = performance.now() + ms;
+      timerRef.current = window.setTimeout(() => setActive((i) => (i + 1) % products.length), ms);
+    },
+    [clearTimer, products.length],
+  );
+
+  // The ring drawing itself is the visible half of the rotation timer. The
+  // advance runs off an explicit timeout rather than the animation's finish
+  // event, and the two are always armed, paused and resumed with the same
+  // remaining duration, so the bar cannot drift out of sync with the content.
+  useEffect(() => {
+    if (!rotating || box.width === 0) return;
+    const el = ringRef.current;
+    if (!el || typeof el.animate !== 'function') return;
+    if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return;
+
+    const anim = el.animate([{ strokeDashoffset: ring.perimeter }, { strokeDashoffset: 0 }], {
+      duration: DURATION_MS,
+      easing: 'linear',
+      fill: 'forwards',
+    });
+    animRef.current = anim;
+    remainingRef.current = DURATION_MS;
+    arm(DURATION_MS);
+
+    return () => {
+      clearTimer();
+      anim.cancel();
+      if (animRef.current === anim) animRef.current = null;
+    };
+  }, [active, rotating, box.width, ring.perimeter, arm, clearTimer]);
+
+  // Hover and focus suspend the rotation. Native listeners, because React's
+  // synthetic mouseenter did not fire reliably for real pointer movement.
+  useEffect(() => {
+    const el = rootRef.current;
+    if (!el) return;
+
+    const pause = () => {
+      if (timerRef.current === null) return;
+      remainingRef.current = Math.max(0, deadlineRef.current - performance.now());
+      clearTimer();
+      animRef.current?.pause();
+    };
+    const resume = () => {
+      if (timerRef.current !== null || !animRef.current) return;
+      animRef.current.play();
+      arm(remainingRef.current);
+    };
+
+    el.addEventListener('mouseenter', pause);
+    el.addEventListener('mouseleave', resume);
+    el.addEventListener('focusin', pause);
+    el.addEventListener('focusout', resume);
+    return () => {
+      el.removeEventListener('mouseenter', pause);
+      el.removeEventListener('mouseleave', resume);
+      el.removeEventListener('focusin', pause);
+      el.removeEventListener('focusout', resume);
+    };
+  }, [arm, clearTimer]);
 
   const choose = useCallback((index: number, byUser: boolean) => {
     setActive(index);
@@ -54,9 +155,17 @@ export default function ProductTabs({ products }: { products: Product[] }) {
   };
 
   const product = products[active];
+  const rectProps = {
+    x: ring.x,
+    y: ring.y,
+    width: ring.width,
+    height: ring.height,
+    rx: ring.rx,
+    ry: ring.ry,
+  };
 
   return (
-    <div className="group/tabs mt-12 rounded-[32px] bg-surface-muted p-1.5">
+    <div ref={rootRef} className="mt-12 rounded-[32px] bg-surface-muted p-1.5">
       <div className="grid gap-1.5 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)]">
         {/* ---------------- Tabs ---------------- */}
         <div
@@ -65,34 +174,39 @@ export default function ProductTabs({ products }: { products: Product[] }) {
           aria-orientation="vertical"
           aria-label="Products"
           onKeyDown={onKeyDown}
-          className="relative flex flex-col gap-1 py-2 pl-2"
+          className="relative flex flex-col gap-1 p-2"
         >
-          {/* Track for the active tab, and the fill that runs the rotation. */}
-          <span
-            aria-hidden
-            className="absolute left-0 w-[3px] rounded-full bg-line transition-[top,height] duration-500 ease-[cubic-bezier(0.2,0,0,1)]"
-            style={{ top: marker.top, height: marker.height }}
-          />
-          <span
-            aria-hidden
-            key={`${active}-${rotating}`}
-            className={[
-              'absolute left-0 w-[3px] origin-top rounded-full',
-              'transition-[top,height] duration-500 ease-[cubic-bezier(0.2,0,0,1)]',
-              product.theme.bar,
-              // Hovering or focusing the section suspends the rotation. Done in
-              // CSS so it follows the real pointer rather than a synthetic event.
-              rotating
-                ? 'tab-progress group-hover/tabs:[animation-play-state:paused] group-focus-within/tabs:[animation-play-state:paused]'
-                : '',
-            ].join(' ')}
-            style={{
-              top: marker.top,
-              height: marker.height,
-              animationDuration: `${DURATION_MS}ms`,
-            }}
-            onAnimationEnd={() => rotating && setActive((i) => (i + 1) % products.length)}
-          />
+          {/* The indicator traces the tab's own rounded rectangle, so it follows
+              the corner radius instead of cutting across it and leaving sharp
+              tips where the tab curves away. */}
+          {box.width > 0 && (
+            <svg
+              key={`${active}-${rotating}`}
+              aria-hidden
+              className="ring-fade pointer-events-none absolute"
+              style={{ top: box.top, left: box.left, width: box.width, height: box.height }}
+              viewBox={`0 0 ${box.width} ${box.height}`}
+              fill="none"
+            >
+              {/* Track sits on the muted layer, where --line all but disappears, so it
+                  is mixed from ink instead and stays visible in both themes. */}
+              <rect
+                {...rectProps}
+                stroke="color-mix(in srgb, var(--ink) 18%, transparent)"
+                strokeWidth={STROKE}
+              />
+              <rect
+                ref={ringRef}
+                {...rectProps}
+                className={product.theme.stroke}
+                stroke="currentColor"
+                strokeWidth={STROKE}
+                strokeLinecap="round"
+                strokeDasharray={ring.perimeter}
+                strokeDashoffset={rotating ? ring.perimeter : 0}
+              />
+            </svg>
+          )}
 
           {products.map((item, index) => {
             const selected = index === active;
@@ -110,9 +224,9 @@ export default function ProductTabs({ products }: { products: Product[] }) {
                 tabIndex={selected ? 0 : -1}
                 onClick={() => choose(index, true)}
                 className={[
-                  'block w-full rounded-[18px] px-5 py-5 text-left transition-colors duration-300',
+                  'relative block w-full rounded-[18px] px-5 py-5 text-left transition-colors duration-300',
                   'outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent',
-                  selected ? '' : 'hover:bg-surface/50',
+                  selected ? 'bg-surface/60' : 'hover:bg-surface/35',
                 ].join(' ')}
               >
                 <span
@@ -137,9 +251,9 @@ export default function ProductTabs({ products }: { products: Product[] }) {
         </div>
 
         {/* ---------------- Panel ----------------
-          No tabIndex: the panel holds a focusable link, so per the ARIA tabs
-          pattern it stays out of the tab order rather than taking a full-size
-          focus ring of its own. */}
+            No tabIndex: the panel holds a focusable link, so per the ARIA tabs
+            pattern it stays out of the tab order rather than taking a
+            full-size focus ring of its own. */}
         <div
           role="tabpanel"
           id={`product-panel-${active}`}
