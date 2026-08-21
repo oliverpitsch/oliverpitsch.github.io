@@ -8,6 +8,7 @@
 import Link from 'next/link';
 import ArticleCard from '@/components/ArticleCard';
 import CareerStrip from '@/components/home/CareerStrip';
+import CompanyCard from '@/components/home/CompanyCard';
 import ProductTabs from '@/components/home/ProductTabs';
 import Container from '@/components/layout/Container';
 import PageShell from '@/components/layout/PageShell';
@@ -43,15 +44,22 @@ function Hero() {
           </h1>
           <p className="mt-6 text-[21px] leading-8 text-ink-muted sm:text-[23px]">
             I lead product and I build it. Twenty years across design, UX and product leadership,
-            now building <span className="text-ink">Joinride</span>,{' '}
-            <span className="text-ink">Famili</span> and <span className="text-ink">neuerName</span>{' '}
+            now building{' '}
+            <CompanyCard id="joinride" className="text-ink">
+              Joinride
+            </CompanyCard>
+            ,{' '}
+            <CompanyCard id="famili" className="text-ink">
+              Famili
+            </CompanyCard>{' '}
+            and{' '}
+            <CompanyCard id="neuername" className="text-ink">
+              neuerName
+            </CompanyCard>{' '}
             on my own.
           </p>
           <p className="mt-5 text-[17px] leading-7 text-ink">
-            Open to a new product or leadership role.{' '}
-            <a href={`mailto:${cv.email}`} className="text-accent underline underline-offset-4">
-              {cv.email}
-            </a>
+            Open to a new product or leadership role.
           </p>
         </div>
 

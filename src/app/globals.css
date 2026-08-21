@@ -159,6 +159,44 @@ html:hover ::-webkit-scrollbar-thumb {
   }
 }
 
+/* Company hover cards and the mobile drawer.
+   Base UI marks the popup with data-starting-style / data-ending-style around
+   open and close, and hands the positioner a --transform-origin pointing back
+   at the trigger, so the card can grow out of the word it belongs to. */
+.hover-card-popup {
+  transform-origin: var(--transform-origin);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hover-card-popup {
+    transition:
+      opacity 180ms ease-out,
+      transform 200ms cubic-bezier(0.2, 0, 0, 1),
+      filter 200ms ease-out;
+  }
+  .hover-card-popup[data-starting-style],
+  .hover-card-popup[data-ending-style] {
+    opacity: 0;
+    transform: scale(0.9);
+    filter: blur(8px);
+  }
+
+  .drawer-popup {
+    transition: transform 320ms cubic-bezier(0.2, 0, 0, 1);
+  }
+  .drawer-popup[data-starting-style],
+  .drawer-popup[data-ending-style] {
+    transform: translateY(100%);
+  }
+  .drawer-backdrop {
+    transition: opacity 320ms ease-out;
+  }
+  .drawer-backdrop[data-starting-style],
+  .drawer-backdrop[data-ending-style] {
+    opacity: 0;
+  }
+}
+
 /* Minimal markdown typography (replaces removed typography plugin) */
 .markdown-content > * {
   margin-left: auto;
