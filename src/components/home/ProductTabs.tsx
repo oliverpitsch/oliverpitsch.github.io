@@ -10,6 +10,8 @@ const DURATION_MS = 7000;
     stays on the straight part of the left edge and never reaches the corners. */
 const BAR_RATIO = 0.5;
 const BAR_MIN = 28;
+/** How long the card takes to grow or shrink between products. */
+const HEIGHT_MS = 420;
 
 export default function ProductTabs({ products }: { products: Product[] }) {
   const [active, setActive] = useState(0);
@@ -22,6 +24,9 @@ export default function ProductTabs({ products }: { products: Product[] }) {
   const barRef = useRef<HTMLSpanElement>(null);
   const animRef = useRef<Animation | null>(null);
   const timerRef = useRef<number | null>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
+  const cardHeightRef = useRef<number | null>(null);
+  const resizingCardRef = useRef(false);
   const remainingRef = useRef(DURATION_MS);
   const deadlineRef = useRef(0);
 
@@ -55,6 +60,65 @@ export default function ProductTabs({ products }: { products: Product[] }) {
     const height = Math.max(BAR_MIN, Math.round(box.height * BAR_RATIO));
     return { top: box.top + Math.round((box.height - height) / 2), height };
   }, [box.top, box.height]);
+
+  // Products have different amounts to say, so the card changes height between
+  // tabs and used to jump. Measure what it was, let it lay out at its new size,
+  // then animate between the two. This runs on the card rather than the panel:
+  // the panel is a stretched grid item, so giving it an explicit height does
+  // not move the row and the card would not follow.
+  useLayoutEffect(() => {
+    const el = cardRef.current;
+    if (!el) return;
+
+    // Clear any leftover inline state first, so `to` is the natural height and
+    // never a value held over from a transition that is still in flight.
+    el.style.transition = '';
+    el.style.height = '';
+    el.style.overflow = '';
+
+    const from = cardHeightRef.current;
+    const to = el.offsetHeight;
+    cardHeightRef.current = to;
+
+    if (from === null || from === to) return;
+    if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return;
+
+    resizingCardRef.current = true;
+    // The taller tab's content is already in the DOM, so it has to be clipped
+    // while the box catches up.
+    el.style.overflow = 'hidden';
+    el.style.height = `${from}px`;
+    void el.offsetHeight; // flush, so the change below actually transitions
+    el.style.transition = `height ${HEIGHT_MS}ms cubic-bezier(0.2, 0, 0, 1)`;
+    el.style.height = `${to}px`;
+
+    // Releasing on a timer rather than transitionend: the end state has to be
+    // correct even if the transition never reports finishing.
+    const settle = () => {
+      el.style.transition = '';
+      el.style.height = '';
+      el.style.overflow = '';
+      resizingCardRef.current = false;
+    };
+    const timer = window.setTimeout(settle, HEIGHT_MS + 20);
+
+    return () => {
+      window.clearTimeout(timer);
+      settle();
+    };
+  }, [active]);
+
+  // Keep the remembered height honest when the card resizes for other reasons,
+  // such as the window changing width, so the next tab animates from the truth.
+  useEffect(() => {
+    const el = cardRef.current;
+    if (!el || typeof ResizeObserver === 'undefined') return;
+    const ro = new ResizeObserver(() => {
+      if (!resizingCardRef.current) cardHeightRef.current = el.offsetHeight;
+    });
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
 
   const clearTimer = useCallback(() => {
     if (timerRef.current !== null) {
@@ -152,7 +216,13 @@ export default function ProductTabs({ products }: { products: Product[] }) {
   const product = products[active];
 
   return (
-    <div ref={rootRef} className="mt-12 rounded-[32px] bg-surface-muted p-1.5">
+    <div
+      ref={(el) => {
+        rootRef.current = el;
+        cardRef.current = el;
+      }}
+      className="mt-12 rounded-[32px] bg-surface-muted p-1.5"
+    >
       <div className="grid gap-1.5 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)]">
         {/* ---------------- Tabs ---------------- */}
         <div
