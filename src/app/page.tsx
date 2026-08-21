@@ -211,7 +211,7 @@ function Contact() {
                 {topics.map((topic) => (
                   <li
                     key={topic}
-                    className="rounded-full border border-accent/25 bg-accent-soft px-3.5 py-1.5 text-[13px] font-semibold text-accent"
+                    className="rounded-full bg-accent-soft px-3.5 py-1.5 text-[13px] font-semibold text-accent"
                   >
                     {topic}
                   </li>

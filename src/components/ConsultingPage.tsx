@@ -110,7 +110,7 @@ export default function ConsultingPage({ content: c }: { content: ConsultingCont
           />
         </picture>
 
-        <p className="inline-flex items-center rounded-full border border-accent/25 bg-accent-soft px-4 py-1.5 text-[13px] font-semibold text-accent bg-surface-muted ">
+        <p className="inline-flex items-center rounded-full bg-accent-soft px-4 py-1.5 text-[13px] font-semibold text-accent">
           {c.hero.badge}
         </p>
 
@@ -226,7 +226,7 @@ export default function ConsultingPage({ content: c }: { content: ConsultingCont
             {c.about.credentials.map((cred) => (
               <span
                 key={cred}
-                className="rounded-full border border-accent/25 bg-accent-soft px-3 py-1.5 text-[13px] font-semibold text-accent bg-surface-muted"
+                className="rounded-full bg-accent-soft px-3 py-1.5 text-[13px] font-semibold text-accent"
               >
                 {cred}
               </span>
@@ -277,7 +277,7 @@ export default function ConsultingPage({ content: c }: { content: ConsultingCont
 
           <div className="relative grid gap-8 lg:grid-cols-[minmax(0,1.45fr)_minmax(280px,0.95fr)] lg:items-end">
             <div>
-              <p className="inline-flex items-center rounded-full border border-line bg-surface-muted px-3 py-1 text-[12px] font-semibold uppercase tracking-[0.16em] text-slate-500 ">
+              <p className="inline-flex items-center rounded-full bg-surface-muted px-3 py-1 text-[12px] font-semibold uppercase tracking-[0.16em] text-slate-500">
                 {c.cta.badge}
               </p>
               <h2

@@ -86,7 +86,7 @@ function MockChrome({ label }: { label: string }) {
   );
 }
 
-/* The "before": peak AI-generated output. Gradient slop, buzzwords, em dashes.
+/* The"before": peak AI-generated output. Gradient slop, buzzwords, em dashes.
    The em dashes are intentional here: they parody typical AI copy and are
    confined to this mock, never the real page voice. */
 function BeforeMock({ c }: { c: VibeDesignContent['beforeAfter']['before'] }) {
@@ -115,7 +115,7 @@ function BeforeMock({ c }: { c: VibeDesignContent['beforeAfter']['before'] }) {
   );
 }
 
-/* The "after": a stacked card. A white content card sits on a solid accent
+/* The"after": a stacked card. A white content card sits on a solid accent
    layer that peeks out the bottom to hold the CTA, over a dotted texture.
    Depth comes from layering and shadows, not hue gradients. */
 function AfterMock({ c }: { c: VibeDesignContent['beforeAfter']['after'] }) {
@@ -195,7 +195,7 @@ function BeforeAfter({ c }: { c: VibeDesignContent['beforeAfter'] }) {
   return (
     <section className="mx-auto mt-24 max-w-5xl px-6 lg:px-8" aria-labelledby="ba-heading">
       <div className="mx-auto max-w-2xl text-center">
-        <p className="inline-flex items-center rounded-full border border-accent/25 bg-accent-soft px-4 py-1.5 text-[13px] font-semibold text-accent bg-surface-muted ">
+        <p className="inline-flex items-center rounded-full bg-accent-soft px-4 py-1.5 text-[13px] font-semibold text-accent">
           {c.badge}
         </p>
         <h2
@@ -221,7 +221,7 @@ function BeforeAfter({ c }: { c: VibeDesignContent['beforeAfter'] }) {
         </figure>
 
         <div className="hidden items-center justify-center sm:flex" aria-hidden="true">
-          <span className="grid h-9 w-9 place-items-center rounded-full border border-accent/40 bg-accent-soft text-accent shadow-[0_6px_16px_-6px_rgba(255,191,0,0.5)] ">
+          <span className="grid h-9 w-9 place-items-center rounded-full bg-accent-soft text-accent shadow-[0_6px_16px_-6px_rgba(79,70,229,0.35)]">
             <ArrowRight className="h-4 w-4" strokeWidth={2.5} aria-hidden="true" />
           </span>
         </div>
@@ -304,7 +304,7 @@ function TokenSystem({ c }: { c: VibeDesignContent['tokens'] }) {
   return (
     <section className="mx-auto mt-28 max-w-5xl px-6 lg:px-8" aria-labelledby="tokens-heading">
       <div className="max-w-2xl">
-        <p className="inline-flex items-center rounded-full border border-accent/25 bg-accent-soft px-4 py-1.5 text-[13px] font-semibold text-accent bg-surface-muted ">
+        <p className="inline-flex items-center rounded-full bg-accent-soft px-4 py-1.5 text-[13px] font-semibold text-accent">
           {c.badge}
         </p>
         <h2
@@ -421,7 +421,7 @@ function StaysOnSystem({ c }: { c: VibeDesignContent['stays'] }) {
     <section className="mx-auto mt-28 max-w-5xl px-6 lg:px-8" aria-labelledby="stays-heading">
       <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)]">
         <div>
-          <p className="inline-flex items-center rounded-full border border-accent/25 bg-accent-soft px-4 py-1.5 text-[13px] font-semibold text-accent bg-surface-muted ">
+          <p className="inline-flex items-center rounded-full bg-accent-soft px-4 py-1.5 text-[13px] font-semibold text-accent">
             {c.badge}
           </p>
           <h2
@@ -528,7 +528,7 @@ export default function VibeDesignPage({ content: c }: { content: VibeDesignCont
         </div>
 
         <div className="relative mx-auto mt-16 max-w-4xl px-6 text-center lg:px-0">
-          <p className="vibe-rise inline-flex items-center rounded-full border border-accent/25 bg-accent-soft px-4 py-1.5 text-[13px] font-semibold text-accent bg-surface-muted ">
+          <p className="vibe-rise inline-flex items-center rounded-full bg-accent-soft px-4 py-1.5 text-[13px] font-semibold text-accent">
             {c.hero.badge}
           </p>
 
@@ -636,7 +636,7 @@ export default function VibeDesignPage({ content: c }: { content: VibeDesignCont
                   aria-hidden="true"
                 />
               )}
-              <span className="relative z-10 grid h-10 w-10 shrink-0 place-items-center rounded-full border-2 border-accent bg-surface text-[13px] font-bold text-accent ">
+              <span className="relative z-10 grid h-10 w-10 shrink-0 place-items-center rounded-full border-2 border-accent bg-surface text-[13px] font-bold text-accent">
                 {step.number}
               </span>
               <div className="pt-1">
@@ -678,7 +678,7 @@ export default function VibeDesignPage({ content: c }: { content: VibeDesignCont
                 {c.why.credentials.map((cred) => (
                   <span
                     key={cred}
-                    className="rounded-full border border-accent/25 bg-accent-soft px-3 py-1.5 text-[13px] font-semibold text-accent bg-surface-muted"
+                    className="rounded-full bg-accent-soft px-3 py-1.5 text-[13px] font-semibold text-accent"
                   >
                     {cred}
                   </span>
@@ -735,7 +735,7 @@ export default function VibeDesignPage({ content: c }: { content: VibeDesignCont
 
           <div className="relative grid gap-8 lg:grid-cols-[minmax(0,1.45fr)_minmax(280px,0.95fr)] lg:items-end">
             <div>
-              <p className="inline-flex items-center rounded-full border border-line bg-slate-50 px-3 py-1 text-[12px] font-semibold uppercase tracking-[0.16em] text-ink-muted dark:bg-slate-900/40 dark:text-slate-300">
+              <p className="inline-flex items-center rounded-full bg-surface-muted px-3 py-1 text-[12px] font-semibold uppercase tracking-[0.16em] text-ink-muted dark:bg-slate-900/40 dark:text-slate-300">
                 {c.cta.badge}
               </p>
               <h2

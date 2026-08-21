@@ -276,7 +276,7 @@ export default function CvPage() {
                 {cv.strengths.map((strength) => (
                   <li
                     key={strength}
-                    className="rounded-xl border border-line bg-surface px-4 py-2.5 text-center text-[13px] font-medium text-ink"
+                    className="rounded-xl bg-surface px-4 py-2.5 text-center text-[13px] font-medium text-ink"
                   >
                     {strength}
                   </li>
