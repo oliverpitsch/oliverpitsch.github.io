@@ -1,6 +1,5 @@
 import type { ReactNode } from 'react';
 import SiteFooter, { type SiteFooterProps } from './SiteFooter';
-import SiteHeader from './SiteHeader';
 import Topline from './Topline';
 
 export type PageShellProps = {
@@ -12,7 +11,7 @@ export type PageShellProps = {
   lang?: string;
 };
 
-/** Page chrome: brand edge, header, main, footer. */
+/** Page chrome: brand edge, main, footer. */
 export default function PageShell({
   children,
   mainClassName = '',
@@ -22,7 +21,6 @@ export default function PageShell({
   return (
     <div className="flex min-h-screen flex-col bg-canvas text-ink" lang={lang}>
       <Topline />
-      <SiteHeader />
       <main className={`flex-1 ${mainClassName}`}>{children}</main>
       <SiteFooter langSwitch={langSwitch} />
     </div>

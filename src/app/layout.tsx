@@ -47,10 +47,12 @@ export const metadata = {
   },
   icons: {
     icon: [
+      { url: '/icon.svg', type: 'image/svg+xml' },
       { url: '/images/favicons/favicon-16.png', sizes: '16x16', type: 'image/png' },
       { url: '/images/favicons/favicon-32.png', sizes: '32x32', type: 'image/png' },
       { url: '/images/favicons/favicon-96.png', sizes: '96x96', type: 'image/png' },
     ],
+    apple: [{ url: '/images/favicons/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
   },
   other: {
     'color-scheme': 'light dark',
