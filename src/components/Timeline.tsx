@@ -77,11 +77,11 @@ export default function Timeline() {
       {/* content overlay fades — indicate scroll affordance */}
       <div
         aria-hidden
-        className={`absolute inset-y-0 left-0 w-24 z-10 pointer-events-none transition-opacity duration-300 bg-gradient-to-r from-[#F8FAFC] dark:from-[#182B52] to-transparent ${leftFade ? 'opacity-100' : 'opacity-0'}`}
+        className={`absolute inset-y-0 left-0 w-24 z-10 pointer-events-none transition-opacity duration-300 bg-gradient-to-r from-canvas to-transparent ${leftFade ? 'opacity-100' : 'opacity-0'}`}
       />
       <div
         aria-hidden
-        className={`absolute inset-y-0 right-0 w-24 z-10 pointer-events-none transition-opacity duration-300 bg-gradient-to-l from-[#F8FAFC] dark:from-[#182B52] to-transparent ${rightFade ? 'opacity-100' : 'opacity-0'}`}
+        className={`absolute inset-y-0 right-0 w-24 z-10 pointer-events-none transition-opacity duration-300 bg-gradient-to-l from-canvas to-transparent ${rightFade ? 'opacity-100' : 'opacity-0'}`}
       />
 
       <div
@@ -91,7 +91,7 @@ export default function Timeline() {
         <div className="flex w-fit mx-auto">
           {/* left gradient cap — fades the line in from the left */}
           <div aria-hidden className={`relative flex-none ${FADE_CAP} pb-8`}>
-            <div className="absolute left-0 right-0 bottom-1 h-0.5 bg-gradient-to-r from-transparent to-[#FFBF00]" />
+            <div className="absolute left-0 right-0 bottom-1 h-0.5 bg-gradient-to-r from-transparent to-accent" />
           </div>
 
           {items.map((it, i) => (
@@ -99,7 +99,7 @@ export default function Timeline() {
               key={it.label}
               className="relative flex-none w-[50vw] sm:w-44 pb-8 text-center snap-start flex flex-col"
             >
-              <div className="absolute left-0 right-0 bottom-1 h-0.5 bg-[#FFBF00]" />
+              <div className="absolute left-0 right-0 bottom-1 h-0.5 bg-accent" />
 
               <div className="mx-auto flex h-16 w-auto items-center justify-center">
                 <img
@@ -112,20 +112,16 @@ export default function Timeline() {
               <h4 className="mt-4 sm:mt-6 text-base font-semibold leading-tight px-1">
                 {it.label}
               </h4>
-              <div className="text-sm text-[#182B52] dark:text-[#E6EEFF] leading-tight px-1 mt-0.5">
-                {it.jobTitle}
-              </div>
-              <span className="text-sm text-[#3B5EA5] dark:text-[#8DAEF0] mt-auto pt-2">
-                {it.span}
-              </span>
+              <div className="text-sm text-ink leading-tight px-1 mt-0.5">{it.jobTitle}</div>
+              <span className="text-sm text-accent mt-auto pt-2">{it.span}</span>
 
-              <span className="absolute -bottom-[3px] left-1/2 -translate-x-1/2 size-4 rounded-full border-2 border-slate-50 dark:border-[#182B52] bg-[#FFBF00]" />
+              <span className="absolute -bottom-[3px] left-1/2 -translate-x-1/2 size-4 rounded-full border-2 border-canvas bg-accent" />
             </div>
           ))}
 
           {/* right gradient cap — fades the line out to the right */}
           <div aria-hidden className={`relative flex-none ${FADE_CAP} pb-8`}>
-            <div className="absolute left-0 right-0 bottom-1 h-0.5 bg-gradient-to-r from-[#FFBF00] to-transparent" />
+            <div className="absolute left-0 right-0 bottom-1 h-0.5 bg-gradient-to-r from-accent to-transparent" />
           </div>
         </div>
       </div>

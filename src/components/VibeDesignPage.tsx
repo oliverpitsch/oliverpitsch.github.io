@@ -1,3 +1,4 @@
+import Button from '@/components/ui/Button';
 import PageShell from '@/components/layout/PageShell';
 /*
   Native <img> over next/image: the site is statically exported
@@ -80,9 +81,7 @@ function MockChrome({ label }: { label: string }) {
       <span className="h-2.5 w-2.5 rounded-full bg-slate-300 dark:bg-slate-600" />
       <span className="h-2.5 w-2.5 rounded-full bg-slate-300 dark:bg-slate-600" />
       <span className="h-2.5 w-2.5 rounded-full bg-slate-300 dark:bg-slate-600" />
-      <span className="ml-2 text-[11px] font-medium tracking-wide text-slate-400 dark:text-slate-500">
-        {label}
-      </span>
+      <span className="ml-2 text-[11px] font-medium tracking-wide text-ink-muted">{label}</span>
     </div>
   );
 }
@@ -92,14 +91,14 @@ function MockChrome({ label }: { label: string }) {
    confined to this mock, never the real page voice. */
 function BeforeMock({ c }: { c: VibeDesignContent['beforeAfter']['before'] }) {
   return (
-    <div className="flex h-full flex-col rounded-[18px] border border-slate-200 bg-white p-5 dark:border-slate-700 dark:bg-[#0f1c36]">
+    <div className="flex h-full flex-col rounded-[18px] border border-line bg-surface p-5">
       <MockChrome label="app · upgrade" />
       <div className="mt-5 rounded-2xl border border-purple-200/70 bg-gradient-to-br from-violet-50 via-indigo-50 to-fuchsia-50 p-4 shadow-[0_8px_30px_-8px_rgba(139,92,246,0.45)] dark:border-purple-500/30 dark:from-violet-950/40 dark:via-indigo-950/40 dark:to-fuchsia-950/40">
         <p className="bg-gradient-to-r from-violet-600 via-purple-600 to-fuchsia-600 bg-clip-text text-[16px] font-extrabold text-transparent dark:from-violet-400 dark:via-purple-400 dark:to-fuchsia-400">
           {c.plan}
         </p>
         <p className="text-[13px] font-semibold text-purple-500 dark:text-purple-300">{c.price}</p>
-        <p className="mt-2 text-[12px] text-slate-500 dark:text-slate-400">{c.blurb}</p>
+        <p className="mt-2 text-[12px] text-ink-muted">{c.blurb}</p>
         <ul className="mt-2 text-[12px] text-indigo-600 dark:text-indigo-300">
           {c.features.map((f) => (
             <li key={f}>{f}</li>
@@ -116,12 +115,12 @@ function BeforeMock({ c }: { c: VibeDesignContent['beforeAfter']['before'] }) {
   );
 }
 
-/* The "after": a stacked card. A white content card sits on a solid amber
+/* The "after": a stacked card. A white content card sits on a solid accent
    layer that peeks out the bottom to hold the CTA, over a dotted texture.
    Depth comes from layering and shadows, not hue gradients. */
 function AfterMock({ c }: { c: VibeDesignContent['beforeAfter']['after'] }) {
   return (
-    <div className="relative flex h-full flex-col overflow-hidden rounded-[18px] border border-slate-200 bg-[#FBFCFE] p-6 shadow-card dark:border-slate-700 dark:bg-[#0d1a33]">
+    <div className="relative flex h-full flex-col overflow-hidden rounded-[18px] border border-line bg-surface-muted p-6 shadow-card">
       {/* Subtle dotted texture behind the stack */}
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.7] [background-image:radial-gradient(rgba(15,23,42,0.07)_1px,transparent_1px)] [background-size:13px_13px] dark:[background-image:radial-gradient(rgba(255,255,255,0.06)_1px,transparent_1px)]"
@@ -132,31 +131,27 @@ function AfterMock({ c }: { c: VibeDesignContent['beforeAfter']['after'] }) {
         <MockChrome label="app · upgrade" />
       </div>
 
-      {/* Yellow card acts as a 4px mat; the white card sits inset on all sides */}
-      <div className="relative mt-5 flex flex-col gap-1 rounded-2xl bg-[#FFC400] p-1 shadow-[inset_0_1px_0_rgba(255,255,255,0.5),0_14px_30px_-12px_rgba(255,170,0,0.65)]">
-        {/* White content card, inset 4px inside the yellow card on all sides */}
-        <div className="rounded-xl border border-slate-200/70 bg-[#F7F9FC] p-5 shadow-surface inset-ring-1 inset-ring-white dark:border-slate-700 dark:bg-[#16284a] dark:inset-ring-white/10">
+      {/* The accent card acts as a 4px mat; the content card sits inset on all sides */}
+      <div className="relative mt-5 flex flex-col gap-1 rounded-2xl bg-accent-strong p-1 shadow-[inset_0_1px_0_rgba(255,255,255,0.35),0_14px_30px_-12px_rgba(67,56,202,0.55)]">
+        {/* Content card, inset 4px inside the accent card on all sides */}
+        <div className="rounded-xl border border-line bg-surface p-5 shadow-surface inset-ring-1 inset-ring-white dark:inset-ring-white/10">
           <div className="flex items-start justify-between">
-            <p className="text-[17px] font-semibold tracking-[-0.01em] text-[#182B52] dark:text-white">
-              {c.name}
-            </p>
-            <span className="inline-flex items-center rounded-full bg-[#182B52] px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-white dark:bg-white dark:text-[#182B52]">
+            <p className="text-[17px] font-semibold tracking-[-0.01em] text-ink">{c.name}</p>
+            <span className="inline-flex items-center rounded-full bg-accent px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-on-accent">
               {c.popular}
             </span>
           </div>
 
           <div className="mt-2 flex items-baseline gap-1">
-            <span className="text-[30px] font-semibold leading-none tracking-[-0.02em] text-[#182B52] dark:text-white">
+            <span className="text-[30px] font-semibold leading-none tracking-[-0.02em] text-ink">
               {c.price}
             </span>
-            <span className="text-[13px] font-medium text-slate-400">{c.perMonth}</span>
+            <span className="text-[13px] font-medium text-ink-muted">{c.perMonth}</span>
           </div>
-          <p className="mt-2 text-[12.5px] leading-5 text-slate-500 dark:text-slate-400">
-            {c.tagline}
-          </p>
+          <p className="mt-2 text-[12.5px] leading-5 text-ink-muted">{c.tagline}</p>
 
           <div
-            className="my-4 h-px bg-gradient-to-r from-transparent via-[#FFBF00]/45 to-transparent"
+            className="my-4 h-px bg-gradient-to-r from-transparent via-accent/45 to-transparent"
             aria-hidden="true"
           />
 
@@ -164,17 +159,13 @@ function AfterMock({ c }: { c: VibeDesignContent['beforeAfter']['after'] }) {
             {c.features.map((f) => (
               <li key={f.title} className="flex items-start gap-2.5">
                 <Check
-                  className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#3B5EA5] dark:text-[#8DAEF0]"
+                  className="mt-0.5 h-3.5 w-3.5 shrink-0 text-accent"
                   strokeWidth={3}
                   aria-hidden="true"
                 />
                 <div>
-                  <p className="text-[13px] font-semibold leading-tight text-[#182B52] dark:text-white">
-                    {f.title}
-                  </p>
-                  <p className="mt-0.5 text-[11.5px] leading-4 text-slate-500 dark:text-slate-400">
-                    {f.desc}
-                  </p>
+                  <p className="text-[13px] font-semibold leading-tight text-ink">{f.title}</p>
+                  <p className="mt-0.5 text-[11.5px] leading-4 text-ink-muted">{f.desc}</p>
                 </div>
               </li>
             ))}
@@ -186,7 +177,7 @@ function AfterMock({ c }: { c: VibeDesignContent['beforeAfter']['after'] }) {
           href="#contact"
           className="group block w-full rounded-xl px-6 py-3.5 text-center transition-[background-color,transform] duration-150 ease-out hover:bg-black/[0.04] active:translate-y-px"
         >
-          <span className="inline-flex items-center gap-2 text-[14px] font-semibold tracking-[-0.01em] text-[#182B52]">
+          <span className="inline-flex items-center gap-2 text-[14px] font-semibold tracking-[-0.01em] text-ink">
             {c.cta}
             <ArrowRight
               className="h-4 w-4 transition-transform duration-150 ease-out group-hover:translate-x-0.5"
@@ -204,7 +195,7 @@ function BeforeAfter({ c }: { c: VibeDesignContent['beforeAfter'] }) {
   return (
     <section className="mx-auto mt-24 max-w-5xl px-6 lg:px-8" aria-labelledby="ba-heading">
       <div className="mx-auto max-w-2xl text-center">
-        <p className="inline-flex items-center rounded-full border border-[#D7E5FF] bg-[#F5F9FF] px-4 py-1.5 text-[13px] font-semibold text-[#3B5EA5] dark:border-[#35528C] dark:bg-[#193056] dark:text-[#B6CCF8]">
+        <p className="inline-flex items-center rounded-full border border-accent/25 bg-accent-soft px-4 py-1.5 text-[13px] font-semibold text-accent bg-surface-muted ">
           {c.badge}
         </p>
         <h2
@@ -213,15 +204,15 @@ function BeforeAfter({ c }: { c: VibeDesignContent['beforeAfter'] }) {
         >
           {c.heading}
         </h2>
-        <p className="mx-auto mt-4 max-w-xl text-pretty text-[16px] leading-7 text-slate-600 dark:text-slate-300">
+        <p className="mx-auto mt-4 max-w-xl text-pretty text-[16px] leading-7 text-ink-muted">
           {c.sub}
         </p>
       </div>
 
       <div className="mt-12 grid items-stretch gap-5 sm:grid-cols-[1fr_auto_1fr] sm:gap-4">
         <figure className="relative">
-          <figcaption className="mb-3 flex items-center gap-2 text-[13px] font-semibold text-slate-500 dark:text-slate-400">
-            <span className="grid h-5 w-5 place-items-center rounded-full bg-slate-200 text-slate-500 dark:bg-slate-700 dark:text-slate-300">
+          <figcaption className="mb-3 flex items-center gap-2 text-[13px] font-semibold text-ink-muted">
+            <span className="grid h-5 w-5 place-items-center rounded-full bg-line text-ink-muted dark:bg-slate-700 dark:text-slate-300">
               <X className="h-3 w-3" strokeWidth={3} aria-hidden="true" />
             </span>
             {c.beforeLabel}
@@ -230,14 +221,14 @@ function BeforeAfter({ c }: { c: VibeDesignContent['beforeAfter'] }) {
         </figure>
 
         <div className="hidden items-center justify-center sm:flex" aria-hidden="true">
-          <span className="grid h-9 w-9 place-items-center rounded-full border border-[#FFBF00]/40 bg-[#FFF9E6] text-[#B07A00] shadow-[0_6px_16px_-6px_rgba(255,191,0,0.5)] dark:bg-[#2a230a] dark:text-[#FFDC0F]">
+          <span className="grid h-9 w-9 place-items-center rounded-full border border-accent/40 bg-accent-soft text-accent shadow-[0_6px_16px_-6px_rgba(255,191,0,0.5)] ">
             <ArrowRight className="h-4 w-4" strokeWidth={2.5} aria-hidden="true" />
           </span>
         </div>
 
         <figure className="relative">
-          <figcaption className="mb-3 flex items-center gap-2 text-[13px] font-semibold text-[#3B5EA5] dark:text-[#8DAEF0]">
-            <span className="grid h-5 w-5 place-items-center rounded-full bg-[#FFBF00] text-[#182B52]">
+          <figcaption className="mb-3 flex items-center gap-2 text-[13px] font-semibold text-accent">
+            <span className="grid h-5 w-5 place-items-center rounded-full bg-accent text-ink">
               <Check className="h-3 w-3" strokeWidth={3.5} aria-hidden="true" />
             </span>
             {c.afterLabel}
@@ -255,24 +246,24 @@ function TokenSystem({ c }: { c: VibeDesignContent['tokens'] }) {
   const colorRamps = [
     {
       name: 'Brand',
-      block: '#FFC400',
-      onDark: false,
+      block: '#4F46E5',
+      onDark: true,
       steps: [
-        { n: 20, hex: '#FFF1C2', text: '#7A5B00' },
-        { n: 40, hex: '#FFDE85', text: '#7A5B00' },
-        { n: 80, hex: '#FFC400', text: '#5B4300' },
-        { n: 100, hex: '#E8A100', text: '#4A3500' },
+        { n: 20, hex: '#EEF0FF', text: '#4338CA' },
+        { n: 40, hex: '#C7D2FE', text: '#3730A3' },
+        { n: 80, hex: '#4F46E5', text: '#FFFFFF' },
+        { n: 100, hex: '#3730A3', text: '#FFFFFF' },
       ],
     },
     {
       name: 'Accent',
-      block: '#4D7BD9',
+      block: '#6366F1',
       onDark: true,
       steps: [
-        { n: 20, hex: '#DEE7FB', text: '#3B5EA5' },
-        { n: 40, hex: '#A9C0F2', text: '#2E4D8C' },
-        { n: 80, hex: '#5C7FD0', text: '#FFFFFF' },
-        { n: 100, hex: '#3B5EA5', text: '#FFFFFF' },
+        { n: 20, hex: '#E0E7FF', text: '#4338CA' },
+        { n: 40, hex: '#A5B4FC', text: '#3730A3' },
+        { n: 80, hex: '#6366F1', text: '#FFFFFF' },
+        { n: 100, hex: '#4338CA', text: '#FFFFFF' },
       ],
     },
     {
@@ -313,7 +304,7 @@ function TokenSystem({ c }: { c: VibeDesignContent['tokens'] }) {
   return (
     <section className="mx-auto mt-28 max-w-5xl px-6 lg:px-8" aria-labelledby="tokens-heading">
       <div className="max-w-2xl">
-        <p className="inline-flex items-center rounded-full border border-[#D7E5FF] bg-[#F5F9FF] px-4 py-1.5 text-[13px] font-semibold text-[#3B5EA5] dark:border-[#35528C] dark:bg-[#193056] dark:text-[#B6CCF8]">
+        <p className="inline-flex items-center rounded-full border border-accent/25 bg-accent-soft px-4 py-1.5 text-[13px] font-semibold text-accent bg-surface-muted ">
           {c.badge}
         </p>
         <h2
@@ -323,26 +314,24 @@ function TokenSystem({ c }: { c: VibeDesignContent['tokens'] }) {
           {c.heading}
         </h2>
       </div>
-      <p className="mt-4 text-pretty text-[16px] leading-7 text-slate-600 dark:text-slate-300">
-        {c.description}
-      </p>
+      <p className="mt-4 text-pretty text-[16px] leading-7 text-ink-muted">{c.description}</p>
 
       <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {/* Color */}
-        <div className="rounded-2xl border border-[#E2E8F0] bg-white p-5 dark:border-slate-800 dark:bg-[#152544]">
-          <p className="text-[12px] font-semibold text-slate-400">{c.labels.color}</p>
+        <div className="rounded-2xl border border-line bg-white p-5 bg-surface">
+          <p className="text-[12px] font-semibold text-ink-muted">{c.labels.color}</p>
           <div className="mt-4 grid grid-cols-2 gap-3">
             {colorRamps.map((ramp) => (
               <div
                 key={ramp.name}
-                className="overflow-hidden rounded-lg shadow-surface ring-1 ring-slate-200/70 dark:ring-slate-700"
+                className="overflow-hidden rounded-lg shadow-surface ring-1 ring-line/70"
               >
                 <div
                   className="flex h-12 items-center justify-center"
                   style={{ backgroundColor: ramp.block }}
                 >
                   <span
-                    className={`text-[12px] font-semibold ${ramp.onDark ? 'text-white' : 'text-[#182B52]'}`}
+                    className={`text-[12px] font-semibold ${ramp.onDark ? 'text-white' : 'text-ink'}`}
                   >
                     {ramp.name}
                   </span>
@@ -364,62 +353,58 @@ function TokenSystem({ c }: { c: VibeDesignContent['tokens'] }) {
         </div>
 
         {/* Type scale */}
-        <div className="rounded-2xl border border-[#E2E8F0] bg-white p-5 dark:border-slate-800 dark:bg-[#152544]">
-          <p className="text-[12px] font-semibold text-slate-400">{c.labels.typeScale}</p>
+        <div className="rounded-2xl border border-line bg-white p-5 bg-surface">
+          <p className="text-[12px] font-semibold text-ink-muted">{c.labels.typeScale}</p>
           <div className="mt-3 space-y-1.5">
-            <p className="text-[26px] font-semibold leading-tight tracking-[-0.02em] text-[#182B52] dark:text-white">
+            <p className="text-[26px] font-semibold leading-tight tracking-[-0.02em] text-ink">
               Aa
             </p>
-            <p className="text-[18px] font-semibold leading-tight text-[#182B52] dark:text-white">
-              {c.type.heading}
-            </p>
-            <p className="text-[14px] font-medium text-slate-600 dark:text-slate-300">
-              {c.type.body}
-            </p>
-            <p className="text-[11px] font-medium text-slate-400">{c.type.caption}</p>
+            <p className="text-[18px] font-semibold leading-tight text-ink">{c.type.heading}</p>
+            <p className="text-[14px] font-medium text-ink-muted">{c.type.body}</p>
+            <p className="text-[11px] font-medium text-ink-muted">{c.type.caption}</p>
           </div>
         </div>
 
         {/* Spacing */}
-        <div className="rounded-2xl border border-[#E2E8F0] bg-white p-5 dark:border-slate-800 dark:bg-[#152544]">
-          <p className="text-[12px] font-semibold text-slate-400">{c.labels.spacing}</p>
+        <div className="rounded-2xl border border-line bg-white p-5 bg-surface">
+          <p className="text-[12px] font-semibold text-ink-muted">{c.labels.spacing}</p>
           <div className="mt-4 space-y-2">
             {space.map((s) => (
               <div key={s} className="flex items-center gap-2.5">
                 <span
-                  className="block h-2.5 rounded-full bg-gradient-to-r from-[#FFBF00] to-[#FFD500]"
+                  className="block h-2.5 rounded-full bg-gradient-to-r from-accent to-accent-strong"
                   style={{ width: `${s * 1.6 + 8}px` }}
                 />
-                <span className="text-[10px] font-medium tabular-nums text-slate-400">{s}</span>
+                <span className="text-[10px] font-medium tabular-nums text-ink-muted">{s}</span>
               </div>
             ))}
           </div>
         </div>
 
         {/* Radius + elevation */}
-        <div className="rounded-2xl border border-[#E2E8F0] bg-white p-5 dark:border-slate-800 dark:bg-[#152544]">
-          <p className="text-[12px] font-semibold text-slate-400">{c.labels.radius}</p>
+        <div className="rounded-2xl border border-line bg-white p-5 bg-surface">
+          <p className="text-[12px] font-semibold text-ink-muted">{c.labels.radius}</p>
           <div className="mt-4 flex items-end gap-2.5">
             {radii.map((r) => (
               <div key={r.label} className="text-center">
                 <span
-                  className="block h-12 w-12 border-2 border-[#3B5EA5] bg-[#F5F9FF] dark:border-[#8DAEF0] dark:bg-[#193056]"
+                  className="block h-12 w-12 border-2 border-accent bg-accent-soft bg-surface-muted"
                   style={{ borderRadius: `${r.px}px` }}
                 />
-                <span className="mt-1.5 block text-[10px] font-medium tabular-nums text-slate-400">
+                <span className="mt-1.5 block text-[10px] font-medium tabular-nums text-ink-muted">
                   {r.px}
                 </span>
               </div>
             ))}
           </div>
-          <p className="mt-5 text-[12px] font-semibold text-slate-400">{c.labels.elevation}</p>
+          <p className="mt-5 text-[12px] font-semibold text-ink-muted">{c.labels.elevation}</p>
           <div className="mt-3 flex items-end gap-4">
             {elevations.map((e) => (
               <div key={e.label} className="flex-1 text-center">
                 <span
-                  className={`block h-10 w-full rounded-lg bg-[#F7F9FC] ring-1 ring-slate-200/70 inset-ring-1 inset-ring-white ${e.cls} dark:bg-[#1c3158] dark:ring-slate-700 dark:inset-ring-white/10`}
+                  className={`block h-10 w-full rounded-lg bg-surface-muted ring-1 ring-line/70 inset-ring-1 inset-ring-white ${e.cls} dark:inset-ring-white/10`}
                 />
-                <span className="mt-2 block text-[10px] font-medium text-slate-400">{e.label}</span>
+                <span className="mt-2 block text-[10px] font-medium text-ink-muted">{e.label}</span>
               </div>
             ))}
           </div>
@@ -436,7 +421,7 @@ function StaysOnSystem({ c }: { c: VibeDesignContent['stays'] }) {
     <section className="mx-auto mt-28 max-w-5xl px-6 lg:px-8" aria-labelledby="stays-heading">
       <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)]">
         <div>
-          <p className="inline-flex items-center rounded-full border border-[#D7E5FF] bg-[#F5F9FF] px-4 py-1.5 text-[13px] font-semibold text-[#3B5EA5] dark:border-[#35528C] dark:bg-[#193056] dark:text-[#B6CCF8]">
+          <p className="inline-flex items-center rounded-full border border-accent/25 bg-accent-soft px-4 py-1.5 text-[13px] font-semibold text-accent bg-surface-muted ">
             {c.badge}
           </p>
           <h2
@@ -445,16 +430,11 @@ function StaysOnSystem({ c }: { c: VibeDesignContent['stays'] }) {
           >
             {c.heading}
           </h2>
-          <p className="mt-4 text-pretty text-[16px] leading-7 text-slate-600 dark:text-slate-300">
-            {c.body}
-          </p>
+          <p className="mt-4 text-pretty text-[16px] leading-7 text-ink-muted">{c.body}</p>
           <ul className="mt-6 space-y-3">
             {c.bullets.map((b) => (
-              <li
-                key={b}
-                className="flex items-start gap-3 text-[15px] leading-7 text-slate-700 dark:text-slate-200"
-              >
-                <span className="mt-2 block h-1.5 w-1.5 shrink-0 rounded-full bg-[#FFBF00]" />
+              <li key={b} className="flex items-start gap-3 text-[15px] leading-7 text-ink">
+                <span className="mt-2 block h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
                 {b}
               </li>
             ))}
@@ -474,7 +454,7 @@ function StaysOnSystem({ c }: { c: VibeDesignContent['stays'] }) {
               <span className="text-[#7d8aa5]">## Design system</span>
               {'\n'}
               <span className="text-slate-300">Always use tokens from </span>
-              <span className="text-[#FFD96B]">design-tokens.ts</span>
+              <span className="text-accent">design-tokens.ts</span>
               <span className="text-slate-300">.</span>
               {'\n'}
               <span className="text-slate-300">Never hardcode color, spacing, or radius.</span>
@@ -486,9 +466,9 @@ function StaysOnSystem({ c }: { c: VibeDesignContent['stays'] }) {
               {'\n'}
               <span className="text-[#82aaff]"> color</span>
               <span className="text-slate-300">: {'{'} brand: </span>
-              <span className="text-[#c3e88d]">&apos;#FFBF00&apos;</span>
+              <span className="text-[#c3e88d]">&apos;#4F46E5&apos;</span>
               <span className="text-slate-300">, ink: </span>
-              <span className="text-[#c3e88d]">&apos;#182B52&apos;</span>
+              <span className="text-[#c3e88d]">&apos;#1E293B&apos;</span>
               <span className="text-slate-300"> {'}'},</span>
               {'\n'}
               <span className="text-[#82aaff]"> radius</span>
@@ -548,7 +528,7 @@ export default function VibeDesignPage({ content: c }: { content: VibeDesignCont
         </div>
 
         <div className="relative mx-auto mt-16 max-w-4xl px-6 text-center lg:px-0">
-          <p className="vibe-rise inline-flex items-center rounded-full border border-[#D7E5FF] bg-[#F5F9FF] px-4 py-1.5 text-[13px] font-semibold text-[#3B5EA5] dark:border-[#35528C] dark:bg-[#193056] dark:text-[#B6CCF8]">
+          <p className="vibe-rise inline-flex items-center rounded-full border border-accent/25 bg-accent-soft px-4 py-1.5 text-[13px] font-semibold text-accent bg-surface-muted ">
             {c.hero.badge}
           </p>
 
@@ -561,7 +541,7 @@ export default function VibeDesignPage({ content: c }: { content: VibeDesignCont
           </h1>
 
           <p
-            className="vibe-rise mx-auto mt-6 max-w-3xl text-pretty text-[18px] leading-8 text-slate-600 dark:text-slate-300 sm:text-[20px]"
+            className="vibe-rise mx-auto mt-6 max-w-3xl text-pretty text-[18px] leading-8 text-ink-muted sm:text-[20px]"
             style={{ animationDelay: '120ms' }}
           >
             {c.hero.subheadline}
@@ -571,18 +551,12 @@ export default function VibeDesignPage({ content: c }: { content: VibeDesignCont
             className="vibe-rise mt-9 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
             style={{ animationDelay: '180ms' }}
           >
-            <a
-              href={mailto}
-              className="inline-flex min-h-11 items-center justify-center rounded-2xl bg-[#182B52] px-6 py-3 text-[15px] font-semibold text-white transition-transform duration-150 ease-out hover:-translate-y-0.5 hover:bg-[#21386A] active:scale-[0.96] dark:bg-white dark:text-[#182B52] dark:hover:bg-[#E6EEFF]"
-            >
+            <Button href={mailto} size="lg">
               {c.hero.cta1Label}
-            </a>
-            <a
-              href="#process"
-              className="inline-flex min-h-11 items-center justify-center rounded-2xl border border-slate-300 bg-white px-6 py-3 text-[15px] font-semibold text-[#182B52] transition-transform duration-150 ease-out hover:-translate-y-0.5 hover:border-[#8DAEF0] hover:bg-[#F8FBFF] active:scale-[0.96] dark:border-slate-600 dark:bg-transparent dark:text-white dark:hover:border-[#8DAEF0] dark:hover:bg-[#193056]"
-            >
+            </Button>
+            <Button href="#process" variant="secondary" size="lg">
               {c.hero.cta2Label}
-            </a>
+            </Button>
           </div>
         </div>
       </section>
@@ -598,12 +572,10 @@ export default function VibeDesignPage({ content: c }: { content: VibeDesignCont
           {c.problems.items.map((item) => (
             <div
               key={item.title}
-              className="rounded-2xl border border-[#E2E8F0] bg-white p-6 transition-transform duration-200 ease-out hover:-translate-y-0.5 dark:border-slate-800 dark:bg-[#152544]"
+              className="rounded-2xl border border-line bg-white p-6 transition-transform duration-200 ease-out hover:-translate-y-0.5 bg-surface"
             >
               <h3 className="text-[16px] font-semibold">{item.title}</h3>
-              <p className="mt-2 text-[14px] leading-6 text-slate-600 dark:text-slate-300">
-                {item.description}
-              </p>
+              <p className="mt-2 text-[14px] leading-6 text-ink-muted">{item.description}</p>
             </div>
           ))}
         </div>
@@ -624,19 +596,17 @@ export default function VibeDesignPage({ content: c }: { content: VibeDesignCont
           {c.offerings.items.map((item) => (
             <div
               key={item.title}
-              className="flex flex-col rounded-2xl border border-[#E2E8F0] bg-white p-6 transition-transform duration-200 ease-out hover:-translate-y-0.5 dark:border-slate-800 dark:bg-[#152544]"
+              className="flex flex-col rounded-2xl border border-line bg-white p-6 transition-transform duration-200 ease-out hover:-translate-y-0.5 bg-surface"
             >
               <h3 className="text-[18px] font-semibold">{item.title}</h3>
-              <p className="mt-2 text-[14px] leading-6 text-slate-600 dark:text-slate-300">
-                {item.description}
-              </p>
+              <p className="mt-2 text-[14px] leading-6 text-ink-muted">{item.description}</p>
               <ul className="mt-4 space-y-2">
                 {item.bullets.map((bullet) => (
                   <li
                     key={bullet}
-                    className="flex items-start gap-2 text-[14px] leading-6 text-slate-600 dark:text-slate-300"
+                    className="flex items-start gap-2 text-[14px] leading-6 text-ink-muted"
                   >
-                    <span className="mt-2 block h-1.5 w-1.5 shrink-0 rounded-full bg-[#FFBF00]" />
+                    <span className="mt-2 block h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
                     {bullet}
                   </li>
                 ))}
@@ -662,18 +632,16 @@ export default function VibeDesignPage({ content: c }: { content: VibeDesignCont
             <li key={step.number} className="relative flex gap-5 pb-8 last:pb-0">
               {idx < c.process.steps.length - 1 && (
                 <span
-                  className="absolute left-[19px] top-11 bottom-0 w-px bg-gradient-to-b from-[#FFBF00] to-[#FFBF00]/20"
+                  className="absolute left-[19px] top-11 bottom-0 w-px bg-gradient-to-b from-accent to-accent/20"
                   aria-hidden="true"
                 />
               )}
-              <span className="relative z-10 grid h-10 w-10 shrink-0 place-items-center rounded-full border-2 border-[#FFBF00] bg-white text-[13px] font-bold text-[#B07A00] dark:bg-[#182B52] dark:text-[#FFDC0F]">
+              <span className="relative z-10 grid h-10 w-10 shrink-0 place-items-center rounded-full border-2 border-accent bg-white text-[13px] font-bold text-accent ">
                 {step.number}
               </span>
               <div className="pt-1">
                 <h3 className="text-[18px] font-semibold">{step.title}</h3>
-                <p className="mt-1.5 text-[15px] leading-7 text-slate-600 dark:text-slate-300">
-                  {step.description}
-                </p>
+                <p className="mt-1.5 text-[15px] leading-7 text-ink-muted">{step.description}</p>
               </div>
             </li>
           ))}
@@ -685,7 +653,7 @@ export default function VibeDesignPage({ content: c }: { content: VibeDesignCont
         <h2 id="why-heading" className="text-xl font-semibold">
           {c.why.heading}
         </h2>
-        <div className="mt-6 rounded-2xl border border-[#E2E8F0] bg-white p-6 dark:border-slate-800 dark:bg-[#152544] sm:p-8">
+        <div className="mt-6 rounded-2xl border border-line bg-white p-6 bg-surface sm:p-8">
           <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
             <picture className="shrink-0">
               <source
@@ -705,14 +673,12 @@ export default function VibeDesignPage({ content: c }: { content: VibeDesignCont
               />
             </picture>
             <div>
-              <p className="text-[16px] leading-7 text-slate-600 dark:text-slate-300">
-                {c.why.bio}
-              </p>
+              <p className="text-[16px] leading-7 text-ink-muted">{c.why.bio}</p>
               <div className="mt-5 flex flex-wrap gap-2">
                 {c.why.credentials.map((cred) => (
                   <span
                     key={cred}
-                    className="rounded-full border border-[#D7E5FF] bg-[#F5F9FF] px-3 py-1.5 text-[13px] font-semibold text-[#3B5EA5] dark:border-[#35528C] dark:bg-[#193056] dark:text-[#B6CCF8]"
+                    className="rounded-full border border-accent/25 bg-accent-soft px-3 py-1.5 text-[13px] font-semibold text-accent bg-surface-muted"
                   >
                     {cred}
                   </span>
@@ -721,7 +687,7 @@ export default function VibeDesignPage({ content: c }: { content: VibeDesignCont
               <div className="mt-5">
                 <Link
                   href="/"
-                  className="text-[14px] font-semibold text-[#3B5EA5] underline underline-offset-4 dark:text-[#8DAEF0]"
+                  className="text-[14px] font-semibold text-accent underline underline-offset-4"
                 >
                   {c.why.linkLabel}
                 </Link>
@@ -740,17 +706,15 @@ export default function VibeDesignPage({ content: c }: { content: VibeDesignCont
           {c.faq.items.map((item) => (
             <details
               key={item.question}
-              className="group rounded-2xl border border-[#E2E8F0] bg-white dark:border-slate-800 dark:bg-[#152544]"
+              className="group rounded-2xl border border-line bg-white bg-surface"
             >
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-4 text-[16px] font-semibold">
                 {item.question}
-                <span className="shrink-0 text-slate-400 transition-transform duration-200 group-open:rotate-45">
+                <span className="shrink-0 text-ink-muted transition-transform duration-200 group-open:rotate-45">
                   +
                 </span>
               </summary>
-              <div className="px-6 pb-5 text-[15px] leading-7 text-slate-600 dark:text-slate-300">
-                {item.answer}
-              </div>
+              <div className="px-6 pb-5 text-[15px] leading-7 text-ink-muted">{item.answer}</div>
             </details>
           ))}
         </div>
@@ -762,7 +726,7 @@ export default function VibeDesignPage({ content: c }: { content: VibeDesignCont
         className="mx-auto mt-28 max-w-5xl scroll-mt-10 px-4 lg:px-0"
         aria-labelledby="cta-heading"
       >
-        <div className="relative overflow-hidden rounded-[32px] border border-slate-200/80 bg-white px-6 py-8 shadow-[0_20px_60px_rgba(15,23,42,0.08)] dark:border-slate-800 dark:bg-[#152544] sm:px-8 sm:py-10 lg:px-12 lg:py-12">
+        <div className="relative overflow-hidden rounded-[32px] border border-line bg-surface px-6 py-8 shadow-[0_20px_60px_rgba(15,23,42,0.08)] bg-surface sm:px-8 sm:py-10 lg:px-12 lg:py-12">
           <div className="absolute inset-0 opacity-80 dark:opacity-100" aria-hidden="true">
             <div className="absolute -right-16 top-0 h-56 w-56 rounded-full bg-[radial-gradient(circle,_rgba(77,142,243,0.1),_transparent_68%)]" />
             <div className="absolute left-[8%] top-[12%] h-28 w-28 rounded-full bg-[radial-gradient(circle,_rgba(255,213,0,0.08),_transparent_72%)]" />
@@ -771,38 +735,28 @@ export default function VibeDesignPage({ content: c }: { content: VibeDesignCont
 
           <div className="relative grid gap-8 lg:grid-cols-[minmax(0,1.45fr)_minmax(280px,0.95fr)] lg:items-end">
             <div>
-              <p className="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-[12px] font-semibold uppercase tracking-[0.16em] text-slate-500 dark:border-slate-700 dark:bg-slate-900/40 dark:text-slate-300">
+              <p className="inline-flex items-center rounded-full border border-line bg-slate-50 px-3 py-1 text-[12px] font-semibold uppercase tracking-[0.16em] text-ink-muted dark:bg-slate-900/40 dark:text-slate-300">
                 {c.cta.badge}
               </p>
               <h2
                 id="cta-heading"
-                className="mt-5 max-w-3xl text-balance text-[32px] font-semibold leading-[1.02] tracking-[-0.03em] text-[#182B52] dark:text-white sm:text-[40px]"
+                className="mt-5 max-w-3xl text-balance text-[32px] font-semibold leading-[1.02] tracking-[-0.03em] text-ink sm:text-[40px]"
               >
                 {c.cta.heading}
               </h2>
-              <p className="mt-4 max-w-3xl text-pretty text-[17px] leading-8 text-slate-600 dark:text-slate-300 sm:text-[18px]">
+              <p className="mt-4 max-w-3xl text-pretty text-[17px] leading-8 text-ink-muted sm:text-[18px]">
                 {c.cta.body}
               </p>
             </div>
 
-            <div className="relative rounded-[28px] border border-slate-200/80 bg-slate-50/80 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.7)] backdrop-blur-sm dark:border-slate-700 dark:bg-slate-900/30 sm:p-6">
+            <div className="relative rounded-[28px] border border-line bg-surface-muted p-5 sm:p-6">
               <div className="flex flex-col gap-3">
-                <a
-                  href={mailto}
-                  className="inline-flex min-h-11 items-center justify-center rounded-2xl bg-[#182B52] px-5 py-3 text-[15px] font-semibold text-white transition-transform duration-150 ease-out hover:-translate-y-0.5 hover:bg-[#21386A] active:scale-[0.96] dark:bg-white dark:text-[#182B52] dark:hover:bg-[#E6EEFF]"
-                >
-                  {c.cta.emailLabel}
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/oliverpitsch/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex min-h-11 items-center justify-center rounded-2xl border border-slate-300 bg-white px-5 py-3 text-[15px] font-semibold text-[#182B52] transition-transform duration-150 ease-out hover:-translate-y-0.5 hover:border-[#8DAEF0] hover:bg-[#F8FBFF] active:scale-[0.96] dark:border-slate-600 dark:bg-transparent dark:text-white dark:hover:border-[#8DAEF0] dark:hover:bg-[#193056]"
-                >
+                <Button href={mailto}>{c.cta.emailLabel}</Button>
+                <Button href="https://www.linkedin.com/in/oliverpitsch/" variant="secondary">
                   {c.cta.linkedinLabel}
-                </a>
+                </Button>
               </div>
-              <p className="mt-5 text-center text-[13px] leading-6 text-slate-500 dark:text-slate-400">
+              <p className="mt-5 text-center text-[13px] leading-6 text-ink-muted">
                 {c.cta.legalNote}{' '}
                 <Link href="/imprint" className="underline underline-offset-4">
                   {c.cta.legalLinkLabel}

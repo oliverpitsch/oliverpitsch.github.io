@@ -1,3 +1,4 @@
+import Button from '@/components/ui/Button';
 import PageShell from '@/components/layout/PageShell';
 import Link from 'next/link';
 import type { ConsultingContent } from '@/lib/consulting-content';
@@ -109,7 +110,7 @@ export default function ConsultingPage({ content: c }: { content: ConsultingCont
           />
         </picture>
 
-        <p className="inline-flex items-center rounded-full border border-[#D7E5FF] bg-[#F5F9FF] px-4 py-1.5 text-[13px] font-semibold text-[#3B5EA5] dark:border-[#35528C] dark:bg-[#193056] dark:text-[#B6CCF8]">
+        <p className="inline-flex items-center rounded-full border border-accent/25 bg-accent-soft px-4 py-1.5 text-[13px] font-semibold text-accent bg-surface-muted ">
           {c.hero.badge}
         </p>
 
@@ -120,23 +121,17 @@ export default function ConsultingPage({ content: c }: { content: ConsultingCont
           {c.hero.headline}
         </h1>
 
-        <p className="mx-auto mt-6 max-w-2xl text-pretty text-[18px] leading-8 text-slate-600 dark:text-slate-300 sm:text-[20px]">
+        <p className="mx-auto mt-6 max-w-2xl text-pretty text-[18px] leading-8 text-ink-muted sm:text-[20px]">
           {c.hero.subheadline}
         </p>
 
         <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-          <a
-            href={c.hero.cta1Href}
-            className="inline-flex min-h-11 items-center justify-center rounded-2xl bg-[#182B52] px-6 py-3 text-[15px] font-semibold text-white transition-transform duration-150 ease-out hover:-translate-y-0.5 hover:bg-[#21386A] dark:bg-white dark:text-[#182B52] dark:hover:bg-[#E6EEFF]"
-          >
+          <Button href={c.hero.cta1Href} size="lg">
             {c.hero.cta1Label}
-          </a>
-          <a
-            href="#services"
-            className="inline-flex min-h-11 items-center justify-center rounded-2xl border border-slate-300 bg-white px-6 py-3 text-[15px] font-semibold text-[#182B52] transition-transform duration-150 ease-out hover:-translate-y-0.5 hover:border-[#8DAEF0] hover:bg-[#F8FBFF] dark:border-slate-600 dark:bg-transparent dark:text-white dark:hover:border-[#8DAEF0] dark:hover:bg-[#193056]"
-          >
+          </Button>
+          <Button href="#services" variant="secondary" size="lg">
             {c.hero.cta2Label}
-          </a>
+          </Button>
         </div>
       </section>
 
@@ -147,14 +142,9 @@ export default function ConsultingPage({ content: c }: { content: ConsultingCont
         </h2>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           {c.painPoints.items.map((item) => (
-            <div
-              key={item.title}
-              className="rounded-2xl border border-[#E2E8F0] dark:border-slate-800 p-6 bg-white dark:bg-[#152544]"
-            >
+            <div key={item.title} className="rounded-2xl border border-line p-6 bg-surface">
               <h3 className="font-semibold text-[16px]">{item.title}</h3>
-              <p className="mt-2 text-[14px] leading-6 text-slate-600 dark:text-slate-300">
-                {item.description}
-              </p>
+              <p className="mt-2 text-[14px] leading-6 text-ink-muted">{item.description}</p>
             </div>
           ))}
         </div>
@@ -171,21 +161,16 @@ export default function ConsultingPage({ content: c }: { content: ConsultingCont
         </h2>
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
           {c.services.items.map((item) => (
-            <div
-              key={item.title}
-              className="rounded-2xl border border-[#E2E8F0] dark:border-slate-800 p-6 bg-white dark:bg-[#152544]"
-            >
+            <div key={item.title} className="rounded-2xl border border-line p-6 bg-surface">
               <h3 className="font-semibold text-[18px]">{item.title}</h3>
-              <p className="mt-2 text-[14px] leading-6 text-slate-600 dark:text-slate-300">
-                {item.description}
-              </p>
+              <p className="mt-2 text-[14px] leading-6 text-ink-muted">{item.description}</p>
               <ul className="mt-4 space-y-2">
                 {item.bullets.map((bullet) => (
                   <li
                     key={bullet}
-                    className="flex items-start gap-2 text-[14px] leading-6 text-slate-600 dark:text-slate-300"
+                    className="flex items-start gap-2 text-[14px] leading-6 text-ink-muted"
                   >
-                    <span className="mt-2 block h-1.5 w-1.5 shrink-0 rounded-full bg-[#FFBF00]" />
+                    <span className="mt-2 block h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
                     {bullet}
                   </li>
                 ))}
@@ -197,11 +182,11 @@ export default function ConsultingPage({ content: c }: { content: ConsultingCont
 
       {/* Inline CTA */}
       <section className="mx-auto mt-16 max-w-4xl px-6 text-center lg:px-0">
-        <p className="text-[17px] text-slate-600 dark:text-slate-300">
+        <p className="text-[17px] text-ink-muted">
           {c.lang === 'en' ? 'Questions? ' : 'Fragen? '}
           <a
             href={`mailto:oliver@pitsch.me?subject=${c.cta.emailSubject}`}
-            className="font-semibold text-[#3B5EA5] dark:text-[#8DAEF0] underline underline-offset-4"
+            className="font-semibold text-accent underline underline-offset-4"
           >
             {c.lang === 'en' ? "Let's talk." : 'Lass uns sprechen.'}
           </a>
@@ -215,18 +200,16 @@ export default function ConsultingPage({ content: c }: { content: ConsultingCont
         </h2>
         <div className="relative grid grid-cols-1 gap-8 sm:grid-cols-3">
           <div
-            className="absolute top-12 left-[16%] right-[16%] hidden h-0.5 bg-[#FFBF00] sm:block"
+            className="absolute top-12 left-[16%] right-[16%] hidden h-0.5 bg-accent sm:block"
             aria-hidden="true"
           />
           {c.approach.steps.map((step) => (
             <div key={step.number} className="relative text-center">
-              <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#FFBF00] bg-white dark:bg-[#182B52] text-[14px] font-bold text-[#FFBF00]">
+              <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full border-2 border-accent bg-surface text-[14px] font-bold text-accent">
                 {step.number}
               </div>
               <h3 className="mt-4 font-semibold text-[18px]">{step.title}</h3>
-              <p className="mt-2 text-[14px] leading-6 text-slate-600 dark:text-slate-300">
-                {step.description}
-              </p>
+              <p className="mt-2 text-[14px] leading-6 text-ink-muted">{step.description}</p>
             </div>
           ))}
         </div>
@@ -237,13 +220,13 @@ export default function ConsultingPage({ content: c }: { content: ConsultingCont
         <h2 id="about-heading" className="text-xl font-semibold mb-6">
           {c.about.heading}
         </h2>
-        <div className="rounded-2xl border border-[#E2E8F0] dark:border-slate-800 p-6 bg-white dark:bg-[#152544] sm:p-8">
-          <p className="text-[16px] leading-7 text-slate-600 dark:text-slate-300">{c.about.bio}</p>
+        <div className="rounded-2xl border border-line p-6 bg-surface sm:p-8">
+          <p className="text-[16px] leading-7 text-ink-muted">{c.about.bio}</p>
           <div className="mt-6 flex flex-wrap gap-2">
             {c.about.credentials.map((cred) => (
               <span
                 key={cred}
-                className="rounded-full border border-[#D7E5FF] bg-[#F5F9FF] px-3 py-1.5 text-[13px] font-semibold text-[#3B5EA5] dark:border-[#35528C] dark:bg-[#193056] dark:text-[#B6CCF8]"
+                className="rounded-full border border-accent/25 bg-accent-soft px-3 py-1.5 text-[13px] font-semibold text-accent bg-surface-muted"
               >
                 {cred}
               </span>
@@ -252,7 +235,7 @@ export default function ConsultingPage({ content: c }: { content: ConsultingCont
           <div className="mt-4">
             <Link
               href="/"
-              className="text-[14px] font-semibold text-[#3B5EA5] dark:text-[#8DAEF0] underline underline-offset-4"
+              className="text-[14px] font-semibold text-accent underline underline-offset-4"
             >
               {c.about.linkLabel}
             </Link>
@@ -269,17 +252,15 @@ export default function ConsultingPage({ content: c }: { content: ConsultingCont
           {c.faq.items.map((item) => (
             <details
               key={item.question}
-              className="group rounded-2xl border border-[#E2E8F0] dark:border-slate-800 bg-white dark:bg-[#152544]"
+              className="group rounded-2xl border border-line bg-surface"
             >
               <summary className="cursor-pointer select-none px-6 py-4 text-[16px] font-semibold list-none flex items-center justify-between gap-4">
                 {item.question}
-                <span className="shrink-0 text-slate-400 transition-transform duration-200 group-open:rotate-45">
+                <span className="shrink-0 text-ink-muted transition-transform duration-200 group-open:rotate-45">
                   +
                 </span>
               </summary>
-              <div className="px-6 pb-5 text-[15px] leading-7 text-slate-600 dark:text-slate-300">
-                {item.answer}
-              </div>
+              <div className="px-6 pb-5 text-[15px] leading-7 text-ink-muted">{item.answer}</div>
             </details>
           ))}
         </div>
@@ -287,7 +268,7 @@ export default function ConsultingPage({ content: c }: { content: ConsultingCont
 
       {/* Contact CTA */}
       <section className="mx-auto mt-24 max-w-5xl px-4 lg:px-0" aria-labelledby="cta-heading">
-        <div className="relative overflow-hidden rounded-[32px] border border-slate-200/80 bg-white px-6 py-8 shadow-[0_20px_60px_rgba(15,23,42,0.08)] dark:border-slate-800 dark:bg-[#152544] sm:px-8 sm:py-10 lg:px-12 lg:py-12">
+        <div className="relative overflow-hidden rounded-[32px] border border-line bg-surface px-6 py-8 shadow-[0_20px_60px_rgba(15,23,42,0.08)] bg-surface sm:px-8 sm:py-10 lg:px-12 lg:py-12">
           <div className="absolute inset-0 opacity-80 dark:opacity-100" aria-hidden="true">
             <div className="absolute -right-16 top-0 h-56 w-56 rounded-full bg-[radial-gradient(circle,_rgba(77,142,243,0.1),_transparent_68%)]" />
             <div className="absolute left-[8%] top-[12%] h-28 w-28 rounded-full bg-[radial-gradient(circle,_rgba(255,213,0,0.08),_transparent_72%)]" />
@@ -296,39 +277,31 @@ export default function ConsultingPage({ content: c }: { content: ConsultingCont
 
           <div className="relative grid gap-8 lg:grid-cols-[minmax(0,1.45fr)_minmax(280px,0.95fr)] lg:items-end">
             <div>
-              <p className="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-[12px] font-semibold uppercase tracking-[0.16em] text-slate-500 dark:border-slate-700 dark:bg-slate-900/40 dark:text-slate-300">
+              <p className="inline-flex items-center rounded-full border border-line bg-surface-muted px-3 py-1 text-[12px] font-semibold uppercase tracking-[0.16em] text-slate-500 ">
                 {c.cta.badge}
               </p>
               <h2
                 id="cta-heading"
-                className="mt-5 max-w-3xl text-balance text-[32px] font-semibold leading-[1.02] tracking-[-0.03em] text-[#182B52] dark:text-white sm:text-[40px]"
+                className="mt-5 max-w-3xl text-balance text-[32px] font-semibold leading-[1.02] tracking-[-0.03em] text-ink sm:text-[40px]"
               >
                 {c.cta.heading}
               </h2>
-              <p className="mt-4 max-w-3xl text-pretty text-[17px] leading-8 text-slate-600 dark:text-slate-300 sm:text-[18px]">
+              <p className="mt-4 max-w-3xl text-pretty text-[17px] leading-8 text-ink-muted sm:text-[18px]">
                 {c.cta.body}
               </p>
             </div>
 
-            <div className="relative rounded-[28px] border border-slate-200/80 bg-slate-50/80 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.7)] backdrop-blur-sm dark:border-slate-700 dark:bg-slate-900/30 sm:p-6">
+            <div className="relative rounded-[28px] border border-line bg-surface-muted p-5 sm:p-6">
               <div className="flex flex-col gap-3">
-                <a
-                  href={`mailto:oliver@pitsch.me?subject=${c.cta.emailSubject}`}
-                  className="inline-flex min-h-11 items-center justify-center rounded-2xl bg-[#182B52] px-5 py-3 text-[15px] font-semibold text-white transition-transform duration-150 ease-out hover:-translate-y-0.5 hover:bg-[#21386A] dark:bg-white dark:text-[#182B52] dark:hover:bg-[#E6EEFF]"
-                >
+                <Button href={`mailto:oliver@pitsch.me?subject=${c.cta.emailSubject}`}>
                   {c.cta.emailLabel}
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/oliverpitsch/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex min-h-11 items-center justify-center rounded-2xl border border-slate-300 bg-white px-5 py-3 text-[15px] font-semibold text-[#182B52] transition-transform duration-150 ease-out hover:-translate-y-0.5 hover:border-[#8DAEF0] hover:bg-[#F8FBFF] dark:border-slate-600 dark:bg-transparent dark:text-white dark:hover:border-[#8DAEF0] dark:hover:bg-[#193056]"
-                >
+                </Button>
+                <Button href="https://www.linkedin.com/in/oliverpitsch/" variant="secondary">
                   {c.cta.linkedinLabel}
-                </a>
+                </Button>
               </div>
 
-              <p className="mt-5 text-center text-[13px] leading-6 text-slate-500 dark:text-slate-400">
+              <p className="mt-5 text-center text-[13px] leading-6 text-ink-muted">
                 {c.cta.legalNote}{' '}
                 <Link href="/imprint" className="underline underline-offset-4">
                   {c.cta.legalLinkLabel}

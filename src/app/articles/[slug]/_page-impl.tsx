@@ -61,7 +61,7 @@ export async function renderArticle(slug: string) {
       <article className="mx-auto max-w-3xl px-6 py-12 lg:px-0">
         <header className="mb-10">
           <div
-            className={`${article.imageDescription ? 'mb-2' : 'mb-8'} rounded-xl overflow-hidden border border-[#E2E8F0] dark:border-[#283B63] shadow-sm bg-white dark:bg-[#152544]`}
+            className={`${article.imageDescription ? 'mb-2' : 'mb-8'} rounded-xl overflow-hidden border border-line shadow-sm bg-surface`}
           >
             <img
               src={heroSrc}
@@ -70,14 +70,12 @@ export async function renderArticle(slug: string) {
             />
           </div>
           {article.imageDescription && (
-            <p className="mb-8 text-xs text-slate-500 dark:text-slate-400">
-              {article.imageDescription}
-            </p>
+            <p className="mb-8 text-xs text-ink-muted">{article.imageDescription}</p>
           )}
           <h1 className="text-3xl md:text-4xl font-semibold leading-tight tracking-tight">
             {article.Title}
           </h1>
-          <div className="mt-4 flex flex-wrap items-center gap-x-4 text-sm font-medium text-slate-700 dark:text-slate-200">
+          <div className="mt-4 flex flex-wrap items-center gap-x-4 text-sm font-medium text-ink">
             <picture className="shrink-0">
               <source
                 media="(prefers-color-scheme: light) or (prefers-color-scheme: no-preference)"
@@ -90,7 +88,7 @@ export async function renderArticle(slug: string) {
               <img
                 src="/images/oliver-pitsch-2025-dark.png"
                 alt="Oliver Pitsch"
-                className="h-9 w-9 rounded-full mix-blend-multiply dark:mix-blend-normal ring-2 ring-[#FFBF00]/70 dark:ring-[#FFDC0F]/70"
+                className="h-9 w-9 rounded-full mix-blend-multiply dark:mix-blend-normal ring-2 ring-accent/40"
               />
             </picture>
             <span className="leading-none">{authorName}</span>
@@ -135,24 +133,24 @@ export async function renderArticle(slug: string) {
           </div>
         </header>
         <div
-          className="article-body markdown-content text-lg leading-7 [&_p]:mt-6 [&_p:first-child]:mt-0 text-[#182B52] dark:text-[#E6EEFF]"
+          className="article-body markdown-content text-lg leading-7 [&_p]:mt-6 [&_p:first-child]:mt-0 text-ink"
           id="article-content"
         >
           <div dangerouslySetInnerHTML={{ __html: article.html }} />
         </div>
         {/* Conversation CTA */}
         <section className="mt-14">
-          <div className="relative overflow-hidden rounded-2xl border border-[#E2E8F0] dark:border-[#283B63] bg-white dark:bg-[#152544] p-6 sm:p-8 shadow-sm">
+          <div className="relative overflow-hidden rounded-2xl border border-line bg-surface p-6 sm:p-8 shadow-sm">
             <div
-              className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-[#FFDC0F]/60 blur-2xl"
+              className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-accent/60 blur-2xl"
               aria-hidden
             />
             <div className="relative z-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <h3 className="text-xl font-semibold tracking-tight text-slate-700 dark:text-white">
+                <h3 className="text-xl font-semibold tracking-tight text-ink">
                   Have thoughts about this topic?
                 </h3>
-                <p className="mt-1 text-sm leading-6 text-slate-700 dark:text-slate-300">
+                <p className="mt-1 text-sm leading-6 text-ink-muted">
                   I’d love to hear your perspective. Let’s continue the conversation on LinkedIn.
                 </p>
               </div>
@@ -161,7 +159,7 @@ export async function renderArticle(slug: string) {
                   href="https://www.linkedin.com/in/oliverpitsch/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full bg-[#0A66C2] px-5 py-2.5 text-white font-medium shadow hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0A66C2] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#152544] whitespace-nowrap"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#0A66C2] px-5 py-2.5 text-white font-medium shadow hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0A66C2] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-canvas whitespace-nowrap"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -179,7 +177,7 @@ export async function renderArticle(slug: string) {
             </div>
           </div>
         </section>
-        <div className="mt-16 border-t border-[#E2E8F0] dark:border-[#283B63] pt-10">
+        <div className="mt-16 border-t border-line pt-10">
           <div className="flex flex-col sm:flex-row gap-6 items-start">
             <picture className="shrink-0">
               <source
@@ -193,12 +191,12 @@ export async function renderArticle(slug: string) {
               <img
                 src="/images/oliver-pitsch-2025-dark.png"
                 alt="Oliver Pitsch"
-                className="h-28 w-28 rounded-full mix-blend-multiply dark:mix-blend-normal ring-4 ring-[#FFDC0F] ring-offset-4 ring-offset-[#F8FAFC] dark:ring-offset-[#182B52]"
+                className="h-28 w-28 rounded-full mix-blend-multiply dark:mix-blend-normal ring-4 ring-accent/40 ring-offset-4 ring-offset-canvas"
               />
             </picture>
             <div className="flex-1">
               <h3 className="text-xl font-semibold">About the author</h3>
-              <p className="mt-4 text-[16px] leading-7 text-[#182B52] dark:text-[#E6EEFF]">
+              <p className="mt-4 text-[16px] leading-7 text-ink">
                 Oliver Pitsch is a product maker and builder with 20 years of experience across
                 design, UX, and product leadership. Based in Cologne, Germany, he is currently Head
                 of Product at{' '}
@@ -231,9 +229,9 @@ export async function renderArticle(slug: string) {
             {adjacent.previous && (
               <Link
                 href={`/articles/${adjacent.previous.slug}`}
-                className={`${adjacent.next ? 'col-span-1' : 'col-span-2'} group inline-flex flex-col rounded-md border border-slate-200 dark:border-slate-800 p-3 hover:bg-slate-50 dark:hover:bg-slate-900/60 transition`}
+                className={`${adjacent.next ? 'col-span-1' : 'col-span-2'} group inline-flex flex-col rounded-md border border-line p-3 hover:bg-slate-50 dark:hover:bg-slate-900/60 transition`}
               >
-                <span className="text-xs uppercase tracking-wide text-slate-500">
+                <span className="text-xs uppercase tracking-wide text-ink-muted">
                   Previous Article
                 </span>
                 <span className="font-medium group-hover:text-indigo-600 dark:group-hover:text-indigo-400">
@@ -244,9 +242,9 @@ export async function renderArticle(slug: string) {
             {adjacent.next && (
               <Link
                 href={`/articles/${adjacent.next.slug}`}
-                className={`${adjacent.previous ? 'col-span-1' : 'col-span-2'} group inline-flex flex-col rounded-md border border-slate-200 dark:border-slate-800 p-3 hover:bg-slate-50 dark:hover:bg-slate-900/60 transition`}
+                className={`${adjacent.previous ? 'col-span-1' : 'col-span-2'} group inline-flex flex-col rounded-md border border-line p-3 hover:bg-slate-50 dark:hover:bg-slate-900/60 transition`}
               >
-                <span className="text-xs uppercase tracking-wide text-slate-500 text-right">
+                <span className="text-xs uppercase tracking-wide text-ink-muted text-right">
                   Next Article
                 </span>
                 <span className="font-medium group-hover:text-indigo-600 dark:group-hover:text-indigo-400 text-right">
@@ -267,7 +265,7 @@ export async function renderArticle(slug: string) {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="stroke-amber-800 size-6"
+          className="size-6 stroke-current"
         >
           <path
             strokeLinecap="round"

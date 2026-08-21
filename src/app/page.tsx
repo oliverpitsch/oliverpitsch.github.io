@@ -1,3 +1,4 @@
+import Button from '@/components/ui/Button';
 import PageShell from '@/components/layout/PageShell';
 /*
   We intentionally use native <img> tags instead of next/image because:
@@ -50,9 +51,7 @@ function Social() {
 
   return (
     <div className="mt-40 text-center">
-      <h3 className="mb-8 text-[16px] font-semibold text-slate-500 dark:text-[#E6EEFF]">
-        Get in touch
-      </h3>
+      <h3 className="mb-8 text-[16px] font-semibold text-ink-muted">Get in touch</h3>
       <div className="mx-auto grid max-w-lg grid-cols-3 place-items-center gap-8">
         {links.map((l) => (
           <a key={l.href} href={l.href} title={`Oliver Pitsch on ${l.title}`} className="group">
@@ -125,11 +124,11 @@ function ProductProjects() {
       <div className="mx-auto max-w-4xl text-center">
         <h2
           id="projects-heading"
-          className="text-balance text-[34px] font-semibold leading-tight tracking-[-0.03em] text-[#182B52] dark:text-white sm:text-[42px]"
+          className="text-balance text-[34px] font-semibold leading-tight tracking-[-0.03em] text-ink sm:text-[42px]"
         >
           Products I build when the problem feels personal enough
         </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-pretty text-[17px] leading-8 text-slate-600 dark:text-slate-300">
+        <p className="mx-auto mt-4 max-w-2xl text-pretty text-[17px] leading-8 text-ink-muted">
           Alongside consulting and product leadership, I keep shipping my own products. They are
           small by team size, serious by ambition, and built close to the people they are meant to
           help.
@@ -142,7 +141,7 @@ function ProductProjects() {
             key={project.name}
             className={`group flex min-h-[28rem] flex-col overflow-hidden rounded-[28px] ${project.theme.frame} p-1.5`}
           >
-            <div className="flex flex-1 flex-col rounded-[22px] bg-white p-6 shadow-popover dark:bg-[#0B1730] sm:p-7">
+            <div className="flex flex-1 flex-col rounded-[22px] bg-surface p-6 shadow-popover sm:p-7">
               <div className="flex min-h-16 items-start">
                 <div>
                   <img
@@ -150,7 +149,7 @@ function ProductProjects() {
                     alt={`${project.name} logo`}
                     className={project.logoClassName}
                   />
-                  <h3 className="mt-5 text-[26px] font-semibold leading-none tracking-[-0.02em] text-[#182B52] dark:text-white">
+                  <h3 className="mt-5 text-[26px] font-semibold leading-none tracking-[-0.02em] text-ink">
                     {project.name}
                   </h3>
                 </div>
@@ -159,9 +158,7 @@ function ProductProjects() {
               <p className={`mt-8 text-[19px] font-semibold leading-7 ${project.theme.text}`}>
                 {project.lead}
               </p>
-              <p className="mt-4 flex-1 text-[15px] leading-7 text-slate-600 dark:text-slate-300">
-                {project.story}
-              </p>
+              <p className="mt-4 flex-1 text-[15px] leading-7 text-ink-muted">{project.story}</p>
 
               <div className="mt-8">
                 <a
@@ -189,7 +186,7 @@ function ContactCTA() {
 
   return (
     <section className="mx-auto mt-20 max-w-5xl px-4 lg:px-0" aria-labelledby="contact-heading">
-      <div className="relative overflow-hidden rounded-[32px] border border-slate-200/80 bg-white px-6 py-8 shadow-[0_20px_60px_rgba(15,23,42,0.08)] dark:border-slate-800 dark:bg-[#152544] sm:px-8 sm:py-10 lg:px-12 lg:py-12">
+      <div className="relative overflow-hidden rounded-[32px] border border-line bg-surface px-6 py-8 shadow-[0_20px_60px_rgba(15,23,42,0.08)] bg-surface sm:px-8 sm:py-10 lg:px-12 lg:py-12">
         <div className="absolute inset-0 opacity-80 dark:opacity-100" aria-hidden="true">
           <div className="absolute -right-16 top-0 h-56 w-56 rounded-full bg-[radial-gradient(circle,_rgba(77,142,243,0.1),_transparent_68%)]" />
           <div className="absolute left-[8%] top-[12%] h-28 w-28 rounded-full bg-[radial-gradient(circle,_rgba(255,213,0,0.08),_transparent_72%)]" />
@@ -198,16 +195,16 @@ function ContactCTA() {
 
         <div className="relative grid gap-8 lg:grid-cols-[minmax(0,1.45fr)_minmax(280px,0.95fr)] lg:items-end">
           <div>
-            <p className="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-[12px] font-semibold uppercase tracking-[0.16em] text-slate-500 dark:border-slate-700 dark:bg-slate-900/40 dark:text-slate-300">
+            <p className="inline-flex items-center rounded-full border border-line bg-surface-muted px-3 py-1 text-[12px] font-semibold uppercase tracking-[0.16em] text-slate-500 ">
               Get in touch
             </p>
             <h2
               id="contact-heading"
-              className="mt-5 max-w-3xl text-balance text-[32px] font-semibold leading-[1.02] tracking-[-0.03em] text-[#182B52] dark:text-white sm:text-[40px]"
+              className="mt-5 max-w-3xl text-balance text-[32px] font-semibold leading-[1.02] tracking-[-0.03em] text-ink sm:text-[40px]"
             >
               Contact Oliver Pitsch for product strategy, UX, and AI building
             </h2>
-            <p className="mt-4 max-w-3xl text-pretty text-[17px] leading-8 text-slate-600 dark:text-slate-300 sm:text-[18px]">
+            <p className="mt-4 max-w-3xl text-pretty text-[17px] leading-8 text-ink-muted sm:text-[18px]">
               If you are building a product, evolving a product team, or looking for a sharper way
               to move from customer insight to shipped software, let&apos;s talk. I work with
               leaders, founders, and teams that want clearer direction, stronger UX, and faster
@@ -218,7 +215,7 @@ function ContactCTA() {
               {topics.map((topic) => (
                 <span
                   key={topic}
-                  className="rounded-full border border-[#D7E5FF] bg-[#F5F9FF] px-3 py-1.5 text-[13px] font-semibold text-[#3B5EA5] dark:border-[#35528C] dark:bg-[#193056] dark:text-[#B6CCF8]"
+                  className="rounded-full border border-accent/25 bg-accent-soft px-3 py-1.5 text-[13px] font-semibold text-accent bg-surface-muted"
                 >
                   {topic}
                 </span>
@@ -226,32 +223,24 @@ function ContactCTA() {
             </div>
           </div>
 
-          <div className="relative rounded-[28px] border border-slate-200/80 bg-slate-50/80 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.7)] backdrop-blur-sm dark:border-slate-700 dark:bg-slate-900/30 sm:p-6">
-            <h3 className="text-[18px] font-semibold tracking-tight text-[#182B52] dark:text-white">
+          <div className="relative rounded-[28px] border border-line bg-surface-muted p-5 sm:p-6">
+            <h3 className="text-[18px] font-semibold tracking-tight text-ink">
               Start a conversation
             </h3>
-            <p className="mt-2 text-[15px] leading-7 text-slate-600 dark:text-slate-300">
+            <p className="mt-2 text-[15px] leading-7 text-ink-muted">
               Best fit for advisory, product leadership, UX direction, and AI building.
             </p>
 
             <div className="mt-6 flex flex-col gap-3">
-              <a
-                href="mailto:office@pitsch.me?subject=Let%27s%20talk"
-                className="inline-flex min-h-11 items-center justify-center rounded-2xl bg-[#182B52] px-5 py-3 text-[15px] font-semibold text-white transition-transform duration-150 ease-out hover:-translate-y-0.5 hover:bg-[#21386A] dark:bg-white dark:text-[#182B52] dark:hover:bg-[#E6EEFF]"
-              >
+              <Button href="mailto:office@pitsch.me?subject=Let%27s%20talk">
                 Email me directly
-              </a>
-              <a
-                href="https://www.linkedin.com/in/oliverpitsch/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex min-h-11 items-center justify-center rounded-2xl border border-slate-300 bg-white px-5 py-3 text-[15px] font-semibold text-[#182B52] transition-transform duration-150 ease-out hover:-translate-y-0.5 hover:border-[#8DAEF0] hover:bg-[#F8FBFF] dark:border-slate-600 dark:bg-transparent dark:text-white dark:hover:border-[#8DAEF0] dark:hover:bg-[#193056]"
-              >
+              </Button>
+              <Button href="https://www.linkedin.com/in/oliverpitsch/" variant="secondary">
                 Message on LinkedIn
-              </a>
+              </Button>
             </div>
 
-            <p className="mt-5 text-center text-[13px] leading-6 text-slate-500 dark:text-slate-400">
+            <p className="mt-5 text-center text-[13px] leading-6 text-ink-muted">
               Prefer formal contact details? See the{' '}
               <Link href="/imprint" className="underline underline-offset-4">
                 imprint and contact information
@@ -276,10 +265,10 @@ export default async function Home() {
         <h1 className="text-balance text-[56px] font-semibold leading-[0.92] tracking-[-0.03em] sm:text-[68px] lg:text-[76px]">
           Oliver Pitsch
         </h1>
-        <p className="mx-auto mt-6 max-w-2xl text-balance text-[21px] font-semibold tracking-[0.01em] text-[#3B5EA5] dark:text-[#8DAEF0] sm:text-[24px]">
+        <p className="mx-auto mt-6 max-w-2xl text-balance text-[21px] font-semibold tracking-[0.01em] text-accent sm:text-[24px]">
           Product, UX, and AI building
         </p>
-        <p className="mx-auto mt-4 max-w-xl text-balance text-[17px] leading-7 text-slate-500 dark:text-slate-400 sm:text-[19px]">
+        <p className="mx-auto mt-4 max-w-xl text-balance text-[17px] leading-7 text-ink-muted sm:text-[19px]">
           Turning product context into shipped software
         </p>
       </div>
@@ -287,7 +276,7 @@ export default async function Home() {
       <Timeline />
 
       <section
-        className="mx-auto mt-16 max-w-4xl text-[18px] leading-7 text-[#182B52] dark:text-[#E6EEFF] px-10 lg:px-0"
+        className="mx-auto mt-16 max-w-4xl text-[18px] leading-7 text-ink px-10 lg:px-0"
         aria-label="About Oliver Pitsch"
       >
         <p>
@@ -328,9 +317,7 @@ export default async function Home() {
       <ProductProjects />
 
       <section className="mx-auto mt-16 max-w-4xl px-10 lg:px-0" aria-label="Areas of expertise">
-        <h2 className="text-xl font-semibold mb-6 text-[#182B52] dark:text-white">
-          How I create leverage
-        </h2>
+        <h2 className="text-xl font-semibold mb-6 text-ink">How I create leverage</h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
           {(
             [
@@ -360,14 +347,9 @@ export default async function Home() {
               },
             ] as { label: string; desc: string }[]
           ).map((item) => (
-            <div
-              key={item.label}
-              className="rounded-2xl border border-[#E2E8F0] dark:border-slate-800 p-5 bg-white dark:bg-[#152544]"
-            >
-              <h3 className="font-semibold text-[16px] text-[#182B52] dark:text-white">
-                {item.label}
-              </h3>
-              <p className="mt-2 text-[14px] text-slate-600 dark:text-slate-300">{item.desc}</p>
+            <div key={item.label} className="rounded-2xl border border-line p-5 bg-surface">
+              <h3 className="font-semibold text-[16px] text-ink">{item.label}</h3>
+              <p className="mt-2 text-[14px] text-ink-muted">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -382,14 +364,14 @@ export default async function Home() {
               <h2 className="text-lg md:text-xl font-semibold tracking-tight">
                 Writing on product systems, AI, and building
               </h2>
-              <p className="mt-1 text-[14px] text-slate-500 dark:text-slate-400">
+              <p className="mt-1 text-[14px] text-ink-muted">
                 Perspectives on AI building, modern product work, and where software teams are
                 headed.
               </p>
             </div>
             <Link
               href="/articles"
-              className="text-[14px] font-semibold text-indigo-700 dark:text-indigo-300 underline shrink-0"
+              className="text-[14px] font-semibold text-accent underline shrink-0"
             >
               All articles →
             </Link>
