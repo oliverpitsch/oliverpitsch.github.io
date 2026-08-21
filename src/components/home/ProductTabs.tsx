@@ -210,7 +210,7 @@ export default function ProductTabs({ products }: { products: Product[] }) {
                   aria-hidden
                   className={[
                     'absolute inset-y-0 left-0 -right-6 rounded-l-[18px] transition-colors duration-300',
-                    selected ? 'bg-surface' : 'bg-transparent group-hover/tab:bg-surface/45',
+                    selected ? 'bg-surface/55' : 'bg-transparent group-hover/tab:bg-surface/30',
                   ].join(' ')}
                 />
                 <span
