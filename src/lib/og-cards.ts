@@ -11,10 +11,11 @@ export type OgCard = {
   key: string;
   /** Page the card belongs to. */
   path: string;
-  eyebrow: string;
   title: string;
   subtitle?: string;
   visual: OgVisual;
+  /** Printed after pitsch.me under the signature, e.g. an article's date. */
+  detail?: string;
   /** og:title / og:description, used by the /metaImage preview. */
   share: { title: string; description: string };
 };
@@ -24,7 +25,6 @@ export async function getOgCards(): Promise<OgCard[]> {
     {
       key: 'home',
       path: '/',
-      eyebrow: 'Product Leader & Builder',
       title: 'Oliver Pitsch',
       subtitle:
         'I lead product and I build it. Twenty years across design, UX and product, now building Joinride, Famili and neuerName.',
@@ -37,7 +37,6 @@ export async function getOgCards(): Promise<OgCard[]> {
     {
       key: 'cv',
       path: '/cv',
-      eyebrow: 'Curriculum vitae',
       title: 'Oliver Pitsch',
       subtitle:
         'AI-native product leader, maker and builder. Head of Product & Engineering, Head of Product, Director UX.',
@@ -50,7 +49,6 @@ export async function getOgCards(): Promise<OgCard[]> {
     {
       key: 'articles',
       path: '/articles',
-      eyebrow: 'Articles',
       title: 'Writing on product, UX and building with AI',
       visual: { kind: 'none' },
       share: {
@@ -68,7 +66,6 @@ export async function getOgCards(): Promise<OgCard[]> {
       ({ key, path, c }): OgCard => ({
         key,
         path,
-        eyebrow: c.hero.badge,
         title: c.hero.headline,
         visual: { kind: 'none' },
         share: { title: c.meta.ogTitle, description: c.meta.ogDescription },
@@ -81,9 +78,9 @@ export async function getOgCards(): Promise<OgCard[]> {
     (a): OgCard => ({
       key: articleOgKey(a.slug),
       path: `/articles/${a.slug}`,
-      eyebrow: ['Article', a.displayDate, a.readingTime].filter(Boolean).join(' · '),
       title: a.Title,
       visual: { kind: 'image', src: a.heroImage || `/og/${a.slug}.jpg` },
+      detail: [a.displayDate, a.readingTime].filter(Boolean).join(' · '),
       share: { title: a.Title, description: a.description || a.Title },
     }),
   );

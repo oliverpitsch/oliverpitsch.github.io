@@ -13,7 +13,6 @@ const c = {
   ink: '#1e293b',
   inkMuted: '#5d6d84',
   line: '#e2e8f0',
-  accentStrong: '#4338ca',
   accentSoft: '#eef0ff',
   stripes: ['#4338ca', '#6366f1', '#a5b4fc'],
 };
@@ -117,27 +116,9 @@ export function renderOgCard(card: OgCard): ImageResponse {
               justifyContent: 'space-between',
             }}
           >
-            <Mark size={64} />
-
             <div style={{ display: 'flex', flexDirection: 'column' }}>
-              <div style={{ display: 'flex' }}>
-                <div
-                  style={{
-                    display: 'flex',
-                    padding: '8px 18px',
-                    borderRadius: 999,
-                    background: c.accentSoft,
-                    color: c.accentStrong,
-                    fontSize: 22,
-                    fontWeight: 500,
-                  }}
-                >
-                  {card.eyebrow}
-                </div>
-              </div>
               <div
                 style={{
-                  marginTop: 24,
                   fontSize: size,
                   fontWeight: 600,
                   lineHeight: 1.04,
@@ -162,19 +143,18 @@ export function renderOgCard(card: OgCard): ImageResponse {
               )}
             </div>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-              {!showPortrait && portrait && (
-                <img
-                  src={portrait}
-                  alt=""
-                  width={52}
-                  height={52}
-                  style={{ borderRadius: 999, background: c.accentSoft, objectFit: 'cover' }}
-                />
-              )}
-              {!showPortrait && <div style={{ fontSize: 24, fontWeight: 600 }}>Oliver Pitsch</div>}
+            {/* The brand mark is a signature, so it signs off below the content. */}
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'flex-start',
+                gap: 14,
+              }}
+            >
+              <Mark size={112} />
               <div style={{ fontFamily: 'Geist Mono', fontSize: 22, color: c.inkMuted }}>
-                pitsch.me
+                {['pitsch.me', card.detail].filter(Boolean).join(' · ')}
               </div>
             </div>
           </div>
