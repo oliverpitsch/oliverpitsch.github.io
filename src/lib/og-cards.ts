@@ -24,7 +24,7 @@ export async function getOgCards(): Promise<OgCard[]> {
     {
       key: 'home',
       path: '/',
-      eyebrow: 'Product & Engineering Leader',
+      eyebrow: 'Product Leader & Builder',
       title: 'Oliver Pitsch',
       subtitle:
         'I lead product and I build it. Twenty years across design, UX and product, now building Joinride, Famili and neuerName.',

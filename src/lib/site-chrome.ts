@@ -29,14 +29,14 @@ export const siteMetadata = {
     title: 'Oliver Pitsch – Product & Engineering Leader',
     description:
       'Product and engineering leader from Cologne, Germany. 20 years across design, UX, and product. Solo builder behind Joinride, Famili and neuerName.',
-    images: ogImages('home', 'Oliver Pitsch – Product & Engineering Leader'),
+    images: ogImages('home', 'Oliver Pitsch – Product Leader & Builder'),
   },
   twitter: {
     card: 'summary_large_image' as const,
     title: 'Oliver Pitsch – Product & Engineering Leader',
     description:
       'Product and engineering leader from Cologne, Germany. 20 years across design, UX, and product. Solo builder behind Joinride, Famili and neuerName.',
-    images: ogImages('home', 'Oliver Pitsch – Product & Engineering Leader'),
+    images: ogImages('home', 'Oliver Pitsch – Product Leader & Builder'),
   },
   icons: {
     icon: [
