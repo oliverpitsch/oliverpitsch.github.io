@@ -1,4 +1,5 @@
 import { Geist, Geist_Mono } from 'next/font/google';
+import { ogImages } from '@/lib/og-meta';
 
 /** One font instance per family, shared by both root layouts. */
 export const geistSans = Geist({
@@ -28,26 +29,14 @@ export const siteMetadata = {
     title: 'Oliver Pitsch – Product & Engineering Leader',
     description:
       'Product and engineering leader from Cologne, Germany. 20 years across design, UX, and product. Solo builder behind Joinride, Famili and neuerName.',
-    images: [
-      {
-        url: '/images/og-images/og-facebook.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Oliver Pitsch – Product & Engineering Leader',
-      },
-    ],
+    images: ogImages('home', 'Oliver Pitsch – Product & Engineering Leader'),
   },
   twitter: {
     card: 'summary_large_image' as const,
     title: 'Oliver Pitsch – Product & Engineering Leader',
     description:
       'Product and engineering leader from Cologne, Germany. 20 years across design, UX, and product. Solo builder behind Joinride, Famili and neuerName.',
-    images: [
-      {
-        url: '/images/og-images/og-twitter-card.jpg',
-        alt: 'Oliver Pitsch – Product & Engineering Leader',
-      },
-    ],
+    images: ogImages('home', 'Oliver Pitsch – Product & Engineering Leader'),
   },
   icons: {
     icon: [
