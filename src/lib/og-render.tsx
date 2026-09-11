@@ -14,6 +14,7 @@ const c = {
   inkMuted: '#5d6d84',
   line: '#e2e8f0',
   accentSoft: '#eef0ff',
+  indigo: '#4338ca',
   stripes: ['#4338ca', '#6366f1', '#a5b4fc'],
 };
 
@@ -66,7 +67,7 @@ function Mark({ size }: { size: number }) {
           d={d}
           fillRule={evenOdd ? 'evenodd' : undefined}
           clipRule={evenOdd ? 'evenodd' : undefined}
-          fill={c.ink}
+          fill={c.indigo}
         />
       ))}
     </svg>
@@ -113,10 +114,17 @@ export function renderOgCard(card: OgCard): ImageResponse {
               flex: 1,
               display: 'flex',
               flexDirection: 'column',
-              justifyContent: 'space-between',
             }}
           >
-            <div style={{ display: 'flex', flexDirection: 'column' }}>
+            {/* Centred in the space above the signature, so the text sits close to it. */}
+            <div
+              style={{
+                flex: 1,
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+              }}
+            >
               <div
                 style={{
                   fontSize: size,

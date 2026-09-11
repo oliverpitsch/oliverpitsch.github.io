@@ -27,7 +27,7 @@ export async function getOgCards(): Promise<OgCard[]> {
       path: '/',
       title: 'Oliver Pitsch',
       subtitle:
-        'I lead product and I build it. Twenty years across design, UX and product, now building Joinride, Famili and neuerName.',
+        'I lead product and I build it. Twenty years across design, UX and product. Now building Joinride.cc, Famili.one and neuerName.com.',
       visual: { kind: 'portrait' },
       share: {
         title: siteMetadata.openGraph.title,
