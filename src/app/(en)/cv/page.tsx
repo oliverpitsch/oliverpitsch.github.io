@@ -4,6 +4,7 @@ import Container from '@/components/layout/Container';
 import PageShell from '@/components/layout/PageShell';
 import PrintButton from '@/components/cv/PrintButton';
 import { cv } from '@/lib/cv';
+import { ogImages } from '@/lib/og-meta';
 
 const siteUrl = 'https://pitsch.me';
 
@@ -25,11 +26,13 @@ export const metadata = {
     url: '/cv',
     title: 'CV – Oliver Pitsch',
     description: cv.summary,
+    images: ogImages('cv', 'CV – Oliver Pitsch'),
   },
   twitter: {
     card: 'summary_large_image',
     title: 'CV – Oliver Pitsch',
     description: cv.summary,
+    images: ogImages('cv', 'CV – Oliver Pitsch'),
   },
 };
 

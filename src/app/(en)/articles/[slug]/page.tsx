@@ -1,4 +1,5 @@
 import { getArticleBySlug, getArticleSlugs } from '@/lib/articles';
+import { articleOgKey, ogImagePath } from '@/lib/og-meta';
 import { renderArticle } from './_page-impl';
 
 const siteUrl = 'https://pitsch.me';
@@ -37,7 +38,8 @@ export async function generateMetadata({ params }: WrappedPageProps) {
     article.description ||
     (article.author ? `${article.Title} by ${article.author}` : article.Title);
   const articleUrl = `/articles/${article.slug}`;
-  const ogImage = toAbsoluteUrl(article.ogImage || article.heroImage || `/og/${article.slug}.jpg`);
+  // A frontmatter ogImage still wins; otherwise the generated share card.
+  const ogImage = toAbsoluteUrl(article.ogImage || ogImagePath(articleOgKey(article.slug)));
   const authorName = article.author || 'Oliver Pitsch';
   const publishedTime = article.date ? new Date(article.date).toISOString() : undefined;
   const modifiedTime = article.updated ? new Date(article.updated).toISOString() : publishedTime;

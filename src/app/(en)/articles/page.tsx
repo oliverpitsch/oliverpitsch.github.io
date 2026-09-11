@@ -2,6 +2,7 @@ import Container from '@/components/layout/Container';
 import PageShell from '@/components/layout/PageShell';
 import { getAllArticlesMeta } from '@/lib/articles';
 import ArticleCard from '@/components/ArticleCard';
+import { ogImages } from '@/lib/og-meta';
 
 const siteUrl = 'https://pitsch.me';
 const articlesUrl = `${siteUrl}/articles`;
@@ -20,12 +21,14 @@ export const metadata = {
     title: 'Articles – Oliver Pitsch',
     description:
       'Writing by Oliver Pitsch on product strategy, UX, AI building, and the future of how modern software gets made.',
+    images: ogImages('articles', 'Articles – Oliver Pitsch'),
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Articles – Oliver Pitsch',
     description:
       'Writing by Oliver Pitsch on product strategy, UX, AI building, and the future of how modern software gets made.',
+    images: ogImages('articles', 'Articles – Oliver Pitsch'),
   },
 };
 

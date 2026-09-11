@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { ogImages } from '@/lib/og-meta';
 
 const EN_PATH = '/vibe-coded-design';
 const DE_PATH = '/design-fuer-vibe-coding';
@@ -635,20 +636,13 @@ export function buildMetadata(c: VibeDesignContent): Metadata {
       url: c.pagePath,
       title: c.meta.ogTitle,
       description: c.meta.ogDescription,
-      images: [
-        {
-          url: '/images/og-images/og-facebook.jpg',
-          width: 1200,
-          height: 630,
-          alt: c.meta.ogTitle,
-        },
-      ],
+      images: ogImages(c.pagePath.slice(1), c.meta.ogTitle),
     },
     twitter: {
       card: 'summary_large_image',
       title: c.meta.ogTitle,
       description: c.meta.ogDescription,
-      images: [{ url: '/images/og-images/og-twitter-card.jpg', alt: c.meta.ogTitle }],
+      images: ogImages(c.pagePath.slice(1), c.meta.ogTitle),
     },
   };
 }
