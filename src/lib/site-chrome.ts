@@ -20,20 +20,20 @@ export const fontClassNames = `${geistSans.variable} ${geistMono.variable} antia
  */
 export const siteMetadata = {
   metadataBase: new URL('https://pitsch.me'),
-  title: 'Oliver Pitsch – Product & Engineering Leader',
+  title: 'Oliver Pitsch – Product Leader and Solo Builder',
   description:
     'Oliver Pitsch is a product and engineering leader from Cologne, Germany with 20 years across design, UX, and product leadership. Solo builder behind Joinride, Famili and neuerName, and open to a new product or leadership role.',
   openGraph: {
     type: 'website' as const,
     url: '/',
-    title: 'Oliver Pitsch – Product & Engineering Leader',
+    title: 'Oliver Pitsch – Product Leader and Solo Builder',
     description:
       'Product and engineering leader from Cologne, Germany. 20 years across design, UX, and product. Solo builder behind Joinride, Famili and neuerName.',
     images: ogImages('home', 'Oliver Pitsch – Product Leader & Builder'),
   },
   twitter: {
     card: 'summary_large_image' as const,
-    title: 'Oliver Pitsch – Product & Engineering Leader',
+    title: 'Oliver Pitsch – Product Leader and Solo Builder',
     description:
       'Product and engineering leader from Cologne, Germany. 20 years across design, UX, and product. Solo builder behind Joinride, Famili and neuerName.',
     images: ogImages('home', 'Oliver Pitsch – Product Leader & Builder'),

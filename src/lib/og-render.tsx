@@ -9,10 +9,8 @@ import { OG_SIZE } from '@/lib/og-meta';
 /* Light-scheme tokens from globals.css. Satori has no CSS variables. */
 const c = {
   canvas: '#f8fafc',
-  surface: '#ffffff',
   ink: '#1e293b',
   inkMuted: '#5d6d84',
-  line: '#e2e8f0',
   accentSoft: '#eef0ff',
   indigo: '#4338ca',
   stripes: ['#4338ca', '#6366f1', '#a5b4fc'],
@@ -76,8 +74,6 @@ function Mark({ size }: { size: number }) {
 
 export function renderOgCard(card: OgCard): ImageResponse {
   const portrait = publicImage('/images/oliver-pitsch-2025.png');
-  const hero = card.visual.kind === 'image' ? publicImage(card.visual.src) : undefined;
-  const showPortrait = card.visual.kind === 'portrait' && portrait;
   const size = titleSize(card.title);
 
   return new ImageResponse(
@@ -167,7 +163,7 @@ export function renderOgCard(card: OgCard): ImageResponse {
             </div>
           </div>
 
-          {showPortrait && (
+          {portrait && (
             <div style={{ display: 'flex', alignItems: 'center' }}>
               <img
                 src={portrait}
@@ -176,47 +172,6 @@ export function renderOgCard(card: OgCard): ImageResponse {
                 height={340}
                 style={{ borderRadius: 999, background: c.accentSoft, objectFit: 'cover' }}
               />
-            </div>
-          )}
-
-          {hero && (
-            <div
-              style={{
-                display: 'flex',
-                width: 420,
-                borderRadius: 28,
-                overflow: 'hidden',
-                border: `1px solid ${c.line}`,
-                background: c.surface,
-              }}
-            >
-              <img
-                src={hero}
-                alt=""
-                width={420}
-                height={492}
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-              />
-            </div>
-          )}
-
-          {/* Text-only cards carry the favicon squircle so the right half is never empty. */}
-          {card.visual.kind === 'none' && (
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-              <div
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  width: 280,
-                  height: 280,
-                  borderRadius: 63,
-                  overflow: 'hidden',
-                }}
-              >
-                {c.stripes.map((color) => (
-                  <div key={color} style={{ flex: 1, background: color }} />
-                ))}
-              </div>
             </div>
           )}
         </div>

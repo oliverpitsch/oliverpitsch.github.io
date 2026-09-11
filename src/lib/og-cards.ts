@@ -4,8 +4,6 @@ import { de as vibeDe, en as vibeEn } from '@/lib/vibe-design-content';
 import { articleOgKey } from '@/lib/og-meta';
 import { siteMetadata } from '@/lib/site-chrome';
 
-export type OgVisual = { kind: 'portrait' } | { kind: 'image'; src: string } | { kind: 'none' };
-
 /** One social share card: what the image shows plus what the platforms print next to it. */
 export type OgCard = {
   key: string;
@@ -13,7 +11,6 @@ export type OgCard = {
   path: string;
   title: string;
   subtitle?: string;
-  visual: OgVisual;
   /** Printed after pitsch.me under the signature, e.g. an article's date. */
   detail?: string;
   /** og:title / og:description, used by the /metaImage preview. */
@@ -28,7 +25,6 @@ export async function getOgCards(): Promise<OgCard[]> {
       title: 'Oliver Pitsch',
       subtitle:
         'I lead product and I build it. Twenty years across design, UX and product. Now building Joinride.cc, Famili.one and neuerName.com.',
-      visual: { kind: 'portrait' },
       share: {
         title: siteMetadata.openGraph.title,
         description: siteMetadata.openGraph.description,
@@ -40,7 +36,6 @@ export async function getOgCards(): Promise<OgCard[]> {
       title: 'Oliver Pitsch',
       subtitle:
         'AI-native product leader, maker and builder. Head of Product & Engineering, Head of Product, Director UX.',
-      visual: { kind: 'portrait' },
       share: {
         title: 'CV – Oliver Pitsch',
         description: 'Twenty years across design, UX and product leadership.',
@@ -50,7 +45,6 @@ export async function getOgCards(): Promise<OgCard[]> {
       key: 'articles',
       path: '/articles',
       title: 'Writing on product, UX and building with AI',
-      visual: { kind: 'none' },
       share: {
         title: 'Articles – Oliver Pitsch',
         description:
@@ -67,7 +61,6 @@ export async function getOgCards(): Promise<OgCard[]> {
         key,
         path,
         title: c.hero.headline,
-        visual: { kind: 'none' },
         share: { title: c.meta.ogTitle, description: c.meta.ogDescription },
       }),
     ),
@@ -79,7 +72,6 @@ export async function getOgCards(): Promise<OgCard[]> {
       key: articleOgKey(a.slug),
       path: `/articles/${a.slug}`,
       title: a.Title,
-      visual: { kind: 'image', src: a.heroImage || `/og/${a.slug}.jpg` },
       detail: [a.displayDate, a.readingTime].filter(Boolean).join(' · '),
       share: { title: a.Title, description: a.description || a.Title },
     }),
