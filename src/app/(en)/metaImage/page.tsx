@@ -4,7 +4,7 @@ import type { ReactNode } from 'react';
 import Container from '@/components/layout/Container';
 import PageShell from '@/components/layout/PageShell';
 import { getOgCards, type OgCard } from '@/lib/og-cards';
-import { OG_SIZE, ogImagePath } from '@/lib/og-meta';
+import { OG_SIZE, brandAssetPath, brandAssets, ogImagePath } from '@/lib/og-meta';
 
 /*
   Internal preview of every share card. Not linked, not in the sitemap, and
@@ -160,6 +160,54 @@ function CardPreview({ card }: { card: OgCard }) {
   );
 }
 
+/** Banner and avatar, previewed the way a LinkedIn profile stacks them. */
+function ProfileImages() {
+  const [banner, avatar] = brandAssets;
+  return (
+    <section id="profile" className="mt-14 scroll-mt-8 border-t border-line pt-12">
+      <h2 className="text-[24px] font-semibold tracking-[-0.02em] text-ink">Profile images</h2>
+      <p className="mt-2 max-w-2xl text-[16px] leading-7 text-ink-muted">
+        A LinkedIn banner and a square avatar in the same design. The avatar covers the
+        banner&apos;s bottom left on LinkedIn, so that corner stays empty.
+      </p>
+
+      <div className="mt-6 overflow-hidden rounded-xl border border-line bg-white font-[system-ui,sans-serif] shadow-surface">
+        <img
+          src={brandAssetPath(banner.file)}
+          alt={banner.label}
+          width={banner.width}
+          height={banner.height}
+          className="h-auto w-full"
+        />
+        <div className="px-6 pb-6">
+          <img
+            src={brandAssetPath(avatar.file)}
+            alt={avatar.label}
+            width={avatar.width}
+            height={avatar.height}
+            className="-mt-[9%] size-[18%] min-w-20 rounded-full border-4 border-white"
+          />
+          <p className="mt-3 text-[20px] font-semibold text-black/90">Oliver Pitsch</p>
+          <p className="text-[14px] text-black/60">Product Leader and Solo Builder</p>
+        </div>
+      </div>
+
+      <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-[14px] font-medium">
+        {brandAssets.map((asset) => (
+          <a
+            key={asset.file}
+            href={brandAssetPath(asset.file)}
+            download={`oliver-pitsch-${asset.file}`}
+            className="text-accent underline underline-offset-4"
+          >
+            Download {asset.label} ({asset.width} × {asset.height})
+          </a>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 export default async function MetaImagePage() {
   const cards = await getOgCards();
   return (
@@ -185,6 +233,8 @@ export default async function MetaImagePage() {
             </a>
           ))}
         </nav>
+
+        <ProfileImages />
 
         <div className="mt-14 flex flex-col gap-16">
           {cards.map((card) => (

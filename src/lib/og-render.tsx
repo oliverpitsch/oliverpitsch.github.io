@@ -72,6 +72,67 @@ function Mark({ size }: { size: number }) {
   );
 }
 
+type Size = { width: number; height: number };
+
+const bannerTopics = ['Product', 'User Experience', 'AI Building'];
+
+/** LinkedIn profile banner: the three practice areas under the three brand stripes, signed bottom right. */
+export function renderLinkedInBanner({ width, height }: Size): ImageResponse {
+  return new ImageResponse(
+    (
+      <div
+        style={{
+          width: '100%',
+          height: '100%',
+          display: 'flex',
+          position: 'relative',
+          backgroundImage: `linear-gradient(100deg, ${c.canvas} 35%, ${c.accentSoft} 100%)`,
+          fontFamily: 'Geist',
+          color: c.ink,
+        }}
+      >
+        <div style={{ position: 'absolute', top: 52, left: 56, display: 'flex', gap: 48 }}>
+          {bannerTopics.map((topic, i) => (
+            <div key={topic} style={{ display: 'flex', flexDirection: 'column' }}>
+              <div style={{ height: 6, borderRadius: 3, background: c.stripes[i] }} />
+              <div
+                style={{
+                  marginTop: 18,
+                  padding: '0 18px',
+                  fontSize: 36,
+                  fontWeight: 600,
+                  letterSpacing: '-0.02em',
+                }}
+              >
+                {topic}
+              </div>
+            </div>
+          ))}
+        </div>
+        <div style={{ position: 'absolute', right: 72, bottom: 52, display: 'flex' }}>
+          <Mark size={150} />
+        </div>
+      </div>
+    ),
+    { width, height, fonts: loadFonts() },
+  );
+}
+
+/** Square profile photo on the accent-soft ground the site uses behind the portrait. */
+export function renderAvatar({ width, height }: Size): ImageResponse {
+  const portrait = publicImage('/images/oliver-pitsch-2025.png');
+  return new ImageResponse(
+    (
+      <div style={{ width: '100%', height: '100%', display: 'flex', background: c.accentSoft }}>
+        {portrait && (
+          <img src={portrait} alt="" width={width} height={height} style={{ objectFit: 'cover' }} />
+        )}
+      </div>
+    ),
+    { width, height },
+  );
+}
+
 export function renderOgCard(card: OgCard): ImageResponse {
   const portrait = publicImage('/images/oliver-pitsch-2025.png');
   const size = titleSize(card.title);
