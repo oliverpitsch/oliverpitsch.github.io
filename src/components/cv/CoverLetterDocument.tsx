@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import InkSignature from '@/components/InkSignature';
 import Container from '@/components/layout/Container';
 import PdfDownloadButton from '@/components/cv/PdfDownloadButton';
 import { cv } from '@/lib/cv';
@@ -100,13 +100,7 @@ export default function CoverLetterDocument({
 
           {coverLetter && (
             <footer className="letter-signature mt-7 break-inside-avoid">
-              <Image
-                src="/images/signature.png"
-                alt=""
-                width={184}
-                height={156}
-                className="h-auto w-28 opacity-80 [filter:brightness(0)_saturate(100%)]"
-              />
+              <InkSignature className="h-auto w-28 text-[#2242b4]" />
               <p className="-mt-2 text-[14px] font-semibold text-[#1e293b]">{cv.name}</p>
             </footer>
           )}

@@ -100,6 +100,15 @@ html:hover ::-webkit-scrollbar-thumb {
 /* Vibe-coded-design landing: staggered hero entrance.
    Only hides + animates when motion is allowed, so reduced-motion
    and no-CSS users always see the content. */
+/* Reduced motion: show the signature fully written, no pen animation. */
+@media (prefers-reduced-motion: reduce) {
+  .ink-signature mask path {
+    stroke-dashoffset: 0;
+    visibility: visible;
+    transition: none !important;
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .vibe-rise {
     opacity: 0;
@@ -960,8 +969,13 @@ html:hover ::-webkit-scrollbar-thumb {
     margin-top: 6mm;
     break-inside: avoid;
   }
-  .letter-signature img {
+  .letter-signature svg {
     width: 28mm;
+  }
+  .ink-signature mask path {
+    stroke-dashoffset: 0;
+    visibility: visible;
+    transition: none !important;
   }
 
   a {
