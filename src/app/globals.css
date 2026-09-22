@@ -925,6 +925,45 @@ html:hover ::-webkit-scrollbar-thumb {
     gap: 1.6mm;
   }
 
+  /* ---- Cover letter ---- */
+  .letter-stage {
+    padding: 0;
+    border-radius: 0;
+    background: #fff;
+  }
+  .letter-sheet {
+    width: auto;
+    max-width: none;
+    min-height: calc(297mm - 16mm);
+    aspect-ratio: auto;
+    padding: 12mm;
+    box-shadow: none;
+  }
+  .letter-letterhead {
+    padding-bottom: 5mm;
+  }
+  .letter-meta {
+    margin-top: 8mm;
+  }
+  .letter-body {
+    margin-top: 8mm;
+    font-size: 10.5pt;
+    line-height: 1.55;
+  }
+  .letter-body > div {
+    margin-top: 6mm;
+  }
+  .letter-body > div > p + p {
+    margin-block-start: 4mm;
+  }
+  .letter-signature {
+    margin-top: 6mm;
+    break-inside: avoid;
+  }
+  .letter-signature img {
+    width: 28mm;
+  }
+
   a {
     text-decoration: none;
   }

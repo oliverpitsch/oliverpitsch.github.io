@@ -1,6 +1,6 @@
 'use client';
 
-import { Dialog } from '@base-ui-components/react/dialog';
+import { Dialog } from '@base-ui/react/dialog';
 import type { ComponentProps } from 'react';
 
 export const Drawer = Dialog.Root;
