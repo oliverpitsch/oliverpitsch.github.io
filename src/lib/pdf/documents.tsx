@@ -10,6 +10,8 @@ const c = {
   ink: '#1e293b',
   inkStrong: '#172033',
   inkMuted: '#5d6d84',
+  /* Darker secondary text for the tinted rail cards. */
+  railMuted: '#475569',
   body: '#334155',
   line: '#e2e8f0',
   accent: '#4f46e5',
@@ -31,7 +33,7 @@ const cvLabels = {
     experience: 'Berufserfahrung',
     about: 'Über mich',
     projects: 'Ausgewählte Projekte',
-    strengths: 'Was ich mache',
+    strengths: 'Schwerpunkte',
     languages: 'Sprachen',
     contact: 'Kontakt',
     present: 'heute',
@@ -165,7 +167,7 @@ export function CvPdf({ profile, projects = [], language = 'en', assets, scale =
     bulletText: { flex: 1, fontSize: s(8), lineHeight: 1.45, color: c.body },
     card: { backgroundColor: '#ffffff', borderRadius: 10, padding: s(11), marginBottom: s(10) },
     cardTitle: { fontSize: s(9.5), fontWeight: 600, color: c.inkStrong, marginBottom: s(5) },
-    railText: { fontSize: s(7.4), lineHeight: 1.5, color: c.inkMuted },
+    railText: { fontSize: s(7.4), lineHeight: 1.5, color: c.railMuted },
   });
 
   return (

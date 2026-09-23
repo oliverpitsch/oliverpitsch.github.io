@@ -49,16 +49,21 @@ function fromRole(org: string): CompanyCardData | null {
   };
 }
 
+/** Products live under the Pitsch Studios role; each has its own launch year. */
+const productSince: Record<string, string> = {
+  'Joinride.cc': '2022',
+};
+
 function fromProduct(name: string): CompanyCardData | null {
   const product = products.find((p) => p.name === name);
   if (!product) return null;
-  const role = cv.roles.find((r) => r.org === name);
+  const studio = cv.roles.find((r) => r.org === 'Pitsch Studios');
   return {
     name: product.name,
     logo: product.logo,
     logoClass: product.logoClass,
-    role: role?.title ?? 'Founder, Product Maker & Solo Builder',
-    period: role ? `${role.from} – ${role.to}` : '2026 – present',
+    role: studio?.title ?? 'Founder, Product Leader & Builder',
+    period: `${productSince[product.name] ?? '2026'} – present`,
     href: product.href,
     blurb: blurbs[product.name] ?? product.lead,
   };

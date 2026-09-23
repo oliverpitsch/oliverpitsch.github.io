@@ -47,13 +47,11 @@ export const cv: Cv = {
   phone: '+49 175 2066584',
   linkedin: 'https://www.linkedin.com/in/oliverpitsch/',
   summary:
-    'Product and design leader with more than 15 years building and scaling B2B and consumer products, developing design organizations, and connecting UX, product strategy, technology, and business objectives.',
+    'AI-native product and design leader with more than 15 years of experience building complex B2B and consumer products, leading international organizations, and connecting product strategy, UX, technology, growth, and business outcomes.',
   about: [
-    'I am a product and design leader from Cologne with more than 15 years of experience building and scaling B2B and consumer products, developing design organizations, and connecting UX, product strategy, technology, and business objectives.',
-    'At Trusted Shops, I led UX, design systems, and product marketing across more than ten product teams in six countries. I helped establish UX as a strategic function, introduced a company-wide design system, and supported products serving more than 35,000 businesses and 45 million consumers across Europe.',
-    'I also bring direct experience in hospitality software. As co-founder of Reputami, I built a reputation management platform focused on hotels and hospitality businesses and led the company through its acquisition by eKomi in 2015.',
-    'Throughout my career, I have worked closely with Product, Engineering, and executive teams to improve product strategy, research and design processes, organizational maturity, and decision-making. My focus is on building strong teams, creating scalable systems, and ensuring Design and Research have a meaningful influence on what gets built and why.',
-    'Alongside my leadership roles, I continue to build products such as Joinride.cc, Famili.one, and neuerName.com, which keeps me close to hands-on product development, emerging technology, and AI-enabled ways of working.',
+    'I am an AI-native product and design leader from Cologne with more than 15 years of experience building complex B2B and consumer products, leading international organizations, and connecting product strategy, UX, technology, growth, and business outcomes.',
+    'At Trusted Shops, I led UX, design systems, and product marketing across more than ten product teams in six countries, contributing to products serving 35,000 businesses and 45 million consumers. Previously, I co-founded the B2B SaaS platform Reputami and led it through its acquisition by eKomi. Most recently, as Head of Product & Engineering at AI Labs, I combined product and AI strategy with hands-on development in a fast-moving environment.',
+    'Alongside executive leadership, I continue to design, prototype, and build digital products myself. My work spans agentic AI, context engineering, AI-assisted discovery and development, product operating models, portfolio strategy, user research, APIs, integrations, and go-to-market. This allows me to set an ambitious product vision while remaining close to users, data, technology, and execution.',
   ],
   roles: [
     {
@@ -80,29 +78,6 @@ export const cv: Cv = {
         'Reorganized product management and product development for AI-native product building in close collaboration with the CEO and CTO.',
         'Helped redefine product workflows for a world in which AI takes over more of the implementation surface, reducing handoffs and increasing execution speed.',
         'Built a stronger design-system understanding for agents so AI-generated output stayed aligned with product quality, patterns, and system logic.',
-      ],
-    },
-    {
-      org: 'Famili.one & neuerName.com',
-      title: 'Founder, Product Maker & Solo Builder',
-      from: '2026',
-      to: 'present',
-      href: 'https://famili.one',
-      bullets: [
-        'Launched two production-ready digital products using AI-native workflows and agentic tooling, independently covering product strategy, UX, development, localization, payments, secure data handling, positioning, and launch-ready infrastructure.',
-      ],
-    },
-    {
-      org: 'Joinride.cc',
-      title: 'Founder',
-      from: '2022',
-      to: 'present',
-      logo: '/images/companies/logo-joinride.svg',
-      logoClass: 'h-12 w-auto',
-      href: 'https://joinride.cc',
-      bullets: [
-        'Started Joinride in December 2022 as a hobby project to simplify cycling group ride organization and grew it into one of the leading platforms in the German-speaking cycling market.',
-        'Built the platform across web, then expanded it into iOS.',
       ],
     },
     {
@@ -133,7 +108,7 @@ export const cv: Cv = {
     {
       org: 'Reputami',
       title: 'Founder & Managing Director',
-      from: '2011',
+      from: '2012',
       to: '2015',
       logo: '/images/companies/logo-reputami.svg',
       bullets: [
@@ -142,26 +117,32 @@ export const cv: Cv = {
         'Built the company through to acquisition by eKomi in 2015.',
       ],
     },
+    {
+      org: 'Pitsch Studios',
+      title: 'Founder, Product Leader & Builder',
+      from: '2022',
+      to: 'present',
+      bullets: [
+        'Build and operate a portfolio of digital products including Joinride.cc, Famili.one, neuerName.com, and Onefold.me, taking them from problem discovery and positioning through UX, visual design, development, launch, and continuous improvement.',
+        'Use these products as a real-world environment to explore how agentic AI is transforming product management, design, software development, and the creative process, turning the findings into practical, repeatable workflows.',
+      ],
+    },
   ],
   strengths: [
     {
+      label: 'Product, platform, and organizational leadership',
+      detail:
+        'Defining portfolio strategy, operating models, roadmaps, and metrics across multiple product teams, markets, and disciplines. Connecting customer experience, technology, growth, and business outcomes across complex B2B and consumer platforms.',
+    },
+    {
       label: 'AI-native product building',
       detail:
-        'Designing and shipping production software with agentic tooling, covering strategy, UX, and implementation in very small teams.',
+        'Designing and shipping production software with agentic AI, orchestration, retrieval, context engineering, rapid prototyping, and evaluation. Combining executive-level AI strategy with hands-on product development.',
     },
     {
-      label: 'Product and design leadership',
+      label: 'From zero to scale',
       detail:
-        'Building and leading design organizations across multiple product teams, markets, and disciplines.',
-    },
-    {
-      label: 'Design systems at scale',
-      detail: 'Establishing shared systems that keep design and code aligned as a portfolio grows.',
-    },
-    {
-      label: 'Zero to one',
-      detail:
-        'Taking products from first idea to market-ready launch, and a company from founding through operation to acquisition.',
+        'Taking products from first idea through discovery, launch, growth, and operational scale. Building the teams, systems, and quality standards required to deliver, including founding and leading a B2B SaaS company through acquisition.',
     },
   ],
   languages: ['German (native)', 'English (C2)'],

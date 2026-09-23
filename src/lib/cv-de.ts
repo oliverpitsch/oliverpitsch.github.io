@@ -1,96 +1,91 @@
 import { cv, type Cv } from '@/lib/cv';
 
-const roleTranslations: Record<string, Pick<Cv['roles'][number], 'title' | 'bullets'>> = {
+/**
+ * Localized, not translated: German CVs keep established English job titles,
+ * but the prose is written the way a German reader expects it.
+ */
+const roleTranslations: Record<
+  string,
+  Pick<Cv['roles'][number], 'title' | 'bullets' | 'orgNote'>
+> = {
   'AI Labs': {
     title: 'Head of Product & Engineering',
     bullets: [
-      'Verantwortete Produktstrategie, UX und Frontend-Entwicklung für ein KI-natives SaaS-Produkt in enger Zusammenarbeit mit dem CEO und dem Backend Engineering.',
-      'Übersetzte komplexe KI-Funktionen in klare User Journeys, Produktanforderungen und produktionsreife Interfaces.',
-      'Etablierte KI-native Workflows mit Tools wie Claude Code und Codex, um Design, Entwicklung und Auslieferung zu beschleunigen.',
-      'Brachte mit einem zweiköpfigen Produkt- und Engineering-Team innerhalb von acht Wochen ein marktreifes, wettbewerbsfähiges Produkt auf den Markt.',
+      'Verantwortete Produktstrategie, UX und Frontend-Entwicklung für ein KI-natives SaaS-Produkt, in enger Zusammenarbeit mit CEO und Backend Engineering.',
+      'Überführte komplexe KI-Funktionen in verständliche User Journeys, klare Produktanforderungen und produktionsreife Oberflächen.',
+      'Etablierte KI-native Workflows mit Claude Code und Codex und beschleunigte damit Design, Entwicklung und Umsetzung.',
+      'Brachte mit einem zweiköpfigen Produkt- und Entwicklungsteam innerhalb von acht Wochen ein marktreifes und wettbewerbsfähiges Produkt auf den Markt.',
     ],
   },
   Ordio: {
     title: 'Head of Product',
     bullets: [
-      'Organisierte Produktmanagement und Produktentwicklung in enger Zusammenarbeit mit CEO und CTO für KI-native Produktentwicklung neu.',
-      'Half dabei, Produktworkflows für eine Welt neu zu definieren, in der KI größere Teile der Umsetzung übernimmt, Übergaben reduziert und die Ausführung beschleunigt.',
-      'Schuf ein stärkeres Designsystem-Verständnis für Agents, damit KI-generierte Ergebnisse mit Produktqualität, Mustern und Systemlogik übereinstimmen.',
-    ],
-  },
-  'Famili.one & neuerName.com': {
-    title: 'Founder, Product Maker & Solo Builder',
-    bullets: [
-      'Launchte zwei produktionsreife digitale Produkte mit KI-nativen Workflows und agentischen Tools und verantwortete eigenständig Produktstrategie, UX, Entwicklung, Lokalisierung, Zahlungen, sichere Datenverarbeitung, Positionierung und launchbereite Infrastruktur.',
-    ],
-  },
-  'Joinride.cc': {
-    title: 'Founder',
-    bullets: [
-      'Startete Joinride im Dezember 2022 als Hobbyprojekt, um die Organisation von Radsport-Gruppenfahrten zu vereinfachen, und entwickelte es zu einer der führenden Plattformen im deutschsprachigen Radsportmarkt.',
-      'Entwickelte zunächst die Webplattform und erweiterte sie anschließend um eine iOS-App.',
+      'Richtete gemeinsam mit CEO und CTO Produktmanagement und Produktentwicklung neu auf KI-native Produktarbeit aus.',
+      'Entwickelte Workflows für eine Arbeitsweise weiter, in der KI größere Teile der Umsetzung übernimmt. Dadurch reduzierten wir Übergaben und erhöhten die Umsetzungsgeschwindigkeit.',
+      'Verankerte das Designsystem stärker im Arbeitskontext der KI-Agenten, damit generierte Ergebnisse den Qualitätsstandards, Mustern und der Logik des Produkts entsprechen.',
     ],
   },
   'Trusted Shops': {
     title: 'Director UX & Product Marketing',
     bullets: [
-      'Verantwortete UX und Product Marketing über mehr als zehn Produktteams in sechs Ländern für ein Portfolio mit über 35.000 Unternehmen und 45 Millionen Konsumentinnen und Konsumenten.',
-      'Baute das Helios Design System auf und skalierte es, um Produkte durch gemeinsame Design- und Code-Bausteine zu vereinheitlichen.',
-      'Verband Product Design, Content, Lokalisierung und Product Marketing zu einem konsistenteren und skalierbaren Product-Experience-Modell.',
+      'Verantwortete UX und Product Marketing für mehr als zehn Produktteams in sechs Ländern und ein Portfolio, das über 35.000 Unternehmen und 45 Millionen Verbraucherinnen und Verbraucher erreicht.',
+      'Baute das Designsystem Helios auf und skalierte es zu einer gemeinsamen Grundlage für Design und technische Umsetzung über mehrere Produkte hinweg.',
+      'Verband Product Design, Content, Lokalisierung und Product Marketing zu einem konsistenten und skalierbaren Ansatz für die gesamte Produkterfahrung.',
     ],
   },
   Studitemps: {
+    orgNote: 'heute jobvalley',
     title: 'Senior UX Designer & COP Lead UX',
     bullets: [
-      'Kam als erster UX Designer ins Unternehmen und etablierte UX-Prozesse in acht Produktteams.',
-      'Baute das UX-Team mit auf und prägte dessen Entwicklung.',
+      'Kam als erster UX-Designer ins Unternehmen und etablierte UX-Prozesse in acht Produktteams.',
+      'Baute das UX-Team mit auf und prägte dessen fachliche Entwicklung.',
     ],
   },
   Reputami: {
-    title: 'Founder & Managing Director',
+    title: 'Gründer & Geschäftsführer',
     bullets: [
-      'Gründete eine SaaS-Plattform für Reputationsmanagement in der Hotellerie mit.',
-      'Verantwortete Produktdesign und Entwicklung.',
-      'Baute das Unternehmen bis zur Übernahme durch eKomi im Jahr 2015 auf.',
+      'Gründete gemeinsam mit einem Partner ein SaaS-Unternehmen für Reputationsmanagement in der Hotellerie.',
+      'Verantwortete Produktdesign und Produktentwicklung.',
+      'Führte das Unternehmen bis zur Übernahme durch eKomi im Jahr 2015.',
+    ],
+  },
+  'Pitsch Studios': {
+    title: 'Gründer, Product Leader & Builder',
+    bullets: [
+      'Entwickle und betreibe ein Portfolio digitaler Produkte, darunter Joinride.cc, Famili.one, neuerName.com und Onefold.me. Ich begleite sie von der Problemdefinition und Positionierung über UX, visuelles Design und Entwicklung bis zum Launch und zur kontinuierlichen Weiterentwicklung.',
+      'Nutze diese Produkte als praktisches Experimentierfeld, um zu untersuchen, wie agentische KI Produktmanagement, Design, Softwareentwicklung und kreative Arbeit verändert, und überführe die Erkenntnisse in praxistaugliche, wiederholbare Workflows.',
     ],
   },
 };
 
 export const cvDe: Cv = {
   ...cv,
-  headline: 'KI-nativer Product Leader | Product Maker & Builder',
+  headline: 'Product Leader für KI-native Produkte | Strategisch und hands-on',
   location: 'Köln, Deutschland',
   summary:
-    'Produkt- und Designleader mit mehr als 15 Jahren Erfahrung im Aufbau und in der Skalierung von B2B- und Consumer-Produkten, in der Entwicklung von Designorganisationen sowie an der Schnittstelle von UX, Produktstrategie, Technologie und Unternehmenszielen.',
+    'Product- und Design-Leader aus Köln mit mehr als 15 Jahren Erfahrung in komplexen B2B- und Consumer-Produkten. Verbindet Produktstrategie, UX und Technologie mit Wachstum und konkreten Geschäftszielen.',
   about: [
-    'Ich bin Produkt- und Designleader aus Köln und verfüge über mehr als 15 Jahre Erfahrung im Aufbau und in der Skalierung von B2B- und Consumer-Produkten, in der Entwicklung von Designorganisationen sowie an der Schnittstelle von UX, Produktstrategie, Technologie und Unternehmenszielen.',
-    'Bei Trusted Shops verantwortete ich UX, Designsysteme und Product Marketing über mehr als zehn Produktteams in sechs Ländern. Ich half dabei, UX als strategische Funktion zu etablieren, führte ein unternehmensweites Designsystem ein und unterstützte Produkte für mehr als 35.000 Unternehmen und 45 Millionen Konsumentinnen und Konsumenten in Europa.',
-    'Zudem bringe ich direkte Erfahrung mit Software für die Hotellerie mit. Als Mitgründer von Reputami entwickelte ich eine Plattform für Reputationsmanagement mit Fokus auf Hotels und führte das Unternehmen bis zur Übernahme durch eKomi im Jahr 2015.',
-    'Im Laufe meiner Karriere arbeitete ich eng mit Product, Engineering und Führungsteams zusammen, um Produktstrategie, Research- und Designprozesse, organisatorische Reife und Entscheidungsfindung zu verbessern. Mein Fokus liegt auf starken Teams, skalierbaren Systemen und einem relevanten Einfluss von Design und Research auf Produktentscheidungen.',
-    'Neben meinen Führungsrollen entwickle ich weiterhin Produkte wie Joinride.cc, Famili.one und neuerName.com. So bleibe ich nah an praktischer Produktentwicklung, neuen Technologien und KI-gestützten Arbeitsweisen.',
+    'Ich bin Product- und Design-Leader aus Köln und entwickle seit mehr als 15 Jahren komplexe B2B- und Consumer-Produkte. Dabei verbinde ich Produktstrategie, UX und Technologie mit Wachstum und konkreten Geschäftszielen und habe internationale Teams und Organisationen geführt.',
+    'Bei Trusted Shops verantwortete ich UX, Designsysteme und Product Marketing für mehr als zehn Produktteams in sechs Ländern. Die von uns entwickelten Produkte werden von über 35.000 Unternehmen und 45 Millionen Verbraucherinnen und Verbrauchern genutzt. Zuvor gründete ich die B2B-SaaS-Plattform Reputami mit und führte sie bis zur Übernahme durch eKomi. Zuletzt verband ich als Head of Product & Engineering bei AI Labs Produkt- und KI-Strategie mit eigener Entwicklungsarbeit in einem schnelllebigen Umfeld.',
+    'Auch in Führungsrollen arbeite ich weiterhin hands-on: Ich konzipiere, gestalte, prototypisiere und entwickle digitale Produkte selbst. Meine Arbeit reicht von agentischer KI, Context Engineering und KI-gestützter Discovery über Product Operating Models, Portfoliostrategie und User Research bis hin zu APIs, Integrationen und Go-to-Market. So kann ich eine ambitionierte Produktvision entwickeln und gleichzeitig nah an Nutzenden, Daten, Technologie und Umsetzung bleiben.',
   ],
   roles: cv.roles.map((role) => ({ ...role, ...roleTranslations[role.org] })),
   strengths: [
     {
+      label: 'Produkt-, Plattform- und Organisationsführung',
+      detail:
+        'Ich entwickle Portfoliostrategien, Product Operating Models, Roadmaps und Kennzahlensysteme für mehrere Produktteams, Märkte und Fachbereiche. Dabei verbinde ich Customer Experience, Technologie und Wachstum mit den Geschäftszielen komplexer B2B- und Consumer-Plattformen.',
+    },
+    {
       label: 'KI-native Produktentwicklung',
       detail:
-        'Entwicklung und Auslieferung produktionsreifer Software mit agentischen Tools – von Strategie und UX bis zur Umsetzung in sehr kleinen Teams.',
+        'Ich konzipiere und entwickle produktionsreife Software mit agentischer KI, Orchestrierung, Retrieval, Context Engineering, Rapid Prototyping und systematischer Evaluation. Dabei verbinde ich KI-Strategie auf Führungsebene mit eigener, hands-on Produktentwicklung.',
     },
     {
-      label: 'Product- und Design Leadership',
+      label: 'Von der Idee zur Skalierung',
       detail:
-        'Aufbau und Führung von Designorganisationen über mehrere Produktteams, Märkte und Disziplinen hinweg.',
-    },
-    {
-      label: 'Designsysteme im großen Maßstab',
-      detail:
-        'Aufbau gemeinsamer Systeme, die Design und Code auch bei wachsenden Produktportfolios konsistent halten.',
-    },
-    {
-      label: 'Zero to one',
-      detail:
-        'Produkte von der ersten Idee bis zum marktreifen Launch und ein Unternehmen von der Gründung bis zur Übernahme entwickeln.',
+        'Ich begleite Produkte von der ersten Idee über Discovery, Launch und Wachstum bis zur operativen Skalierung. Dazu gehören der Aufbau von Teams, Systemen und Qualitätsstandards ebenso wie meine Erfahrung als Gründer eines B2B-SaaS-Unternehmens, das erfolgreich übernommen wurde.',
     },
   ],
-  languages: ['Deutsch (Muttersprache)', 'Englisch (C2)'],
+  languages: ['Deutsch: Muttersprache', 'Englisch: Verhandlungssicher, C2'],
 };

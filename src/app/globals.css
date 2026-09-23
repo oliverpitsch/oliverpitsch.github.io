@@ -59,6 +59,18 @@
   }
 }
 
+/* The CV rail sits on --surface-muted with long paragraphs, so its secondary
+   text gets extra headroom: #475569 is 6.9:1 there (was 4.8:1). */
+.cv-rail {
+  --ink-muted: #475569;
+}
+
+@media (prefers-color-scheme: dark) {
+  .cv-rail {
+    --ink-muted: #b4c0d1;
+  }
+}
+
 body {
   background: var(--canvas);
   color: var(--ink);
@@ -97,9 +109,6 @@ html:hover ::-webkit-scrollbar-thumb {
   background-color: rgba(71, 85, 105, 0.5);
 }
 
-/* Vibe-coded-design landing: staggered hero entrance.
-   Only hides + animates when motion is allowed, so reduced-motion
-   and no-CSS users always see the content. */
 /* Reduced motion: show the signature fully written, no pen animation. */
 @media (prefers-reduced-motion: reduce) {
   .ink-signature mask path {
@@ -109,6 +118,9 @@ html:hover ::-webkit-scrollbar-thumb {
   }
 }
 
+/* Vibe-coded-design landing: staggered hero entrance.
+   Only hides + animates when motion is allowed, so reduced-motion
+   and no-CSS users always see the content. */
 @media (prefers-reduced-motion: no-preference) {
   .vibe-rise {
     opacity: 0;
@@ -795,19 +807,16 @@ html:hover ::-webkit-scrollbar-thumb {
     font-size: 6pt;
   }
 
-  /* ---- Contact lines, in the letterhead and in the rail ---- */
-  .cv-letterhead a,
-  .cv-contact a {
+  /* ---- Contact lines in the letterhead ---- */
+  .cv-letterhead a {
     font-size: 6.8pt;
     gap: 1.2mm;
   }
-  .cv-letterhead a > span,
-  .cv-contact a > span {
+  .cv-letterhead a > span {
     width: 2.9mm;
     height: 2.9mm;
   }
-  .cv-letterhead a svg,
-  .cv-contact a svg {
+  .cv-letterhead a svg {
     width: 1.7mm;
     height: 1.7mm;
   }
@@ -926,12 +935,6 @@ html:hover ::-webkit-scrollbar-thumb {
     font-size: 6.3pt;
     line-height: 1.5;
     border-radius: 3mm;
-  }
-  .cv-contact h2 {
-    font-size: 9.5pt;
-  }
-  .cv-contact > div {
-    gap: 1.6mm;
   }
 
   /* ---- Cover letter ---- */

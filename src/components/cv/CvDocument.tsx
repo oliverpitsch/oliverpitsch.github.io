@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { RiArrowRightFill, RiBriefcaseFill, RiMailFill } from 'react-icons/ri';
+import { RiArrowRightUpLine, RiBriefcaseFill, RiLinkedinFill, RiMailFill } from 'react-icons/ri';
 import Container from '@/components/layout/Container';
 import PdfDownloadButton from '@/components/cv/PdfDownloadButton';
 import { cv } from '@/lib/cv';
@@ -12,11 +12,12 @@ const labels = {
     experience: 'Berufserfahrung',
     about: 'Über mich',
     projects: 'Ausgewählte Projekte',
-    strengths: 'Was ich mache',
+    strengths: 'Schwerpunkte',
     languages: 'Sprachen',
     contact: 'Kontakt',
     download: 'Lebenslauf als PDF herunterladen',
     downloading: 'PDF wird erstellt …',
+    present: 'heute',
   },
   en: {
     experience: 'Work Experience',
@@ -27,6 +28,7 @@ const labels = {
     contact: 'Get in touch',
     download: 'Download CV as PDF',
     downloading: 'Generating PDF …',
+    present: 'present',
   },
 } as const;
 
@@ -79,7 +81,20 @@ function ContactLine({ icon, href, label }: { icon: ReactNode; href: string; lab
 }
 
 const mailIcon = <RiMailFill className="size-3" aria-hidden />;
-const linkIcon = <RiArrowRightFill className="size-3" aria-hidden />;
+const linkedinIcon = <RiLinkedinFill className="size-3" aria-hidden />;
+
+const externalLinkClass =
+  'group/external relative inline-flex items-center transition-colors hover:text-accent focus-visible:text-accent';
+
+/** Fades in unblurred beside an external link on hover or keyboard focus. */
+function ExternalLinkIcon() {
+  return (
+    <RiArrowRightUpLine
+      className="absolute left-full ml-1 size-4 -translate-x-1 opacity-0 blur-[3px] transition-[opacity,filter,translate] duration-200 ease-out group-hover/external:translate-x-0 group-hover/external:opacity-100 group-hover/external:blur-none group-focus-visible/external:translate-x-0 group-focus-visible/external:opacity-100 group-focus-visible/external:blur-none motion-reduce:transition-none print:hidden"
+      aria-hidden
+    />
+  );
+}
 
 export type CvDocumentProps = {
   profile: PersonalizedCv;
@@ -135,6 +150,11 @@ export default function CvDocument({
                   )}
                   <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2">
                     <ContactLine icon={mailIcon} href={`mailto:${cv.email}`} label={cv.email} />
+                    <ContactLine
+                      icon={linkedinIcon}
+                      href={cv.linkedin}
+                      label="linkedin.com/in/oliverpitsch"
+                    />
                   </div>
                   <p className="mt-4 hidden text-[12px] text-ink-muted print:block">
                     {contact.location} · pitsch.me{canonicalPath}
@@ -163,63 +183,74 @@ export default function CvDocument({
               </div>
 
               <ol className="mt-8 space-y-9 pb-14 print:pb-0">
-                {profile.roles.map((role) => (
-                  <li
-                    key={`${role.org}-${role.from}`}
-                    className="group grid gap-x-5 gap-y-2 sm:grid-cols-[74px_1fr] print:break-inside-avoid"
-                  >
-                    <p className="pt-1 text-[13px] font-medium leading-5 tabular-nums text-ink-muted sm:text-right">
-                      <span className="sm:block">{role.from}</span>
-                      {role.to !== role.from && <span className="sm:block">{` – ${role.to}`}</span>}
-                    </p>
-                    <div className="relative pb-1 pl-6">
-                      <span
-                        className="absolute bottom-0 left-0 top-0 w-px bg-line group-last:bottom-0 sm:-bottom-9"
-                        aria-hidden
-                      />
-                      <span
-                        className="absolute left-0 top-full hidden h-14 w-px bg-gradient-to-b from-line to-transparent group-last:block print:hidden"
-                        aria-hidden
-                      />
-                      <span
-                        className="absolute -left-[5px] top-[7px] size-[9px] rounded-full bg-accent ring-4 ring-surface print:ring-white"
-                        aria-hidden
-                      />
-                      <h3 className="text-[19px] font-semibold leading-tight tracking-[-0.01em] text-ink">
-                        {role.href ? (
-                          <a
-                            href={role.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="decoration-accent/40 underline-offset-4 hover:underline"
-                          >
-                            {role.org}
-                          </a>
-                        ) : (
-                          role.org
+                {profile.roles.map((role) => {
+                  const orgNote = role.orgNote && (
+                    <span className="font-normal text-ink-muted"> ({role.orgNote})</span>
+                  );
+                  return (
+                    <li
+                      key={`${role.org}-${role.from}`}
+                      className="group grid gap-x-5 gap-y-2 sm:grid-cols-[74px_1fr] print:break-inside-avoid"
+                    >
+                      <p className="pt-1 text-[13px] font-medium leading-5 tabular-nums text-ink-muted sm:text-right">
+                        <span className="sm:block">{role.from}</span>
+                        {role.to !== role.from && (
+                          <span className="sm:block">{` – ${role.to === 'present' ? copy.present : role.to}`}</span>
                         )}
-                        {role.orgNote && (
-                          <span className="font-normal text-ink-muted"> ({role.orgNote})</span>
-                        )}
-                      </h3>
-                      <p className="mt-1 text-[14px] font-medium text-accent">{role.title}</p>
-                      <ul className="mt-3 space-y-2">
-                        {role.bullets.map((bullet) => (
-                          <li
-                            key={bullet}
-                            className="relative pl-5 text-[15px] leading-7 text-ink-muted"
-                          >
-                            <span
-                              className="absolute left-0 top-[13px] size-1.5 -translate-y-1/2 rounded-full bg-accent/60"
-                              aria-hidden
-                            />
-                            {bullet}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </li>
-                ))}
+                      </p>
+                      <div className="relative pb-1 pl-6">
+                        <span
+                          className="absolute bottom-0 left-0 top-0 w-px bg-line group-last:bottom-0 sm:-bottom-9"
+                          aria-hidden
+                        />
+                        <span
+                          className="absolute left-0 top-full hidden h-14 w-px bg-gradient-to-b from-line to-transparent group-last:block print:hidden"
+                          aria-hidden
+                        />
+                        <span
+                          className="absolute -left-[5px] top-[7px] size-[9px] rounded-full bg-accent ring-4 ring-surface print:ring-white"
+                          aria-hidden
+                        />
+                        <h3 className="text-[19px] font-semibold leading-tight tracking-[-0.01em] text-ink">
+                          {role.href ? (
+                            <a
+                              href={role.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className={externalLinkClass}
+                            >
+                              <span>
+                                {role.org}
+                                {orgNote}
+                              </span>
+                              <ExternalLinkIcon />
+                            </a>
+                          ) : (
+                            <>
+                              {role.org}
+                              {orgNote}
+                            </>
+                          )}
+                        </h3>
+                        <p className="mt-1 text-[14px] font-medium text-accent">{role.title}</p>
+                        <ul className="mt-3 space-y-2">
+                          {role.bullets.map((bullet) => (
+                            <li
+                              key={bullet}
+                              className="relative pl-5 text-[15px] leading-7 text-ink-muted"
+                            >
+                              <span
+                                className="absolute left-0 top-[13px] size-1.5 -translate-y-1/2 rounded-full bg-accent/60"
+                                aria-hidden
+                              />
+                              {bullet}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </li>
+                  );
+                })}
               </ol>
             </section>
           </section>
@@ -248,9 +279,10 @@ export default function CvDocument({
                       href={project.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-semibold text-ink decoration-accent/40 underline-offset-4 hover:underline"
+                      className={`${externalLinkClass} font-semibold text-ink`}
                     >
                       {project.name}
+                      <ExternalLinkIcon />
                     </a>
                     <p className="mt-1 text-[13px] leading-5 text-ink-muted">{project.lead}</p>
                   </li>
@@ -272,19 +304,6 @@ export default function CvDocument({
 
           <RailCard title={copy.languages} className="cv-languages">
             <Chips items={contact.languages} />
-          </RailCard>
-          <RailCard className="cv-contact text-center">
-            <h2 className="text-[20px] font-semibold tracking-[-0.01em] text-ink">
-              {copy.contact}
-            </h2>
-            <div className="mt-4 flex flex-col items-center gap-3">
-              <ContactLine icon={linkIcon} href={`mailto:${cv.email}`} label={cv.email} />
-              <ContactLine
-                icon={linkIcon}
-                href={cv.linkedin}
-                label="linkedin.com/in/oliverpitsch"
-              />
-            </div>
           </RailCard>
         </aside>
       </div>

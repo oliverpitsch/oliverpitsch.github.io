@@ -60,8 +60,10 @@ export function mergeCv(application: Application, master?: Cv): PersonalizedCv {
 }
 
 const germanProjectLeads: Record<string, string> = {
-  'Joinride.cc': 'Eine führende Plattform für Radsport-Gruppenfahrten und Laufgruppen.',
-  'Famili.one': 'Ein Familienorganizer, der Care-Arbeit sichtbar macht.',
+  'Joinride.cc':
+    'Eine Plattform, über die Menschen gemeinsame Radsport- und Laufaktivitäten entdecken, organisieren und miteinander erleben können.',
+  'Famili.one':
+    'Ein digitaler Familienorganizer, der Termine, Aufgaben, Dokumente und Verantwortlichkeiten an einem Ort zusammenführt und Care-Arbeit sichtbarer macht.',
   'neuerName.com': 'Ein Werkzeug für den organisatorischen Aufwand einer Namensänderung.',
 };
 
