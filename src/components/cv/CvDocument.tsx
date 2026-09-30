@@ -119,12 +119,12 @@ export default function CvDocument({
   const copy = labels[language];
   const contact = language === 'de' ? cvDe : cv;
   return (
-    <Container size="wide" className={compact ? 'py-4' : 'py-10 print:px-0 print:py-0'}>
+    <Container size="wide" className={`max-sm:px-3 ${compact ? 'py-4' : 'py-10 print:px-0 print:py-0'}`}>
       <div className="cv-sheet grid gap-6 lg:grid-cols-[minmax(0,1.6fr)_minmax(272px,0.85fr)] lg:items-start">
         <div className="cv-main space-y-6">
-          <section className="cv-card relative z-10 rounded-3xl border border-line bg-surface p-7 shadow-card print:border-0 print:p-0 print:shadow-none sm:p-9">
+          <section className="cv-card relative z-10 rounded-3xl border border-line bg-surface p-5 shadow-card print:border-0 print:p-0 print:shadow-none sm:p-9">
             <header className="cv-letterhead">
-              <div className="flex flex-wrap items-center gap-5">
+              <div className="flex flex-col items-start gap-5 sm:flex-row sm:items-center print:flex-row print:items-center">
                 <picture className="shrink-0">
                   <source
                     media="(prefers-color-scheme: dark)"
@@ -192,7 +192,7 @@ export default function CvDocument({
                       key={`${role.org}-${role.from}`}
                       className="group grid gap-x-5 gap-y-2 sm:grid-cols-[74px_1fr] print:break-inside-avoid"
                     >
-                      <p className="pt-1 text-[13px] font-medium leading-5 tabular-nums text-ink-muted sm:text-right">
+                      <p className="pt-1 text-center text-[13px] font-medium leading-5 tabular-nums text-ink-muted sm:text-right print:text-right">
                         <span className="sm:block">{role.from}</span>
                         {role.to !== role.from && (
                           <span className="sm:block">{` – ${role.to === 'present' ? copy.present : role.to}`}</span>
