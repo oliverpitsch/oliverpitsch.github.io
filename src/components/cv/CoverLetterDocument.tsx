@@ -37,8 +37,8 @@ export default function CoverLetterDocument({
   const downloadingLabel = language === 'de' ? 'PDF wird erstellt …' : 'Generating PDF …';
 
   return (
-    <Container size="wide" className={compact ? 'py-4' : 'py-10 print:px-0 print:py-0'}>
-      <div className="letter-stage px-3 pb-3 sm:px-8 sm:pb-8 lg:px-12 lg:pb-12 print:p-0">
+    <Container size="wide" className={`max-sm:px-3 ${compact ? 'py-4' : 'py-10 print:px-0 print:py-0'}`}>
+      <div className="letter-stage pb-3 sm:px-8 sm:pb-8 lg:px-12 lg:pb-12 print:p-0">
         <article
           aria-labelledby="cover-letter-title"
           className="letter-sheet mx-auto aspect-[210/297] w-full max-w-[210mm] bg-white px-6 py-8 text-[#1e293b] shadow-[0_1px_1px_rgba(15,23,42,0.08),0_4px_12px_-2px_rgba(15,23,42,0.12),0_30px_64px_-24px_rgba(15,23,42,0.34)] ring-1 ring-black/[0.04] sm:px-12 sm:py-12 lg:px-[20mm] lg:py-[18mm] print:max-w-none print:shadow-none print:ring-0"
@@ -69,7 +69,7 @@ export default function CoverLetterDocument({
           </header>
 
           <div className="letter-meta mt-10 grid gap-6 text-[13px] leading-6 text-[#5d6d84] sm:grid-cols-[1fr_auto]">
-            <div>
+            <div className="hidden sm:block print:block">
               <p className="font-semibold text-[#1e293b]">{company}</p>
             </div>
             <p className="tabular-nums sm:text-right">
