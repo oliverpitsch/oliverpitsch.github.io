@@ -16,6 +16,22 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Personalized application CVs
+
+The canonical profile remains in `src/lib/cv.ts`. Application records only store
+positioning, selections, ordering, and cover-letter overrides in Neon Postgres.
+
+1. Copy `.env.example` to `.env.local` and set the server-only variables.
+2. Apply the schema with `npm run db:migrate`.
+3. Open `/admin/login`, create a draft, and publish it when it is ready.
+
+Published records are available at `/cv/[slug]`; drafts and archived records
+return 404 publicly.
+
+This project now requires a server-capable Next.js host. GitHub Pages cannot run
+the database, authentication, or AI drafting endpoints. Configure the environment
+variables on the host before moving `pitsch.me` to it.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.

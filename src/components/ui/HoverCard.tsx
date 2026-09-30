@@ -1,6 +1,6 @@
 'use client';
 
-import { PreviewCard } from '@base-ui-components/react/preview-card';
+import { PreviewCard } from '@base-ui/react/preview-card';
 import type { ComponentProps } from 'react';
 
 export const HoverCard = PreviewCard.Root;

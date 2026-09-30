@@ -8,6 +8,7 @@
 import Link from 'next/link';
 import { RiArrowRightFill } from 'react-icons/ri';
 import ArticleCard from '@/components/ArticleCard';
+import InkSignature from '@/components/InkSignature';
 import CareerStrip from '@/components/home/CareerStrip';
 import CompanyCard from '@/components/home/CompanyCard';
 import ProductTabs from '@/components/home/ProductTabs';
@@ -280,10 +281,9 @@ export default async function Home() {
       <Contact />
 
       <section className="mt-28 flex justify-center">
-        <img
-          src="/images/signature.png"
-          alt="With love from Oliver Pitsch"
-          className="w-32 dark:invert-60"
+        <InkSignature
+          label="With love from Oliver Pitsch"
+          className="h-auto w-32 text-[#2242b4] dark:text-[#7d96ff]"
         />
       </section>
     </PageShell>
