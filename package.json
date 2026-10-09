@@ -22,7 +22,7 @@
     "cheerio": "^1.2.0",
     "drizzle-orm": "^0.45.3",
     "gray-matter": "^4.0.3",
-    "next": "16.3.5",
+    "next": "16.3.8",
     "openai": "^7.21.0",
     "posthog-js": "^1.266.0",
     "posthog-node": "^5.8.4",
