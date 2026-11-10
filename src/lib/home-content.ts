@@ -9,7 +9,7 @@ export type ChainItem = { title: string; body: string; link?: { href: string; la
 export const chain: ChainItem[] = [
   {
     title: 'Strategy with product leadership',
-    body: 'At Trusted Shops I reported to the CEO and CPO and shaped strategy for a product portfolio used by thousands of businesses and millions of consumers across Europe.',
+    body: 'At Trusted Shops I reported to the CEO and CPO for eight years and shaped strategy for a product portfolio used by thousands of businesses and millions of consumers across Europe.',
   },
   {
     title: 'Building teams that ship at scale',

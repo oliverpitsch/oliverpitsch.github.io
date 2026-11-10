@@ -22,7 +22,7 @@ const blurbs: Record<string, string> = {
   Ordio:
     'Reorganised product management around AI-native building with the CEO and CTO, and made the design system agent-ready.',
   'Trusted Shops':
-    'Nearly eight years reporting to the CPO. Led UX and Product Marketing across ten product teams in six countries, launched the new review system and built the Helios design system family.',
+    'Eight years reporting to the CEO and CPO. Led UX and Product Marketing across ten product teams in six countries, launched the new review system and built the Helios design system family.',
   Studitemps:
     'Joined as the first UX designer, established UX processes across eight product teams, and hired and built the UX team.',
   Reputami:

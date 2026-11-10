@@ -22,7 +22,7 @@ That audience just grew. The newest members of every product team do not read Co
 
 ## What a design system family taught me about scale
 
-At Trusted Shops I spent nearly eight years with design systems at the center of my work. Helios was not one library. It was a family: one foundation, shared in design and in code, carried across products, channels and touchpoints, and used by more than ten product teams in six countries.
+At Trusted Shops I spent eight years with design systems at the center of my work. Helios was not one library. It was a family: one foundation, shared in design and in code, carried across products, channels and touchpoints, and used by more than ten product teams in six countries.
 
 TODO: one concrete story. A moment where Helios saved a launch, or where its absence would have cost you. Ideally with a number (products, components, time saved, consistency score).
 

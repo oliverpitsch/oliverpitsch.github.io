@@ -36,7 +36,7 @@ const roleTranslations: Record<
   'Trusted Shops': {
     title: 'Director UX & Product Marketing',
     bullets: [
-      'Berichtete fast acht Jahre direkt an CEO und CPO und gestaltete gemeinsam mit meinen Peers aus Produktmanagement und Engineering eine durchgängige Produktstrategie.',
+      'Berichtete acht Jahre direkt an CEO und CPO und gestaltete gemeinsam mit meinen Peers aus Produktmanagement und Engineering eine durchgängige Produktstrategie.',
       'Verantwortete UX und Product Marketing für mehr als zehn Produktteams in sechs Ländern und ein Portfolio, das über 35.000 Unternehmen und 45 Millionen Verbraucherinnen und Verbraucher erreicht.',
       'Baute die Produktorganisation gemeinsam mit meinen Peers auf: Product Designer eingebettet in cross-funktionale Squads, Content als zentrales Team, das mit allen Squads arbeitete.',
       'Brachte die neue Produkt- und Shopbewertungsplattform vom Konzept bis zu Launch und Betrieb in elf Ländern. Ich verantwortete Product Design und UX end-to-end, meine Teams bauten und lieferten es Seite an Seite mit Produktmanagement und Engineering.',
@@ -69,7 +69,7 @@ export const cvDe: Cv = {
     'Product- und Design-Leader mit 15 Jahren Erfahrung darin, komplexe B2B- und Consumer-Produkte von der Strategie bis in den Markt zu bringen. Partner für CPOs und VPs of Product, Aufbau internationaler UX- und Design-Teams, mit Designqualität als Treiber für Geschäftsergebnisse.',
   about: [
     'Ich bin Product- und Design-Leader aus Köln und bringe seit 15 Jahren B2B- und Consumer-Produkte von der Strategie bis in den Markt. Ich arbeite Hand in Hand mit CPOs und VPs of Product, führe die Teams, die bauen, und verstehe Designqualität als Treiber für Geschäftsergebnisse.',
-    'Bei Trusted Shops berichtete ich fast acht Jahre an CEO und CPO und verantwortete UX, Designsysteme und Product Marketing für mehr als zehn Teams in sechs Ländern. Ich habe Reputami mitgegründet, übernommen von eKomi, und zuletzt bei AI Labs ein KI-natives Produkt in acht Wochen zur Marktreife gebracht. Daneben baue ich eigene Produkte mit KI.',
+    'Bei Trusted Shops berichtete ich acht Jahre an CEO und CPO und verantwortete UX, Designsysteme und Product Marketing für mehr als zehn Teams in sechs Ländern. Ich habe Reputami mitgegründet, übernommen von eKomi, und zuletzt bei AI Labs ein KI-natives Produkt in acht Wochen zur Marktreife gebracht. Daneben baue ich eigene Produkte mit KI.',
   ],
   roles: cv.roles.map((role) => ({ ...role, ...roleTranslations[role.org] })),
   strengths: [

@@ -50,7 +50,7 @@ export const cv: Cv = {
     'Product and design leader with 15 years of experience taking complex B2B and consumer products from strategy to market. Partner to CPOs and VPs of Product, builder of international UX and design teams, with design quality as a driver of business results.',
   about: [
     'I am a product and design leader from Cologne with 15 years of experience taking B2B and consumer products from strategy to market. I work hand in hand with CPOs and VPs of Product, lead the teams that build, and treat design quality as a driver of business results.',
-    'At Trusted Shops I reported to the CEO and CPO for nearly eight years and led UX, design systems and product marketing across 10+ teams in 6 countries. I co-founded Reputami, acquired by eKomi, and most recently took an AI-native product to market-ready in eight weeks at AI Labs. Alongside, I build my own products with AI.',
+    'At Trusted Shops I reported to the CEO and CPO for eight years and led UX, design systems and product marketing across 10+ teams in 6 countries. I co-founded Reputami, acquired by eKomi, and most recently took an AI-native product to market-ready in eight weeks at AI Labs. Alongside, I build my own products with AI.',
   ],
   roles: [
     {
@@ -87,7 +87,7 @@ export const cv: Cv = {
       logo: '/images/companies/logo-trusted-shops.svg',
       href: 'https://trustedshops.com',
       bullets: [
-        'Reported to the CEO and CPO for nearly eight years and shaped one cohesive product strategy together with my peers in product management and engineering.',
+        'Reported to the CEO and CPO for eight years and shaped one cohesive product strategy together with my peers in product management and engineering.',
         'Led UX and Product Marketing across more than 10 product teams in 6 countries, for a portfolio serving 35,000+ businesses and 45 million+ consumers.',
         'Built the product organization together with my peers, with product designers embedded in cross-functional squads and content working across all of them as a central team.',
         'Took the new product and shop review platform from concept to launch and operations in 11 countries, owning product design and UX end to end while my teams built and shipped it side by side with product management and engineering.',
