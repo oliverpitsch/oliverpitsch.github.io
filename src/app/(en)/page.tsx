@@ -16,7 +16,7 @@ import PageShell from '@/components/layout/PageShell';
 import Button from '@/components/ui/Button';
 import { getHomepageArticles, type ArticleMeta } from '@/lib/articles';
 import { cv } from '@/lib/cv';
-import { chain, designSystemPoints, proofPoints } from '@/lib/home-content';
+import { chain, designSystemPoints } from '@/lib/home-content';
 import { products } from '@/lib/products';
 import { testimonials } from '@/lib/testimonials';
 
@@ -29,7 +29,6 @@ const siteUrl = 'https://pitsch.me';
 const h2 =
   'text-balance text-[32px] font-semibold leading-[1.05] tracking-[-0.03em] text-ink sm:text-[38px]';
 const lead = 'mt-5 max-w-2xl text-pretty text-[17px] leading-8 text-ink-muted';
-const label = 'text-[12px] font-semibold uppercase tracking-[0.08em] text-accent';
 
 function Hero() {
   return (
@@ -44,11 +43,11 @@ function Hero() {
             on.
           </p>
           <p className="mt-5 text-pretty text-[17px] leading-8 text-ink-muted sm:text-[18px]">
-            15 years leading product strategy, UX and product design at enterprise scale. Great UX
-            and UI are how we get to business impact, not a trade-off against it. And I still build
-            myself:{' '}
+            15 years leading product strategy, UX and design at enterprise scale, with design
+            quality as a driver of business results. Today I put agentic product development into
+            practice,{' '}
             <a href="#products" className="text-ink underline underline-offset-4">
-              my own products, with AI
+              in products I build and run myself
             </a>
             .
           </p>
@@ -72,18 +71,7 @@ function Hero() {
         </picture>
       </div>
 
-      <dl className="mt-14 grid grid-cols-2 gap-x-6 gap-y-7 border-t border-line pt-8 sm:grid-cols-3 lg:grid-cols-5">
-        {proofPoints.map((point) => (
-          <div key={point.value}>
-            <dt className="text-[26px] font-semibold leading-none tracking-[-0.025em] tabular-nums text-ink">
-              {point.value}
-            </dt>
-            <dd className="mt-1 text-[14px] leading-5 text-ink-muted">{point.label}</dd>
-          </div>
-        ))}
-      </dl>
-
-      <div className="mt-10 border-t border-line pt-8">
+      <div className="mt-14 border-t border-line pt-8">
         <CareerStrip />
       </div>
     </Container>
@@ -94,43 +82,27 @@ function HowIWork() {
   return (
     <section id="how-i-work" className="mt-12 scroll-mt-20" aria-labelledby="how-heading">
       <Container size="wide">
-        <div className="max-w-3xl">
-          <h2 id="how-heading" className={h2}>
-            From strategy to market
-          </h2>
-          <p className={lead}>
-            I work hand in hand with CPOs and VPs of Product on strategy, and lead the teams that
-            carry it through UX, product design and build into the market. I have done it at
-            enterprise scale with teams, and I do it hands-on in my own products.
-          </p>
-        </div>
-
-        <ol className="mt-10 border-b border-line">
-          {chain.map((step, index) => (
-            <li
-              key={step.title}
-              className="grid gap-5 border-t border-line py-7 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1fr)_minmax(0,1fr)] lg:gap-10"
-            >
-              <div>
-                <p className="font-mono text-[13px] tabular-nums text-ink-muted">
-                  {String(index + 1).padStart(2, '0')}
-                </p>
-                <h3 className="mt-1 text-[21px] font-semibold tracking-[-0.015em] text-ink">
-                  {step.title}
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-20">
+          <div>
+            <h2 id="how-heading" className={h2}>
+              From strategy to market
+            </h2>
+            <p className={lead}>
+              I take products from the first strategy conversation to launch, together with product
+              leadership and the teams that build them.
+            </p>
+          </div>
+          <ul className="divide-y divide-line border-y border-line">
+            {chain.map((item) => (
+              <li key={item.title} className="py-5">
+                <h3 className="text-[17px] font-semibold tracking-[-0.01em] text-ink">
+                  {item.title}
                 </h3>
-                <p className="mt-1 text-[15px] leading-6 text-ink-muted">{step.line}</p>
-              </div>
-              <div>
-                <p className={label}>With teams</p>
-                <p className="mt-2 text-[15px] leading-7 text-ink">{step.withTeams}</p>
-              </div>
-              <div>
-                <p className={label}>Hands-on</p>
-                <p className="mt-2 text-[15px] leading-7 text-ink">{step.handsOn}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
+                <p className="mt-1 text-[16px] leading-7 text-ink-muted">{item.body}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
       </Container>
     </section>
   );

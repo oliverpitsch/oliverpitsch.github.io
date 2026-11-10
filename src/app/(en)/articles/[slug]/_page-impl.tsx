@@ -199,9 +199,7 @@ export async function renderArticle(slug: string) {
                 href={`/articles/${adjacent.previous.slug}`}
                 className={`${adjacent.next ? 'col-span-1' : 'col-span-2'} group inline-flex flex-col rounded-md border border-line p-3 hover:bg-slate-50 dark:hover:bg-slate-900/60 transition`}
               >
-                <span className="text-xs uppercase tracking-wide text-ink-muted">
-                  Previous Article
-                </span>
+                <span className="text-xs text-ink-muted">Previous article</span>
                 <span className="font-medium group-hover:text-indigo-600 dark:group-hover:text-indigo-400">
                   {adjacent.previous.Title}
                 </span>
@@ -212,9 +210,7 @@ export async function renderArticle(slug: string) {
                 href={`/articles/${adjacent.next.slug}`}
                 className={`${adjacent.previous ? 'col-span-1' : 'col-span-2'} group inline-flex flex-col rounded-md border border-line p-3 hover:bg-slate-50 dark:hover:bg-slate-900/60 transition`}
               >
-                <span className="text-xs uppercase tracking-wide text-ink-muted text-right">
-                  Next Article
-                </span>
+                <span className="text-xs text-ink-muted text-right">Next article</span>
                 <span className="font-medium group-hover:text-indigo-600 dark:group-hover:text-indigo-400 text-right">
                   {adjacent.next.Title}
                 </span>

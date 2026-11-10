@@ -137,7 +137,7 @@ function AfterMock({ c }: { c: VibeDesignContent['beforeAfter']['after'] }) {
         <div className="rounded-xl border border-line bg-surface p-5 shadow-surface inset-ring-1 inset-ring-white dark:inset-ring-white/10">
           <div className="flex items-start justify-between">
             <p className="text-[17px] font-semibold tracking-[-0.01em] text-ink">{c.name}</p>
-            <span className="inline-flex items-center rounded-full bg-accent px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-on-accent">
+            <span className="inline-flex items-center rounded-full bg-accent px-2.5 py-1 text-[12px] font-semibold text-on-accent">
               {c.popular}
             </span>
           </div>
@@ -733,7 +733,7 @@ export default function VibeDesignPage({ content: c }: { content: VibeDesignCont
 
           <div className="relative grid gap-8 lg:grid-cols-[minmax(0,1.45fr)_minmax(280px,0.95fr)] lg:items-end">
             <div>
-              <p className="inline-flex items-center rounded-full bg-surface-muted px-3 py-1 text-[12px] font-semibold uppercase tracking-[0.16em] text-ink-muted dark:bg-slate-900/40 dark:text-slate-300">
+              <p className="inline-flex items-center rounded-full bg-surface-muted px-3 py-1 text-[13px] font-medium text-ink-muted dark:bg-slate-900/40 dark:text-slate-300">
                 {c.cta.badge}
               </p>
               <h2
