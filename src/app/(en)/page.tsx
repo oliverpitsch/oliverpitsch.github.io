@@ -44,8 +44,8 @@ function Hero() {
           </p>
           <p className="mt-5 text-pretty text-[17px] leading-8 text-ink-muted sm:text-[18px]">
             15 years leading product strategy, UX and design at enterprise scale, with design
-            quality as a driver of business results. Today I put agentic product development into
-            practice,{' '}
+            quality as a driver of business results. To never stop learning I put agentic product
+            development into practice,{' '}
             <a href="#products" className="text-ink underline underline-offset-4">
               in products I build and run myself
             </a>
@@ -99,6 +99,15 @@ function HowIWork() {
                   {item.title}
                 </h3>
                 <p className="mt-1 text-[16px] leading-7 text-ink-muted">{item.body}</p>
+                {item.link && (
+                  <a
+                    href={item.link.href}
+                    className="mt-2 inline-flex items-center gap-1.5 text-[15px] font-semibold text-accent underline-offset-4 hover:underline"
+                  >
+                    {item.link.label}
+                    <RiArrowRightFill className="size-4" aria-hidden />
+                  </a>
+                )}
               </li>
             ))}
           </ul>
@@ -110,7 +119,7 @@ function HowIWork() {
 
 function DesignSystems() {
   return (
-    <section className="mt-28" aria-labelledby="systems-heading">
+    <section id="design-systems" className="mt-28 scroll-mt-20" aria-labelledby="systems-heading">
       <Container size="wide">
         <div className="rounded-[32px] border border-line bg-surface p-8 shadow-card sm:p-12">
           <div className="max-w-3xl">

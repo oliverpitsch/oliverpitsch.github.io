@@ -3,23 +3,26 @@
  * be edited in one place. Every claim here should trace back to cv.ts.
  */
 
-/** Strategy to market in four short claims. One sentence of proof each, no more. */
-export const chain = [
+/** Strategy to market in four short claims. One or two sentences of proof each. */
+export type ChainItem = { title: string; body: string; link?: { href: string; label: string } };
+
+export const chain: ChainItem[] = [
   {
-    title: 'Strategy, with product leadership',
-    body: 'Nearly eight years reporting to the CPO at Trusted Shops, shaping strategy with my peers.',
+    title: 'Strategy with product leadership',
+    body: 'At Trusted Shops I reported to the CEO and CPO and shaped strategy for a product portfolio used by thousands of businesses and millions of consumers across Europe.',
   },
   {
-    title: 'Teams that build together',
-    body: 'Design, UX and content teams embedded in product squads, across 10+ teams in 6 countries.',
+    title: 'Building teams that ship at scale',
+    body: 'I led design, UX and content teams across 6 countries, some embedded in 10+ product squads, others working across all of them as a central team. On-site, hybrid and fully remote.',
   },
   {
-    title: 'Design that holds up at scale',
-    body: 'The Helios design system family, shared in design and code across the whole portfolio.',
+    title: 'Design systems people and agents can build on',
+    body: "I've led design system families that make many products, channels and teams feel like one product, and made them readable for AI agents so their output stays on brand.",
+    link: { href: '#design-systems', label: 'More on design systems for agents' },
   },
   {
-    title: 'All the way to market',
-    body: "From Trusted Shops' new review system to an AI-native product launched in eight weeks.",
+    title: 'At scale and at speed',
+    body: "I took Trusted Shops' new review platform from strategy to launch and operations in 11 countries. At AI Labs, I took a product platform to market-ready in eight weeks with one engineering lead and AI agents.",
   },
 ];
 

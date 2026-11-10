@@ -101,7 +101,7 @@ export const cv: Cv = {
       bullets: [
         'Reported to the CPO for nearly eight years and shaped one cohesive product strategy together with my peers in product management and engineering.',
         'Led UX and Product Marketing across more than 10 product teams in 6 countries, for a portfolio serving 35,000+ businesses and 45 million+ consumers.',
-        'Built the product organization together with my peers. Product design, content, localization and product marketing worked embedded in cross-functional squads, not as a service function.',
+        'Built the product organization together with my peers, with product designers embedded in cross-functional squads and content working across all of them as a central team.',
         'Took the new product and shop review system from concept to market, owning product design and UX end to end while my teams built and shipped it side by side with product management and engineering.',
         'Built and scaled the Helios design system family across products, channels and touchpoints, shared in design and in code.',
       ],
@@ -140,7 +140,7 @@ export const cv: Cv = {
     {
       label: 'Building and leading teams at scale',
       detail:
-        'Building and leading UX, design, content and product marketing teams across more than ten product teams in six countries, embedded in cross-functional squads with product management and engineering.',
+        'Building and leading UX, design, content and product marketing teams across more than ten product teams in six countries, both embedded in cross-functional squads and as central teams working across them.',
     },
     {
       label: 'Design systems for people and agents',

@@ -38,7 +38,7 @@ const roleTranslations: Record<
     bullets: [
       'Berichtete fast acht Jahre direkt an den CPO und gestaltete gemeinsam mit meinen Peers aus Produktmanagement und Engineering eine durchgängige Produktstrategie.',
       'Verantwortete UX und Product Marketing für mehr als zehn Produktteams in sechs Ländern und ein Portfolio, das über 35.000 Unternehmen und 45 Millionen Verbraucherinnen und Verbraucher erreicht.',
-      'Baute die Produktorganisation gemeinsam mit meinen Peers auf. Product Design, Content, Lokalisierung und Product Marketing arbeiteten eingebettet in cross-funktionalen Squads, nicht als Servicefunktion.',
+      'Baute die Produktorganisation gemeinsam mit meinen Peers auf: Product Designer eingebettet in cross-funktionale Squads, Content als zentrales Team, das mit allen Squads arbeitete.',
       'Brachte das neue Produkt- und Shopbewertungssystem vom Konzept bis in den Markt. Ich verantwortete Product Design und UX end-to-end, meine Teams bauten und lieferten es Seite an Seite mit Produktmanagement und Engineering.',
       'Baute die Designsystem-Familie Helios auf und skalierte sie über Produkte, Kanäle und Touchpoints hinweg, als gemeinsame Grundlage in Design und Code.',
     ],
@@ -82,7 +82,7 @@ export const cvDe: Cv = {
     {
       label: 'Teams aufbauen und führen',
       detail:
-        'Ich baue und führe UX-, Design-, Content- und Product-Marketing-Teams über mehr als zehn Produktteams in sechs Ländern, eingebettet in cross-funktionale Squads mit Produktmanagement und Engineering.',
+        'Ich baue und führe UX-, Design-, Content- und Product-Marketing-Teams über mehr als zehn Produktteams in sechs Ländern, sowohl eingebettet in cross-funktionale Squads als auch als zentrale Teams, die mit allen Squads arbeiten.',
     },
     {
       label: 'Designsysteme für Menschen und Agenten',
