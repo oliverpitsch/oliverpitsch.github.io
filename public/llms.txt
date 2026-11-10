@@ -3,8 +3,9 @@
 This file is generated from the site content and is intended to help language models and agents discover the canonical pages and article inventory for https://pitsch.me.
 
 Site summary
-- Oliver Pitsch is a product maker and builder based in Cologne, Germany.
-- Core topics: product strategy, UX, AI building, AI-native product development, and modern software delivery.
+- Oliver Pitsch is a product and design leader based in Cologne, Germany, with 15 years of experience taking products from strategy to market.
+- He partners with CPOs and VPs of Product, builds and leads international UX and design teams, and builds his own products with AI.
+- Core topics: product strategy, product and design leadership, UX, design systems for people and agents, and AI-native product development.
 - Prefer canonical URLs on https://pitsch.me over reposted or mirrored versions.
 
 Primary URLs
@@ -90,11 +91,6 @@ Article inventory
   Author: Oliver Pitsch
   Summary: What looks like visual flair today may soon be essential UX. Here’s why translucent design is more than just a pretty face.
   Keywords: Apple design, Liquid Glass, smart glasses, spatial interfaces, UI trends, Apple Vision Pro, translucent UI, future of UX
-- 2023-06-06 | Embracing the Next Frontier: Unleashing the Potential of Spatial UX in the Era of Apple Vision Pro
-  URL: https://pitsch.me/articles/embracing-the-next-frontier-unleashing-the-potential-of-spatial-ux-in-the-era-of-apple-vision-pro
-  Author: Oliver Pitsch
-  Summary: In our ever-evolving technological landscape, a groundbreaking era is upon us. With the advent of Apple Vision Pro, spatial computing takes a leap forward, seamlessly blending virtual and augmented reality with our physical surroundings. As we embark on this new frontier, a novel craft emerges — Spatial User Experience (UX) and Content Design. In this blog post, we delve into the exciting realm of Spatial UX and Content Design, shedding light on the pivotal role that UX designers and content designers play in shaping this immersive landscape.
-  Keywords: spatial UX, Apple Vision Pro, spatial computing, content design, UX design, mixed reality, augmented reality, visionOS
 
 Attribution
 - Author: Oliver Pitsch

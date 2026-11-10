@@ -7,6 +7,7 @@ export type SiteFooterProps = {
 };
 
 const siteLinks = [
+  { href: '/#how-i-work', label: 'How I work' },
   { href: '/#products', label: 'Products' },
   { href: '/articles', label: 'Writing' },
   { href: '/cv', label: 'CV' },

@@ -1,4 +1,5 @@
 ---
+featured: true
 slug: claude-smashed-the-mvp
 Title: 'Claude smashed the MVP'
 author: Oliver Pitsch

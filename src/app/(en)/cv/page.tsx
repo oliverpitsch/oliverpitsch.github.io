@@ -52,7 +52,7 @@ export default function CvPage() {
       knowsAbout: cv.strengths.map((strength) => strength.label),
       worksFor: {
         '@type': 'Organization',
-        name: cv.roles[0].org,
+        name: (cv.roles.find((role) => role.to === 'present') ?? cv.roles[0]).org,
       },
       hasOccupation: cv.roles.map((role) => ({
         '@type': 'Occupation',

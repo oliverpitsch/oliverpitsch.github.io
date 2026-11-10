@@ -18,13 +18,13 @@ export type CompanyCardData = {
 
 const blurbs: Record<string, string> = {
   'AI Labs':
-    'Led product strategy, UX and frontend for an AI-native SaaS product, and shipped it market-ready in eight weeks with a team of two.',
+    'Led product strategy, UX and frontend for an AI-native enterprise product, and took it from zero to market-ready in eight weeks with one engineering lead and a team of AI agents.',
   Ordio:
-    'Reorganised product management around AI-native building with the CEO and CTO, cutting handoffs and speeding up execution.',
+    'Reorganised product management around AI-native building with the CEO and CTO, and made the design system agent-ready.',
   'Trusted Shops':
-    'Led UX and Product Marketing across ten product teams in six countries, and built the Helios design system that unified the portfolio.',
+    'Nearly eight years reporting to the CPO. Led UX and Product Marketing across ten product teams in six countries, launched the new review system and built the Helios design system family.',
   Studitemps:
-    'Joined as the first UX designer, established UX processes across eight product teams, and hired the team that carried them.',
+    'Joined as the first UX designer, established UX processes across eight product teams, and hired and built the UX team.',
   Reputami:
     'Co-founded a reputation management SaaS for hospitality, led product and development, and took the company through to acquisition by eKomi.',
   'Joinride.cc':

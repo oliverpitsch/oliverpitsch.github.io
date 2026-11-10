@@ -22,6 +22,10 @@ export interface ArticleMeta {
   ogImage?: string; // override for social sharing
   keywords?: string[];
   wordCount?: number;
+  /** Picked for the homepage. */
+  featured?: boolean;
+  /** Still reachable by URL, but left out of listings, feed and homepage. */
+  archived?: boolean;
 }
 
 export interface Article extends ArticleMeta {
@@ -137,7 +141,9 @@ export async function getArticleBySlug(slug: string): Promise<Article | null> {
   };
 }
 
-export async function getAllArticlesMeta(): Promise<ArticleMeta[]> {
+export async function getAllArticlesMeta({
+  includeArchived = false,
+}: { includeArchived?: boolean } = {}): Promise<ArticleMeta[]> {
   const slugs = getArticleSlugs();
   const articles: ArticleMeta[] = [];
   for (const file of slugs) {
@@ -165,9 +171,21 @@ export async function getAllArticlesMeta(): Promise<ArticleMeta[]> {
       ogImage: data.ogImage as string | undefined,
       keywords,
       wordCount: countWords(cleanedContent),
+      featured: data.featured === true,
+      archived: data.archived === true,
     });
   }
-  return articles.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+  return articles
+    .filter((article) => includeArchived || !article.archived)
+    .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+}
+
+/** Featured articles first (newest first), topped up with the latest ones. */
+export async function getHomepageArticles(count = 3): Promise<ArticleMeta[]> {
+  const all = await getAllArticlesMeta();
+  const featured = all.filter((article) => article.featured);
+  const rest = all.filter((article) => !article.featured);
+  return [...featured, ...rest].slice(0, count);
 }
 
 export interface AdjacentArticles {

@@ -1,4 +1,5 @@
 ---
+featured: true
 slug: design-doesnt-start-in-figma-anymore
 Title: 'Design Doesn’t Start in Figma Anymore: Twenty Years of Craft, Pointed at Vibe-Coded Products'
 author: Oliver Pitsch

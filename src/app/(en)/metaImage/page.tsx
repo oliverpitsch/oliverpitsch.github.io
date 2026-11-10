@@ -188,7 +188,7 @@ function ProfileImages() {
             className="-mt-[9%] size-[18%] min-w-20 rounded-full border-4 border-white"
           />
           <p className="mt-3 text-[20px] font-semibold text-black/90">Oliver Pitsch</p>
-          <p className="text-[14px] text-black/60">Product Leader and Solo Builder</p>
+          <p className="text-[14px] text-black/60">Product &amp; Design Leader</p>
         </div>
       </div>
 

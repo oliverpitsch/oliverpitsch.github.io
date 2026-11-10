@@ -10,14 +10,15 @@ import { RiArrowRightFill } from 'react-icons/ri';
 import ArticleCard from '@/components/ArticleCard';
 import InkSignature from '@/components/InkSignature';
 import CareerStrip from '@/components/home/CareerStrip';
-import CompanyCard from '@/components/home/CompanyCard';
 import ProductTabs from '@/components/home/ProductTabs';
 import Container from '@/components/layout/Container';
 import PageShell from '@/components/layout/PageShell';
 import Button from '@/components/ui/Button';
-import { getAllArticlesMeta } from '@/lib/articles';
+import { getHomepageArticles, type ArticleMeta } from '@/lib/articles';
 import { cv } from '@/lib/cv';
+import { chain, designSystemPoints, proofPoints } from '@/lib/home-content';
 import { products } from '@/lib/products';
+import { testimonials } from '@/lib/testimonials';
 
 export const metadata = {
   alternates: { canonical: '/' },
@@ -25,20 +26,10 @@ export const metadata = {
 
 const siteUrl = 'https://pitsch.me';
 
-const practice = [
-  {
-    title: 'Product direction',
-    body: 'Turning customer feedback, strategy and constraints into scoped work that actually ships, and cutting the handoffs in between.',
-  },
-  {
-    title: 'UX and design systems',
-    body: 'Flows, structures and a shared system that hold quality steady while a product and its team grow. Helios at Trusted Shops was built this way.',
-  },
-  {
-    title: 'AI-native delivery',
-    body: 'Working with agents so planning, designing and building collapse into one loop. At AI Labs that meant a market-ready product from a team of two in eight weeks.',
-  },
-];
+const h2 =
+  'text-balance text-[32px] font-semibold leading-[1.05] tracking-[-0.03em] text-ink sm:text-[38px]';
+const lead = 'mt-5 max-w-2xl text-pretty text-[17px] leading-8 text-ink-muted';
+const label = 'text-[12px] font-semibold uppercase tracking-[0.08em] text-accent';
 
 function Hero() {
   return (
@@ -48,24 +39,21 @@ function Hero() {
           <h1 className="text-[52px] font-semibold leading-[0.9] tracking-[-0.035em] text-ink sm:text-[68px] lg:text-[76px]">
             Oliver Pitsch
           </h1>
-          <p className="mt-6 text-[21px] leading-8 text-ink-muted sm:text-[23px]">
-            I lead product and I build it. Twenty years across design, UX and product leadership,
-            now building{' '}
-            <CompanyCard id="joinride" className="text-ink">
-              Joinride
-            </CompanyCard>
-            ,{' '}
-            <CompanyCard id="famili" className="text-ink">
-              Famili
-            </CompanyCard>{' '}
-            and{' '}
-            <CompanyCard id="neuername" className="text-ink">
-              neuerName
-            </CompanyCard>{' '}
-            on my own.
+          <p className="mt-6 text-balance text-[24px] font-medium leading-[1.25] tracking-[-0.02em] text-ink sm:text-[28px]">
+            I lead teams that turn product strategy into products people love and businesses grow
+            on.
           </p>
-          <p className="mt-5 text-[17px] leading-7 text-ink">
-            Open to a new product or leadership role.
+          <p className="mt-5 text-pretty text-[17px] leading-8 text-ink-muted sm:text-[18px]">
+            15 years leading product strategy, UX and product design at enterprise scale. Great UX
+            and UI are how we get to business impact, not a trade-off against it. And I still build
+            myself:{' '}
+            <a href="#products" className="text-ink underline underline-offset-4">
+              my own products, with AI
+            </a>
+            .
+          </p>
+          <p className="mt-5 text-[16px] font-medium leading-7 text-ink">
+            Open to a new product or design leadership role.
           </p>
         </div>
 
@@ -84,27 +72,124 @@ function Hero() {
         </picture>
       </div>
 
-      <div className="mt-14 border-t border-line pt-8">
+      <dl className="mt-14 grid grid-cols-2 gap-x-6 gap-y-7 border-t border-line pt-8 sm:grid-cols-3 lg:grid-cols-5">
+        {proofPoints.map((point) => (
+          <div key={point.value}>
+            <dt className="text-[26px] font-semibold leading-none tracking-[-0.025em] tabular-nums text-ink">
+              {point.value}
+            </dt>
+            <dd className="mt-1 text-[14px] leading-5 text-ink-muted">{point.label}</dd>
+          </div>
+        ))}
+      </dl>
+
+      <div className="mt-10 border-t border-line pt-8">
         <CareerStrip />
       </div>
     </Container>
   );
 }
 
+function HowIWork() {
+  return (
+    <section id="how-i-work" className="mt-12 scroll-mt-20" aria-labelledby="how-heading">
+      <Container size="wide">
+        <div className="max-w-3xl">
+          <h2 id="how-heading" className={h2}>
+            From strategy to market
+          </h2>
+          <p className={lead}>
+            I work hand in hand with CPOs and VPs of Product on strategy, and lead the teams that
+            carry it through UX, product design and build into the market. I have done it at
+            enterprise scale with teams, and I do it hands-on in my own products.
+          </p>
+        </div>
+
+        <ol className="mt-10 border-b border-line">
+          {chain.map((step, index) => (
+            <li
+              key={step.title}
+              className="grid gap-5 border-t border-line py-7 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1fr)_minmax(0,1fr)] lg:gap-10"
+            >
+              <div>
+                <p className="font-mono text-[13px] tabular-nums text-ink-muted">
+                  {String(index + 1).padStart(2, '0')}
+                </p>
+                <h3 className="mt-1 text-[21px] font-semibold tracking-[-0.015em] text-ink">
+                  {step.title}
+                </h3>
+                <p className="mt-1 text-[15px] leading-6 text-ink-muted">{step.line}</p>
+              </div>
+              <div>
+                <p className={label}>With teams</p>
+                <p className="mt-2 text-[15px] leading-7 text-ink">{step.withTeams}</p>
+              </div>
+              <div>
+                <p className={label}>Hands-on</p>
+                <p className="mt-2 text-[15px] leading-7 text-ink">{step.handsOn}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </Container>
+    </section>
+  );
+}
+
+function DesignSystems() {
+  return (
+    <section className="mt-28" aria-labelledby="systems-heading">
+      <Container size="wide">
+        <div className="rounded-[32px] border border-line bg-surface p-8 shadow-card sm:p-12">
+          <div className="max-w-3xl">
+            <h2 id="systems-heading" className={h2}>
+              Design systems, now for agents
+            </h2>
+            <p className={lead}>
+              I have spent years building design systems, and they matter more now than ever. Agents
+              build a growing share of every product, and they only build it well when they
+              understand it. A design system made for agents is how they do.
+            </p>
+          </div>
+          <ul className="mt-10 grid gap-8 sm:grid-cols-3">
+            {designSystemPoints.map((point) => (
+              <li key={point.title} className="border-t border-line pt-5">
+                <h3 className="text-[17px] font-semibold tracking-[-0.01em] text-ink">
+                  {point.title}
+                </h3>
+                <p className="mt-2 text-[15px] leading-7 text-ink-muted">{point.body}</p>
+              </li>
+            ))}
+          </ul>
+          <Link
+            href="/vibe-coded-design"
+            className="mt-10 inline-flex items-center gap-1.5 text-[15px] font-semibold text-accent underline-offset-4 hover:underline"
+          >
+            How I set this up for teams
+            <RiArrowRightFill className="size-4" aria-hidden />
+          </Link>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
 function Products() {
   return (
-    <section id="products" className="mt-12 scroll-mt-20" aria-labelledby="products-heading">
+    <section id="products" className="mt-28 scroll-mt-20" aria-labelledby="products-heading">
       <Container size="wide">
         <div className="max-w-3xl lg:max-w-4xl">
           <h2
             id="products-heading"
             className="text-balance text-[34px] font-semibold leading-[1.05] tracking-[-0.03em] text-ink sm:text-[44px]"
           >
-            Products I build when the problem feels personal enough
+            My lab for AI-native product work
           </h2>
           <p className="mt-5 max-w-2xl text-pretty text-[18px] leading-8 text-ink-muted lg:max-w-3xl">
-            I started each one to scratch an itch I know personally. I build them solo or with one
-            partner. And nothing makes me prouder than seeing how many other people they help.
+            Alongside the teams I lead, I build my own products with AI. It is where I find out
+            first-hand how agents change product management, design and engineering, and the
+            workflows that hold up go back into my teams. And nothing makes me prouder than seeing
+            how many people they help.
           </p>
         </div>
 
@@ -114,60 +199,37 @@ function Products() {
   );
 }
 
-function Practice() {
-  return (
-    <section className="mt-28" aria-labelledby="practice-heading">
-      <Container size="wide">
-        <div className="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-20">
-          <div>
-            <h2
-              id="practice-heading"
-              className="text-[32px] font-semibold leading-[1.05] tracking-[-0.03em] text-ink sm:text-[38px]"
-            >
-              How I work
-            </h2>
-            <div className="mt-6 space-y-4 text-[17px] leading-8 text-ink-muted">
-              <p>
-                Oliver Pitsch builds product systems for the age of humans and agents. Twenty years
-                across design, UX and product leadership, spent connecting product thinking, UX
-                craft, business context and hands-on building.
-              </p>
-              <p>
-                Most recently Head of Product &amp; Engineering at AI Labs, building an AI-native
-                product for large enterprises inside the boundaries of German and European privacy
-                law. Before that, Head of Product at{' '}
-                <a href="https://ordio.com" className="text-accent underline underline-offset-4">
-                  Ordio
-                </a>{' '}
-                and Director of UX &amp; Product Marketing at{' '}
-                <a
-                  href="https://trustedshops.com"
-                  className="text-accent underline underline-offset-4"
-                >
-                  Trusted Shops
-                </a>
-                , and before that founder of Reputami, acquired by eKomi in 2015.
-              </p>
-            </div>
-          </div>
+function Testimonials() {
+  if (testimonials.length === 0) return null;
 
-          <dl className="divide-y divide-line border-t border-line">
-            {practice.map((item) => (
-              <div key={item.title} className="grid gap-2 py-6 sm:grid-cols-[1fr_1.6fr] sm:gap-8">
-                <dt className="text-[17px] font-semibold tracking-[-0.01em] text-ink">
-                  {item.title}
-                </dt>
-                <dd className="text-[16px] leading-7 text-ink-muted">{item.body}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
+  return (
+    <section className="mt-28" aria-labelledby="testimonials-heading">
+      <Container size="wide">
+        <h2 id="testimonials-heading" className={h2}>
+          What people I worked with say
+        </h2>
+        <ul className="mt-10 grid gap-5 lg:grid-cols-3">
+          {testimonials.map((t) => (
+            <li
+              key={t.name}
+              className="flex flex-col justify-between gap-6 rounded-3xl border border-line bg-surface p-7 shadow-card"
+            >
+              <blockquote className="text-pretty text-[16px] leading-7 text-ink">
+                &ldquo;{t.quote}&rdquo;
+              </blockquote>
+              <p className="text-[14px] leading-6">
+                <span className="font-semibold text-ink">{t.name}</span>
+                <span className="block text-ink-muted">{t.context}</span>
+              </p>
+            </li>
+          ))}
+        </ul>
       </Container>
     </section>
   );
 }
 
-function Writing({ articles }: { articles: Awaited<ReturnType<typeof getAllArticlesMeta>> }) {
+function Writing({ articles }: { articles: ArticleMeta[] }) {
   if (articles.length === 0) return null;
 
   return (
@@ -199,7 +261,12 @@ function Writing({ articles }: { articles: Awaited<ReturnType<typeof getAllArtic
 }
 
 function Contact() {
-  const topics = ['Product strategy', 'UX systems', 'AI building', 'Leadership sparring'];
+  const topics = [
+    'Product & design leadership',
+    'Product strategy',
+    'Design systems for agents',
+    'AI-native teams',
+  ];
 
   return (
     <section id="contact" className="mt-28 scroll-mt-20" aria-labelledby="contact-heading">
@@ -211,12 +278,15 @@ function Contact() {
                 id="contact-heading"
                 className="max-w-2xl text-balance text-[32px] font-semibold leading-[1.05] tracking-[-0.03em] text-ink sm:text-[38px]"
               >
-                Building something, or rebuilding how your team builds?
+                Looking for a product leader who builds teams and products?
               </h2>
               <p className="mt-5 max-w-2xl text-pretty text-[17px] leading-8 text-ink-muted">
-                I am open to a new product or leadership role, and I work with founders and teams
-                that want clearer direction, stronger UX and faster execution with less process
-                overhead.
+                I am open to a new product or design leadership role, working hand in hand with
+                product leadership and the teams around it. I also{' '}
+                <Link href="/ai-consulting" className="text-ink underline underline-offset-4">
+                  advise a small number of teams
+                </Link>{' '}
+                on strategy, UX and AI-native delivery.
               </p>
               <ul className="mt-6 flex flex-wrap gap-2.5">
                 {topics.map((topic) => (
@@ -251,7 +321,7 @@ function Contact() {
 }
 
 export default async function Home() {
-  const latestArticles = (await getAllArticlesMeta()).slice(0, 3);
+  const homepageArticles = await getHomepageArticles();
 
   const personJsonLd = {
     '@context': 'https://schema.org',
@@ -275,9 +345,11 @@ export default async function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
       />
       <Hero />
+      <HowIWork />
+      <DesignSystems />
       <Products />
-      <Practice />
-      <Writing articles={latestArticles} />
+      <Testimonials />
+      <Writing articles={homepageArticles} />
       <Contact />
 
       <section className="mt-28 flex justify-center">
