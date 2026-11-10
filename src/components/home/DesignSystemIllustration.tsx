@@ -33,7 +33,13 @@ const DEFAULTS = {
 
 const CASES: Record<string, string> = { Aa: 'none', AA: 'uppercase', aa: 'lowercase' };
 
-const tile = 'absolute rounded-[20px] bg-canvas shadow-surface ring-1 ring-line/60';
+/** One-pixel top highlight, where light catches the edge. Composes with shadow-*. */
+const highlight =
+  'inset-shadow-[0_1px_0_rgb(255_255_255/0.9)] dark:inset-shadow-[0_1px_0_rgb(255_255_255/0.07)]';
+/** Stronger highlight for filled accent surfaces. */
+const highlightOnAccent = 'inset-shadow-[0_1px_0_rgb(255_255_255/0.28)]';
+
+const tile = 'absolute rounded-[20px] bg-canvas shadow-surface ring-1 ring-line/60 ' + highlight;
 const focusRing =
   'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent';
 
@@ -73,7 +79,7 @@ function PanelCheckbox({
       <Checkbox.Root
         checked={checked}
         onCheckedChange={onChange}
-        className={`flex size-6 shrink-0 items-center justify-center rounded-[7px] bg-canvas text-on-accent ring-1 ring-line transition-colors duration-150 data-checked:bg-accent data-checked:ring-accent ${focusRing}`}
+        className={`flex size-6 shrink-0 items-center justify-center rounded-[7px] bg-canvas text-on-accent ring-1 ring-line ${highlight} data-checked:inset-shadow-[0_1px_0_rgb(255_255_255/0.28)] transition-colors duration-150 data-checked:bg-accent data-checked:ring-accent ${focusRing}`}
       >
         <Checkbox.Indicator className="flex data-unchecked:hidden">
           <RiCheckLine className="size-4" aria-hidden />
@@ -172,7 +178,7 @@ export default function DesignSystemIllustration({ className = '' }: { className
                 <Slider.Indicator className="rounded-full bg-accent select-none" />
                 <Slider.Thumb
                   aria-label="Font weight"
-                  className="size-4 rounded-full bg-surface shadow-popover ring-2 ring-accent select-none has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-accent"
+                  className={`size-4 rounded-full bg-surface shadow-popover ring-2 ring-accent ${highlight} select-none has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-accent`}
                 />
               </Slider.Track>
             </Slider.Control>
@@ -192,7 +198,7 @@ export default function DesignSystemIllustration({ className = '' }: { className
         <Place x={208} y={28} w={148} h={44}>
           <Button
             onClick={() => setProgress(100)}
-            className={`flex size-full items-center justify-center rounded-2xl bg-accent text-[15px] font-semibold text-on-accent shadow-surface transition-[background-color,transform] duration-150 hover:bg-accent-strong active:scale-[0.97] ${focusRing}`}
+            className={`flex size-full items-center justify-center rounded-2xl bg-accent text-[15px] font-semibold text-on-accent shadow-surface ${highlightOnAccent} transition-[background-color,transform] duration-150 hover:bg-accent-strong active:scale-[0.97] ${focusRing}`}
           >
             Ship it
           </Button>
@@ -200,7 +206,7 @@ export default function DesignSystemIllustration({ className = '' }: { className
         <Place x={208} y={84} w={148} h={44}>
           <Button
             onClick={reset}
-            className={`flex size-full items-center justify-center rounded-2xl bg-canvas shadow-surface ring-1 ring-line/60 text-[15px] font-semibold text-ink transition-[background-color,transform] duration-150 hover:bg-surface-muted active:scale-[0.97] ${focusRing}`}
+            className={`flex size-full items-center justify-center rounded-2xl bg-canvas shadow-surface ring-1 ring-line/60 ${highlight} text-[15px] font-semibold text-ink transition-[background-color,transform] duration-150 hover:bg-surface-muted active:scale-[0.97] ${focusRing}`}
           >
             Reset
           </Button>
@@ -223,7 +229,7 @@ export default function DesignSystemIllustration({ className = '' }: { className
             aria-label="Letter case"
             value={[letterCase]}
             onValueChange={(value) => value[0] && setLetterCase(value[0])}
-            className="flex size-full items-center gap-1 rounded-2xl bg-canvas shadow-surface ring-1 ring-line/60 p-1"
+            className={`flex size-full items-center gap-1 rounded-2xl bg-canvas shadow-surface ring-1 ring-line/60 p-1 ${highlight}`}
           >
             {Object.keys(CASES).map((value) => (
               <Toggle
@@ -243,14 +249,14 @@ export default function DesignSystemIllustration({ className = '' }: { className
           <Button
             aria-label="Decrease progress"
             onClick={() => step(-12)}
-            className={`grid size-12 place-items-center rounded-full bg-canvas shadow-surface ring-1 ring-line/60 text-accent transition-transform duration-150 active:scale-[0.94] ${focusRing}`}
+            className={`grid size-12 place-items-center rounded-full bg-canvas shadow-surface ring-1 ring-line/60 ${highlight} text-accent transition-transform duration-150 active:scale-[0.94] ${focusRing}`}
           >
             <RiSubtractLine className="size-5" aria-hidden />
           </Button>
           <Button
             aria-label="Increase progress"
             onClick={() => step(12)}
-            className={`grid size-12 place-items-center rounded-full bg-accent-soft text-accent shadow-surface ring-1 ring-line/60 transition-transform duration-150 active:scale-[0.94] ${focusRing}`}
+            className={`grid size-12 place-items-center rounded-full bg-accent-soft text-accent shadow-surface ring-1 ring-line/60 ${highlight} transition-transform duration-150 active:scale-[0.94] ${focusRing}`}
           >
             <RiAddLine className="size-5" aria-hidden />
           </Button>
@@ -267,7 +273,9 @@ export default function DesignSystemIllustration({ className = '' }: { className
               onCheckedChange={setAgents}
               className="flex h-6 w-10 shrink-0 rounded-full bg-surface-muted p-0.5 transition-colors duration-150 data-checked:bg-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
             >
-              <Switch.Thumb className="size-5 rounded-full bg-surface shadow-surface transition-transform duration-150 data-checked:translate-x-4" />
+              <Switch.Thumb
+                className={`size-5 rounded-full bg-surface shadow-surface ${highlight} transition-transform duration-150 data-checked:translate-x-4`}
+              />
             </Switch.Root>
           </label>
         </div>
