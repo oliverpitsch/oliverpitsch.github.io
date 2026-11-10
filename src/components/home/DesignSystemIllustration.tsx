@@ -9,13 +9,7 @@ import { Switch } from '@base-ui/react/switch';
 import { Toggle } from '@base-ui/react/toggle';
 import { ToggleGroup } from '@base-ui/react/toggle-group';
 import { useLayoutEffect, useRef, useState, type ReactNode } from 'react';
-import {
-  RiAddLine,
-  RiArrowRightUpLine,
-  RiCheckLine,
-  RiMarkdownLine,
-  RiSubtractLine,
-} from 'react-icons/ri';
+import { RiAddLine, RiArrowRightUpLine, RiCheckLine, RiSubtractLine } from 'react-icons/ri';
 
 /**
  * A design system, shown with the real thing: every control here is a working
@@ -329,9 +323,22 @@ export default function DesignSystemIllustration({ className = '' }: { className
           className={`${tile} group flex items-center gap-3 px-3 transition-colors duration-150 hover:bg-surface-muted ${focusRing}`}
           style={{ left: 24, top: 388, width: 456, height: 52 }}
         >
-          <span className="grid size-8 shrink-0 place-items-center rounded-[10px] bg-accent text-on-accent">
-            <RiMarkdownLine className="size-[18px]" aria-hidden />
-          </span>
+          {/* A page with a folded corner, so it reads as a file at a glance. */}
+          <svg viewBox="0 0 28 34" className="h-[34px] w-7 shrink-0" aria-hidden>
+            <path
+              d="M4 0h14l10 10v20a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4Z"
+              className="fill-accent"
+            />
+            <path d="M18 0l10 10h-6a4 4 0 0 1-4-4V0Z" className="fill-on-accent opacity-40" />
+            <text
+              x="14"
+              y="26"
+              textAnchor="middle"
+              className="fill-on-accent font-mono text-[8px] font-bold"
+            >
+              MD
+            </text>
+          </svg>
           <span className="min-w-0 flex-1 leading-tight">
             <span className="block font-mono text-[13px] font-semibold text-ink">DESIGN.md</span>
             <span className="block truncate text-[11px] text-ink-muted">
