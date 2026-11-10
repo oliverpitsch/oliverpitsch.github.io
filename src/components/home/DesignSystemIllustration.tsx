@@ -324,19 +324,19 @@ export default function DesignSystemIllustration({ className = '' }: { className
           style={{ left: 24, top: 388, width: 456, height: 52 }}
         >
           {/* A page with a folded corner, so it reads as a file at a glance. */}
-          <svg viewBox="0 0 28 34" className="h-[34px] w-7 shrink-0" aria-hidden>
+          <svg viewBox="0 0 28 34" className="h-[34px] w-7 shrink-0 rounded-sm" aria-hidden>
             <path
               d="M4 0h14l10 10v20a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4Z"
-              className="fill-accent"
+              className="fill-white stroke-slate-300/60"
             />
-            <path d="M18 0l10 10h-6a4 4 0 0 1-4-4V0Z" className="fill-on-accent opacity-40" />
+            <path d="M18 0l10 10h-6a4 4 0 0 1-4-4V0Z" className="fill-slate-300 opacity-40" />
             <text
               x="14"
               y="26"
               textAnchor="middle"
-              className="fill-on-accent font-mono text-[8px] font-bold"
+              className="fill-slate-500 font-mono text-[8px] font-bold"
             >
-              MD
+              .MD
             </text>
           </svg>
           <span className="min-w-0 flex-1 leading-tight">
