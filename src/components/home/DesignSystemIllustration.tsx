@@ -33,10 +33,9 @@ const DEFAULTS = {
 
 const CASES: Record<string, string> = { Aa: 'none', AA: 'uppercase', aa: 'lowercase' };
 
-const tile =
-  'absolute rounded-[20px] bg-surface shadow-popover ring-1 ring-black/5 dark:ring-white/5';
+const tile = 'absolute rounded-[20px] bg-canvas shadow-surface ring-1 ring-line/60';
 const focusRing =
-  'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-panel';
+  'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent';
 
 function Place({
   x,
@@ -70,11 +69,11 @@ function PanelCheckbox({
   children: ReactNode;
 }) {
   return (
-    <label className="flex items-center gap-2.5 text-[15px] font-semibold text-on-panel">
+    <label className="flex items-center gap-2.5 text-[15px] font-semibold text-ink">
       <Checkbox.Root
         checked={checked}
         onCheckedChange={onChange}
-        className={`flex size-6 shrink-0 items-center justify-center rounded-[7px] bg-surface text-on-accent shadow-surface transition-colors duration-150 data-checked:bg-accent ${focusRing}`}
+        className={`flex size-6 shrink-0 items-center justify-center rounded-[7px] bg-canvas text-on-accent ring-1 ring-line transition-colors duration-150 data-checked:bg-accent data-checked:ring-accent ${focusRing}`}
       >
         <Checkbox.Indicator className="flex data-unchecked:hidden">
           <RiCheckLine className="size-4" aria-hidden />
@@ -116,6 +115,8 @@ export default function DesignSystemIllustration({ className = '' }: { className
     setAgents(DEFAULTS.agents);
   };
 
+  const shipped = progress >= 100;
+
   const step = (delta: number) => setProgress((p) => Math.max(0, Math.min(100, p + delta)));
 
   return (
@@ -123,17 +124,17 @@ export default function DesignSystemIllustration({ className = '' }: { className
       ref={frameRef}
       role="group"
       aria-label="Working sample of this site's design system components"
-      className={`relative w-full overflow-hidden rounded-[28px] bg-panel ${className}`}
+      className={`relative w-full overflow-hidden ${className}`}
       style={{ height: STAGE_H * scale }}
     >
       {/* Dot grid, like a canvas in a design tool. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.14]"
+        className="pointer-events-none absolute inset-0 opacity-70"
         style={{
           backgroundImage: 'radial-gradient(currentColor 1px, transparent 1.2px)',
           backgroundSize: '14px 14px',
-          color: 'var(--on-panel)',
+          color: 'var(--line)',
         }}
       />
 
@@ -191,7 +192,7 @@ export default function DesignSystemIllustration({ className = '' }: { className
         <Place x={208} y={28} w={148} h={44}>
           <Button
             onClick={() => setProgress(100)}
-            className={`flex size-full items-center justify-center rounded-2xl bg-on-panel text-[15px] font-semibold text-panel shadow-surface transition-[opacity,transform] duration-150 hover:opacity-90 active:scale-[0.97] ${focusRing}`}
+            className={`flex size-full items-center justify-center rounded-2xl bg-accent text-[15px] font-semibold text-on-accent shadow-surface transition-[background-color,transform] duration-150 hover:bg-accent-strong active:scale-[0.97] ${focusRing}`}
           >
             Ship it
           </Button>
@@ -199,7 +200,7 @@ export default function DesignSystemIllustration({ className = '' }: { className
         <Place x={208} y={84} w={148} h={44}>
           <Button
             onClick={reset}
-            className={`flex size-full items-center justify-center rounded-2xl border-2 border-on-panel/80 text-[15px] font-semibold text-on-panel transition-[background-color,transform] duration-150 hover:bg-on-panel/10 active:scale-[0.97] ${focusRing}`}
+            className={`flex size-full items-center justify-center rounded-2xl bg-canvas shadow-surface ring-1 ring-line/60 text-[15px] font-semibold text-ink transition-[background-color,transform] duration-150 hover:bg-surface-muted active:scale-[0.97] ${focusRing}`}
           >
             Reset
           </Button>
@@ -222,7 +223,7 @@ export default function DesignSystemIllustration({ className = '' }: { className
             aria-label="Letter case"
             value={[letterCase]}
             onValueChange={(value) => value[0] && setLetterCase(value[0])}
-            className="flex size-full items-center gap-1 rounded-2xl bg-surface p-1 shadow-popover"
+            className="flex size-full items-center gap-1 rounded-2xl bg-canvas shadow-surface ring-1 ring-line/60 p-1"
           >
             {Object.keys(CASES).map((value) => (
               <Toggle
@@ -242,14 +243,14 @@ export default function DesignSystemIllustration({ className = '' }: { className
           <Button
             aria-label="Decrease progress"
             onClick={() => step(-12)}
-            className={`grid size-12 place-items-center rounded-full bg-surface text-accent shadow-popover transition-transform duration-150 active:scale-[0.94] ${focusRing}`}
+            className={`grid size-12 place-items-center rounded-full bg-canvas shadow-surface ring-1 ring-line/60 text-accent transition-transform duration-150 active:scale-[0.94] ${focusRing}`}
           >
             <RiSubtractLine className="size-5" aria-hidden />
           </Button>
           <Button
             aria-label="Increase progress"
             onClick={() => step(12)}
-            className={`grid size-12 place-items-center rounded-full bg-accent-soft text-accent shadow-popover transition-transform duration-150 active:scale-[0.94] ${focusRing}`}
+            className={`grid size-12 place-items-center rounded-full bg-accent-soft text-accent shadow-surface ring-1 ring-line/60 transition-transform duration-150 active:scale-[0.94] ${focusRing}`}
           >
             <RiAddLine className="size-5" aria-hidden />
           </Button>
@@ -272,12 +273,12 @@ export default function DesignSystemIllustration({ className = '' }: { className
         </div>
 
         {/* Heading scale, set straight on the canvas. */}
-        <Place x={372} y={144} w={120} className="space-y-1.5 text-on-panel">
+        <Place x={372} y={144} w={120} className="space-y-1.5 text-ink">
           <p className="text-[21px] font-semibold leading-tight tracking-[-0.02em]">Heading 1</p>
           <p className="text-[17px] font-semibold leading-tight tracking-[-0.015em]">Heading 2</p>
           <p className="text-[14px] font-semibold leading-tight">Heading 3</p>
-          <p className="text-[11px] leading-snug opacity-80">Body text</p>
-          <p className="text-[11px] leading-snug underline underline-offset-2 opacity-80">Link</p>
+          <p className="text-[11px] leading-snug text-ink-muted">Body text</p>
+          <p className="text-[11px] leading-snug underline underline-offset-2 text-accent">Link</p>
         </Place>
 
         <div
@@ -291,18 +292,22 @@ export default function DesignSystemIllustration({ className = '' }: { className
             <Progress.Label className="text-[12px] font-medium text-ink-muted">
               Shipped
             </Progress.Label>
-            <Progress.Value className="text-[12px] font-semibold tabular-nums text-ink">
+            <Progress.Value
+              className={`text-[12px] font-semibold tabular-nums transition-colors duration-300 ${shipped ? 'text-emerald-600 dark:text-emerald-400' : 'text-ink'}`}
+            >
               {(_formatted, value) => `${value ?? 0}%`}
             </Progress.Value>
             <Progress.Track className="col-span-2 h-1.5 overflow-hidden rounded-full bg-surface-muted">
-              <Progress.Indicator className="rounded-full bg-accent transition-[width] duration-300 ease-out" />
+              <Progress.Indicator
+                className={`rounded-full transition-[width,background-color] duration-300 ease-out ${shipped ? 'bg-emerald-500 dark:bg-emerald-400' : 'bg-accent'}`}
+              />
             </Progress.Track>
           </Progress.Root>
           <div className="mt-3 flex -space-x-1">
             {['OP', 'LK', 'AI'].map((initials) => (
               <Avatar.Root
                 key={initials}
-                className="inline-flex size-7 items-center justify-center rounded-full bg-accent-soft text-[10px] font-semibold text-accent ring-2 ring-surface select-none"
+                className="inline-flex size-7 items-center justify-center rounded-full bg-accent-soft text-[10px] font-semibold text-accent ring-2 ring-canvas select-none"
               >
                 {initials}
               </Avatar.Root>
