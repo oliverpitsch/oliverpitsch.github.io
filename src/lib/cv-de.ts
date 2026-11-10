@@ -9,7 +9,7 @@ const roleTranslations: Record<
   Pick<Cv['roles'][number], 'title' | 'bullets' | 'orgNote'>
 > = {
   'Pitsch Studios': {
-    orgNote: 'parallel',
+    orgNote: 'Nebenprojekte',
     title: 'Gründer, Product Leader & Builder',
     bullets: [
       'Entwickle und betreibe ein Portfolio digitaler Produkte, darunter Joinride.cc, Famili.one, neuerName.com und Onefold.me, von der Problemdefinition und Positionierung über UX, visuelles Design und Entwicklung bis zu Launch und Wachstum.',

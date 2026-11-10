@@ -55,17 +55,6 @@ export const cv: Cv = {
   ],
   roles: [
     {
-      org: 'Pitsch Studios',
-      orgNote: 'in parallel',
-      title: 'Founder, Product Leader & Builder',
-      from: '2022',
-      to: 'present',
-      bullets: [
-        'Build and run a portfolio of digital products, including Joinride.cc, Famili.one, neuerName.com and Onefold.me, from problem discovery and positioning through UX, visual design, development, launch and growth.',
-        'Use these products as a real-world lab for how agentic AI changes product management, design and engineering, and bring the workflows that hold up back into the teams I lead.',
-      ],
-    },
-    {
       org: 'AI Labs',
       title: 'Head of Product & Engineering',
       from: '2026',
@@ -89,6 +78,17 @@ export const cv: Cv = {
         'Reorganized product management and product development for AI-native building, together with the CEO and CTO.',
         'Redefined product workflows for a world in which AI takes over more of the implementation, reducing handoffs and increasing execution speed.',
         'Made the design system agent-ready, so AI-generated output stayed aligned with product quality, patterns and system logic.',
+      ],
+    },
+    {
+      org: 'Pitsch Studios',
+      orgNote: 'side projects',
+      title: 'Founder, Product Leader & Builder',
+      from: '2022',
+      to: 'present',
+      bullets: [
+        'Build and run a portfolio of digital products, including Joinride.cc, Famili.one, neuerName.com and Onefold.me, from problem discovery and positioning through UX, visual design, development, launch and growth.',
+        'Use these products as a real-world lab for how agentic AI changes product management, design and engineering, and bring the workflows that hold up back into the teams I lead.',
       ],
     },
     {

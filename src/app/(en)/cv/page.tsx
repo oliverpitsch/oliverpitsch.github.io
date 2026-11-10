@@ -50,10 +50,6 @@ export default function CvPage() {
       address: { '@type': 'PostalAddress', addressLocality: 'Cologne', addressCountry: 'DE' },
       sameAs: [cv.linkedin, 'https://oliverpitsch.medium.com/'],
       knowsAbout: cv.strengths.map((strength) => strength.label),
-      worksFor: {
-        '@type': 'Organization',
-        name: (cv.roles.find((role) => role.to === 'present') ?? cv.roles[0]).org,
-      },
       hasOccupation: cv.roles.map((role) => ({
         '@type': 'Occupation',
         name: role.title,
