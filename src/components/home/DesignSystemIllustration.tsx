@@ -178,7 +178,7 @@ export default function DesignSystemIllustration({ className = '' }: { className
                 <Slider.Indicator className="rounded-full bg-accent select-none" />
                 <Slider.Thumb
                   aria-label="Font weight"
-                  className={`size-4 rounded-full bg-surface shadow-popover ring-2 ring-accent ${highlight} select-none has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-accent`}
+                  className={`size-4 rounded-full bg-surface shadow-surface ring-2 ring-accent ${highlight} select-none has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-accent`}
                 />
               </Slider.Track>
             </Slider.Control>
@@ -219,8 +219,11 @@ export default function DesignSystemIllustration({ className = '' }: { className
         >
           <div className="flex-1 bg-accent" />
           <div className="px-4 py-3">
-            <p className="text-[14px] font-semibold text-ink">Accent</p>
-            <p className="font-mono text-[11px] text-ink-muted">--accent</p>
+            <p className="text-[14px] font-semibold text-ink">Primary</p>
+            <p className="font-mono text-[11px] text-ink-muted">
+              <span className="dark:hidden">indigo-600</span>
+              <span className="hidden dark:inline">indigo-300</span>
+            </p>
           </div>
         </div>
 
@@ -256,7 +259,7 @@ export default function DesignSystemIllustration({ className = '' }: { className
           <Button
             aria-label="Increase progress"
             onClick={() => step(12)}
-            className={`grid size-12 place-items-center rounded-full bg-accent-soft text-accent shadow-surface ring-1 ring-line/60 ${highlight} transition-transform duration-150 active:scale-[0.94] ${focusRing}`}
+            className={`grid size-12 place-items-center rounded-full bg-canvas text-accent shadow-surface ring-1 ring-line/60 ${highlight} transition-transform duration-150 active:scale-[0.94] ${focusRing}`}
           >
             <RiAddLine className="size-5" aria-hidden />
           </Button>
