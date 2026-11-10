@@ -145,27 +145,20 @@ function DesignSystems() {
                   {point.title}
                 </h3>
                 <p className="mt-2 text-[15px] leading-7 text-ink-muted">{point.body}</p>
+                {point.link && (
+                  <a
+                    href={point.link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-3 inline-flex items-center gap-1.5 text-[15px] font-semibold text-accent underline-offset-4 hover:underline"
+                  >
+                    {point.link.label}
+                    <RiArrowRightUpLine className="size-4" aria-hidden />
+                  </a>
+                )}
               </li>
             ))}
           </ul>
-          <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3">
-            <Link
-              href="/vibe-coded-design"
-              className="inline-flex items-center gap-1.5 text-[15px] font-semibold text-accent underline-offset-4 hover:underline"
-            >
-              How I set this up for teams
-              <RiArrowRightFill className="size-4" aria-hidden />
-            </Link>
-            <a
-              href="https://onefold.me/design-md"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-[15px] font-semibold text-accent underline-offset-4 hover:underline"
-            >
-              Make your own DESIGN.md with Onefold, my tool for it
-              <RiArrowRightUpLine className="size-4" aria-hidden />
-            </a>
-          </div>
         </div>
       </Container>
     </section>

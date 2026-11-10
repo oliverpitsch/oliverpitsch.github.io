@@ -26,7 +26,11 @@ export const chain: ChainItem[] = [
   },
 ];
 
-export const designSystemPoints = [
+export const designSystemPoints: {
+  title: string;
+  body: string;
+  link?: { href: string; label: string };
+}[] = [
   {
     title: 'Families, not single libraries',
     body: 'Design system families that span channels, products and touchpoints, like Helios at Trusted Shops, shared in design and in code across more than ten teams.',
@@ -38,5 +42,6 @@ export const designSystemPoints = [
   {
     title: 'On brand in my own products',
     body: 'Claude and Codex build new screens for my products from a design system they can read, and keep every one of them on brand.',
+    link: { href: 'https://onefold.me/design-md', label: 'Make your own DESIGN.md with Onefold' },
   },
 ];
