@@ -11,6 +11,7 @@ import ArticleCard from '@/components/ArticleCard';
 import InkSignature from '@/components/InkSignature';
 import CareerStrip from '@/components/home/CareerStrip';
 import DesignSystemIllustration from '@/components/home/DesignSystemIllustration';
+import PixelBackdrop from '@/components/home/PixelBackdrop';
 import ProductTabs from '@/components/home/ProductTabs';
 import Container from '@/components/layout/Container';
 import PageShell from '@/components/layout/PageShell';
@@ -122,7 +123,8 @@ function DesignSystems() {
   return (
     <section id="design-systems" className="mt-28 scroll-mt-20" aria-labelledby="systems-heading">
       <Container size="wide">
-        <div className="rounded-[32px] border border-line bg-surface p-8 shadow-card sm:p-12">
+        <div className="relative isolate overflow-hidden rounded-[32px] border border-line bg-surface p-8 shadow-card sm:p-12">
+          <PixelBackdrop className="-z-10 opacity-[0.16] dark:opacity-[0.14]" />
           <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-12">
             <div>
               <h2 id="systems-heading" className={h2}>

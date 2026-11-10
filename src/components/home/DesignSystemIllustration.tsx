@@ -133,17 +133,6 @@ export default function DesignSystemIllustration({ className = '' }: { className
       className={`relative w-full overflow-hidden ${className}`}
       style={{ height: STAGE_H * scale }}
     >
-      {/* Dot grid, like a canvas in a design tool. */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-70"
-        style={{
-          backgroundImage: 'radial-gradient(currentColor 1px, transparent 1.2px)',
-          backgroundSize: '14px 14px',
-          color: 'var(--line)',
-        }}
-      />
-
       <div
         className="absolute left-1/2 top-0 origin-top"
         style={{ width: STAGE_W, height: STAGE_H, transform: `translateX(-50%) scale(${scale})` }}
