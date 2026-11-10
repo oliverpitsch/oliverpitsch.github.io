@@ -80,17 +80,6 @@ export const cv: Cv = {
       ],
     },
     {
-      org: 'Pitsch Studios',
-      orgNote: 'side projects',
-      title: 'Founder, Product Leader & Builder',
-      from: '2022',
-      to: 'present',
-      bullets: [
-        'Build and run a portfolio of digital products, including Joinride.cc, Famili.one, neuerName.com and Onefold.me, from problem discovery and positioning through UX, visual design, development, launch and growth.',
-        'Use these products as a real-world lab for how agentic AI changes product management, design and engineering, and bring the workflows that hold up back into the teams I lead.',
-      ],
-    },
-    {
       org: 'Trusted Shops',
       title: 'Director UX & Product Marketing',
       from: '2017',
@@ -103,6 +92,17 @@ export const cv: Cv = {
         'Built the product organization together with my peers, with product designers embedded in cross-functional squads and content working across all of them as a central team.',
         'Took the new product and shop review platform from concept to launch and operations in 11 countries, owning product design and UX end to end while my teams built and shipped it side by side with product management and engineering.',
         'Built and scaled the Helios design system family across products, channels and touchpoints, shared in design and in code.',
+      ],
+    },
+    {
+      org: 'Pitsch Studios',
+      orgNote: 'side projects',
+      title: 'Founder, Product Leader & Builder',
+      from: '2022',
+      to: 'present',
+      bullets: [
+        'Build and run a portfolio of digital products, including Joinride.cc, Famili.one, neuerName.com and Onefold.me, from problem discovery and positioning through UX, visual design, development, launch and growth.',
+        'Use these products as a real-world lab for how agentic AI changes product management, design and engineering, and bring the workflows that hold up back into the teams I lead.',
       ],
     },
     {
