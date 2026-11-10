@@ -273,11 +273,7 @@ function Contact() {
               </h2>
               <p className="mt-5 max-w-2xl text-pretty text-[17px] leading-8 text-ink-muted">
                 I am open to a new product or design leadership role, working hand in hand with
-                product leadership and the teams around it. I also{' '}
-                <Link href="/ai-consulting" className="text-ink underline underline-offset-4">
-                  advise a small number of teams
-                </Link>{' '}
-                on strategy, UX and AI-native delivery.
+                product leadership and the teams around it.
               </p>
               <ul className="mt-6 flex flex-wrap gap-2.5">
                 {topics.map((topic) => (
@@ -292,6 +288,20 @@ function Contact() {
             </div>
 
             <div className="flex flex-col gap-3">
+              <picture className="mb-3 self-center">
+                <source
+                  media="(prefers-color-scheme: dark)"
+                  srcSet="/images/oliver-pitsch-2025-dark.png"
+                />
+                <img
+                  src="/images/oliver-pitsch-2025.png"
+                  alt="Oliver Pitsch"
+                  width={112}
+                  height={112}
+                  loading="lazy"
+                  className="size-28 rounded-full bg-accent-soft object-cover mix-blend-multiply dark:mix-blend-normal"
+                />
+              </picture>
               <Button href={`mailto:${cv.email}?subject=Let%27s%20talk`}>Email me directly</Button>
               <Button href={cv.linkedin} variant="secondary">
                 Message on LinkedIn
