@@ -13,7 +13,7 @@ export type OgCard = {
   subtitle?: string;
   /** Printed after pitsch.me under the signature, e.g. an article's date. */
   detail?: string;
-  /** og:title / og:description, used by the /metaImage preview. */
+  /** og:title / og:description, used by the /admin/meta-images preview. */
   share: { title: string; description: string };
 };
 
@@ -24,7 +24,7 @@ export async function getOgCards(): Promise<OgCard[]> {
       path: '/',
       title: 'Oliver Pitsch',
       subtitle:
-        'I lead product and I build it. Twenty years across design, UX and product. Now building Joinride.cc, Famili.one and neuerName.com.',
+        'I lead teams that turn product strategy into products people love and businesses grow on.',
       share: {
         title: siteMetadata.openGraph.title,
         description: siteMetadata.openGraph.description,
@@ -35,10 +35,10 @@ export async function getOgCards(): Promise<OgCard[]> {
       path: '/cv',
       title: 'Oliver Pitsch',
       subtitle:
-        'AI-native product leader, maker and builder. Head of Product & Engineering, Head of Product, Director UX.',
+        'Product & design leader. Strategy to market, with teams and AI. Head of Product & Engineering, Head of Product, Director UX.',
       share: {
         title: 'CV – Oliver Pitsch',
-        description: 'Twenty years across design, UX and product leadership.',
+        description: '15 years leading product strategy, UX and product design.',
       },
     },
     {

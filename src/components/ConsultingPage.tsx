@@ -277,7 +277,7 @@ export default function ConsultingPage({ content: c }: { content: ConsultingCont
 
           <div className="relative grid gap-8 lg:grid-cols-[minmax(0,1.45fr)_minmax(280px,0.95fr)] lg:items-end">
             <div>
-              <p className="inline-flex items-center rounded-full bg-surface-muted px-3 py-1 text-[12px] font-semibold uppercase tracking-[0.16em] text-slate-500">
+              <p className="inline-flex items-center rounded-full bg-surface-muted px-3 py-1 text-[13px] font-medium text-slate-500">
                 {c.cta.badge}
               </p>
               <h2

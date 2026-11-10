@@ -170,10 +170,10 @@ export const en: ConsultingContent = {
   },
   about: {
     heading: 'Why me',
-    bio: 'I have 20 years of experience across design, UX, and product leadership. I founded an AI SaaS company (Reputami), led product and UX at Trusted Shops, and currently serve as Head of Product at Ordio. I built famili.one, a family organization app, entirely as a solo builder with zero external development, using Claude Code and AI agents end to end. I am not just advising. I am shipping real products with these tools every day.',
+    bio: 'I have 15 years of experience across product strategy, UX and design leadership. I founded a SaaS company (Reputami), led UX and product marketing across ten product teams at Trusted Shops, was Head of Product at Ordio, and most recently took an AI-native enterprise product from zero to market-ready in eight weeks as Head of Product & Engineering at AI Labs. I built famili.one, a family organization app, entirely as a solo builder with zero external development, using Claude Code and AI agents end to end. I am not just advising. I am shipping real products with these tools every day.',
     credentials: [
-      '20 years product & UX',
-      'Head of Product at Ordio',
+      '15 years product & UX',
+      'Head of Product & Engineering, AI Labs',
       'Solo-built famili.one with AI',
       'Founded AI SaaS (Reputami)',
       'Director UX at Trusted Shops',
@@ -206,7 +206,7 @@ export const en: ConsultingContent = {
       {
         question: 'How do you ensure UX quality is not sacrificed?',
         answer:
-          'I bring 20 years of UX and design system experience to every engagement. We set up quality gates, integrate your design tokens into AI workflows, and establish review processes that catch inconsistencies before they reach users. AI speed without UX quality is just faster chaos.',
+          'I bring 15 years of UX and design system experience to every engagement. We set up quality gates, integrate your design tokens into AI workflows, and establish review processes that catch inconsistencies before they reach users. AI speed without UX quality is just faster chaos.',
       },
       {
         question: 'What does it cost?',
@@ -349,10 +349,10 @@ export const de: ConsultingContent = {
   },
   about: {
     heading: 'Warum ich',
-    bio: 'Ich bringe 20 Jahre Erfahrung in Design, UX und Product Leadership mit. Ich habe ein AI-SaaS-Unternehmen gegründet (Reputami), Produkt und UX bei Trusted Shops geleitet und bin aktuell Head of Product bei Ordio. Ich habe famili.one, eine Familienorganisations-App, komplett als Solo-Builder ohne externe Entwicklung gebaut, durchgehend mit Claude Code und AI-Agenten. Ich berate nicht nur. Ich liefere jeden Tag echte Produkte mit diesen Tools aus.',
+    bio: 'Ich bringe 15 Jahre Erfahrung in Produktstrategie, UX und Design Leadership mit. Ich habe ein SaaS-Unternehmen gegründet (Reputami), UX und Product Marketing für zehn Produktteams bei Trusted Shops verantwortet, war Head of Product bei Ordio und habe zuletzt als Head of Product & Engineering bei AI Labs ein KI-natives Enterprise-Produkt in acht Wochen von null zur Marktreife gebracht. Ich habe famili.one, eine Familienorganisations-App, komplett als Solo-Builder ohne externe Entwicklung gebaut, durchgehend mit Claude Code und AI-Agenten. Ich berate nicht nur. Ich liefere jeden Tag echte Produkte mit diesen Tools aus.',
     credentials: [
-      '20 Jahre Produkt & UX',
-      'Head of Product bei Ordio',
+      '15 Jahre Produkt & UX',
+      'Head of Product & Engineering, AI Labs',
       'famili.one solo mit AI gebaut',
       'AI-SaaS gegründet (Reputami)',
       'Director UX bei Trusted Shops',
@@ -385,7 +385,7 @@ export const de: ConsultingContent = {
       {
         question: 'Wie stellst du sicher, dass die UX-Qualität nicht leidet?',
         answer:
-          'Ich bringe 20 Jahre UX- und Design-System-Erfahrung in jedes Engagement ein. Wir richten Quality Gates ein, integrieren deine Design Tokens in AI-Workflows und etablieren Review-Prozesse, die Inkonsistenzen abfangen, bevor sie bei den Nutzern ankommen. KI-Geschwindigkeit ohne UX-Qualität ist nur schnelleres Chaos.',
+          'Ich bringe 15 Jahre UX- und Design-System-Erfahrung in jedes Engagement ein. Wir richten Quality Gates ein, integrieren deine Design Tokens in AI-Workflows und etablieren Review-Prozesse, die Inkonsistenzen abfangen, bevor sie bei den Nutzern ankommen. KI-Geschwindigkeit ohne UX-Qualität ist nur schnelleres Chaos.',
       },
       {
         question: 'Was kostet das?',

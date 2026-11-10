@@ -1,4 +1,5 @@
 ---
+archived: true
 slug: embracing-the-next-frontier-unleashing-the-potential-of-spatial-ux-in-the-era-of-apple-vision-pro
 Title: 'Embracing the Next Frontier: Unleashing the Potential of Spatial UX in the Era of Apple Vision Pro'
 author: Oliver Pitsch

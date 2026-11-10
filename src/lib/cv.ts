@@ -41,17 +41,16 @@ export type Cv = {
 
 export const cv: Cv = {
   name: 'Oliver Pitsch',
-  headline: 'AI-Native Product Leader | Product Maker & Builder',
+  headline: 'Product & Design Leader | Strategy to market, with teams and AI',
   location: 'Cologne, Germany',
   email: 'oliver@pitsch.me',
   phone: '+49 175 2066584',
   linkedin: 'https://www.linkedin.com/in/oliverpitsch/',
   summary:
-    'AI-native product and design leader with more than 15 years of experience building complex B2B and consumer products, leading international organizations, and connecting product strategy, UX, technology, growth, and business outcomes.',
+    'Product and design leader with 15 years of experience taking complex B2B and consumer products from strategy to market. Partner to CPOs and VPs of Product, builder of international UX and design teams, with design quality as a driver of business results.',
   about: [
-    'I am an AI-native product and design leader from Cologne with more than 15 years of experience building complex B2B and consumer products, leading international organizations, and connecting product strategy, UX, technology, growth, and business outcomes.',
-    'At Trusted Shops, I led UX, design systems, and product marketing across more than ten product teams in six countries, contributing to products serving 35,000 businesses and 45 million consumers. Previously, I co-founded the B2B SaaS platform Reputami and led it through its acquisition by eKomi. Most recently, as Head of Product & Engineering at AI Labs, I combined product and AI strategy with hands-on development in a fast-moving environment.',
-    'Alongside executive leadership, I continue to design, prototype, and build digital products myself. My work spans agentic AI, context engineering, AI-assisted discovery and development, product operating models, portfolio strategy, user research, APIs, integrations, and go-to-market. This allows me to set an ambitious product vision while remaining close to users, data, technology, and execution.',
+    'I am a product and design leader from Cologne with 15 years of experience taking B2B and consumer products from strategy to market. I work hand in hand with CPOs and VPs of Product, lead the teams that build, and treat design quality as a driver of business results.',
+    'At Trusted Shops I reported to the CEO and CPO for eight years and led UX, design systems and product marketing across 10+ teams in 6 countries. I co-founded Reputami, acquired by eKomi, and most recently took an AI-native product to market-ready in eight weeks at AI Labs. Alongside, I build my own products with AI.',
   ],
   roles: [
     {
@@ -61,10 +60,10 @@ export const cv: Cv = {
       to: '2026',
       logo: '/images/companies/logo-ai-labs.svg',
       bullets: [
-        'Led product strategy, UX, and frontend development for an AI-native SaaS product in close collaboration with the CEO and backend engineering.',
-        'Translated complex AI capabilities into clear user journeys, product requirements, and production-ready interfaces.',
-        'Established AI-native workflows using tools such as Claude Code and Codex to accelerate design, development, and delivery.',
-        'Shipped a market-ready and competitive product within a two-person product and engineering team in just 8 weeks.',
+        'Led product strategy, UX and frontend development for an AI-native enterprise SaaS product, working closely with the CEO and our engineering lead.',
+        'Translated complex AI capabilities into clear user journeys, product requirements and production-ready interfaces.',
+        'Established AI-native workflows with Claude Code and Codex across design, development and delivery.',
+        'Took the product from zero to market-ready in eight weeks, with one engineering lead and a team of AI agents.',
       ],
     },
     {
@@ -75,9 +74,9 @@ export const cv: Cv = {
       logo: '/images/companies/logo-ordio.svg',
       href: 'https://ordio.com',
       bullets: [
-        'Reorganized product management and product development for AI-native product building in close collaboration with the CEO and CTO.',
-        'Helped redefine product workflows for a world in which AI takes over more of the implementation surface, reducing handoffs and increasing execution speed.',
-        'Built a stronger design-system understanding for agents so AI-generated output stayed aligned with product quality, patterns, and system logic.',
+        'Reorganized product management and product development for AI-native building, together with the CEO and CTO.',
+        'Redefined product workflows for a world in which AI takes over more of the implementation, reducing handoffs and increasing execution speed.',
+        'Made the design system agent-ready, so AI-generated output stayed aligned with product quality, patterns and system logic.',
       ],
     },
     {
@@ -88,9 +87,22 @@ export const cv: Cv = {
       logo: '/images/companies/logo-trusted-shops.svg',
       href: 'https://trustedshops.com',
       bullets: [
-        'Led UX and Product Marketing across more than 10 product teams in 6 countries for a portfolio serving 35,000+ businesses and 45 million+ consumers.',
-        'Built and scaled the Helios design system to unify products through shared design and code implementation.',
-        'Combined product design, content, localization, and product marketing into a more consistent and scalable product experience model.',
+        'Reported to the CEO and CPO for eight years and shaped one cohesive product strategy together with my peers in product management and engineering.',
+        'Led UX and Product Marketing across more than 10 product teams in 6 countries, for a portfolio serving 35,000+ businesses and 45 million+ consumers.',
+        'Built the product organization together with my peers, with product designers embedded in cross-functional squads and content working across all of them as a central team.',
+        'Took the new product and shop review platform from concept to launch and operations in 11 countries, owning product design and UX end to end while my teams built and shipped it side by side with product management and engineering.',
+        'Built and scaled the Helios design system family across products, channels and touchpoints, shared in design and in code.',
+      ],
+    },
+    {
+      org: 'Pitsch Studios',
+      orgNote: 'side projects',
+      title: 'Founder, Product Leader & Builder',
+      from: '2022',
+      to: 'present',
+      bullets: [
+        'Build and run a portfolio of digital products, including Joinride.cc, Famili.one, neuerName.com and Onefold.me, from problem discovery and positioning through UX, visual design, development, launch and growth.',
+        'Use these products as a real-world lab for how agentic AI changes product management, design and engineering, and bring the workflows that hold up back into the teams I lead.',
       ],
     },
     {
@@ -102,7 +114,7 @@ export const cv: Cv = {
       logo: '/images/companies/logo-studitemps.svg',
       bullets: [
         'Joined as the first UX designer and established UX processes across 8 product teams.',
-        'Hired and helped shape the UX team.',
+        'Hired and built the UX team, and led UX as a community of practice across the product organization.',
       ],
     },
     {
@@ -117,33 +129,71 @@ export const cv: Cv = {
         'Built the company through to acquisition by eKomi in 2015.',
       ],
     },
-    {
-      org: 'Pitsch Studios',
-      title: 'Founder, Product Leader & Builder',
-      from: '2022',
-      to: 'present',
-      bullets: [
-        'Build and operate a portfolio of digital products including Joinride.cc, Famili.one, neuerName.com, and Onefold.me, taking them from problem discovery and positioning through UX, visual design, development, launch, and continuous improvement.',
-        'Use these products as a real-world environment to explore how agentic AI is transforming product management, design, software development, and the creative process, turning the findings into practical, repeatable workflows.',
-      ],
-    },
   ],
   strengths: [
     {
-      label: 'Product, platform, and organizational leadership',
+      label: 'Partner to product leadership',
       detail:
-        'Defining portfolio strategy, operating models, roadmaps, and metrics across multiple product teams, markets, and disciplines. Connecting customer experience, technology, growth, and business outcomes across complex B2B and consumer platforms.',
+        'Shaping product strategy hand in hand with CPOs, VPs of Product and CEOs, and connecting it with UX, product design, technology and business outcomes across complex B2B and consumer platforms.',
+    },
+    {
+      label: 'Building and leading teams at scale',
+      detail:
+        'Building and leading UX, design, content and product marketing teams across more than ten product teams in six countries, both embedded in cross-functional squads and as central teams working across them.',
+    },
+    {
+      label: 'Design systems for people and agents',
+      detail:
+        'Building design system families across products, channels and touchpoints, and making them agent-ready so AI-generated output stays on brand and on quality.',
     },
     {
       label: 'AI-native product building',
       detail:
-        'Designing and shipping production software with agentic AI, orchestration, retrieval, context engineering, rapid prototyping, and evaluation. Combining executive-level AI strategy with hands-on product development.',
-    },
-    {
-      label: 'From zero to scale',
-      detail:
-        'Taking products from first idea through discovery, launch, growth, and operational scale. Building the teams, systems, and quality standards required to deliver, including founding and leading a B2B SaaS company through acquisition.',
+        'Designing and shipping production software with agentic AI, context engineering and rapid prototyping. Combining AI strategy at leadership level with hands-on product development.',
     },
   ],
   languages: ['German (native)', 'English (C2)'],
+};
+
+/**
+ * Strength labels that saved applications may still reference after a rename.
+ * Maps the old label to the current one so personalized CVs keep their skills.
+ */
+export const legacyStrengthLabels: Record<string, string> = {
+  'Product, platform, and organizational leadership': 'Partner to product leadership',
+  'From zero to scale': 'Building and leading teams at scale',
+};
+
+/**
+ * Bullet texts that saved applications may still reference after a rewrite.
+ * Personalized CVs store picked highlights verbatim, so each old text maps to
+ * the bullet that replaced it. Add an entry here whenever a bullet is reworded.
+ */
+export const legacyBulletText: Record<string, string> = {
+  'Led product strategy, UX, and frontend development for an AI-native SaaS product in close collaboration with the CEO and backend engineering.':
+    'Led product strategy, UX and frontend development for an AI-native enterprise SaaS product, working closely with the CEO and our engineering lead.',
+  'Translated complex AI capabilities into clear user journeys, product requirements, and production-ready interfaces.':
+    'Translated complex AI capabilities into clear user journeys, product requirements and production-ready interfaces.',
+  'Established AI-native workflows using tools such as Claude Code and Codex to accelerate design, development, and delivery.':
+    'Established AI-native workflows with Claude Code and Codex across design, development and delivery.',
+  'Shipped a market-ready and competitive product within a two-person product and engineering team in just 8 weeks.':
+    'Took the product from zero to market-ready in eight weeks, with one engineering lead and a team of AI agents.',
+  'Reorganized product management and product development for AI-native product building in close collaboration with the CEO and CTO.':
+    'Reorganized product management and product development for AI-native building, together with the CEO and CTO.',
+  'Helped redefine product workflows for a world in which AI takes over more of the implementation surface, reducing handoffs and increasing execution speed.':
+    'Redefined product workflows for a world in which AI takes over more of the implementation, reducing handoffs and increasing execution speed.',
+  'Built a stronger design-system understanding for agents so AI-generated output stayed aligned with product quality, patterns, and system logic.':
+    'Made the design system agent-ready, so AI-generated output stayed aligned with product quality, patterns and system logic.',
+  'Led UX and Product Marketing across more than 10 product teams in 6 countries for a portfolio serving 35,000+ businesses and 45 million+ consumers.':
+    'Led UX and Product Marketing across more than 10 product teams in 6 countries, for a portfolio serving 35,000+ businesses and 45 million+ consumers.',
+  'Built and scaled the Helios design system to unify products through shared design and code implementation.':
+    'Built and scaled the Helios design system family across products, channels and touchpoints, shared in design and in code.',
+  'Combined product design, content, localization, and product marketing into a more consistent and scalable product experience model.':
+    'Built the product organization together with my peers, with product designers embedded in cross-functional squads and content working across all of them as a central team.',
+  'Hired and helped shape the UX team.':
+    'Hired and built the UX team, and led UX as a community of practice across the product organization.',
+  'Build and operate a portfolio of digital products including Joinride.cc, Famili.one, neuerName.com, and Onefold.me, taking them from problem discovery and positioning through UX, visual design, development, launch, and continuous improvement.':
+    'Build and run a portfolio of digital products, including Joinride.cc, Famili.one, neuerName.com and Onefold.me, from problem discovery and positioning through UX, visual design, development, launch and growth.',
+  'Use these products as a real-world environment to explore how agentic AI is transforming product management, design, software development, and the creative process, turning the findings into practical, repeatable workflows.':
+    'Use these products as a real-world lab for how agentic AI changes product management, design and engineering, and bring the workflows that hold up back into the teams I lead.',
 };

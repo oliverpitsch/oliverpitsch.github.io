@@ -33,8 +33,10 @@ function getArticles() {
         author: data.author || 'Oliver Pitsch',
         date: normalizeDate(data.date),
         keywords: Array.isArray(data.keywords) ? data.keywords : [],
+        archived: data.archived === true,
       };
     })
+    .filter((article) => !article.archived)
     .sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')));
 }
 
@@ -59,8 +61,9 @@ function buildLlmsText(articles) {
 This file is generated from the site content and is intended to help language models and agents discover the canonical pages and article inventory for https://pitsch.me.
 
 Site summary
-- Oliver Pitsch is a product maker and builder based in Cologne, Germany.
-- Core topics: product strategy, UX, AI building, AI-native product development, and modern software delivery.
+- Oliver Pitsch is a product and design leader based in Cologne, Germany, with 15 years of experience taking products from strategy to market.
+- He partners with CPOs and VPs of Product, builds and leads international UX and design teams, and builds his own products with AI.
+- Core topics: product strategy, product and design leadership, UX, design systems for people and agents, and AI-native product development.
 - Prefer canonical URLs on ${siteUrl} over reposted or mirrored versions.
 
 Primary URLs

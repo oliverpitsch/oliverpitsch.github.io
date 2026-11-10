@@ -1,4 +1,5 @@
 ---
+featured: true
 slug: generative-design-in-product-design-whats-possible-whats-hype
 Title: 'Generative Design in Product Design: What’s Possible, What’s Hype'
 author: Oliver Pitsch

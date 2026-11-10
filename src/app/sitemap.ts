@@ -14,7 +14,7 @@ type SitemapEntry = {
 };
 
 export default async function sitemap(): Promise<SitemapEntry[]> {
-  const articles = await getAllArticlesMeta();
+  const articles = await getAllArticlesMeta({ includeArchived: true });
   const now = new Date();
 
   const entries: SitemapEntry[] = [

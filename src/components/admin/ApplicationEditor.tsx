@@ -12,7 +12,7 @@ import {
   RiSaveLine,
 } from 'react-icons/ri';
 import ApplicationDocuments from '@/components/cv/ApplicationDocuments';
-import { cv } from '@/lib/cv';
+import { cv, legacyBulletText, legacyStrengthLabels } from '@/lib/cv';
 import { products } from '@/lib/products';
 import { getHighlightedProjects, mergeCv } from '@/lib/applications/merge';
 import {
@@ -47,12 +47,20 @@ function slugify(value: string) {
     .replace(/^-|-$/g, '');
 }
 
+/** Maps highlights saved against older bullet wording onto the current bullets. */
+function migrateOverride(override: ExperienceOverride, bullets: string[]): ExperienceOverride {
+  const selected = override.selectedHighlights
+    .map((bullet) => legacyBulletText[bullet] ?? bullet)
+    .filter((bullet) => bullets.includes(bullet));
+  return { ...override, selectedHighlights: selected.length ? selected : [...bullets] };
+}
+
 function buildExperience(existing: ExperienceOverride[] = []) {
   const byOrg = new Map(existing.map((item) => [item.org, item]));
   return cv.roles
     .map(
       (role, index) =>
-        byOrg.get(role.org) ?? {
+        (byOrg.has(role.org) ? migrateOverride(byOrg.get(role.org)!, role.bullets) : undefined) ?? {
           org: role.org,
           priority: index,
           hidden: false,
@@ -104,7 +112,11 @@ export default function ApplicationEditor({ application }: Props) {
     application?.highlightedProjects ?? [],
   );
   const [skills, setSkills] = useState<string[]>(
-    application?.skills.length ? application.skills : cv.strengths.map((item) => item.label),
+    application?.skills.length
+      ? application.skills
+          .map((label) => legacyStrengthLabels[label] ?? label)
+          .filter((label) => cv.strengths.some((strength) => strength.label === label))
+      : cv.strengths.map((item) => item.label),
   );
 
   const saveFunction = application

@@ -1,4 +1,4 @@
-import { cv, type Cv } from '@/lib/cv';
+import { cv, legacyBulletText, legacyStrengthLabels, type Cv } from '@/lib/cv';
 import { cvDe } from '@/lib/cv-de';
 import { products } from '@/lib/products';
 import type { Application, PersonalizedCv } from './types';
@@ -16,13 +16,14 @@ export function mergeCv(application: Application, master?: Cv): PersonalizedCv {
 
       const selected = override?.selectedHighlights;
       const canonicalRole = cv.roles.find((item) => item.org === role.org);
-      const bullets = selected
-        ? selected
-            .map((bullet) => canonicalRole?.bullets.indexOf(bullet) ?? -1)
-            .filter((index) => index >= 0)
-            .map((index) => role.bullets[index])
-            .filter(Boolean)
-        : role.bullets;
+      const picked = selected
+        ?.map((bullet) => canonicalRole?.bullets.indexOf(legacyBulletText[bullet] ?? bullet) ?? -1)
+        .filter((index) => index >= 0)
+        .map((index) => role.bullets[index])
+        .filter(Boolean);
+      // Saved selections reference bullet text verbatim. If the master CV was
+      // reworded since, none may match; fall back to the full role.
+      const bullets = picked?.length ? picked : role.bullets;
 
       return {
         role: {
@@ -37,13 +38,15 @@ export function mergeCv(application: Application, master?: Cv): PersonalizedCv {
     .sort((a, b) => a.priority - b.priority || a.masterIndex - b.masterIndex)
     .map(({ role }) => role);
 
-  const selectedSkills = application.skills.length
+  const pickedSkills = application.skills.length
     ? application.skills
+        .map((label) => legacyStrengthLabels[label] ?? label)
         .map((label) => cv.strengths.findIndex((strength) => strength.label === label))
         .filter((index) => index >= 0)
         .map((index) => localizedMaster.strengths[index])
         .filter((strength): strength is NonNullable<typeof strength> => Boolean(strength))
     : localizedMaster.strengths;
+  const selectedSkills = pickedSkills.length ? pickedSkills : localizedMaster.strengths;
 
   return {
     headline: application.headline || localizedMaster.headline,
