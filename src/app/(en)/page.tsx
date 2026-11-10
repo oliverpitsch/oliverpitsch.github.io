@@ -10,6 +10,7 @@ import { RiArrowRightFill } from 'react-icons/ri';
 import ArticleCard from '@/components/ArticleCard';
 import InkSignature from '@/components/InkSignature';
 import CareerStrip from '@/components/home/CareerStrip';
+import DesignSystemIllustration from '@/components/home/DesignSystemIllustration';
 import ProductTabs from '@/components/home/ProductTabs';
 import Container from '@/components/layout/Container';
 import PageShell from '@/components/layout/PageShell';
@@ -122,15 +123,18 @@ function DesignSystems() {
     <section id="design-systems" className="mt-28 scroll-mt-20" aria-labelledby="systems-heading">
       <Container size="wide">
         <div className="rounded-[32px] border border-line bg-surface p-8 shadow-card sm:p-12">
-          <div className="max-w-3xl">
-            <h2 id="systems-heading" className={h2}>
-              Design systems, now for agents
-            </h2>
-            <p className={lead}>
-              I have spent years building design systems, and they matter more now than ever. Agents
-              build a growing share of every product, and they only build it well when they
-              understand it. A design system made for agents is how they do.
-            </p>
+          <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-12">
+            <div>
+              <h2 id="systems-heading" className={h2}>
+                Design systems, now for agents
+              </h2>
+              <p className={lead}>
+                I have spent years building design systems, and they matter more now than ever.
+                Agents build a growing share of every product, and they only build it well when they
+                understand it. A design system made for agents is how they do.
+              </p>
+            </div>
+            <DesignSystemIllustration />
           </div>
           <ul className="mt-10 grid gap-8 sm:grid-cols-3">
             {designSystemPoints.map((point) => (

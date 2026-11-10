@@ -27,6 +27,8 @@
   --color-accent-strong: var(--accent-strong);
   --color-accent-soft: var(--accent-soft);
   --color-on-accent: var(--on-accent);
+  --color-panel: var(--panel);
+  --color-on-panel: var(--on-panel);
 }
 
 :root {
@@ -42,6 +44,9 @@
   --accent-strong: #4338ca;
   --accent-soft: #eef0ff;
   --on-accent: #ffffff;
+  /* Deep accent stage for illustrations; tiles sit on it in --surface. */
+  --panel: #4338ca;
+  --on-panel: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -56,6 +61,8 @@
     --accent-strong: #c7d2fe;
     --accent-soft: #1e244a;
     --on-accent: #171d45;
+    --panel: #262d6b;
+    --on-panel: #e8edf7;
   }
 }
 
