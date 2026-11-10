@@ -6,7 +6,7 @@
 */
 /* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
-import { RiArrowRightFill } from 'react-icons/ri';
+import { RiArrowRightFill, RiArrowRightUpLine } from 'react-icons/ri';
 import ArticleCard from '@/components/ArticleCard';
 import InkSignature from '@/components/InkSignature';
 import CareerStrip from '@/components/home/CareerStrip';
@@ -148,13 +148,24 @@ function DesignSystems() {
               </li>
             ))}
           </ul>
-          <Link
-            href="/vibe-coded-design"
-            className="mt-10 inline-flex items-center gap-1.5 text-[15px] font-semibold text-accent underline-offset-4 hover:underline"
-          >
-            How I set this up for teams
-            <RiArrowRightFill className="size-4" aria-hidden />
-          </Link>
+          <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3">
+            <Link
+              href="/vibe-coded-design"
+              className="inline-flex items-center gap-1.5 text-[15px] font-semibold text-accent underline-offset-4 hover:underline"
+            >
+              How I set this up for teams
+              <RiArrowRightFill className="size-4" aria-hidden />
+            </Link>
+            <a
+              href="https://onefold.me/design-md"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-[15px] font-semibold text-accent underline-offset-4 hover:underline"
+            >
+              Make your own DESIGN.md with Onefold, my tool for it
+              <RiArrowRightUpLine className="size-4" aria-hidden />
+            </a>
+          </div>
         </div>
       </Container>
     </section>

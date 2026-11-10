@@ -9,18 +9,24 @@ import { Switch } from '@base-ui/react/switch';
 import { Toggle } from '@base-ui/react/toggle';
 import { ToggleGroup } from '@base-ui/react/toggle-group';
 import { useLayoutEffect, useRef, useState, type ReactNode } from 'react';
-import { RiAddLine, RiCheckLine, RiSubtractLine } from 'react-icons/ri';
+import {
+  RiAddLine,
+  RiArrowRightUpLine,
+  RiCheckLine,
+  RiMarkdownLine,
+  RiSubtractLine,
+} from 'react-icons/ri';
 
 /**
  * A design system, shown with the real thing: every control here is a working
  * Base UI component styled with this site's tokens. The type specimen, swatch
  * and heading scale have no Base UI equivalent, so they are plain markup.
  *
- * The composition is laid out on a fixed 500 x 400 stage and scaled to fit
+ * The composition is laid out on a fixed 500 x 460 stage and scaled to fit
  * its column, so the arrangement stays intact from phone to desktop.
  */
 const STAGE_W = 500;
-const STAGE_H = 400;
+const STAGE_H = 460;
 
 const DEFAULTS = {
   weight: 600,
@@ -314,6 +320,32 @@ export default function DesignSystemIllustration({ className = '' }: { className
             ))}
           </div>
         </div>
+
+        {/* The file agents read. Links out to Onefold, which generates it. */}
+        <a
+          href="https://onefold.me/design-md"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`${tile} group flex items-center gap-3 px-3 transition-colors duration-150 hover:bg-surface-muted ${focusRing}`}
+          style={{ left: 24, top: 388, width: 456, height: 52 }}
+        >
+          <span className="grid size-8 shrink-0 place-items-center rounded-[10px] bg-accent text-on-accent">
+            <RiMarkdownLine className="size-[18px]" aria-hidden />
+          </span>
+          <span className="min-w-0 flex-1 leading-tight">
+            <span className="block font-mono text-[13px] font-semibold text-ink">DESIGN.md</span>
+            <span className="block truncate text-[11px] text-ink-muted">
+              The system, written for agents. Made with Onefold.
+            </span>
+          </span>
+          <span className="flex items-center gap-1 pr-1 text-[13px] font-semibold text-accent">
+            Get yours
+            <RiArrowRightUpLine
+              className="size-4 transition-transform duration-150 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+              aria-hidden
+            />
+          </span>
+        </a>
       </div>
     </div>
   );
