@@ -173,7 +173,7 @@ export default function DesignSystemIllustration({ className = '' }: { className
                 <Slider.Indicator className="rounded-full bg-accent select-none" />
                 <Slider.Thumb
                   aria-label="Font weight"
-                  className={`size-4 rounded-full bg-surface shadow-surface ring-2 ring-accent ${highlight} select-none has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-accent`}
+                  className={`size-5 rounded-full bg-surface shadow-surface ring-1 ring-line/60 ${highlight} select-none has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-accent`}
                 />
               </Slider.Track>
             </Slider.Control>
@@ -269,10 +269,10 @@ export default function DesignSystemIllustration({ className = '' }: { className
             <Switch.Root
               checked={agents}
               onCheckedChange={setAgents}
-              className="flex h-6 w-10 shrink-0 rounded-full bg-surface-muted p-0.5 transition-colors duration-150 data-checked:bg-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+              className="flex h-6 w-10 shrink-0 rounded-full bg-surface-muted p-0.5 ring-1 ring-line/60 data-checked:ring-transparent transition-colors duration-150 data-checked:bg-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
             >
               <Switch.Thumb
-                className={`size-5 rounded-full bg-surface shadow-surface ${highlight} transition-transform duration-150 data-checked:translate-x-4`}
+                className={`size-5 rounded-full bg-surface shadow-surface ring-1 ring-line/60 ${highlight} transition-transform duration-150 data-checked:translate-x-4`}
               />
             </Switch.Root>
           </label>
