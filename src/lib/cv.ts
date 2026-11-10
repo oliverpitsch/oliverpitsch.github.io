@@ -47,11 +47,10 @@ export const cv: Cv = {
   phone: '+49 175 2066584',
   linkedin: 'https://www.linkedin.com/in/oliverpitsch/',
   summary:
-    'Product and design leader with 15 years of experience taking complex B2B and consumer products from strategy to market. Partner to CPOs and VPs of Product, builder of international UX and design teams, and hands-on with AI.',
+    'Product and design leader with 15 years of experience taking complex B2B and consumer products from strategy to market. Partner to CPOs and VPs of Product, builder of international UX and design teams, with design quality as a driver of business results.',
   about: [
-    'I am a product and design leader from Cologne with 15 years of experience taking complex B2B and consumer products from strategy to market. I work hand in hand with CPOs and VPs of Product on product strategy, and I lead the teams that carry it through UX, product design and build into the market.',
-    'For nearly eight years at Trusted Shops, I reported to the CPO and led UX, design systems and product marketing across more than ten product teams in six countries, for products serving 35,000 businesses and 45 million consumers. Together with my peers in product management and engineering, I built the product organization as one, not only my own teams. Before that, I co-founded Reputami and led it through its acquisition by eKomi.',
-    'Most recently, as Head of Product & Engineering at AI Labs, I took an enterprise product from zero to market-ready in eight weeks with one engineering lead and a team of AI agents. I still design and build products myself, and use them to learn first-hand how agents change product work. Design systems that agents understand sit at the core of that.',
+    'I am a product and design leader from Cologne with 15 years of experience taking B2B and consumer products from strategy to market. I work hand in hand with CPOs and VPs of Product, lead the teams that build, and treat design quality as a driver of business results.',
+    'At Trusted Shops I reported to the CEO and CPO for nearly eight years and led UX, design systems and product marketing across 10+ teams in 6 countries. I co-founded Reputami, acquired by eKomi, and most recently took an AI-native product to market-ready in eight weeks at AI Labs. Alongside, I build my own products with AI.',
   ],
   roles: [
     {
@@ -99,10 +98,10 @@ export const cv: Cv = {
       logo: '/images/companies/logo-trusted-shops.svg',
       href: 'https://trustedshops.com',
       bullets: [
-        'Reported to the CPO for nearly eight years and shaped one cohesive product strategy together with my peers in product management and engineering.',
+        'Reported to the CEO and CPO for nearly eight years and shaped one cohesive product strategy together with my peers in product management and engineering.',
         'Led UX and Product Marketing across more than 10 product teams in 6 countries, for a portfolio serving 35,000+ businesses and 45 million+ consumers.',
         'Built the product organization together with my peers, with product designers embedded in cross-functional squads and content working across all of them as a central team.',
-        'Took the new product and shop review system from concept to market, owning product design and UX end to end while my teams built and shipped it side by side with product management and engineering.',
+        'Took the new product and shop review platform from concept to launch and operations in 11 countries, owning product design and UX end to end while my teams built and shipped it side by side with product management and engineering.',
         'Built and scaled the Helios design system family across products, channels and touchpoints, shared in design and in code.',
       ],
     },
@@ -163,4 +162,38 @@ export const cv: Cv = {
 export const legacyStrengthLabels: Record<string, string> = {
   'Product, platform, and organizational leadership': 'Partner to product leadership',
   'From zero to scale': 'Building and leading teams at scale',
+};
+
+/**
+ * Bullet texts that saved applications may still reference after a rewrite.
+ * Personalized CVs store picked highlights verbatim, so each old text maps to
+ * the bullet that replaced it. Add an entry here whenever a bullet is reworded.
+ */
+export const legacyBulletText: Record<string, string> = {
+  'Led product strategy, UX, and frontend development for an AI-native SaaS product in close collaboration with the CEO and backend engineering.':
+    'Led product strategy, UX and frontend development for an AI-native enterprise SaaS product, working closely with the CEO and our engineering lead.',
+  'Translated complex AI capabilities into clear user journeys, product requirements, and production-ready interfaces.':
+    'Translated complex AI capabilities into clear user journeys, product requirements and production-ready interfaces.',
+  'Established AI-native workflows using tools such as Claude Code and Codex to accelerate design, development, and delivery.':
+    'Established AI-native workflows with Claude Code and Codex across design, development and delivery.',
+  'Shipped a market-ready and competitive product within a two-person product and engineering team in just 8 weeks.':
+    'Took the product from zero to market-ready in eight weeks, with one engineering lead and a team of AI agents.',
+  'Reorganized product management and product development for AI-native product building in close collaboration with the CEO and CTO.':
+    'Reorganized product management and product development for AI-native building, together with the CEO and CTO.',
+  'Helped redefine product workflows for a world in which AI takes over more of the implementation surface, reducing handoffs and increasing execution speed.':
+    'Redefined product workflows for a world in which AI takes over more of the implementation, reducing handoffs and increasing execution speed.',
+  'Built a stronger design-system understanding for agents so AI-generated output stayed aligned with product quality, patterns, and system logic.':
+    'Made the design system agent-ready, so AI-generated output stayed aligned with product quality, patterns and system logic.',
+  'Led UX and Product Marketing across more than 10 product teams in 6 countries for a portfolio serving 35,000+ businesses and 45 million+ consumers.':
+    'Led UX and Product Marketing across more than 10 product teams in 6 countries, for a portfolio serving 35,000+ businesses and 45 million+ consumers.',
+  'Built and scaled the Helios design system to unify products through shared design and code implementation.':
+    'Built and scaled the Helios design system family across products, channels and touchpoints, shared in design and in code.',
+  'Combined product design, content, localization, and product marketing into a more consistent and scalable product experience model.':
+    'Built the product organization together with my peers, with product designers embedded in cross-functional squads and content working across all of them as a central team.',
+  'Hired and helped shape the UX team.':
+    'Hired and built the UX team, and led UX as a community of practice across the product organization.',
+  'Build and operate a portfolio of digital products including Joinride.cc, Famili.one, neuerName.com, and Onefold.me, taking them from problem discovery and positioning through UX, visual design, development, launch, and continuous improvement.':
+    'Build and run a portfolio of digital products, including Joinride.cc, Famili.one, neuerName.com and Onefold.me, from problem discovery and positioning through UX, visual design, development, launch and growth.',
+  'Use these products as a real-world environment to explore how agentic AI is transforming product management, design, software development, and the creative process, turning the findings into practical, repeatable workflows.':
+    'Use these products as a real-world lab for how agentic AI changes product management, design and engineering, and bring the workflows that hold up back into the teams I lead.',
 };

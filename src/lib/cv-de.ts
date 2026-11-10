@@ -36,10 +36,10 @@ const roleTranslations: Record<
   'Trusted Shops': {
     title: 'Director UX & Product Marketing',
     bullets: [
-      'Berichtete fast acht Jahre direkt an den CPO und gestaltete gemeinsam mit meinen Peers aus Produktmanagement und Engineering eine durchgängige Produktstrategie.',
+      'Berichtete fast acht Jahre direkt an CEO und CPO und gestaltete gemeinsam mit meinen Peers aus Produktmanagement und Engineering eine durchgängige Produktstrategie.',
       'Verantwortete UX und Product Marketing für mehr als zehn Produktteams in sechs Ländern und ein Portfolio, das über 35.000 Unternehmen und 45 Millionen Verbraucherinnen und Verbraucher erreicht.',
       'Baute die Produktorganisation gemeinsam mit meinen Peers auf: Product Designer eingebettet in cross-funktionale Squads, Content als zentrales Team, das mit allen Squads arbeitete.',
-      'Brachte das neue Produkt- und Shopbewertungssystem vom Konzept bis in den Markt. Ich verantwortete Product Design und UX end-to-end, meine Teams bauten und lieferten es Seite an Seite mit Produktmanagement und Engineering.',
+      'Brachte die neue Produkt- und Shopbewertungsplattform vom Konzept bis zu Launch und Betrieb in elf Ländern. Ich verantwortete Product Design und UX end-to-end, meine Teams bauten und lieferten es Seite an Seite mit Produktmanagement und Engineering.',
       'Baute die Designsystem-Familie Helios auf und skalierte sie über Produkte, Kanäle und Touchpoints hinweg, als gemeinsame Grundlage in Design und Code.',
     ],
   },
@@ -66,11 +66,10 @@ export const cvDe: Cv = {
   headline: 'Product & Design Leader | Von der Strategie bis in den Markt, mit Teams und KI',
   location: 'Köln, Deutschland',
   summary:
-    'Product- und Design-Leader mit 15 Jahren Erfahrung darin, komplexe B2B- und Consumer-Produkte von der Strategie bis in den Markt zu bringen. Partner für CPOs und VPs of Product, Aufbau internationaler UX- und Design-Teams und hands-on mit KI.',
+    'Product- und Design-Leader mit 15 Jahren Erfahrung darin, komplexe B2B- und Consumer-Produkte von der Strategie bis in den Markt zu bringen. Partner für CPOs und VPs of Product, Aufbau internationaler UX- und Design-Teams, mit Designqualität als Treiber für Geschäftsergebnisse.',
   about: [
-    'Ich bin Product- und Design-Leader aus Köln und bringe seit 15 Jahren komplexe B2B- und Consumer-Produkte von der Strategie bis in den Markt. Ich arbeite Hand in Hand mit CPOs und VPs of Product an der Produktstrategie und führe die Teams, die sie über UX, Product Design und Umsetzung in den Markt tragen.',
-    'Bei Trusted Shops berichtete ich fast acht Jahre an den CPO und verantwortete UX, Designsysteme und Product Marketing für mehr als zehn Produktteams in sechs Ländern. Die Produkte erreichen über 35.000 Unternehmen und 45 Millionen Verbraucherinnen und Verbraucher. Gemeinsam mit meinen Peers aus Produktmanagement und Engineering baute ich die Produktorganisation als Ganzes auf, nicht nur meine eigenen Teams. Zuvor gründete ich Reputami mit und führte das Unternehmen bis zur Übernahme durch eKomi.',
-    'Zuletzt brachte ich als Head of Product & Engineering bei AI Labs ein Enterprise-Produkt in acht Wochen von null zur Marktreife, mit einem Engineering Lead und einem Team aus KI-Agenten. Ich gestalte und baue weiterhin selbst Produkte und lerne daran aus erster Hand, wie Agenten die Produktarbeit verändern. Designsysteme, die Agenten verstehen, stehen dabei im Mittelpunkt.',
+    'Ich bin Product- und Design-Leader aus Köln und bringe seit 15 Jahren B2B- und Consumer-Produkte von der Strategie bis in den Markt. Ich arbeite Hand in Hand mit CPOs und VPs of Product, führe die Teams, die bauen, und verstehe Designqualität als Treiber für Geschäftsergebnisse.',
+    'Bei Trusted Shops berichtete ich fast acht Jahre an CEO und CPO und verantwortete UX, Designsysteme und Product Marketing für mehr als zehn Teams in sechs Ländern. Ich habe Reputami mitgegründet, übernommen von eKomi, und zuletzt bei AI Labs ein KI-natives Produkt in acht Wochen zur Marktreife gebracht. Daneben baue ich eigene Produkte mit KI.',
   ],
   roles: cv.roles.map((role) => ({ ...role, ...roleTranslations[role.org] })),
   strengths: [

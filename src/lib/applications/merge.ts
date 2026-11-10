@@ -1,4 +1,4 @@
-import { cv, legacyStrengthLabels, type Cv } from '@/lib/cv';
+import { cv, legacyBulletText, legacyStrengthLabels, type Cv } from '@/lib/cv';
 import { cvDe } from '@/lib/cv-de';
 import { products } from '@/lib/products';
 import type { Application, PersonalizedCv } from './types';
@@ -17,7 +17,7 @@ export function mergeCv(application: Application, master?: Cv): PersonalizedCv {
       const selected = override?.selectedHighlights;
       const canonicalRole = cv.roles.find((item) => item.org === role.org);
       const picked = selected
-        ?.map((bullet) => canonicalRole?.bullets.indexOf(bullet) ?? -1)
+        ?.map((bullet) => canonicalRole?.bullets.indexOf(legacyBulletText[bullet] ?? bullet) ?? -1)
         .filter((index) => index >= 0)
         .map((index) => role.bullets[index])
         .filter(Boolean);
