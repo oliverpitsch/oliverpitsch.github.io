@@ -2,13 +2,12 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import Container from '@/components/layout/Container';
-import PageShell from '@/components/layout/PageShell';
 import { getOgCards, type OgCard } from '@/lib/og-cards';
 import { OG_SIZE, brandAssetPath, brandAssets, ogImagePath } from '@/lib/og-meta';
 
 /*
-  Internal preview of every share card. Not linked, not in the sitemap, and
-  marked noindex so it never shows up in search. The platform mocks use each
+  Internal preview of every share card. Lives behind the admin login, is not
+  in the sitemap and is marked noindex. The platform mocks use each
   platform's own colours on purpose, so they do not follow the site tokens.
 */
 export const metadata: Metadata = {
@@ -211,7 +210,7 @@ function ProfileImages() {
 export default async function MetaImagePage() {
   const cards = await getOgCards();
   return (
-    <PageShell>
+    <>
       <Container size="default" className="pt-14 pb-24 sm:pt-20">
         <p className="text-[14px] font-medium text-accent">Internal · not indexed</p>
         <h1 className="mt-3 text-[44px] font-semibold leading-[1.05] tracking-[-0.03em] text-ink">
@@ -242,6 +241,6 @@ export default async function MetaImagePage() {
           ))}
         </div>
       </Container>
-    </PageShell>
+    </>
   );
 }

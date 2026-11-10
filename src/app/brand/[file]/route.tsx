@@ -2,7 +2,7 @@ import type { ImageResponse } from 'next/og';
 import { brandAssets, type BrandAssetFile } from '@/lib/og-meta';
 import { renderAvatar, renderLinkedInBanner } from '@/lib/og-render';
 
-// Rendered once at build time into out/brand/<file>, linked from /metaImage.
+// Rendered once at build time into out/brand/<file>, linked from /admin/meta-images.
 export const dynamic = 'force-static';
 export const dynamicParams = false;
 

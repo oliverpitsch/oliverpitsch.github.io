@@ -13,9 +13,20 @@ export default async function ProtectedAdminLayout({ children }: { children: Rea
       <Topline />
       <header className="sticky top-0 z-40 border-b border-line bg-canvas/90 backdrop-blur-xl print:hidden">
         <div className="mx-auto flex max-w-[1600px] items-center justify-between px-5 py-3 sm:px-8">
-          <Link href="/admin/applications" className="font-semibold tracking-[-0.02em]">
-            Application studio
-          </Link>
+          <nav className="flex items-center gap-1">
+            <Link
+              href="/admin/applications"
+              className="rounded-xl px-3 py-2 font-semibold tracking-[-0.02em] hover:bg-surface-muted"
+            >
+              Application studio
+            </Link>
+            <Link
+              href="/admin/meta-images"
+              className="rounded-xl px-3 py-2 text-sm font-medium text-ink-muted hover:bg-surface-muted hover:text-ink"
+            >
+              Share images
+            </Link>
+          </nav>
           <form action={logoutAction}>
             <button className="rounded-xl px-3 py-2 text-sm font-medium text-ink-muted hover:bg-surface-muted hover:text-ink">
               Sign out

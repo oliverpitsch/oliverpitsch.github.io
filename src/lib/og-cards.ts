@@ -13,7 +13,7 @@ export type OgCard = {
   subtitle?: string;
   /** Printed after pitsch.me under the signature, e.g. an article's date. */
   detail?: string;
-  /** og:title / og:description, used by the /metaImage preview. */
+  /** og:title / og:description, used by the /admin/meta-images preview. */
   share: { title: string; description: string };
 };
 
